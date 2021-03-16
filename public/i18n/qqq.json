@@ -50,5 +50,9 @@
 	"query-builder-negation-option-label-with": "Label for an option in the toggle for choosing between including or excluding items that match the given condition. This is the label for choosing to **include** the items. See also {msg-mw|query-builder-negation-option-label-without}}",
 	"query-builder-negation-option-label-without": "Label for an option in the toggle for choosing between including or excluding items that match the given condition. This is the label for choosing to **exclude** the items. See also {msg-mw|query-builder-negation-option-label-with}}",
 	"query-builder-sharable-link-text": "Text letting user they can copy a sharable link.",
-	"query-builder-sharable-link-message": "Message letting user know the sharable link has been copied to the clipboard."
+	"query-builder-sharable-link-message": "Message letting user know the sharable link has been copied to the clipboard.",
+	"query-builder-quantity-value-label": "Label above the quantity value input",
+	"query-builder-quantity-value-number-input-placeholder": "Placeholder message displayed in the number input part of a quantity input",
+  	"query-builder-quantity-value-unit-lookup-input-placeholder": "Placeholder message displayed in the unit part of a quantity input",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Label for screen-readers only for unit input of the quantity value component"
 }
