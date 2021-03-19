@@ -8,40 +8,73 @@
 		/>
 		<TextInput
 			class="querybuilder__limit-input"
-			v-model="textInputValue"
+			v-model="limit"
+			@input="onLimitChange"
 			:disabled="!checked"
 			:label="$i18n('query-builder-limit-number-screenreader-label')"
 			:placeholder="$i18n('query-builder-limit-number-placeholder')"
+			:error="error ? {message: $i18n(error.message), type: error.type} : null"
 		/>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import { DEFAULT_LIMIT } from '@/store/RootState';
 import { Checkbox, TextInput } from '@wmde/wikit-vue-components';
+import Error from '@/data-model/Error';
 
 export default Vue.extend( {
 	name: 'Limit',
+	data() {
+		return {
+			error: null as null | Error,
+			limit: String( DEFAULT_LIMIT ),
+		};
+	},
 	components: {
 		Checkbox,
 		TextInput,
 	},
+	methods: {
+		onLimitChange( value: string ): void {
+			if ( value === '' ) {
+				this.$store.dispatch( 'setLimit', undefined );
+				this.error = {
+					type: 'error',
+					message: 'query-builder-limit-number-error-message',
+				};
+				return;
+			}
+			const limit = Number( value );
+			if ( isNaN( limit ) || limit < 1 ) {
+				this.$store.dispatch( 'setLimit', null );
+				this.error = {
+					type: 'error',
+					message: 'query-builder-limit-number-error-message',
+				};
+				return;
+			}
+			this.error = null;
+			this.$store.dispatch( 'setLimit', limit );
+		},
+	},
+	mounted(): void {
+		this.limit = this.$store.getters.limit?.toString() || String( DEFAULT_LIMIT );
+	},
+	watch: {
+		storeLimit( newStoreLimitValue: number | null | undefined ): void {
+			if ( this.limit === '' && newStoreLimitValue ) {
+				this.limit = String( newStoreLimitValue );
+				this.error = null;
+			}
+		},
+	},
 	computed: {
-		textInputValue: {
-			// TODO: change after deciding how to validate numbers for TextInput
-			get(): string {
-				return this.$store.getters.limit.toString();
-			},
-			set( value: string ): void {
-				if ( isNaN( parseInt( value ) ) ) {
-					this.$store.dispatch( 'setLimit', null );
-					return;
-				}
-				this.$store.dispatch( 'setLimit', parseInt( value ) );
-			},
+		storeLimit(): number | null | undefined {
+			return this.$store.getters.limit;
 		},
 		checked: {
-			// TODO: change after deciding how to validate numbers for TextInput
 			get(): boolean {
 				return this.$store.getters.useLimit;
 			},
@@ -57,12 +90,23 @@ export default Vue.extend( {
 
 .querybuilder__limit {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
+
+	// extra specificity needed to overcome .wikit style resets *sigh* -> T277885
+	& .querybuilder__limit-checkbox {
+		// TODO: change to real ones
+		margin-inline-end: $dimension-layout-xxsmall;
+
+		// We need to manually align the Checkbox with the TextInput,
+		// because the Validation error causes misalignment with align-items: center
+		margin-block-start: 5px;
+	}
 }
 
 .querybuilder__limit-input {
 	// TODO: change to real ones
 	margin-inline-start: $dimension-layout-small;
+	width: 16em;
 
 	//hides the label of the TextInput while still allowing to be used by screen readers
 	.wikit-TextInput__label {
@@ -76,10 +120,5 @@ export default Vue.extend( {
 		clip-path: inset(50%);
 		border: 0;
 	}
-}
-
-.querybuilder__limit-checkbox {
-	// TODO: change to real ones
-	margin-inline-end: $dimension-layout-xxsmall;
 }
 </style>

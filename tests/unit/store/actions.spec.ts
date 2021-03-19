@@ -2,9 +2,10 @@ import createActions from '@/store/actions';
 import services from '@/ServicesFactory';
 import SearchOptions from '@/data-access/SearchOptions';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import { ConditionRow } from '@/store/RootState';
+import { ConditionRow, DEFAULT_LIMIT } from '@/store/RootState';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
+import Error from '@/data-model/Error';
 
 describe( 'actions', () => {
 
@@ -346,6 +347,7 @@ describe( 'actions', () => {
 					],
 				},
 				commit: jest.fn(),
+				dispatch: jest.fn(),
 			};
 
 			const actions = createActions(
@@ -391,6 +393,7 @@ describe( 'actions', () => {
 					],
 				},
 				commit: jest.fn(),
+				dispatch: jest.fn(),
 			};
 
 			const actions = createActions(
@@ -439,6 +442,7 @@ describe( 'actions', () => {
 					],
 				},
 				commit: jest.fn(),
+				dispatch: jest.fn(),
 			};
 
 			const actions = createActions(
@@ -494,6 +498,7 @@ describe( 'actions', () => {
 					} ],
 				},
 				commit: jest.fn(),
+				dispatch: jest.fn(),
 			};
 			const actions = createActions(
 				services.get( 'searchEntityRepository' ),
@@ -560,6 +565,128 @@ describe( 'actions', () => {
 			expect( context.dispatch ).toHaveBeenCalledWith( 'setConditionAsLimitedSupport', 0 );
 		} );
 
+		it( 'dispatches action to check the Limit', () => {
+			const context = {
+				rootState: {
+					conditionRows: [
+						{
+							propertyData: {
+								id: 'P123',
+								label: '',
+								datatype: null,
+								propertyError: null,
+							},
+							valueData: {
+								value: 'some value',
+								valueError: null,
+							},
+							propertyValueRelationData: {
+								value: PropertyValueRelation.Matching,
+							},
+						} as ConditionRow,
+					],
+				},
+				commit: jest.fn(),
+				dispatch: jest.fn(),
+			};
+
+			const actions = createActions(
+				services.get( 'searchEntityRepository' ),
+				services.get( 'metricsCollector' ),
+			);
+
+			actions.validateForm( context as any );
+
+			expect( context.dispatch ).toHaveBeenCalledWith( 'validateLimit' );
+		} );
+	} );
+
+	describe( 'validateLimit', () => {
+		it( 'does nothing on a valid limit', () => {
+			const context = {
+				rootState: {
+					limit: 123,
+					useLimit: true,
+				},
+				commit: jest.fn(),
+				dispatch: jest.fn(),
+			};
+			const actions = createActions(
+				services.get( 'searchEntityRepository' ),
+				services.get( 'metricsCollector' ),
+			);
+
+			actions.validateLimit( context as any );
+
+			expect( context.commit ).not.toHaveBeenCalled();
+			expect( context.dispatch ).not.toHaveBeenCalled();
+		} );
+
+		it( 'sets the limit back to the default if it is undefined, i.e., empty', () => {
+			const context = {
+				rootState: {
+					limit: undefined,
+					useLimit: true,
+				},
+				commit: jest.fn(),
+				dispatch: jest.fn(),
+			};
+			const actions = createActions(
+				services.get( 'searchEntityRepository' ),
+				services.get( 'metricsCollector' ),
+			);
+
+			actions.validateLimit( context as any );
+
+			expect( context.commit ).toHaveBeenCalledWith( 'setLimit', DEFAULT_LIMIT );
+			expect( context.dispatch ).not.toHaveBeenCalled();
+		} );
+
+		it( 'sets an error if the limit is null, i.e., invalid', () => {
+			const context = {
+				rootState: {
+					limit: null,
+					useLimit: true,
+					errors: [],
+				},
+				commit: jest.fn(),
+				dispatch: jest.fn(),
+			};
+			const actions = createActions(
+				services.get( 'searchEntityRepository' ),
+				services.get( 'metricsCollector' ),
+			);
+
+			const expectedError: Error = {
+				type: 'error',
+				message: 'query-builder-result-error-incomplete-form',
+			};
+
+			actions.validateLimit( context as any );
+
+			expect( context.commit ).toHaveBeenCalledWith( 'setErrors', [ expectedError ] );
+			expect( context.dispatch ).not.toHaveBeenCalled();
+		} );
+
+		it( 'ignores an invalid value in limit if we are not actually using it', () => {
+			const context = {
+				rootState: {
+					limit: null,
+					useLimit: false,
+				},
+				commit: jest.fn(),
+				dispatch: jest.fn(),
+			};
+			const actions = createActions(
+				services.get( 'searchEntityRepository' ),
+				services.get( 'metricsCollector' ),
+			);
+
+			actions.validateLimit( context as any );
+
+			expect( context.commit ).not.toHaveBeenCalled();
+			expect( context.dispatch ).not.toHaveBeenCalled();
+		} );
 	} );
 
 	it( 'setReferenceRelation', () => {

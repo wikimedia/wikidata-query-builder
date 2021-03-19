@@ -1,5 +1,5 @@
 import allowedDatatypes from '@/allowedDataTypes';
-import RootState, { ConditionRow, ItemValue, QuantityValue, StringValue, Value } from './RootState';
+import RootState, { ConditionRow, DEFAULT_LIMIT, ItemValue, QuantityValue, StringValue, Value } from './RootState';
 import QueryRepresentation from '@/sparql/QueryRepresentation';
 import Property from '@/data-model/Property';
 import Error from '@/data-model/Error';
@@ -42,7 +42,7 @@ export default {
 					negate: condition.negate,
 				};
 			} ),
-			...rootState.useLimit && { limit: rootState.limit },
+			...rootState.useLimit && { limit: rootState.limit ?? DEFAULT_LIMIT },
 			omitLabels: rootState.omitLabels,
 		};
 	},
@@ -101,7 +101,7 @@ export default {
 			return rootState.conditionRows[ conditionIndex ].negate;
 		};
 	},
-	limit( rootState: RootState ): ( number ) {
+	limit( rootState: RootState ): number | null | undefined {
 		return rootState.limit;
 	},
 	useLimit( rootState: RootState ): boolean {

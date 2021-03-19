@@ -41,6 +41,7 @@
 	"query-builder-condition-placeholder": "Placeholder text when no condition exists on the page.",
 	"query-builder-condition-relation-toggle-and": "The toggle when the relation between conditions is intersection",
 	"query-builder-condition-relation-toggle-or": "The toggle when the relation between conditions is union",
+	"query-builder-limit-number-error-message": "Error message if an invalid number or not a number is entered as the limit",
 	"query-builder-limit-number-results-description": "Text between checkbox and textfield for limiting the number of results",
 	"query-builder-limit-number-placeholder": "Placeholder message displayed in the number input to specify the maximum number of results. Only displayed in case that input is empty.",
 	"query-builder-limit-number-screenreader-label": "Label for screen-readers only for the number input that limits the number of results. There is a separate checkbox to turn the limit on or off.",

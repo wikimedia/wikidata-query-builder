@@ -4,7 +4,7 @@ import Validator from '@/form/Validator';
 import QueryDeserializer from '@/serialization/QueryDeserializer';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { ActionContext } from 'vuex';
-import RootState, { ConditionRow } from './RootState';
+import RootState, { ConditionRow, DEFAULT_LIMIT } from './RootState';
 import SearchResult from '@/data-access/SearchResult';
 import Error from '@/data-model/Error';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
@@ -183,6 +183,20 @@ export default ( searchEntityRepository: SearchEntityRepository, metricsCollecto
 				context.dispatch( 'setConditionAsLimitedSupport', index );
 			}
 		} );
+
+		context.dispatch( 'validateLimit' );
+	},
+	validateLimit( context: ActionContext<RootState, RootState> ): void {
+		if ( context.rootState.limit === undefined ) {
+			context.commit( 'setLimit', DEFAULT_LIMIT );
+			return;
+		}
+		if ( context.rootState.useLimit && context.rootState.limit === null ) {
+			context.commit( 'setErrors', [
+				{ type: 'error', message: 'query-builder-result-error-incomplete-form' },
+			] );
+			return;
+		}
 	},
 	parseState( context: ActionContext<RootState, RootState>, payload: string ): void {
 		const deserializer = new QueryDeserializer();

@@ -3,10 +3,12 @@ import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 
+export const DEFAULT_LIMIT = 100;
+
 export default interface RootState {
 	conditionRows: ConditionRow[];
 	errors: Error[];
-	limit: number;
+	limit: number | null | undefined;
 	useLimit: boolean;
 	omitLabels: boolean;
 }

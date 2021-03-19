@@ -34,7 +34,7 @@ export default {
 		payload: { referenceRelation: ReferenceRelation; conditionIndex: number } ): void {
 		state.conditionRows[ payload.conditionIndex ].referenceRelation = payload.referenceRelation;
 	},
-	setLimit( state: RootState, limit: number ): void {
+	setLimit( state: RootState, limit: number | null | undefined ): void {
 		state.limit = limit;
 	},
 	setUseLimit( state: RootState, useLimit: boolean ): void {
