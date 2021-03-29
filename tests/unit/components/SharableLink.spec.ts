@@ -33,13 +33,50 @@ describe( 'SharableLink component', () => {
 			localVue,
 		} );
 
+		process.env.VUE_APP_URL_SHORTNER_SERVICE_URL = 'https://example.com/w/api.php';
+
+		// If the service can'tbe reached, we still get the long url
+		window.fetch = jest.fn().mockImplementation( () => Promise.resolve( {
+			ok: false,
+			status: 500,
+			statusText: 'Server Error',
+		} ) );
+
 		await wrapper.findComponent( Button ).trigger( 'click' );
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 		// @ts-ignore
 		const href = decodeURIComponent( wrapper.vm.href );
 
+		expect( window.fetch ).toHaveBeenCalledTimes( 1 );
 		expect( href ).toContain( '?query={' );
 		expect( href ).toContain( '"propertyId":"P123"' );
+	} );
+
+	it( 'shortens a long url', async () => {
+		const property = { label: 'postal code', id: 'P123' };
+		const propertyGetter = () => () => ( property );
+		const wrapper = mount( SharableLink, {
+			store: newStore( { property: propertyGetter } ),
+			localVue,
+		} );
+
+		process.env.VUE_APP_URL_SHORTNER_SERVICE_URL = 'https://example.com/w/api.php';
+		const expectedResult = { shorturl: 'bar' };
+
+		window.fetch = jest.fn().mockImplementation( () => Promise.resolve( {
+			ok: true,
+			json: async () => ( { shortenurl: expectedResult } ),
+		} ) );
+
+		await wrapper.findComponent( Button ).trigger( 'click' );
+		await localVue.nextTick();
+
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// @ts-ignore
+		const href = decodeURIComponent( wrapper.vm.href );
+
+		expect( window.fetch ).toHaveBeenCalledTimes( 1 );
+		expect( href ).toStrictEqual( 'bar' );
 	} );
 } );
