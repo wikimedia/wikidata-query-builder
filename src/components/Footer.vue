@@ -2,8 +2,8 @@
 	<footer class="querybuilder-footer">
 		<p>
 			Made by the Wikimedia Deutschland Wikidata team.
-			Licensed under <a href="https://github.com/wmde/query-builder/blob/master/LICENSE">BSD 3-Clause License</a>.
-			<a href="https://github.com/wmde/query-builder">View Source</a>.
+			Licensed under <a href="https://w.wiki/39Gy">BSD 3-Clause License</a>.
+			<a href="https://gerrit.wikimedia.org/g/wikidata/query-builder">View Source</a>.
 		</p>
 		<p class="querybuilder-footer__build-info" v-if="buildTime && commitLink">
 			Last build at {{ buildTime }} from <span v-html="commitLink" />.
@@ -34,7 +34,7 @@ export default Vue.extend( {
 			if ( !commitHash ) {
 				return false;
 			}
-			return `<a href="https://github.com/wmde/query-builder/commit/${commitHash}">${commitHash}</a>`;
+			return `<a href="https://gerrit.wikimedia.org/g/wikidata/query-builder/+/${commitHash}">${commitHash}</a>`;
 		},
 		permaLinkHref(): string {
 			const querySerializer = new QuerySerializer();

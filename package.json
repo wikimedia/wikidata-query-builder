@@ -76,10 +76,10 @@
   "bugs": {
     "url": "https://phabricator.wikimedia.org/tag/wikidata_query_builder/"
   },
-  "homepage": "https://github.com/wmde/query-builder#readme",
+  "homepage": "https://gerrit.wikimedia.org/g/wikidata/query-builder",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wmde/query-builder.git"
+    "url": "git+https://gerrit.wikimedia.org/g/wikidata/query-builder.git"
   }
 }
