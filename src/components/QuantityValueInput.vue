@@ -16,12 +16,15 @@
 	>
 		<template
 			v-slot:no-results
-		>{{ noMatchFoundMessage }}</template>
-		<template v-if="tooltip" v-slot:suffix>
+		>
+			{{ $i18n( 'query-builder-property-lookup-no-match-found' ) }}
+		</template>
+		<template v-slot:suffix>
 			<InfoTooltip
 				position="top-end"
-				:message="tooltip"
-			/></template>
+				:message="$i18n('query-builder-input-value-tooltip')"
+			/>
+		</template>
 	</QuantityInput>
 </template>
 
@@ -124,14 +127,6 @@ export default Vue.extend( {
 		disabled: {
 			type: Boolean,
 			default: false,
-		},
-		noMatchFoundMessage: {
-			type: String,
-			required: true,
-		},
-		tooltip: {
-			type: String,
-			default: '',
 		},
 	},
 	components: {
