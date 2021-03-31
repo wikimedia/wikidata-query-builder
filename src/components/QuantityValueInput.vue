@@ -3,7 +3,8 @@
 		:label="$i18n('query-builder-quantity-value-label')"
 		@update:numberInputValue="onValueChange"
 		@update:unitLookupValue="onValueChange"
-		:error="error ? {message: $i18n(error.message), type: error.type} : null"
+		:error="quantityError ? {message: $i18n(quantityError.message), type: quantityError.type} : null"
+		:errorCause="quantityError ? quantityError.subproperty : null"
 		:numberInputValue.sync="numberInputValue"
 		:numberInputPlaceholder="$i18n('query-builder-quantity-value-number-input-placeholder')"
 		:unitLookupValue.sync="unitLookupValue"
@@ -36,6 +37,8 @@ import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';
 import InfoTooltip from '@/components/InfoTooltip.vue';
+import { QuantityError } from '@/data-model/Error';
+import QuantityValidator from '@/form/QuantityValidator';
 import { QuantityValue } from '@/store/RootState';
 import debounce from 'lodash/debounce';
 
@@ -51,14 +54,25 @@ export default Vue.extend( {
 			numberInputValue: this.value === null ? null : this.value.value.toString(),
 			unitLookupValue: this.value === null ? null : this.value.unit,
 			debouncedUpdateMenuItems: null as Function | null,
+			quantityError: this.error,
 		};
 	},
 	methods: {
+		parseNumberInputValue( rawValue: string | null ): number {
+			if ( !( new QuantityValidator() ).isValidNumberValue( rawValue ) ) {
+				this.quantityError = QuantityValidator.NUMBER_ERROR;
+				return NaN;
+			}
+
+			this.quantityError = null;
+			return Number( rawValue );
+		},
 		async onValueChange(): Promise<void> {
 			await this.$nextTick();
 			const value: QuantityValue = {
-				value: Number( this.numberInputValue ),
+				value: this.parseNumberInputValue( this.numberInputValue ),
 				unit: this.unitLookupValue,
+				rawUnitInput: this.search,
 			};
 
 			this.$emit( 'input', value );
@@ -109,6 +123,7 @@ export default Vue.extend( {
 			}
 		},
 		search( newSearchString: string ): void {
+			this.onValueChange();
 			this.topItemIndex = 0;
 			if ( !newSearchString ) {
 				this.searchResults = [];
@@ -120,6 +135,9 @@ export default Vue.extend( {
 			};
 			this.updateMenuItems( searchOptions );
 		},
+		error( error: QuantityError | null ): void {
+			this.quantityError = error;
+		},
 	},
 	props: {
 		value: {
@@ -127,7 +145,7 @@ export default Vue.extend( {
 			default: null,
 		},
 		error: {
-			type: Object,
+			type: Object as PropType<QuantityError | null>,
 			default: null,
 		},
 		disabled: {

@@ -40,6 +40,7 @@ describe( 'QuantityValueInput.vue', () => {
 		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toStrictEqual( {
 			value: numberValue,
 			unit: null,
+			rawUnitInput: '',
 		} );
 	} );
 
@@ -63,6 +64,7 @@ describe( 'QuantityValueInput.vue', () => {
 		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toStrictEqual( {
 			value: 5,
 			unit: unitValue,
+			rawUnitInput: '',
 		} );
 	} );
 
@@ -113,10 +115,11 @@ describe( 'QuantityValueInput.vue', () => {
 		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupValue' ) ).toBe( unitValue );
 	} );
 
-	it( 'passes error prop down to QuantityInput', () => {
+	it( 'passes error prop down to QuantityInput', async () => {
 		const error = {
 			type: 'error',
 			message: 'some description',
+			subproperty: 'number',
 		};
 
 		const wrapper = shallowMount( QuantityValueInput, {
@@ -127,7 +130,9 @@ describe( 'QuantityValueInput.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( QuantityInput ).props( 'error' ) ).toStrictEqual( error );
+		expect( wrapper.findComponent( QuantityInput ).props( 'error' ) )
+			.toStrictEqual( { type: error.type, message: error.message } );
+		expect( wrapper.findComponent( QuantityInput ).props( 'errorCause' ) ).toBe( error.subproperty );
 	} );
 
 	it( 'unit input: unitLookupSearchInput prop for unit item changes on update search string', async () => {
@@ -138,15 +143,21 @@ describe( 'QuantityValueInput.vue', () => {
 			localVue,
 			propsData: {
 				...defaultProps,
-				numberValue: 10,
+				value: { value: 10, unit: null },
 			},
 		} );
 
 		const searchOptions: SearchOptions = { search: 'meters', limit: 12 };
 
 		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:unitLookupSearchInput', searchOptions.search );
+		await localVue.nextTick();
 
 		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupSearchInput' ) ).toBe( searchOptions.search );
+		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toStrictEqual( {
+			value: 10,
+			unit: null,
+			rawUnitInput: searchOptions.search,
+		} );
 
 	} );
 
@@ -174,4 +185,27 @@ describe( 'QuantityValueInput.vue', () => {
 		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupMenuItems' ) ).toStrictEqual( [] );
 	} );
 
+	it( 'sets an error itself if the numberInputValue does not contain a valid number', async () => {
+		const stringNumberValue = 'Not a number';
+		const wrapper = shallowMount( QuantityValueInput, {
+			propsData: {
+				...defaultProps,
+				value: null,
+			},
+		} );
+
+		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:numberInputValue', stringNumberValue );
+		await localVue.nextTick();
+
+		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toStrictEqual( {
+			value: NaN,
+			unit: null,
+			rawUnitInput: '',
+		} );
+		expect( wrapper.findComponent( QuantityInput ).props( 'errorCause' ) ).toBe( 'number' );
+		expect( wrapper.findComponent( QuantityInput ).props( 'error' ) ).toStrictEqual( {
+			message: 'query-builder-quantity-value-error-number',
+			type: 'error',
+		} );
+	} );
 } );
