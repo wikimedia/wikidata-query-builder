@@ -2,7 +2,7 @@
 	<footer class="querybuilder-footer">
 		<p>
 			Made by the Wikimedia Deutschland Wikidata team.
-			Licensed under <a href="https://w.wiki/39Gy">BSD 3-Clause License</a>.
+			Licensed under <a :href="license">BSD 3-Clause License</a>.
 			<a href="https://gerrit.wikimedia.org/g/wikidata/query-builder">View Source</a>.
 		</p>
 		<p class="querybuilder-footer__build-info" v-if="buildTime && commitLink">
@@ -20,6 +20,12 @@ import Vue from 'vue';
 
 export default Vue.extend( {
 	name: 'Footer',
+	data() {
+		return {
+			// eslint-disable-next-line max-len
+			license: 'https://gerrit.wikimedia.org/r/plugins/gitiles/wikidata/query-builder/+/refs/heads/master/LICENSE',
+		};
+	},
 	computed: {
 		buildTime(): string | false {
 			const buildDate = new Date();
