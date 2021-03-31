@@ -2,6 +2,7 @@ import Error from '@/data-model/Error';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
+import ParseResult from '@/data-access/ParseResult';
 
 export const DEFAULT_LIMIT = 100;
 
@@ -26,7 +27,11 @@ export interface QuantityValue {
 	unit: ItemValue | null;
 }
 
-export type Value = ItemValue | StringValue | QuantityValue | null;
+export interface DateValue {
+	parseResult: ParseResult;
+}
+
+export type Value = ItemValue | StringValue | QuantityValue | DateValue | null;
 
 export interface ConditionRow {
 	propertyData: PropertyData;
