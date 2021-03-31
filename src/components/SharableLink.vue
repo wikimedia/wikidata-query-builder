@@ -62,13 +62,13 @@ export default Vue.extend( {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json',
-					Origin: '*',
 				},
 			};
 
 			const params: { [key: string]: string } = {
 				action: 'shortenurl',
 				format: 'json',
+				origin: '*',
 				url: url,
 			};
 			const shortnerUrl = new URL( process.env.VUE_APP_URL_SHORTNER_SERVICE_URL || '' );
