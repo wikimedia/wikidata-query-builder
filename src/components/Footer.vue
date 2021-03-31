@@ -1,16 +1,38 @@
 <template>
 	<footer class="querybuilder-footer">
-		<p>
-			Made by the Wikimedia Deutschland Wikidata team.
-			Licensed under <a :href="license">BSD 3-Clause License</a>.
-			<a href="https://gerrit.wikimedia.org/g/wikidata/query-builder">View Source</a>.
-		</p>
-		<p class="querybuilder-footer__build-info" v-if="buildTime && commitLink">
-			Last build at {{ buildTime }} from <span v-html="commitLink" />.
-		</p>
-		<p>
-			<a :href="permaLinkHref">Permalink to current Wikidata Query Builder</a>
-		</p>
+		<div class="querybuilder-footer__column">
+			<h2 class="querybuilder-footer__title" v-i18n="{msg: 'query-builder-footer-about-query-builder'}" />
+			<p v-html="$i18n('query-builder-footer-licence', license)" />
+			<p
+				class="querybuilder-footer__build-info"
+				v-if="buildTime && commitLink"
+				v-html="$i18n('query-builder-footer-build-time', commitLink, buildTime)"
+			/>
+			<p>
+				<a
+					href="https://gerrit.wikimedia.org/g/wikidata/query-builder"
+					v-i18n="{msg: 'query-builder-footer-view-source'}"
+				/>
+			</p>
+			<p class="querybuilder-footer__report-link">
+				<a :href="bugLink" v-i18n="{msg: 'query-builder-footer-report-link'}" />
+			</p>
+		</div>
+		<div class="querybuilder-footer__column">
+			<h2 class="querybuilder-footer__title" v-i18n="{msg: 'query-builder-footer-about-us'}" />
+			<p v-if="privacyPolicy" class="querybuilder-footer__privacy-policy">
+				<a :href="privacyPolicy" v-i18n="{msg: 'query-builder-footer-privacy-policy'}" />
+			</p>
+			<p>
+				<a href="https://www.wikimedia.de/" v-i18n="{msg: 'query-builder-footer-wikimedia-deutchland'}" />
+			</p>
+			<p>
+				<a
+					href="https://www.wikidata.org/wiki/Wikidata:Contact_the_development_team"
+					v-i18n="{msg: 'query-builder-footer-team'}"
+				/>
+			</p>
+		</div>
 	</footer>
 </template>
 
@@ -40,25 +62,60 @@ export default Vue.extend( {
 			if ( !commitHash ) {
 				return false;
 			}
-			return `<a href="https://gerrit.wikimedia.org/g/wikidata/query-builder/+/${commitHash}">${commitHash}</a>`;
+			return `https://gerrit.wikimedia.org/g/wikidata/query-builder/+/${commitHash}`;
 		},
-		permaLinkHref(): string {
+		bugLink(): string {
 			const querySerializer = new QuerySerializer();
 			const serializedQuery = querySerializer.serialize( this.$store.state );
 			const current = new URL( window.location.href );
 			current.searchParams.set( 'query', serializedQuery );
-			return current.href;
+			const title = 'Wikidata%20Query%20Builder+Ticket+Template';
+			const desc = '**Problem:**\n\n**Example:**\n\n**Screenshots:**\n\n**Link+to+query:**\n';
+			const phabricatorLink = 'https://phabricator.wikimedia.org/maniphest/task/edit/form/1/?title=';
+			return phabricatorLink + title + '&description=' + encodeURI( desc + current.href ) +
+          '&projects=Wikidata_Query_Builder';
+		},
+		privacyPolicy(): string | undefined {
+			return process.env.VUE_APP_PRIVACY_POLICY_URL;
 		},
 	},
 } );
 </script>
 
 <style lang="scss">
+$tinyViewportWidth: 38em;
+
 .querybuilder-footer {
+	padding-block: $dimension-layout-small;
 	font-family: $font-family-style-description;
 	font-weight: $font-weight-style-description;
 	font-size: $font-size-style-description;
 	line-height: $font-line-height-style-description;
 	color: $font-color-base;
+	background-color: $color-base-90;
+	display: flex;
+
+	@media (max-width: $tinyViewportWidth) {
+		padding-inline: 0;
+		flex-direction: column;
+	}
+
+	p {
+		padding-block-end: $dimension-layout-xxsmall;
+	}
+
+	&__column:first-of-type {
+		padding-inline-end: 120px;
+
+		@media (max-width: $tinyViewportWidth) {
+			padding-block-end: $dimension-layout-medium;
+			padding-inline-end: 0;
+		}
+	}
+
+	&__title {
+		font-weight: $font-weight-bold;
+		padding-block-end: $dimension-layout-xsmall;
+	}
 }
 </style>

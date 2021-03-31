@@ -342,6 +342,6 @@ $largeViewportWidth: 90em; //~1438px
 }
 
 .query-builder__footer {
-	margin-block-start: $dimension-layout-large;
+	margin-block-start: 60px;
 }
 </style>
