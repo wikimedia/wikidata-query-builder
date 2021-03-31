@@ -6,7 +6,11 @@
 					v-i18n="{msg: 'query-builder-heading'}" />
 			</h1>
 			<p class="querybuilder__description"
-				v-html="$i18n('query-builder-intro-text', 'https://w.wiki/FZy', 'https://w.wiki/kG$') " />
+				v-html="$i18n(
+					'query-builder-intro-text',
+					'https://www.wikidata.org/wiki/Special:MyLanguage/Wikidata:SPARQL_tutorial',
+					'https://www.wikidata.org/wiki/Wikidata_talk:Query_Builder'
+				) " />
 			<div role="form">
 				<h2 class="querybuilder__query-title"
 					v-html="$i18n('query-builder-query-heading')" />
