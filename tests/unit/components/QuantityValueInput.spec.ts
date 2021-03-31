@@ -115,7 +115,10 @@ describe( 'QuantityValueInput.vue', () => {
 	} );
 
 	it( 'unit input: unitLookupSearchInput prop for unit item changes on update search string', async () => {
+		const store = new Vuex.Store( {} );
+		store.dispatch = jest.fn().mockResolvedValue( [] );
 		const wrapper = shallowMount( QuantityValueInput, {
+			store,
 			localVue,
 			propsData: {
 				...defaultProps,
