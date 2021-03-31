@@ -45,5 +45,9 @@
   "query-builder-negation-option-label-with": "With",
   "query-builder-negation-option-label-without": "Without",
   "query-builder-sharable-link-text": "Get a sharable link",
-  "query-builder-sharable-link-message": "URL copied to clipboard!"
+  "query-builder-sharable-link-message": "URL copied to clipboard!",
+  "query-builder-quantity-value-label": "Value and Unit (optional)",
+  "query-builder-quantity-value-number-input-placeholder": "Enter a number",
+  "query-builder-quantity-value-unit-lookup-input-placeholder": "Enter a unit",
+  "query-builder-quantity-value-unit-lookup-screenreader-label": "Unit (optional)"
 }
