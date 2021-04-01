@@ -3,6 +3,7 @@ const allowedDataTypes = [
 	'string',
 	'external-id',
 	'wikibase-item',
+	'quantity',
 	/* other (non-string) typed datatypes - TODO: add support
 	'commonsMedia',
 	'geo-shape',
@@ -13,7 +14,6 @@ const allowedDataTypes = [
     'time',
 	'globe-coordinate',
 	'monolingualtext',
-    'quantity',
     'wikibase-property',
 	'wikibase-lexeme',
 	'wikibase-form',

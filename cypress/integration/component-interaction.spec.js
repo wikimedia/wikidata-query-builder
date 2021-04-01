@@ -36,6 +36,16 @@ describe( 'Component interaction test', () => {
 		).as( 'hasImdbRequest' );
 
 		cy.intercept(
+			wikibaseApiRequest( { action: 'wbsearchentities', search: 'elevation above sea level' } ),
+			{ fixture: 'wbsearchentities-elevation-above-sea-level.json' },
+		).as( 'hasQuantityRequest' );
+
+		cy.intercept(
+			wikibaseApiRequest( { action: 'wbsearchentities', search: 'metre' } ),
+			{ fixture: 'wbsearchentities-unit.json' },
+		).as( 'hasUnitRequest' );
+
+		cy.intercept(
 			wikibaseApiRequest( { action: 'wbsearchentities', search: 'LilyPond notation' } ),
 			{ fixture: 'wbsearchentities-limited-support.json' },
 		).as( 'hasLimitedSupportedRequest' );
@@ -117,6 +127,21 @@ describe( 'Component interaction test', () => {
 		// Assert input value component is disabled when user selects 'regardless of value'
 		cy.get( '.query-condition__value-input:nth(1) .wikit-Input' ).should( 'be.disabled' );
 
+		// click 'Add condition' button and expand to a second block
+		cy.get( '.querybuilder__add-condition button' ).click();
+		cy.get( '.query-condition__property-lookup .wikit-Input' )
+			.eq( 2 )
+			.type( 'elevation above sea level' )
+			.wait( '@hasQuantityRequest' );
+		cy.get( '.query-condition__property-lookup:nth(2) .wikit-OptionsMenu__item' ).click();
+
+		cy.get( '.wikit-QuantityInput__number-input' )
+			.type( 12 );
+		cy.get( '.wikit-QuantityInput__unit-lookup input' )
+			.type( 'metre' )
+			.wait( '@hasUnitRequest' );
+		cy.get( '.wikit-QuantityInput__unit-lookup .wikit-OptionsMenu__item' ).eq( 0 ).click();
+
 		// run query
 		cy.get( '.querybuilder__run .wikit-Button--progressive' ).click();
 
@@ -142,6 +167,15 @@ describe( 'Component interaction test', () => {
         ?item p:P6883 ?statement1.
         ?statement1 (ps:P6883) _:anyValueP6883.
       }
+      BIND("12"^^xsd:decimal AS ?userQuantity)
+      BIND(wd:Q11573 AS ?userUnit)
+      ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
+        (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
+      BIND(?userQuantity * ?conversionFactor AS ?coherentUserQuantity)
+      ?item p:P2044 ?statement2.
+      ?statement2 (psn:P2044/wikibase:quantityAmount) ?statementQuantity;
+        (psn:P2044/wikibase:quantityUnit) ?coherentUnit.
+      FILTER(?statementQuantity = ?coherentUserQuantity)
     }
     LIMIT 100
   }
