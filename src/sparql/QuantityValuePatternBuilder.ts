@@ -1,7 +1,7 @@
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import UnitValue from '@/data-model/UnitValue';
-import { Condition } from '@/sparql/QueryRepresentation';
+import { Condition, ConditionValue } from '@/sparql/QueryRepresentation';
 import rdfNamespaces from '@/sparql/rdfNamespaces';
 import SyntaxBuilder from '@/sparql/SyntaxBuilder';
 import TripleBuilder from '@/sparql/TripleBuilder';
@@ -243,7 +243,7 @@ export default class QuantityValuePatternBuilder implements ValuePatternBuilder 
 		return patterns;
 	}
 
-	private isQuantityValue( value: string | UnitValue ): value is UnitValue {
+	private isQuantityValue( value: ConditionValue ): value is UnitValue {
 		return typeof value === 'object' &&
 			( ( value as UnitValue ).unit === null || typeof ( value as UnitValue ).unit === 'string' );
 	}

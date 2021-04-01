@@ -1,5 +1,6 @@
 import allowedDatatypes from '@/allowedDataTypes';
-import RootState, { ConditionRow, DEFAULT_LIMIT, ItemValue, QuantityValue, StringValue, Value } from './RootState';
+import RootState, { ConditionRow, DEFAULT_LIMIT, ItemValue, QuantityValue,
+	StringValue, DateValue, Value } from './RootState';
 import QueryRepresentation from '@/sparql/QueryRepresentation';
 import Property from '@/data-model/Property';
 import Error from '@/data-model/Error';
@@ -7,8 +8,9 @@ import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import UnitValue from '@/data-model/UnitValue';
+import TimeValue from '@/data-model/TimeValue';
 
-function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): string | UnitValue {
+function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): string | UnitValue | TimeValue {
 	if ( storeValue === null ) {
 		return '';
 	}
@@ -19,6 +21,12 @@ function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): str
 		return {
 			value: ( storeValue as QuantityValue ).value,
 			unit: ( storeValue as QuantityValue ).unit?.id || null,
+		};
+	}
+	if ( datatype === 'time' ) {
+		return {
+			value: ( storeValue as DateValue ).parseResult.value.time,
+			precision: ( storeValue as DateValue ).parseResult.value.precision,
 		};
 	}
 	return storeValue as StringValue;
