@@ -19,7 +19,7 @@
   "query-builder-result-placeholder": "Results will be displayed here",
   "query-builder-result-header": "Results",
   "query-builder-result-error-empty-form": "Looks like the Query Builder was empty, please enter a valid query first, then try running it again.",
-  "query-builder-result-error-incomplete-form": "One or more fields are empty. Please complete the query or select a fitting field type.",
+  "query-builder-result-error-incomplete-form": "One or more fields are empty or contain content that is not recognized. Please resolve all issues and try again.",
   "query-builder-result-error-missing-property": "Please select a property",
   "query-builder-result-error-missing-value": "Please enter a value",
   "query-builder-add-condition": "Add condition",
