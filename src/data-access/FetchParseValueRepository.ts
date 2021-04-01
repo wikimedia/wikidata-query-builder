@@ -55,16 +55,23 @@ export default class FetchParseValueRepository implements ParseValueRepository {
 
 		const data = await response.json();
 
-		if ( data.error ) {
-			throw new TechnicalProblem( `${data.error.code}: ${data.error.info}` );
+		if ( data.errors ) {
+			throw new TechnicalProblem( this.extractPlaintextErrorMessageFromData( data ) );
 		}
 
 		const results = data.results;
 
-		if ( results[ 0 ].precision < 9 ) {
+		if ( results[ 0 ].value && results[ 0 ].value.precision < 9 ) {
 			throw new PrecisionError();
 		}
 
 		return results;
+	}
+
+	private extractPlaintextErrorMessageFromData( data: { errors: { code: string; text: string }[] } ): string {
+		if ( data.errors[ 0 ].code === 'wikibase-parse-error-time' ) {
+			return data.errors[ 0 ].text;
+		}
+		return `${data.errors[ 0 ].code}: ${data.errors[ 0 ].text}`;
 	}
 }

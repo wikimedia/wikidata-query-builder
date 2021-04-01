@@ -81,11 +81,11 @@ describe( 'FetchParseValueRepository', () => {
 		);
 		const values = [ '1920s' ];
 		const datatype = 'time';
-		const expectedResult = [ { foo: 'bar', precision: 8 } ];
+		const apiResponse = { value: { foo: 'bar', precision: 8 } };
 
 		window.fetch = jest.fn().mockImplementation( () => Promise.resolve( {
 			ok: true,
-			json: async () => ( { results: expectedResult } ),
+			json: async () => ( { results: [ apiResponse ] } ),
 		} ) );
 
 		expect( repo.parseValues( values, datatype ) ).rejects.toThrow( new PrecisionError() );
@@ -99,15 +99,13 @@ describe( 'FetchParseValueRepository', () => {
 		const values = [ '1994-02-08' ];
 		const datatype = 'wrongdatatype';
 		const expectedResult = {
-			error: {
-				code: 'badvalue',
-				info: 'Unrecognized value for parameter "datatype": tet.',
-			},
+			code: 'badvalue',
+			text: 'Unrecognized value for parameter "datatype": tet.',
 		};
 
 		window.fetch = jest.fn().mockImplementation( () => Promise.resolve( {
 			ok: true,
-			json: async () => ( expectedResult ),
+			json: async () => ( { errors: [ expectedResult ] } ),
 		} ) );
 
 		expect( repo.parseValues( values, datatype ) ).rejects.toThrow(

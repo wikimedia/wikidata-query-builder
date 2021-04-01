@@ -24,9 +24,13 @@ function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): str
 		};
 	}
 	if ( datatype === 'time' ) {
+		const dateValue = storeValue as DateValue;
+		if ( dateValue.parseResult === null ) {
+			throw new Error( 'invalid time value' );
+		}
 		return {
-			value: ( storeValue as DateValue ).parseResult.value.time,
-			precision: ( storeValue as DateValue ).parseResult.value.precision,
+			value: dateValue.parseResult.value.time,
+			precision: dateValue.parseResult.value.precision,
 		};
 	}
 	return storeValue as StringValue;

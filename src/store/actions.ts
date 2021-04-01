@@ -1,10 +1,12 @@
 import allowedDatatypes from '@/allowedDataTypes';
 import ConditionValues from '@/form/ConditionValues';
+import FormatValueRepository from '@/data-access/FormatValueRepository';
+import ParseValueRepository from '@/data-access/ParseValueRepository';
 import Validator from '@/form/Validator';
 import QueryDeserializer from '@/serialization/QueryDeserializer';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { ActionContext, ActionTree } from 'vuex';
-import RootState, { ConditionRow, DEFAULT_LIMIT } from './RootState';
+import RootState, { ConditionRow, DateValue, DEFAULT_LIMIT } from './RootState';
 import SearchResult from '@/data-access/SearchResult';
 import Error from '@/data-model/Error';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
@@ -17,6 +19,8 @@ import ReferenceRelation from '@/data-model/ReferenceRelation';
 export default (
 	searchEntityRepository: SearchEntityRepository,
 	metricsCollector: MetricsCollector,
+	parseValueRepository: ParseValueRepository,
+	formatValueRepository: FormatValueRepository,
 ): ActionTree<RootState, RootState> => ( {
 	async searchProperties(
 		_context: ActionContext<RootState, RootState>,
@@ -43,10 +47,11 @@ export default (
 			options.offset,
 		);
 	},
-	updateValue(
+	async updateDateValue(
 		context: ActionContext<RootState, RootState>,
-		payload: { value: string; conditionIndex: number } ): void {
-		context.commit( 'setValue', payload );
+		payload: { rawInput: string; conditionIndex: number },
+	): Promise<void> {
+		context.commit( 'clearValue', payload.conditionIndex );
 		context.commit(
 			'clearFieldErrors',
 			{
@@ -54,6 +59,57 @@ export default (
 				errorsToClear: 'value',
 			},
 		);
+
+		let parsedValue;
+		try {
+			[ parsedValue ] = await parseValueRepository.parseValues( [ payload.rawInput ], 'time' );
+		} catch ( e ) {
+			const errorDateValue: DateValue = {
+				parseResult: null,
+				formattedValue: e.message,
+			};
+
+			context.commit( 'setValue', { value: errorDateValue, conditionIndex: payload.conditionIndex } );
+			context.commit(
+				'setFieldErrors',
+				{
+					index: payload.conditionIndex,
+					errors: {
+						valueError: { type: 'error', message: e.message },
+					},
+				},
+			);
+			return;
+		}
+
+		const propertyId = context.getters.property( payload.conditionIndex ).id;
+		const formattedValue = await formatValueRepository.formatValue( parsedValue, propertyId );
+
+		const validDateValue: DateValue = {
+			parseResult: parsedValue,
+			formattedValue,
+		};
+		context.commit( 'setValue', {
+			value: validDateValue,
+			conditionIndex: payload.conditionIndex,
+		} );
+	},
+	updateValue(
+		context: ActionContext<RootState, RootState>,
+		payload: { value: string; conditionIndex: number } ): void {
+		context.commit(
+			'clearFieldErrors',
+			{
+				conditionIndex: payload.conditionIndex,
+				errorsToClear: 'value',
+			},
+		);
+		const datatype = context.getters.datatype( payload.conditionIndex );
+		if ( datatype === 'time' ) {
+			context.dispatch( 'updateDateValue', { rawInput: payload.value, conditionIndex: payload.conditionIndex } );
+			return;
+		}
+		context.commit( 'setValue', payload );
 	},
 	unsetProperty( context: ActionContext<RootState, RootState>, conditionIndex: number ): void {
 		context.commit( 'unsetProperty', conditionIndex );

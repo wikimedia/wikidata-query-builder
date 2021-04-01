@@ -28,7 +28,8 @@ export interface QuantityValue {
 }
 
 export interface DateValue {
-	parseResult: ParseResult;
+	parseResult: ParseResult | null;
+	formattedValue: string | null;
 }
 
 export type Value = ItemValue | StringValue | QuantityValue | DateValue | null;

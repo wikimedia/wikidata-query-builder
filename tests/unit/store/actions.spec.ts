@@ -18,23 +18,128 @@ function createActionsWithMockServices(
 		serviceOverrides.metricsCollector ?? {
 			increment: jest.fn(),
 		},
+		serviceOverrides.parseValueRepository ?? {
+			parseValues: jest.fn(),
+		},
+		serviceOverrides.formatValueRepository ?? {
+			formatValue: jest.fn(),
+		},
 	);
 }
 
 describe( 'actions', () => {
 
-	it( 'updateValue', () => {
-		const context = { commit: jest.fn() };
-		const value = 'whatever';
-		const conditionIndex = 0;
-		const actions = createActionsWithMockServices();
+	describe( 'updateValue', () => {
+		it( 'sets the value in the store', () => {
+			const context = {
+				getters: { datatype: jest.fn().mockReturnValue( 'string' ) },
+				commit: jest.fn(),
+			};
+			const value = 'whatever';
+			const conditionIndex = 0;
+			const actions = createActionsWithMockServices();
 
-		actions.updateValue( context as any, { value, conditionIndex } );
+			actions.updateValue( context as any, { value, conditionIndex } );
 
-		expect( context.commit ).toHaveBeenCalledWith( 'setValue', { value, conditionIndex } );
-		expect( context.commit ).toHaveBeenCalledWith( 'clearFieldErrors', {
-			conditionIndex,
-			errorsToClear: 'value',
+			expect( context.commit ).toHaveBeenCalledWith( 'setValue', { value, conditionIndex } );
+			expect( context.commit ).toHaveBeenCalledWith( 'clearFieldErrors', {
+				conditionIndex,
+				errorsToClear: 'value',
+			} );
+		} );
+
+		it( 'delegates to updateDateValue for datatype time', () => {
+			const context = {
+				getters: { datatype: jest.fn().mockReturnValue( 'time' ) },
+				commit: jest.fn(),
+				dispatch: jest.fn(),
+			};
+			const value = 'whatever';
+			const conditionIndex = 0;
+			const actions = createActionsWithMockServices();
+
+			actions.updateValue( context as any, { value, conditionIndex } );
+
+			expect( context.commit ).toHaveBeenCalledTimes( 1 );
+			expect( context.commit ).toHaveBeenCalledWith( 'clearFieldErrors', {
+				conditionIndex,
+				errorsToClear: 'value',
+			} );
+			expect( context.dispatch ).toHaveBeenCalledWith( 'updateDateValue', { conditionIndex, rawInput: value } );
+		} );
+	} );
+
+	describe( 'updateDateValue', () => {
+		it( 'parses payload and formats parsedDate and stores it in the state', async () => {
+			const context = {
+				getters: {
+					property: jest.fn().mockReturnValue( { id: 'P123' } ),
+				},
+				commit: jest.fn(),
+			};
+			const value = '2021-04-06';
+			const conditionIndex = 0;
+			const mockParsedValue = {};
+			const mockFormatValue = '6 April 2021';
+			const parseValues = jest.fn().mockResolvedValue( [ mockParsedValue ] );
+			const formatValue = jest.fn().mockResolvedValue( mockFormatValue );
+			const actions = createActionsWithMockServices( {
+				parseValueRepository: { parseValues },
+				formatValueRepository: { formatValue },
+			} );
+
+			await actions.updateDateValue( context as any, { rawInput: value, conditionIndex } );
+
+			expect( context.commit ).toHaveBeenCalledWith( 'clearValue', 0 );
+			expect( context.commit ).toHaveBeenCalledWith(
+				'clearFieldErrors',
+				{ conditionIndex, errorsToClear: 'value' },
+			);
+			expect( parseValues ).toHaveBeenCalledWith( [ value ], 'time' );
+			expect( formatValue ).toHaveBeenCalledWith( mockParsedValue, 'P123' );
+			expect( context.commit ).toHaveBeenCalledWith( 'setValue', {
+				value: { parseResult: mockParsedValue, formattedValue: mockFormatValue },
+				conditionIndex,
+			} );
+		} );
+
+		it( 'parses payload and sets error if that fails', async () => {
+			const context = {
+				commit: jest.fn(),
+			};
+			const value = 'not a date';
+			const conditionIndex = 0;
+			const someErrorMessage = 'parsing not great';
+			const parseValues = jest.fn().mockRejectedValue( new Error( someErrorMessage ) );
+			const formatValue = jest.fn();
+			const actions = createActionsWithMockServices( {
+				parseValueRepository: { parseValues },
+				formatValueRepository: { formatValue },
+			} );
+
+			await actions.updateDateValue( context as any, { rawInput: value, conditionIndex } );
+
+			expect( context.commit ).toHaveBeenCalledTimes( 4 );
+			expect( context.commit ).toHaveBeenCalledWith( 'clearValue', 0 );
+			expect( context.commit ).toHaveBeenCalledWith(
+				'clearFieldErrors',
+				{ conditionIndex, errorsToClear: 'value' },
+			);
+			expect( formatValue ).not.toHaveBeenCalled();
+			expect( context.commit ).toHaveBeenCalledWith( 'setValue', {
+				value: { parseResult: null, formattedValue: someErrorMessage },
+				conditionIndex,
+			} );
+			expect( context.commit ).toHaveBeenCalledWith( 'setFieldErrors', {
+				index: conditionIndex,
+				errors: {
+					valueError: {
+						message: someErrorMessage,
+						type: 'error',
+					},
+				},
+			} );
+
 		} );
 	} );
 
