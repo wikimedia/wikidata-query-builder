@@ -1,6 +1,6 @@
 import DeserializationError from '@/serialization/DeserializationError';
 import RootState, { ConditionRow, PropertyData, Value } from '@/store/RootState';
-import SerializedCondition from '@/data-model/SerializedObject';
+import SerializedCondition, { SerializedQuantityValue, SerializedValue } from '@/data-model/SerializedObject';
 
 export default class QueryDeserializer {
 	public deserialize( queryString: string ): RootState {
@@ -59,6 +59,16 @@ export default class QueryDeserializer {
 		if ( condition.value === '' || condition.value === null ) {
 			return null;
 		}
+		if ( this.isQuantityValue( condition, condition.value ) ) {
+			return {
+				value: condition.value.value,
+				unit: condition.value.unit ? {
+					id: condition.value.unit,
+					label: condition.value.unit,
+				} : null,
+				rawUnitInput: '',
+			};
+		}
 		if ( condition.propertyDataType === 'wikibase-item' ) {
 			return {
 				id: condition.value,
@@ -66,5 +76,10 @@ export default class QueryDeserializer {
 			};
 		}
 		return condition.value;
+	}
+
+	private isQuantityValue( condition: SerializedCondition, _conditionValue: SerializedValue ):
+		_conditionValue is SerializedQuantityValue {
+		return condition.propertyDataType === 'quantity';
 	}
 }

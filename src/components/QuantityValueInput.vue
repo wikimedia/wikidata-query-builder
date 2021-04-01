@@ -139,6 +139,11 @@ export default Vue.extend( {
 			this.quantityError = error;
 		},
 	},
+	mounted() {
+		if ( this.value?.unit?.id && !this.search ) {
+			this.search = this.value.unit.id;
+		}
+	},
 	props: {
 		value: {
 			type: Object as PropType<QuantityValue | null>,

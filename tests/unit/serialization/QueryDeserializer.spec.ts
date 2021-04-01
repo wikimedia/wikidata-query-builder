@@ -104,4 +104,70 @@ describe( 'QueryDeserializer', () => {
 		expect( () => deserializer.deserialize( 'foo=bar' ) ).toThrow();
 	} );
 
+	it( 'deserializes a condition with datatype quantity and only amount but no unit set', () => {
+		const givenSerialization = `
+			{"conditions":[{
+				"propertyId":"P2044",
+				"propertyDataType":"quantity",
+				"propertyValueRelation":"matching",
+				"referenceRelation":"regardless",
+				"value": { "value":4800, "unit":null},
+				"subclasses":false,
+				"conditionRelation":null,
+				"negate":false}],
+			"limit":100,
+			"useLimit":true,
+			"omitLabels": false}
+		`;
+		const deserializer = new QueryDeserializer();
+
+		const deserializedState = deserializer.deserialize( givenSerialization );
+
+		const expectedState: RootState = {
+			conditionRows: [
+				getStateConditionRow( 'P2044', { value: 4800, unit: null, rawUnitInput: '' }, 'quantity' ),
+			],
+			limit: 100,
+			useLimit: true,
+			omitLabels: false,
+			errors: [],
+		};
+		expect( deserializedState ).toStrictEqual( expectedState );
+	} );
+
+	it( 'deserializes a condition with datatype quantity and both amount and unit set', () => {
+		const givenSerialization = `
+			{"conditions":[{
+				"propertyId":"P2044",
+				"propertyDataType":"quantity",
+				"propertyValueRelation":"matching",
+				"referenceRelation":"regardless",
+				"value": { "value":4800, "unit":"Q123"},
+				"subclasses":false,
+				"conditionRelation":null,
+				"negate":false}],
+			"limit":100,
+			"useLimit":true,
+			"omitLabels": false}
+		`;
+		const deserializer = new QueryDeserializer();
+
+		const deserializedState = deserializer.deserialize( givenSerialization );
+
+		const expectedState: RootState = {
+			conditionRows: [
+				getStateConditionRow(
+					'P2044',
+					{ value: 4800, unit: { id: 'Q123', label: 'Q123' }, rawUnitInput: '' },
+					'quantity',
+				),
+			],
+			limit: 100,
+			useLimit: true,
+			omitLabels: false,
+			errors: [],
+		};
+		expect( deserializedState ).toStrictEqual( expectedState );
+	} );
+
 } );

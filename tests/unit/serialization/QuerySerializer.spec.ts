@@ -123,4 +123,69 @@ describe( 'QuerySerializer', () => {
 		expect( actualSerialization ).toEqual( expectedSerialization.replace( /\s+/g, '' ) );
 	} );
 
+	it( 'serializes a condition with datatype quantity and only amount but no unit set', () => {
+		const givenState: RootState = {
+			conditionRows: [ getStateConditionRow(
+				'P2044',
+				{ value: 4800, unit: null, rawUnitInput: '' },
+				'quantity',
+			) ],
+			limit: 100,
+			useLimit: true,
+			errors: [],
+			omitLabels: false,
+		};
+		const serializer = new QuerySerializer();
+
+		const actualSerialization = serializer.serialize( givenState );
+
+		const expectedSerialization = `
+			{"conditions":[{
+				"propertyId":"P2044",
+				"propertyDataType":"quantity",
+				"propertyValueRelation":"matching",
+				"referenceRelation":"regardless",
+				"value": { "value":4800, "unit":null},
+				"subclasses":false,
+				"conditionRelation":null,
+				"negate":false}],
+			"limit":100,
+			"useLimit":true,
+			"omitLabels": false}
+		`;
+		expect( actualSerialization ).toEqual( expectedSerialization.replace( /\s+/g, '' ) );
+	} );
+
+	it( 'serializes a condition with datatype quantity and both amount and unit set', () => {
+		const givenState: RootState = {
+			conditionRows: [ getStateConditionRow(
+				'P2044',
+				{ value: 4800, unit: { id: 'Q123', label: 'metre' }, rawUnitInput: '' },
+				'quantity',
+			) ],
+			limit: 100,
+			useLimit: true,
+			errors: [],
+			omitLabels: false,
+		};
+		const serializer = new QuerySerializer();
+
+		const actualSerialization = serializer.serialize( givenState );
+
+		const expectedSerialization = `
+			{"conditions":[{
+				"propertyId":"P2044",
+				"propertyDataType":"quantity",
+				"propertyValueRelation":"matching",
+				"referenceRelation":"regardless",
+				"value": { "value":4800, "unit":"Q123"},
+				"subclasses":false,
+				"conditionRelation":null,
+				"negate":false}],
+			"limit":100,
+			"useLimit":true,
+			"omitLabels": false}
+		`;
+		expect( actualSerialization ).toEqual( expectedSerialization.replace( /\s+/g, '' ) );
+	} );
 } );
