@@ -3,7 +3,7 @@ import FormValues from '@/form/FormValues';
 import Validator from '@/form/Validator';
 import QueryDeserializer from '@/serialization/QueryDeserializer';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
-import { ActionContext } from 'vuex';
+import { ActionContext, ActionTree } from 'vuex';
 import RootState, { ConditionRow, DEFAULT_LIMIT } from './RootState';
 import SearchResult from '@/data-access/SearchResult';
 import Error from '@/data-model/Error';
@@ -14,9 +14,10 @@ import SearchOptions from '@/data-access/SearchOptions';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 
-// eslint-disable-next-line max-len
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type, @typescript-eslint/explicit-module-boundary-types
-export default ( searchEntityRepository: SearchEntityRepository, metricsCollector: MetricsCollector ) => ( {
+export default (
+	searchEntityRepository: SearchEntityRepository,
+	metricsCollector: MetricsCollector,
+): ActionTree<RootState, RootState> => ( {
 	async searchProperties(
 		_context: ActionContext<RootState, RootState>,
 		options: SearchOptions ): Promise<SearchResult[]> {
