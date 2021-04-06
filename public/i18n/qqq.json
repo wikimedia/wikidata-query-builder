@@ -55,5 +55,14 @@
 	"query-builder-quantity-value-label": "Label above the quantity value input",
 	"query-builder-quantity-value-number-input-placeholder": "Placeholder message displayed in the number input part of a quantity input",
   	"query-builder-quantity-value-unit-lookup-input-placeholder": "Placeholder message displayed in the unit part of a quantity input",
-	"query-builder-quantity-value-unit-lookup-screenreader-label": "Label for screen-readers only for unit input of the quantity value component"
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Label for screen-readers only for unit input of the quantity value component",
+	"query-builder-footer-about-query-builder": "Title of the footer column containing links related to query builder",
+	"query-builder-footer-licence": "Link to the licence of the source code",
+	"query-builder-footer-build-time": "Software build information and timestamp",
+	"query-builder-footer-view-source": "Link to the source code",
+	"query-builder-footer-report-link": "Link to create a new bug for query builder",
+	"query-builder-footer-about-us": "Title of the column containing links about the people",
+	"query-builder-footer-privacy-policy": "link to the privacy policy",
+	"query-builder-footer-wikimedia-deutchland": "Link to website of Wikimedia Deutschland",
+	"query-builder-footer-team": "Link to the page of the team"
 }

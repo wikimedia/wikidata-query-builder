@@ -7,7 +7,13 @@ import { newStore } from '../../util/store';
 
 Vue.use( i18n, {
 	locale: 'en',
-	messages: {},
+	messages: {
+		en: {
+			'query-builder-footer-build-time': 'Last build at [$1 $2]',
+			'query-builder-footer-privacy-policy': 'Important privacy policy',
+			'query-builder-footer-report-link': 'Report important bugs',
+		},
+	},
 	wikilinks: true,
 } );
 
@@ -25,7 +31,10 @@ describe( 'Footer component', () => {
 			localVue,
 		} );
 		expect( wrapper.find( '.querybuilder-footer__build-info' ).text() ).toBe(
-			'Last build at Mon, 01 Feb 2021 14:32:42 GMT from c6bc093.',
+			'Last build at Mon, 01 Feb 2021 14:32:42 GMT',
+		);
+		expect( wrapper.find( '.querybuilder-footer__build-info a' ).attributes( 'href' ) ).toBe(
+			'https://gerrit.wikimedia.org/g/wikidata/query-builder/+/c6bc093',
 		);
 	} );
 
@@ -51,5 +60,29 @@ describe( 'Footer component', () => {
 			localVue,
 		} );
 		expect( wrapper.find( '.querybuilder-footer__build-info' ).exists() ).toBe( false );
+	} );
+
+	it( 'adds link to privacy policy', () => {
+		process.env = Object.assign( process.env, {
+			VUE_APP_PRIVACY_POLICY_URL: 'https://very-important-privacy-policy.com',
+		} );
+		const wrapper = shallowMount( Footer, {
+			store: newStore(),
+			localVue,
+		} );
+		expect( wrapper.find( '.querybuilder-footer__privacy-policy' ).text() ).toBe( 'Important privacy policy' );
+		expect( wrapper.find( '.querybuilder-footer__privacy-policy a' ).attributes( 'href' ) ).toBe(
+			'https://very-important-privacy-policy.com',
+		);
+	} );
+	it( 'adds link to phabricator', () => {
+		const wrapper = shallowMount( Footer, {
+			store: newStore(),
+			localVue,
+		} );
+		expect( wrapper.find( '.querybuilder-footer__report-link' ).text() ).toBe( 'Report important bugs' );
+		expect( wrapper.find( '.querybuilder-footer__report-link a' ).attributes( 'href' ) ).toContain(
+			'https://phabricator.wikimedia.org/maniphest/task/edit/form/1/',
+		);
 	} );
 } );
