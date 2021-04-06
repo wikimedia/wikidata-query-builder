@@ -58,5 +58,10 @@
   "query-builder-footer-about-us": "About us",
   "query-builder-footer-privacy-policy": "Privacy Policy",
   "query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
-  "query-builder-footer-team": "Made by the Wikidata team"
+  "query-builder-footer-team": "Made by the Wikidata team",
+  "query-builder-date-input-value-label": "Value",
+  "query-builder-date-input-placeholder": "for example 31-12-2020",
+  "query-builder-date-input-prompt-text": "Please enter a date",
+  "query-builder-date-input-results-intro-text": "Will be interpreted as:",
+  "query-builder-date-input-calendar-notice-text": "All dates are interpreted as Gregorian dates"
 }
