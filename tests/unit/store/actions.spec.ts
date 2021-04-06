@@ -1,5 +1,5 @@
+import { Services } from '@/QueryBuilderServices';
 import createActions from '@/store/actions';
-import services from '@/ServicesFactory';
 import SearchOptions from '@/data-access/SearchOptions';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import { ConditionRow, DEFAULT_LIMIT } from '@/store/RootState';
@@ -7,16 +7,27 @@ import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import Error from '@/data-model/Error';
 
+function createActionsWithMockServices(
+	serviceOverrides: Partial<Services> = {},
+): any {
+	return createActions(
+		serviceOverrides.searchEntityRepository ?? {
+			searchProperties: jest.fn(),
+			searchItemValues: jest.fn(),
+		},
+		serviceOverrides.metricsCollector ?? {
+			increment: jest.fn(),
+		},
+	);
+}
+
 describe( 'actions', () => {
 
 	it( 'updateValue', () => {
 		const context = { commit: jest.fn() };
 		const value = 'whatever';
 		const conditionIndex = 0;
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		actions.updateValue( context as any, { value, conditionIndex } );
 
@@ -32,10 +43,7 @@ describe( 'actions', () => {
 			commit: jest.fn(),
 			dispatch: jest.fn(),
 		};
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 		const conditionIndex = 0;
 
 		actions.setConditionAsLimitedSupport( context as any, conditionIndex );
@@ -56,10 +64,7 @@ describe( 'actions', () => {
 			commit: jest.fn(),
 		};
 		const conditionIndex = 0;
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		actions.unsetProperty( context as any, conditionIndex );
 
@@ -86,10 +91,7 @@ describe( 'actions', () => {
 				datatype: 'string',
 			};
 			const conditionIndex = 0;
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.updateProperty( context as any, { property, conditionIndex } );
 
@@ -115,10 +117,7 @@ describe( 'actions', () => {
 				datatype: 'some unsupported data type',
 			};
 			const conditionIndex = 0;
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.updateProperty( context as any, { property, conditionIndex } );
 
@@ -141,10 +140,7 @@ describe( 'actions', () => {
 				datatype: 'wikibase-item',
 			};
 			const conditionIndex = 0;
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.updateProperty( context as any, { property, conditionIndex } );
 
@@ -164,9 +160,10 @@ describe( 'actions', () => {
 			const searchProperties = jest.fn().mockResolvedValue(
 				JSON.parse( JSON.stringify( expectedResult ) ),
 			);
-			const actions = createActions(
-				{ searchProperties, searchItemValues: jest.fn() },
-				services.get( 'metricsCollector' ),
+			const actions = createActionsWithMockServices(
+				{
+					searchEntityRepository: { searchProperties, searchItemValues: jest.fn() },
+				},
 			);
 
 			const searchOptions: SearchOptions = { search: 'postal', limit: 12 };
@@ -191,9 +188,8 @@ describe( 'actions', () => {
 			const searchProperties = jest.fn().mockResolvedValue(
 				JSON.parse( JSON.stringify( expectedResult ) ),
 			);
-			const actions = createActions(
-				{ searchProperties, searchItemValues: jest.fn() },
-				services.get( 'metricsCollector' ),
+			const actions = createActionsWithMockServices(
+				{ searchEntityRepository: { searchProperties, searchItemValues: jest.fn() } },
 			);
 
 			const searchOptions: SearchOptions = { search: 'postal', limit: 12 };
@@ -209,9 +205,10 @@ describe( 'actions', () => {
 			const searchItemValues = jest.fn().mockResolvedValue(
 				JSON.parse( JSON.stringify( expectedResult ) ),
 			);
-			const actions = createActions(
-				{ searchProperties: jest.fn(), searchItemValues },
-				services.get( 'metricsCollector' ),
+			const actions = createActionsWithMockServices(
+				{
+					searchEntityRepository: { searchProperties: jest.fn(), searchItemValues },
+				},
 			);
 
 			const searchOptions: SearchOptions = { search: 'potato', limit: 12 };
@@ -229,9 +226,8 @@ describe( 'actions', () => {
 	describe( 'incrementMetric', () => {
 		it( 'increments metric', async () => {
 			const increment = jest.fn();
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				{ increment },
+			const actions = createActionsWithMockServices(
+				{ metricsCollector: { increment } },
 			);
 
 			await actions.incrementMetric( {} as any, 'foo' );
@@ -243,10 +239,7 @@ describe( 'actions', () => {
 	it( 'addCondition', () => {
 		const context = { commit: jest.fn() };
 
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		actions.addCondition( context as any );
 
@@ -256,10 +249,7 @@ describe( 'actions', () => {
 	it( 'removeCondition', () => {
 		const context = { commit: jest.fn() };
 
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		actions.removeCondition( context as any, 0 );
 
@@ -270,10 +260,7 @@ describe( 'actions', () => {
 		const context = { commit: jest.fn() };
 		const subclasses = true;
 		const conditionIndex = 0;
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		actions.setSubclasses( context as any, { subclasses, conditionIndex } );
 
@@ -284,10 +271,7 @@ describe( 'actions', () => {
 		const context = { commit: jest.fn() };
 		const conditionRelation = ConditionRelation.And;
 		const conditionIndex = 0;
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		actions.setConditionRelation( context as any, { value: conditionRelation, conditionIndex } );
 
@@ -299,10 +283,7 @@ describe( 'actions', () => {
 		const context = { commit: jest.fn() };
 		const negate = true;
 		const conditionIndex = 0;
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		actions.setNegate( context as any, { value: negate, conditionIndex } );
 
@@ -312,10 +293,7 @@ describe( 'actions', () => {
 	it( 'setOmitLabels', () => {
 		const context = { commit: jest.fn() };
 
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		const omitLabels = false;
 
@@ -350,10 +328,7 @@ describe( 'actions', () => {
 				dispatch: jest.fn(),
 			};
 
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateForm( context as any );
 
@@ -396,10 +371,7 @@ describe( 'actions', () => {
 				dispatch: jest.fn(),
 			};
 
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateForm( context as any );
 
@@ -445,10 +417,7 @@ describe( 'actions', () => {
 				dispatch: jest.fn(),
 			};
 
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateForm( context as any );
 
@@ -500,10 +469,7 @@ describe( 'actions', () => {
 				commit: jest.fn(),
 				dispatch: jest.fn(),
 			};
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateForm( context as any );
 
@@ -547,10 +513,7 @@ describe( 'actions', () => {
 				commit: jest.fn(),
 				dispatch: jest.fn(),
 			};
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateForm( context as any );
 
@@ -590,10 +553,7 @@ describe( 'actions', () => {
 				dispatch: jest.fn(),
 			};
 
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateForm( context as any );
 
@@ -611,10 +571,7 @@ describe( 'actions', () => {
 				commit: jest.fn(),
 				dispatch: jest.fn(),
 			};
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateLimit( context as any );
 
@@ -631,10 +588,7 @@ describe( 'actions', () => {
 				commit: jest.fn(),
 				dispatch: jest.fn(),
 			};
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateLimit( context as any );
 
@@ -652,10 +606,7 @@ describe( 'actions', () => {
 				commit: jest.fn(),
 				dispatch: jest.fn(),
 			};
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			const expectedError: Error = {
 				type: 'error',
@@ -677,10 +628,7 @@ describe( 'actions', () => {
 				commit: jest.fn(),
 				dispatch: jest.fn(),
 			};
-			const actions = createActions(
-				services.get( 'searchEntityRepository' ),
-				services.get( 'metricsCollector' ),
-			);
+			const actions = createActionsWithMockServices();
 
 			actions.validateLimit( context as any );
 
@@ -693,10 +641,7 @@ describe( 'actions', () => {
 		const context = { commit: jest.fn() };
 		const referenceRelation = ReferenceRelation.Without;
 		const conditionIndex = 0;
-		const actions = createActions(
-			services.get( 'searchEntityRepository' ),
-			services.get( 'metricsCollector' ),
-		);
+		const actions = createActionsWithMockServices();
 
 		actions.setReferenceRelation( context as any, { referenceRelation, conditionIndex } );
 
