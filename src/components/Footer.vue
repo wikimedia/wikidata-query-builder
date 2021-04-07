@@ -104,6 +104,11 @@ $tinyViewportWidth: 38em;
 		padding-block-end: $dimension-layout-xxsmall;
 	}
 
+	// More selective css to override the browser's default.
+	h2 {
+		font-size: $font-size-style-body;
+	}
+
 	&__column:first-of-type {
 		padding-inline-end: 120px;
 
