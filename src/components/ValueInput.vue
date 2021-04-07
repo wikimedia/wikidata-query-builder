@@ -11,6 +11,7 @@
 <script lang="ts">
 import ItemValueLookup from '@/components/ItemValueLookup.vue';
 import StringValueInput from '@/components/StringValueInput.vue';
+import QuantityValueInput from '@/components/QuantityValueInput.vue';
 import Vue from 'vue';
 
 export default Vue.extend( {
@@ -18,12 +19,15 @@ export default Vue.extend( {
 	components: {
 		StringValueInput,
 		ItemValueLookup,
+		QuantityValueInput,
 	},
 	computed: {
 		dispatchComponent(): string {
 			switch ( this.datatype ) {
 				case 'wikibase-item':
 					return 'ItemValueLookup';
+				case 'quantity':
+					return 'QuantityValueInput';
 				case 'string':
 				case 'external-id':
 				default:

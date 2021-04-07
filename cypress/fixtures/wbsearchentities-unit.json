@@ -1,0 +1,201 @@
+{
+  "searchinfo": {
+    "search": "metre"
+  },
+  "search": [
+    {
+      "id": "Q11573",
+      "title": "Q11573",
+      "pageid": 13093,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q11573",
+      "concepturi": "http://www.wikidata.org/entity/Q11573",
+      "label": "metre",
+      "description": "SI unit of length",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "metre"
+      }
+    },
+    {
+      "id": "Q192624",
+      "title": "Q192624",
+      "pageid": 190769,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q192624",
+      "concepturi": "http://www.wikidata.org/entity/Q192624",
+      "label": "metre",
+      "description": "basic rhythmic structure of a verse or lines in verse",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "metre"
+      }
+    },
+    {
+      "id": "Q25517",
+      "title": "Q25517",
+      "pageid": 28930,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q25517",
+      "concepturi": "http://www.wikidata.org/entity/Q25517",
+      "label": "cubic metre",
+      "description": "SI unit of volume",
+      "match": {
+        "type": "alias",
+        "language": "en",
+        "text": "metre to the third power"
+      },
+      "aliases": [
+        "metre to the third power"
+      ]
+    },
+    {
+      "id": "Q103861646",
+      "title": "Q103861646",
+      "pageid": 99375786,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q103861646",
+      "concepturi": "http://www.wikidata.org/entity/Q103861646",
+      "label": "metre",
+      "description": "encyclopedia article",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "metre"
+      }
+    },
+    {
+      "id": "Q182429",
+      "title": "Q182429",
+      "pageid": 181527,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q182429",
+      "concepturi": "http://www.wikidata.org/entity/Q182429",
+      "label": "metre per second",
+      "description": "SI unit of speed and velocity",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "metre per second"
+      }
+    },
+    {
+      "id": "Q24609",
+      "title": "Q24609",
+      "pageid": 28015,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q24609",
+      "concepturi": "http://www.wikidata.org/entity/Q24609",
+      "label": "1000 mm track gauge",
+      "description": "track gauge of one metre",
+      "match": {
+        "type": "alias",
+        "language": "en",
+        "text": "metre guage"
+      },
+      "aliases": [
+        "metre guage"
+      ]
+    },
+    {
+      "id": "Q1051665",
+      "title": "Q1051665",
+      "pageid": 1000647,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q1051665",
+      "concepturi": "http://www.wikidata.org/entity/Q1051665",
+      "label": "metre per square second",
+      "description": "SI unit of acceleration",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "metre per square second"
+      }
+    },
+    {
+      "id": "Q155234",
+      "title": "Q155234",
+      "pageid": 156411,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q155234",
+      "concepturi": "http://www.wikidata.org/entity/Q155234",
+      "label": "time signature",
+      "description": "specification of beats in a musical bar or measure",
+      "match": {
+        "type": "alias",
+        "language": "en",
+        "text": "metre signature"
+      },
+      "aliases": [
+        "metre signature"
+      ]
+    },
+    {
+      "id": "Q6452016",
+      "title": "Q6452016",
+      "pageid": 6268860,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q6452016",
+      "concepturi": "http://www.wikidata.org/entity/Q6452016",
+      "label": "height above mean sea level",
+      "description": "elevation of a location in reference to a historic mean sea level taken as a vertical datum",
+      "match": {
+        "type": "alias",
+        "language": "en",
+        "text": "metres above mean sea level"
+      },
+      "aliases": [
+        "metres above mean sea level"
+      ]
+    },
+    {
+      "id": "Q23202",
+      "title": "Q23202",
+      "pageid": 26616,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q23202",
+      "concepturi": "http://www.wikidata.org/entity/Q23202",
+      "label": "Metres above the Adriatic",
+      "description": "elevation measure",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "Metres above the Adriatic"
+      }
+    },
+    {
+      "id": "Q694278",
+      "title": "Q694278",
+      "pageid": 654055,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q694278",
+      "concepturi": "http://www.wikidata.org/entity/Q694278",
+      "label": "Metres above the Sea",
+      "description": "vertical datum used in Switzerland",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "Metres above the Sea"
+      }
+    },
+    {
+      "id": "Q34649925",
+      "title": "Q34649925",
+      "pageid": 36083013,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q34649925",
+      "concepturi": "http://www.wikidata.org/entity/Q34649925",
+      "label": "Metre-long cell-laden microfibres exhibit tissue morphologies and functions.",
+      "description": "scientific article",
+      "match": {
+        "type": "label",
+        "language": "en",
+        "text": "Metre-long cell-laden microfibres exhibit tissue morphologies and functions."
+      }
+    }
+  ],
+  "search-continue": 12,
+  "success": 1
+}
