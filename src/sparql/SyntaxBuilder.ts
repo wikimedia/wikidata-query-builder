@@ -1,6 +1,7 @@
 import {
 	BgpPattern,
 	BlankTerm,
+	Expression,
 	FilterPattern,
 	IriTerm,
 	LiteralTerm,
@@ -77,7 +78,7 @@ export default class SyntaxBuilder {
 	}
 
 	public buildOperatorFilterPattern(
-		leftSideTerm: Term, operator: string, rightSideTerm: Term,
+		leftSideTerm: Expression, operator: string, rightSideTerm: Expression,
 	): FilterPattern {
 		return {
 			type: 'filter',
@@ -89,7 +90,11 @@ export default class SyntaxBuilder {
 		};
 	}
 
-	public buildOperationsExpression( leftSide: Term, operator: string, rightSide: Term ): OperationExpression {
+	public buildOperationsExpression(
+		leftSide: Expression,
+		operator: string,
+		rightSide: Expression,
+	): OperationExpression {
 		return {
 			type: 'operation',
 			operator,
