@@ -19,7 +19,6 @@ Vue.use( i18n, {
 } );
 
 const defaultProps = {
-	noMatchFoundMessage: 'some error copy',
 	searchForMenuItems: jest.fn(),
 };
 
