@@ -1,3 +1,4 @@
+import DateValuePatternBuilder from '@/sparql/DateValuePatternBuilder';
 import ItemValueBuilder from '@/sparql/ItemValueBuilder';
 import LimitedSupportPatternBuilder from '@/sparql/LimitedSupportPatternBuilder';
 import QuantityValuePatternBuilder from '@/sparql/QuantityValuePatternBuilder';
@@ -28,6 +29,8 @@ export default class PatternBuilder implements ValuePatternBuilder {
 				return new ItemValueBuilder();
 			case 'quantity':
 				return new QuantityValuePatternBuilder();
+			case 'time':
+				return new DateValuePatternBuilder();
 			default:
 				return new LimitedSupportPatternBuilder();
 		}
