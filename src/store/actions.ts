@@ -1,5 +1,5 @@
 import allowedDatatypes from '@/allowedDataTypes';
-import FormValues from '@/form/FormValues';
+import ConditionValues from '@/form/ConditionValues';
 import Validator from '@/form/Validator';
 import QueryDeserializer from '@/serialization/QueryDeserializer';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
@@ -151,8 +151,8 @@ export default (
 	validateForm( context: ActionContext<RootState, RootState> ): void {
 
 		const validator = new Validator(
-			context.rootState.conditionRows.map( ( condition: ConditionRow ): FormValues => {
-				// TODO: refactor FormValues to match ConditionRow and remove this mapping
+			context.rootState.conditionRows.map( ( condition: ConditionRow ): ConditionValues => {
+				// TODO: refactor ConditionValues to match ConditionRow and remove this mapping
 				return {
 					property: condition.propertyData.isPropertySet ? condition.propertyData : null,
 					value: condition.valueData.value,

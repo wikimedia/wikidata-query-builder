@@ -3,13 +3,13 @@ import Error from '@/data-model/Error';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import { Value } from '@/store/RootState';
 
-export default interface FormValues {
+export default interface ConditionValues {
 	property: Property | null;
 	value: Value;
 	propertyValueRelation: PropertyValueRelation;
 }
 
-export interface FieldErrors {
+export interface ConditionErrors {
 	property: Error | null;
 	value: Error | null;
 }

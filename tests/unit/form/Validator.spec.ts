@@ -1,10 +1,10 @@
-import FormValues from '@/form/FormValues';
+import ConditionValues from '@/form/ConditionValues';
 import Validator, { ValidationResult } from '@/form/Validator';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 
 describe( 'validator', () => {
 	it( 'returns no errors with a complete form', () => {
-		const formValues: FormValues = {
+		const formValues: ConditionValues = {
 			property: {
 				id: 'P31',
 				label: 'instance of',
@@ -27,7 +27,7 @@ describe( 'validator', () => {
 	} );
 
 	it( 'returns one error with a property missing', () => {
-		const formValues: FormValues = {
+		const formValues: ConditionValues = {
 			property: null,
 			value: 'Q5',
 			propertyValueRelation: PropertyValueRelation.Matching,
@@ -55,7 +55,7 @@ describe( 'validator', () => {
 	} );
 
 	it( 'returns one error with a property empty', () => {
-		const formValues: FormValues = {
+		const formValues: ConditionValues = {
 			property: { id: '', label: '' },
 			value: 'Q5',
 			propertyValueRelation: PropertyValueRelation.Matching,
@@ -83,7 +83,7 @@ describe( 'validator', () => {
 	} );
 
 	it( 'returns one error with a value missing when PropertyValueRelation = Matching', () => {
-		const formValues: FormValues = {
+		const formValues: ConditionValues = {
 			property: {
 				id: 'P31',
 				label: 'instance of',
@@ -114,7 +114,7 @@ describe( 'validator', () => {
 	} );
 
 	it( 'returns no errors with a value missing when PropertyValueRelation = Regardless', () => {
-		const formValues: FormValues[] = [ {
+		const formValues: ConditionValues[] = [ {
 			property: {
 				id: 'P31',
 				label: 'instance of',
@@ -137,7 +137,7 @@ describe( 'validator', () => {
 	} );
 
 	it( 'returns notice when the form is empty - one empty condition', () => {
-		const formValues: FormValues[] = [ {
+		const formValues: ConditionValues[] = [ {
 			property: null,
 			value: null,
 			propertyValueRelation: PropertyValueRelation.Matching,
@@ -162,7 +162,7 @@ describe( 'validator', () => {
 	} );
 
 	it( 'returns notice when the form is empty - does not have any condition', () => {
-		const formValues: FormValues[] = [];
+		const formValues: ConditionValues[] = [];
 
 		const expectedResult: ValidationResult = {
 			formErrors: [

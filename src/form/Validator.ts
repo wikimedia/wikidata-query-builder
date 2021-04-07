@@ -1,15 +1,15 @@
-import FormValues, { FieldErrors } from '@/form/FormValues';
+import ConditionValues, { ConditionErrors } from '@/form/ConditionValues';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import Error from '@/data-model/Error';
 
 export interface ValidationResult {
 	formErrors: Error[];
-	fieldErrors: FieldErrors[];
+	fieldErrors: ConditionErrors[];
 }
 
 export default class Validator {
-	private readonly formValues: FormValues[];
-	public constructor( formValues: FormValues[] ) {
+	private readonly formValues: ConditionValues[];
+	public constructor( formValues: ConditionValues[] ) {
 		this.formValues = formValues;
 	}
 
@@ -32,7 +32,7 @@ export default class Validator {
 		}
 
 		validationResult.fieldErrors = this.formValues.map(
-			( formValues ) => this.validateCondition( formValues ),
+			( conditionValues ) => this.validateCondition( conditionValues ),
 		);
 
 		if ( validationResult.fieldErrors.some( ( { property, value } ) =>
@@ -47,20 +47,20 @@ export default class Validator {
 		return validationResult;
 	}
 
-	private validateCondition( formValues: FormValues ): FieldErrors {
-		const fieldErrors: FieldErrors = {
+	private validateCondition( conditionValues: ConditionValues ): ConditionErrors {
+		const fieldErrors: ConditionErrors = {
 			property: null,
 			value: null,
 		};
-		if ( !formValues.property?.id ) {
+		if ( !conditionValues.property?.id ) {
 			fieldErrors.property = {
 				message: 'query-builder-result-error-missing-property',
 				type: 'error',
 			};
 		}
 		if (
-			formValues.propertyValueRelation !== PropertyValueRelation.Regardless &&
-			!formValues.value
+			conditionValues.propertyValueRelation !== PropertyValueRelation.Regardless &&
+			!conditionValues.value
 		) {
 			fieldErrors.value = {
 				message: 'query-builder-result-error-missing-value',
