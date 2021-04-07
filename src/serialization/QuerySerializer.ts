@@ -1,5 +1,5 @@
-import RootState, { ConditionRow, ItemValue } from '@/store/RootState';
-import SerializedObject from '@/data-model/SerializedObject';
+import RootState, { ConditionRow, ItemValue, QuantityValue } from '@/store/RootState';
+import SerializedObject, { SerializedValue } from '@/data-model/SerializedObject';
 
 export default class QuerySerializer {
 	public serialize( state: RootState ): string {
@@ -26,12 +26,19 @@ export default class QuerySerializer {
 		} );
 	}
 
-	private getValueFromCondition( condition: ConditionRow ): string {
+	private getValueFromCondition( condition: ConditionRow ): SerializedValue {
 		if ( !condition.valueData.value ) {
 			return ''; // maybe better return null?
 		}
 		if ( condition.propertyData.datatype === 'wikibase-item' ) {
 			return ( condition.valueData.value as ItemValue ).id;
+		}
+		if ( condition.propertyData.datatype === 'quantity' ) {
+			const quantityValue: QuantityValue = condition.valueData.value as QuantityValue;
+			return {
+				value: quantityValue.value,
+				unit: quantityValue.unit ? quantityValue.unit.id : null,
+			};
 		}
 		return condition.valueData.value as string;
 	}

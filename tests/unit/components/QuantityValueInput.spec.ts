@@ -1,4 +1,5 @@
 import QuantityValueInput from '@/components/QuantityValueInput.vue';
+import { ItemValue } from '@/store/RootState';
 import { QuantityInput } from '@wmde/wikit-vue-components';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
@@ -99,10 +100,14 @@ describe( 'QuantityValueInput.vue', () => {
 
 	} );
 
-	it( 'pass unit part of value prop down to QuantityInput', () => {
-		const unitValue = { label: 'Stars', value: 'lil stars' };
+	it( 'pass unit part of value prop down to QuantityInput', async () => {
+		const store = new Vuex.Store( {} );
+		store.dispatch = jest.fn().mockResolvedValue( [] );
+		const unitValue: ItemValue = { label: 'Stars', id: 'lil stars' };
 
-		const wrapper = shallowMount( QuantityValueInput, {
+		const wrapper = await shallowMount( QuantityValueInput, {
+			store,
+			localVue,
 			propsData: {
 				...defaultProps,
 				value: {
@@ -113,6 +118,7 @@ describe( 'QuantityValueInput.vue', () => {
 		} );
 
 		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupValue' ) ).toBe( unitValue );
+		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupSearchInput' ) ).toBe( unitValue.id );
 	} );
 
 	it( 'passes error prop down to QuantityInput', async () => {
