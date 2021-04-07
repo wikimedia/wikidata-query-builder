@@ -25,6 +25,7 @@ export interface QuantityValue {
 	value: number;
 	precision?: number;
 	unit: ItemValue | null;
+	rawUnitInput?: string;
 }
 
 export interface DateValue {

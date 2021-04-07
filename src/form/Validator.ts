@@ -3,7 +3,8 @@ import BaseValidator from '@/form/BaseValidator';
 import ConditionValues, { ConditionErrors } from '@/form/ConditionValues';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import Error from '@/data-model/Error';
-import { Value } from '@/store/RootState';
+import QuantityValidator from '@/form/QuantityValidator';
+import { QuantityValue, Value } from '@/store/RootState';
 
 export interface ValidationResult {
 	formErrors: Error[];
@@ -84,6 +85,8 @@ export default class Validator {
 		}
 
 		switch ( property.datatype ) {
+			case 'quantity':
+				return ( new QuantityValidator() ).validateQuantityValue( value as QuantityValue );
 			default:
 				return ( new BaseValidator() ).validateValue( value );
 		}

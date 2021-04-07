@@ -162,8 +162,8 @@ export default Vue.extend( {
 				return null;
 			}
 			return {
+				...valueError,
 				message: this.$i18n( valueError.message ),
-				type: valueError.type,
 			};
 		},
 		...mapGetters( [

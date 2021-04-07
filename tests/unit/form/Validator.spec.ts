@@ -184,4 +184,153 @@ describe( 'validator', () => {
 
 		expect( validator.validate() ).toStrictEqual( expectedResult );
 	} );
+
+	describe( 'for quantity datatypes', () => {
+		it( 'returns an error if no number was entered', () => {
+			const formValues: ConditionValues = {
+				property: {
+					id: 'P31',
+					label: 'population',
+					datatype: 'quantity',
+				},
+				value: { value: NaN, unit: null, rawUnitInput: '' },
+				propertyValueRelation: PropertyValueRelation.Matching,
+			};
+
+			const expectedResult: ValidationResult = {
+				formErrors: [
+					{
+						type: 'error',
+						message: 'query-builder-result-error-incomplete-form',
+					},
+				],
+				fieldErrors: [ {
+					property: null,
+					value: {
+						type: 'error',
+						subproperty: 'number',
+						message: 'query-builder-quantity-value-error-number',
+					},
+				} ],
+			};
+
+			const validator = new Validator( [ formValues ] );
+
+			expect( validator.validate() ).toStrictEqual( expectedResult );
+		} );
+
+		it( 'returns an error if a unit was searched for but none selected', () => {
+			const formValues: ConditionValues = {
+				property: {
+					id: 'P31',
+					label: 'population',
+					datatype: 'quantity',
+				},
+				value: { value: 12, unit: null, rawUnitInput: 'kittens' },
+				propertyValueRelation: PropertyValueRelation.Matching,
+			};
+
+			const expectedResult: ValidationResult = {
+				formErrors: [
+					{
+						type: 'error',
+						message: 'query-builder-result-error-incomplete-form',
+					},
+				],
+				fieldErrors: [ {
+					property: null,
+					value: {
+						type: 'error',
+						subproperty: 'unit',
+						message: 'query-builder-quantity-value-error-unit',
+					},
+				} ],
+			};
+
+			const validator = new Validator( [ formValues ] );
+
+			expect( validator.validate() ).toStrictEqual( expectedResult );
+		} );
+
+		it( 'returns an error if no number was entered and a unit was searched for but none selected', () => {
+			const formValues: ConditionValues = {
+				property: {
+					id: 'P31',
+					label: 'population',
+					datatype: 'quantity',
+				},
+				value: { value: NaN, unit: null, rawUnitInput: 'kittens' },
+				propertyValueRelation: PropertyValueRelation.Matching,
+			};
+
+			const expectedResult: ValidationResult = {
+				formErrors: [
+					{
+						type: 'error',
+						message: 'query-builder-result-error-incomplete-form',
+					},
+				],
+				fieldErrors: [ {
+					property: null,
+					value: {
+						type: 'error',
+						subproperty: 'both',
+						message: 'query-builder-quantity-value-error-number-and-unit',
+					},
+				} ],
+			};
+
+			const validator = new Validator( [ formValues ] );
+
+			expect( validator.validate() ).toStrictEqual( expectedResult );
+		} );
+
+		it( 'returns no error if number was entered and the unit is empty', () => {
+			const formValues: ConditionValues = {
+				property: {
+					id: 'P31',
+					label: 'population',
+					datatype: 'quantity',
+				},
+				value: { value: 12, unit: null, rawUnitInput: '' },
+				propertyValueRelation: PropertyValueRelation.Matching,
+			};
+
+			const expectedResult: ValidationResult = {
+				formErrors: [],
+				fieldErrors: [ {
+					property: null,
+					value: null,
+				} ],
+			};
+
+			const validator = new Validator( [ formValues ] );
+
+			expect( validator.validate() ).toStrictEqual( expectedResult );
+		} );
+
+		it( 'returns an error if both number and unit were selected', () => {
+			const formValues: ConditionValues = {
+				property: {
+					id: 'P31',
+					label: 'population',
+					datatype: 'quantity',
+				},
+				value: { value: 12, unit: { id: 'Q123', label: 'Kitten' }, rawUnitInput: 'kitten' },
+				propertyValueRelation: PropertyValueRelation.Matching,
+			};
+
+			const expectedResult: ValidationResult = {
+				formErrors: [],
+				fieldErrors: [ {
+					property: null,
+					value: null,
+				} ],
+			};
+
+			const validator = new Validator( [ formValues ] );
+
+			expect( validator.validate() ).toStrictEqual( expectedResult );
+		} );
+	} );
 } );
