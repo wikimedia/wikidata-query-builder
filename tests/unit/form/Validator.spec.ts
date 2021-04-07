@@ -8,6 +8,7 @@ describe( 'validator', () => {
 			property: {
 				id: 'P31',
 				label: 'instance of',
+				datatype: 'wikibase-item',
 			},
 			value: 'Q5',
 			propertyValueRelation: PropertyValueRelation.Matching,
@@ -56,7 +57,7 @@ describe( 'validator', () => {
 
 	it( 'returns one error with a property empty', () => {
 		const formValues: ConditionValues = {
-			property: { id: '', label: '' },
+			property: { id: '', label: '', datatype: '' },
 			value: 'Q5',
 			propertyValueRelation: PropertyValueRelation.Matching,
 		};
@@ -87,6 +88,7 @@ describe( 'validator', () => {
 			property: {
 				id: 'P31',
 				label: 'instance of',
+				datatype: 'wikibase-item',
 			},
 			value: null,
 			propertyValueRelation: PropertyValueRelation.Matching,
@@ -118,6 +120,7 @@ describe( 'validator', () => {
 			property: {
 				id: 'P31',
 				label: 'instance of',
+				datatype: 'wikibase-item',
 			},
 			value: null,
 			propertyValueRelation: PropertyValueRelation.Regardless,

@@ -1,6 +1,9 @@
+import Property from '@/data-model/Property';
+import BaseValidator from '@/form/BaseValidator';
 import ConditionValues, { ConditionErrors } from '@/form/ConditionValues';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import Error from '@/data-model/Error';
+import { Value } from '@/store/RootState';
 
 export interface ValidationResult {
 	formErrors: Error[];
@@ -58,17 +61,32 @@ export default class Validator {
 				type: 'error',
 			};
 		}
-		if (
-			conditionValues.propertyValueRelation !== PropertyValueRelation.Regardless &&
-			!conditionValues.value
-		) {
-			fieldErrors.value = {
-				message: 'query-builder-result-error-missing-value',
-				type: 'error',
-			};
-		}
+		fieldErrors.value = this.validateConditionValue(
+			conditionValues.property,
+			conditionValues.propertyValueRelation,
+			conditionValues.value,
+		);
 
 		return fieldErrors;
+	}
+
+	private validateConditionValue(
+		property: Property | null,
+		propertyValueRelation: PropertyValueRelation,
+		value: Value | null,
+	): Error | null {
+		if ( propertyValueRelation === PropertyValueRelation.Regardless ) {
+			return null;
+		}
+
+		if ( !property ) {
+			return ( new BaseValidator() ).validateValue( value );
+		}
+
+		switch ( property.datatype ) {
+			default:
+				return ( new BaseValidator() ).validateValue( value );
+		}
 	}
 
 	private isEmpty(): boolean {
