@@ -1,12 +1,12 @@
 <template>
 	<QuantityInput
 		:label="$i18n('query-builder-quantity-value-label')"
-		@update:numberInputValue="$emit( 'numberInputValue', numberInputValue )"
-		@update:unitLookupValue="$emit('unitLookupValue', unitLookupValue )"
+		@update:numberInputValue="onValueChange"
+		@update:unitLookupValue="onValueChange"
 		:error="error ? {message: $i18n(error.message), type: error.type} : null"
-		:numberInputValue="numberInputValue"
+		:numberInputValue.sync="numberInputValue"
 		:numberInputPlaceholder="$i18n('query-builder-quantity-value-number-input-placeholder')"
-		:unitLookupValue="unitLookupValue"
+		:unitLookupValue.sync="unitLookupValue"
 		:unitLookupPlaceholder="$i18n('query-builder-quantity-value-unit-lookup-input-placeholder')"
 		:unitLookupLabel="$i18n('query-builder-quantity-value-unit-lookup-label')"
 		:unitLookupMenuItems="searchResults"
@@ -31,11 +31,12 @@
 <script lang="ts">
 
 import { QuantityInput } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';
 import InfoTooltip from '@/components/InfoTooltip.vue';
+import { QuantityValue } from '@/store/RootState';
 import debounce from 'lodash/debounce';
 
 const NUMBER_OF_SEARCH_RESULTS = 12;
@@ -47,12 +48,21 @@ export default Vue.extend( {
 			search: '',
 			searchResults: [] as MenuItem[],
 			topItemIndex: 1,
-			numberInputValue: this.numberValue === null ? null : this.numberValue.toString(),
-			unitLookupValue: this.unitValue,
+			numberInputValue: this.value === null ? null : this.value.value.toString(),
+			unitLookupValue: this.value === null ? null : this.value.unit,
 			debouncedUpdateMenuItems: null as Function | null,
 		};
 	},
 	methods: {
+		async onValueChange(): Promise<void> {
+			await this.$nextTick();
+			const value: QuantityValue = {
+				value: Number( this.numberInputValue ),
+				unit: this.unitLookupValue,
+			};
+
+			this.$emit( 'input', value );
+		},
 		async handleScroll( event: number ): Promise<void> {
 			if ( this.topItemIndex <= event ) {
 				this.topItemIndex += NUMBER_OF_SEARCH_RESULTS;
@@ -112,12 +122,8 @@ export default Vue.extend( {
 		},
 	},
 	props: {
-		numberValue: {
-			type: Number,
-			default: 0,
-		},
-		unitValue: {
-			type: Object,
+		value: {
+			type: Object as PropType<QuantityValue | null>,
 			default: null,
 		},
 		error: {

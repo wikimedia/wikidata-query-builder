@@ -23,44 +23,59 @@ const defaultProps = {
 };
 
 describe( 'QuantityValueInput.vue', () => {
-	it( 'bubbles numberInputValue event from the QuantityInput up', () => {
+	it( 'bubbles numberInputValue event as input from the QuantityInput up', async () => {
 
 		const numberValue = 10;
 		const stringNumberValue = numberValue.toString();
 		const wrapper = shallowMount( QuantityValueInput, {
 			propsData: {
 				...defaultProps,
-				numberValue,
-			} } );
+				value: null,
+			},
+		} );
 
-		wrapper.findComponent( QuantityInput ).vm.$emit( 'update:numberInputValue', stringNumberValue );
+		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:numberInputValue', stringNumberValue );
+		await localVue.nextTick();
 
-		expect( wrapper.emitted( 'numberInputValue' )![ 0 ][ 0 ] ).toBe( stringNumberValue );
+		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toStrictEqual( {
+			value: numberValue,
+			unit: null,
+		} );
 	} );
 
-	it( 'bubbles unitLookupValue event from the QuantityInput up', () => {
+	it( 'bubbles unitLookupValue event as input from the QuantityInput up', async () => {
 
 		const unitValue = { label: 'Dogs', value: 'doggos' };
 
 		const wrapper = shallowMount( QuantityValueInput, {
 			propsData: {
 				...defaultProps,
-				numberValue: 5,
-				unitValue,
-			} } );
+				value: {
+					value: 5,
+					unit: null,
+				},
+			},
+		} );
 
-		wrapper.findComponent( QuantityInput ).vm.$emit( 'update:unitLookupValue', unitValue );
+		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:unitLookupValue', unitValue );
+		await localVue.nextTick();
 
-		expect( wrapper.emitted( 'unitLookupValue' )![ 0 ][ 0 ] ).toBe( unitValue );
+		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toStrictEqual( {
+			value: 5,
+			unit: unitValue,
+		} );
 	} );
 
-	it( 'pass numberValue prop down to QuantityInput', () => {
+	it( 'pass number part of value prop down to QuantityInput', () => {
 		const numberValue = 10;
 
 		const wrapper = shallowMount( QuantityValueInput, {
 			propsData: {
 				...defaultProps,
-				numberValue,
+				value: {
+					value: numberValue,
+					unit: null,
+				},
 			},
 		} );
 
@@ -82,14 +97,16 @@ describe( 'QuantityValueInput.vue', () => {
 
 	} );
 
-	it( 'pass unitValue prop down to QuantityInput', () => {
+	it( 'pass unit part of value prop down to QuantityInput', () => {
 		const unitValue = { label: 'Stars', value: 'lil stars' };
 
 		const wrapper = shallowMount( QuantityValueInput, {
 			propsData: {
 				...defaultProps,
-				numberValue: 10,
-				unitValue,
+				value: {
+					value: 10,
+					unit: unitValue,
+				},
 			},
 		} );
 
