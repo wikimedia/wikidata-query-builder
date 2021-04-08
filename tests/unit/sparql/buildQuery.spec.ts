@@ -1,12 +1,13 @@
+import TimeValue from '@/data-model/TimeValue';
 import buildQuery from '@/sparql/buildQuery';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import { Condition } from '@/sparql/QueryRepresentation';
+import { Condition, ConditionValue } from '@/sparql/QueryRepresentation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import ConditionRelation from '@/data-model/ConditionRelation';
 
 describe( 'buildQuery', () => {
 
-	function getSimpleCondition( propertyId: string, value: string ): Condition {
+	function getSimpleCondition( propertyId: string, value: ConditionValue ): Condition {
 		const propertyValueRelation = PropertyValueRelation.Matching;
 		const simpleCondition: Condition = {
 			propertyId,
@@ -365,4 +366,78 @@ describe( 'buildQuery', () => {
 
 		expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
 	} );
+
+	describe( 'Queries for date values', () => {
+
+		it( 'builds a query from a property and a date value with day precision', () => {
+			const propertyId = 'P585';
+			const value: TimeValue = { value: '+1789-07-14T00:00:00Z', precision: 11 };
+			const expectedQuery = `SELECT DISTINCT ?item WHERE {
+			?item p:${propertyId} ?statement_0.
+			?statement_0 psv:${propertyId} ?statementValue_0. 
+			?statementValue_0 wikibase:timeValue ?P585_0.
+			BIND("${value.value}"^^xsd:dateTime AS ?P585_0)
+		 }`;
+			const testCondition = getSimpleCondition( propertyId, value );
+			testCondition.datatype = 'time';
+			const actualQuery = buildQuery( {
+				conditions: [
+					testCondition,
+				],
+				omitLabels: true,
+			} );
+			expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
+		} );
+
+		it( 'builds a query from a property and a date value with month precision', () => {
+			const propertyId = 'P585';
+			const value: TimeValue = { value: '+1789-07-00T00:00:00Z', precision: 10 };
+			const expectedQuery = `SELECT DISTINCT ?item WHERE {
+			?item p:${propertyId} ?statement_0.
+			?statement_0 psv:${propertyId} ?statementValue_0.
+
+			?statementValue_0 wikibase:timePrecision ?precision_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+			FILTER(?precision_0 >= "10"^^xsd:decimal)
+
+			?statementValue_0 wikibase:timeValue ?P585_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+			FILTER(("+1789-07-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) &&
+         (?P585_0 < "+1789-08-00T00:00:00Z"^^xsd:dateTime))
+		 }`;
+			const testCondition = getSimpleCondition( propertyId, value );
+			testCondition.datatype = 'time';
+			const actualQuery = buildQuery( {
+				conditions: [
+					testCondition,
+				],
+				omitLabels: true,
+			} );
+			expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
+		} );
+
+		it( 'builds a query from a property and a date value with year precision', () => {
+			const propertyId = 'P585';
+			const value: TimeValue = { value: '+1789-00-00T00:00:00Z', precision: 9 };
+			const expectedQuery = `SELECT DISTINCT ?item WHERE {
+			?item p:${propertyId} ?statement_0.
+			?statement_0 psv:${propertyId} ?statementValue_0.
+
+			?statementValue_0 wikibase:timePrecision ?precision_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+			FILTER(?precision_0 >= "9"^^xsd:decimal)
+
+			?statementValue_0 wikibase:timeValue ?P585_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+			FILTER(("+1789-00-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) &&
+         (?P585_0 < "+1790-00-00T00:00:00Z"^^xsd:dateTime))
+		 }`;
+			const testCondition = getSimpleCondition( propertyId, value );
+			testCondition.datatype = 'time';
+			const actualQuery = buildQuery( {
+				conditions: [
+					testCondition,
+				],
+				omitLabels: true,
+			} );
+			expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
+		} );
+	} );
+
 } );
