@@ -11,7 +11,7 @@ const allowedDataTypes = [
 	'url',
 	'math',
 	'musical-notation',
-    'time',
+	'time',
 	'globe-coordinate',
 	'monolingualtext',
     'wikibase-property',
