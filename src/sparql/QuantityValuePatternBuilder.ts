@@ -1,4 +1,4 @@
-import PropertyValueRelation, { BasePropertyValueRelation } from '@/data-model/PropertyValueRelation';
+import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import UnitValue from '@/data-model/UnitValue';
 import { Condition, ConditionValue } from '@/sparql/QueryRepresentation';
@@ -249,11 +249,15 @@ export default class QuantityValuePatternBuilder implements ValuePatternBuilder 
 	}
 
 	private getFilterOperatorFromRelation( propertyValueRelation: PropertyValueRelation ): string | null {
-		switch ( propertyValueRelation as BasePropertyValueRelation ) {
+		switch ( propertyValueRelation as PropertyValueRelation ) {
 			case PropertyValueRelation.Matching:
 				return '=';
 			case PropertyValueRelation.NotMatching:
 				return '!=';
+			case PropertyValueRelation.LessThan:
+				return '<';
+			case PropertyValueRelation.MoreThan:
+				return '>';
 			case PropertyValueRelation.Regardless:
 				return null;
 		}

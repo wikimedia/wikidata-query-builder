@@ -1,4 +1,4 @@
-import { BasePropertyValueRelation } from '@/data-model/PropertyValueRelation';
+import { BasePropertyValueRelation, RangePropertyValueRelation } from '@/data-model/PropertyValueRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import buildQuery from '@/sparql/buildQuery';
 import QueryRepresentation, { Condition } from '@/sparql/QueryRepresentation';
@@ -78,6 +78,16 @@ describe( 'buildQuery', () => {
 		{
 			value: { value: 3.2, unit: 'Q9000' },
 			datatype: 'quantity',
+		},
+		{
+			value: { value: 3.2, unit: null },
+			datatype: 'quantity',
+			propertyValueRelation: RangePropertyValueRelation.MoreThan,
+		},
+		{
+			value: { value: 3.2, unit: null },
+			datatype: 'quantity',
+			propertyValueRelation: RangePropertyValueRelation.LessThan,
 		},
 		{
 			propertyId: 'P585',
