@@ -37,4 +37,42 @@ describe( 'ValueTypeDropDown.vue', () => {
 
 		expect( wrapper.findComponent( Dropdown ).props( 'disabled' ) ).toBe( true );
 	} );
+
+	it( 'contains the base three options for datatype string', () => {
+		const wrapper = mount( ValueTypeDropDown, {
+			propsData: {
+				value: PropertyValueRelation.Matching,
+				datatype: 'string',
+				disabled: true,
+			},
+		} );
+
+		const optionValues = wrapper.findComponent( Dropdown ).props( 'menuItems' ).map(
+			( option: { value: string } ) => option.value,
+		);
+
+		expect( optionValues ).toStrictEqual( [ 'matching', 'without', 'regardless-of-value' ] );
+	} );
+
+	it( 'contains the base three and two range options for datatype quantity', () => {
+		const wrapper = mount( ValueTypeDropDown, {
+			propsData: {
+				value: PropertyValueRelation.Matching,
+				datatype: 'quantity',
+				disabled: true,
+			},
+		} );
+
+		const optionValues = wrapper.findComponent( Dropdown ).props( 'menuItems' ).map(
+			( option: { value: string } ) => option.value,
+		);
+
+		expect( optionValues ).toStrictEqual( [
+			'matching',
+			'without',
+			'regardless-of-value',
+			'less-than',
+			'more-than',
+		] );
+	} );
 } );

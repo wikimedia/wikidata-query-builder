@@ -17,6 +17,7 @@
 					class="query-condition__value-type-dropdown"
 					v-model="selectedPropertyValueRelation"
 					:disabled="limitedSupport(conditionIndex)"
+					:datatype="datatype"
 				/>
 			</div>
 			<div>

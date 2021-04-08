@@ -14,7 +14,10 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PropertyValueRelation, { BasePropertyValueRelation } from '@/data-model/PropertyValueRelation';
+import PropertyValueRelation, {
+	BasePropertyValueRelation,
+	RangePropertyValueRelation,
+} from '@/data-model/PropertyValueRelation';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { Dropdown } from '@wmde/wikit-vue-components';
 
@@ -29,6 +32,10 @@ export default Vue.extend( {
 			type: String as PropType<PropertyValueRelation>,
 			required: true,
 		},
+		datatype: {
+			type: String,
+			default: null,
+		},
 		disabled: {
 			type: Boolean,
 			default: false,
@@ -41,19 +48,40 @@ export default Vue.extend( {
 	},
 	computed: {
 		optionItems(): PropertyValueRelationMenuItem[] {
-			return Object.values( BasePropertyValueRelation ).map( ( value: BasePropertyValueRelation ) => {
-				return {
-					/*
-					* Values that can be used here:
-					* query-builder-value-type-relation-dropdown-matching
-					* query-builder-value-type-relation-dropdown-without
-					* query-builder-value-type-relation-dropdown-regardless-of-value
-					*/
-					label: this.$i18n( `query-builder-value-type-relation-dropdown-${value}` ),
-					description: '',
-					value,
-				};
-			} );
+			const relationOptions: PropertyValueRelationMenuItem[] = Object.values( BasePropertyValueRelation ).map(
+				( value: BasePropertyValueRelation ) => {
+					return {
+						/*
+						* Values that can be used here:
+						* query-builder-value-type-relation-dropdown-matching
+						* query-builder-value-type-relation-dropdown-without
+						* query-builder-value-type-relation-dropdown-regardless-of-value
+						*/
+						label: this.$i18n( `query-builder-value-type-relation-dropdown-${value}` ),
+						description: '',
+						value,
+					};
+				},
+			);
+
+			if ( this.datatype === 'quantity' ) {
+				relationOptions.push( ...Object.values( RangePropertyValueRelation ).map(
+					( value: RangePropertyValueRelation ) => {
+						return {
+							/*
+							* Values that can be used here:
+							* query-builder-value-type-relation-dropdown-less-than-quantity
+							* query-builder-value-type-relation-dropdown-more-than-quantity
+							*/
+							label: this.$i18n( `query-builder-value-type-relation-dropdown-${value}-quantity` ),
+							description: '',
+							value,
+						};
+					},
+				) );
+			}
+
+			return relationOptions;
 		},
 		selected(): PropertyValueRelationMenuItem | null {
 			return this.optionItems.find(
