@@ -38,6 +38,7 @@
 	"query-builder-condition-placeholder": "쿼리 작성을 시작하기 위해 조건 추가",
 	"query-builder-condition-relation-toggle-and": "그리고",
 	"query-builder-condition-relation-toggle-or": "또는",
+	"query-builder-limit-number-error-message": "제한은 숫자여야 합니다",
 	"query-builder-limit-number-results-description": "결과 수를 다음으로 제한",
 	"query-builder-limit-number-placeholder": "숫자를 입력하십시오",
 	"query-builder-limit-number-screenreader-label": "최대 결과 수",
@@ -46,5 +47,9 @@
 	"query-builder-negation-option-label-with": "포함",
 	"query-builder-negation-option-label-without": "제외",
 	"query-builder-sharable-link-text": "공유 링크 가져오기",
-	"query-builder-sharable-link-message": "URL이 클립보드에 복사되었습니다!"
+	"query-builder-sharable-link-message": "URL이 클립보드에 복사되었습니다!",
+	"query-builder-quantity-value-label": "값과 단위 (선택 사항)",
+	"query-builder-quantity-value-number-input-placeholder": "숫자를 입력하십시오",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "단위를 입력하십시오",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "단위 (선택 사항)"
 }

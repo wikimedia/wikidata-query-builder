@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Achiri Bitamsimli",
+			"Alhassan Mohammed Awal",
+			"Alhassan Peter",
+			"Anamzooya",
+			"Chirifo",
+			"Din-nani1",
+			"Hasslaebetch",
+			"Ruky Wunpini"
+		]
+	},
+	"query-builder-result-error-incomplete-form": "Yaɤ'yini bee zaɤ'bobgu nyɛla zaɤa kuma bee din mali lahabali din ka milinsi.",
+	"query-builder-reference-relation-tooltip": "Ani tooi faɣilim a vihigu maa zaŋ chaŋ din mali Kundivihira ni din ka.",
+	"query-builder-limit-number-error-message": "Di tarika tu ni di yɛ kalinli",
+	"query-builder-include-subclasses": "Zaŋmi timsim pahi vihibu maa ni",
+	"query-builder-quantity-value-label": "Timsim mini yaɤili(di pa talahi)",
+	"query-builder-quantity-value-number-input-placeholder": "Kpɛhimi kalinli",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "Kpɛhimi yaɣili",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Yaɣili (piibu)",
+	"query-builder-footer-about-query-builder": "Zaŋ chaŋ bɔhisi",
+	"query-builder-footer-licence": "Fukumsi Saɣiti [$1 BSD 3-Clause License]",
+	"query-builder-footer-build-time": "Di bahigu mɛbu zaŋ chaŋ [$1 $2]",
+	"query-builder-footer-view-source": "Lihibu soli",
+	"query-builder-footer-report-link": "Yɛlti",
+	"query-builder-footer-about-us": "Zaŋ chaŋ ti polo",
+	"query-builder-footer-privacy-policy": "Bɛhigu sɔɣsinli",
+	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland tiŋgbani",
+	"query-builder-footer-team": "Wikidata lamgu maalibu"
+}

@@ -24,9 +24,15 @@
 	"query-builder-delete-condition": "Cancella condizione",
 	"query-builder-condition-relation-toggle-and": "e",
 	"query-builder-condition-relation-toggle-or": "o",
+	"query-builder-limit-number-error-message": "Il limite deve essere un numero",
 	"query-builder-limit-number-results-description": "Limita il numero di risultati a",
 	"query-builder-limit-number-placeholder": "Inserisci un numero",
 	"query-builder-limit-number-screenreader-label": "Numero massimo di risultati.",
 	"query-builder-negation-option-label-with": "Con",
-	"query-builder-negation-option-label-without": "Senza"
+	"query-builder-negation-option-label-without": "Senza",
+	"query-builder-quantity-value-error-number": "Inserisci un numero",
+	"query-builder-quantity-value-label": "Valore e unità (facoltativa)",
+	"query-builder-quantity-value-number-input-placeholder": "Inserisci un numero",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "Inserisci un'unità",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Unità (facoltativa)"
 }

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Amire80",
 			"MuratTheTurkish",
 			"Robby"
 		]
@@ -47,7 +48,7 @@
 	"query-builder-limit-number-screenreader-label": "Label for screen-readers only for the number input that limits the number of results. There is a separate checkbox to turn the limit on or off.",
 	"query-builder-label-opt-out": "Label for checkbox to select showing IDs instead of labels in search results. Selecting this option can help prevent timeouts in big queries",
 	"query-builder-include-subclasses": "Label for checkbox for including subcategories from the selected value within a condition in search results",
-	"query-builder-include-subclasses-tooltip": "Tooltip explaining the subclasses checkbox.",
+	"query-builder-include-subclasses-tooltip": "Tooltip explaining the \"subclasses\" checkbox. For right to left languages, use the ← arrow.",
 	"query-builder-negation-option-label-with": "Label for an option in the toggle for choosing between including or excluding items that match the given condition. This is the label for choosing to **include** the items. See also {msg-mw|query-builder-negation-option-label-without}}",
 	"query-builder-negation-option-label-without": "Label for an option in the toggle for choosing between including or excluding items that match the given condition. This is the label for choosing to **exclude** the items. See also {msg-mw|query-builder-negation-option-label-with}}",
 	"query-builder-sharable-link-text": "Text letting user they can copy a sharable link.",
@@ -57,7 +58,7 @@
 	"query-builder-quantity-value-error-number-and-unit": "Error message for the entire quantity input if both not a valid number was entered, and search text was entered into the unit part of the input, but no unit-item was selected. See also {{msg-mw|query-builder-quantity-value-error-number}} and {{msg-mw|query-builder-quantity-value-error-unit}}",
 	"query-builder-quantity-value-label": "Label above the quantity value input",
 	"query-builder-quantity-value-number-input-placeholder": "Placeholder message displayed in the number input part of a quantity input",
-  	"query-builder-quantity-value-unit-lookup-input-placeholder": "Placeholder message displayed in the unit part of a quantity input",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "Placeholder message displayed in the unit part of a quantity input",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Label for screen-readers only for unit input of the quantity value component",
 	"query-builder-footer-about-query-builder": "Title of the footer column containing links related to query builder",
 	"query-builder-footer-licence": "Link to the licence of the source code",

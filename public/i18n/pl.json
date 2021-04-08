@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"Chrumps",
 			"Rail"
 		]
 	},
 	"query-builder-heading": "Prosty kreator zapytań",
+	"query-builder-query-heading": "Zapytanie",
+	"query-builder-settings-heading": "Ustawienia",
 	"query-builder-find-all-items": "Znajdź wszystkie elementy…",
 	"query-builder-run-query": "Uruchom zapytanie",
 	"query-builder-input-value-label": "Wartość",
@@ -22,6 +25,13 @@
 	"query-builder-result-error-missing-property": "Wybierz właściwość",
 	"query-builder-result-error-missing-value": "Wprowadź wartość",
 	"query-builder-add-condition": "Dodaj warunek",
+	"query-builder-reference-relation-label": "Przypisy",
 	"query-builder-delete-condition": "Usuń warunek",
-	"query-builder-label-opt-out": "Pokazuj ID zamiast etykiet (zapobiega błędom)"
+	"query-builder-condition-relation-toggle-and": "i",
+	"query-builder-condition-relation-toggle-or": "lub",
+	"query-builder-limit-number-results-description": "Ogranicz liczbę wyników do",
+	"query-builder-limit-number-placeholder": "Wpisz liczbę",
+	"query-builder-limit-number-screenreader-label": "Maksymalna liczba wyników",
+	"query-builder-label-opt-out": "Pokazuj ID zamiast etykiet (zapobiega błędom)",
+	"query-builder-sharable-link-message": "Adres URL skopiowany do schowka!"
 }

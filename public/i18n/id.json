@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Daud I.F. Argana"
+			"Daud I.F. Argana",
+			"Naufal06"
 		]
 	},
-	"query-builder-heading": "Pembangun Kueri Sederhana",
+	"query-builder-heading": "Pembangun Kueri Wikidata",
 	"query-builder-find-all-items": "Cari semua butir...",
 	"query-builder-run-query": "Jalankan kueri",
 	"query-builder-input-value-label": "Nilai",

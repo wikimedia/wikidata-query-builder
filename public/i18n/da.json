@@ -14,5 +14,6 @@
 	"query-builder-condition-relation-toggle-and": "og",
 	"query-builder-condition-relation-toggle-or": "eller",
 	"query-builder-negation-option-label-with": "Med",
-	"query-builder-negation-option-label-without": "Uden"
+	"query-builder-negation-option-label-without": "Uden",
+	"query-builder-footer-about-us": "Om os"
 }

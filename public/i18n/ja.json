@@ -44,7 +44,7 @@
 	"query-builder-limit-number-placeholder": "数字を入力",
 	"query-builder-limit-number-screenreader-label": "結果の最大数",
 	"query-builder-label-opt-out": "ラベルの代わりにIDを表示（タイムアウトを抑制します）",
-	"query-builder-include-subclasses": "さらに値のサブカテゴリからの値を含む",
+	"query-builder-include-subclasses": "検索に関連のある値を含める (推奨)",
 	"query-builder-sharable-link-text": "共有リンクを取得",
 	"query-builder-sharable-link-message": "URLがクリップボードにコピーされました！"
 }
