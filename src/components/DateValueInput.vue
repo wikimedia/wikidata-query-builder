@@ -46,6 +46,11 @@ export default Vue.extend( {
 			this.debouncedDateValue( event );
 		},
 	},
+	mounted() {
+		if ( this.value ) {
+			this.rawInput = this.value.formattedValue || '';
+		}
+	},
 	props: {
 		value: {
 			type: Object as PropType<DateValue>,

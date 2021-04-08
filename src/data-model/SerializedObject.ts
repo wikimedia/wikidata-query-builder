@@ -7,7 +7,12 @@ export interface SerializedQuantityValue {
 	unit: null | string;
 }
 
-export type SerializedValue = string | SerializedQuantityValue;
+export interface SerializedDateValue {
+	value: string;
+	precision: number;
+}
+
+export type SerializedValue = string | SerializedQuantityValue | SerializedDateValue;
 
 export default interface SerializedCondition {
 	propertyId: string;
