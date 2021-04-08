@@ -2,6 +2,7 @@ import QuerySerializer from '@/serialization/QuerySerializer';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import RootState, { ConditionRow, Value } from '@/store/RootState';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
+import ParseResult from '@/data-access/ParseResult';
 
 function getStateConditionRow( propertyId: string, value: Value, datatype = 'string' ): ConditionRow {
 	const simpleCondition =
@@ -179,6 +180,48 @@ describe( 'QuerySerializer', () => {
 				"propertyValueRelation":"matching",
 				"referenceRelation":"regardless",
 				"value": { "value":4800, "unit":"Q123"},
+				"subclasses":false,
+				"conditionRelation":null,
+				"negate":false}],
+			"limit":100,
+			"useLimit":true,
+			"omitLabels": false}
+		`;
+		expect( actualSerialization ).toEqual( expectedSerialization.replace( /\s+/g, '' ) );
+	} );
+
+	it( 'serializes a condition with datatype time', () => {
+		const parseResult: ParseResult = {
+			value: {
+				time: '+1994-02-08T00:00:00Z',
+				timezone: 0,
+				before: 0,
+				after: 0,
+				precision: 11,
+				calendarmodel: '',
+			},
+			type: 'time',
+		};
+		const givenState: RootState = {
+			conditionRows: [ getStateConditionRow(
+				'P2044',
+				{ parseResult: parseResult, formattedValue: '+1994-02-08T00:00:00Z', precision: 11 },
+				'time',
+			) ],
+			limit: 100,
+			useLimit: true,
+			errors: [],
+			omitLabels: false,
+		};
+		const serializer = new QuerySerializer();
+		const actualSerialization = serializer.serialize( givenState );
+		const expectedSerialization = `
+			{"conditions":[{
+				"propertyId":"P2044",
+				"propertyDataType":"time",
+				"propertyValueRelation":"matching",
+				"referenceRelation":"regardless",
+				"value": { "value":"+1994-02-08T00:00:00Z", "precision":11 },
 				"subclasses":false,
 				"conditionRelation":null,
 				"negate":false}],

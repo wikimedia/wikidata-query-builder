@@ -1,4 +1,4 @@
-import RootState, { ConditionRow, ItemValue, QuantityValue } from '@/store/RootState';
+import RootState, { ConditionRow, ItemValue, QuantityValue, DateValue } from '@/store/RootState';
 import SerializedObject, { SerializedValue } from '@/data-model/SerializedObject';
 
 export default class QuerySerializer {
@@ -39,6 +39,18 @@ export default class QuerySerializer {
 				value: quantityValue.value,
 				unit: quantityValue.unit ? quantityValue.unit.id : null,
 			};
+		}
+		if ( condition.propertyData.datatype === 'time' ) {
+			const dateValue: DateValue = condition.valueData.value as DateValue;
+
+			if ( dateValue.parseResult ) {
+				return {
+					value: dateValue.parseResult.value.time,
+					precision: dateValue.parseResult.value.precision,
+				};
+			}
+
+			return '';
 		}
 		return condition.valueData.value as string;
 	}

@@ -1,6 +1,7 @@
 import DeserializationError from '@/serialization/DeserializationError';
 import RootState, { ConditionRow, PropertyData, Value } from '@/store/RootState';
-import SerializedCondition, { SerializedQuantityValue, SerializedValue } from '@/data-model/SerializedObject';
+import SerializedCondition, { SerializedQuantityValue,
+	SerializedDateValue, SerializedValue } from '@/data-model/SerializedObject';
 
 export default class QueryDeserializer {
 	public deserialize( queryString: string ): RootState {
@@ -69,6 +70,23 @@ export default class QueryDeserializer {
 				rawUnitInput: '',
 			};
 		}
+		if ( this.isDateValue( condition, condition.value ) ) {
+			return {
+				parseResult: {
+					value: {
+						time: condition.value.value,
+						after: 0,
+						before: 0,
+						calendarmodel: '',
+						precision: condition.value.precision,
+						timezone: 0,
+					},
+					type: 'time',
+				},
+				formattedValue: condition.value.value,
+				precision: condition.value.precision,
+			};
+		}
 		if ( condition.propertyDataType === 'wikibase-item' ) {
 			return {
 				id: condition.value,
@@ -81,5 +99,10 @@ export default class QueryDeserializer {
 	private isQuantityValue( condition: SerializedCondition, _conditionValue: SerializedValue ):
 		_conditionValue is SerializedQuantityValue {
 		return condition.propertyDataType === 'quantity';
+	}
+
+	private isDateValue( condition: SerializedCondition, _conditionValue: SerializedValue ):
+		_conditionValue is SerializedDateValue {
+		return condition.propertyDataType === 'time';
 	}
 }

@@ -2,6 +2,7 @@ import QueryDeserializer from '@/serialization/QueryDeserializer';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import RootState, { ConditionRow, Value } from '@/store/RootState';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
+import ParseResult from '@/data-access/ParseResult';
 
 function getStateConditionRow( propertyId: string, value: Value, datatype = 'string' ): ConditionRow {
 	const simpleCondition =
@@ -160,6 +161,53 @@ describe( 'QueryDeserializer', () => {
 					'P2044',
 					{ value: 4800, unit: { id: 'Q123', label: 'Q123' }, rawUnitInput: '' },
 					'quantity',
+				),
+			],
+			limit: 100,
+			useLimit: true,
+			omitLabels: false,
+			errors: [],
+		};
+		expect( deserializedState ).toStrictEqual( expectedState );
+	} );
+
+	it( 'deserializes a condition with datatype time', () => {
+		const givenSerialization = `
+			{"conditions":[{
+				"propertyId":"P2044",
+				"propertyDataType":"time",
+				"propertyValueRelation":"matching",
+				"referenceRelation":"regardless",
+				"value": { "value":"+1994-02-08T00:00:00Z", "precision":11 },
+				"subclasses":false,
+				"conditionRelation":null,
+				"negate":false}],
+			"limit":100,
+			"useLimit":true,
+			"omitLabels": false}
+		`;
+		const deserializer = new QueryDeserializer();
+
+		const deserializedState = deserializer.deserialize( givenSerialization );
+
+		const parseResult: ParseResult = {
+			value: {
+				time: '+1994-02-08T00:00:00Z',
+				timezone: 0,
+				before: 0,
+				after: 0,
+				precision: 11,
+				calendarmodel: '',
+			},
+			type: 'time',
+		};
+
+		const expectedState: RootState = {
+			conditionRows: [
+				getStateConditionRow(
+					'P2044',
+					{ parseResult, formattedValue: '+1994-02-08T00:00:00Z', precision: 11 },
+					'time',
 				),
 			],
 			limit: 100,
