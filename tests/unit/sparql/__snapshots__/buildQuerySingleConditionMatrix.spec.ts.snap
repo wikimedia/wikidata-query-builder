@@ -8,22 +8,6 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
@@ -33,43 +17,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-  FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-  FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 1`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-  FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-  FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 3`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
@@ -156,41 +104,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 1`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-  FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-  FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 3`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
@@ -208,39 +122,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-  FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-  FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "regardless", "subclasses": false, "value": ""} 1`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "regardless", "subclasses": false, "value": ""} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "regardless", "subclasses": false, "value": ""} 3`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
@@ -269,22 +151,6 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "with", "subclasses": false, "value": ""} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "with", "subclasses": false, "value": ""} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "with", "subclasses": false, "value": [Object]} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
@@ -302,22 +168,6 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 `;
 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "without", "subclasses": false, "value": ""} 1`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "without", "subclasses": false, "value": ""} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item p:P123 ?statement0.
-  ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "without", "subclasses": false, "value": ""} 3`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
@@ -422,28 +272,6 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-  }
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
@@ -456,55 +284,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-    FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-    FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 1`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-    FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
-    FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 3`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
@@ -615,53 +395,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-  }
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 1`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-    FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-    FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 3`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
@@ -685,51 +419,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-    FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "more-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
-    FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "regardless", "subclasses": false, "value": ""} 1`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "regardless", "subclasses": false, "value": ""} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "regardless", "subclasses": false, "value": ""} 3`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
@@ -770,28 +460,6 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "with", "subclasses": false, "value": ""} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "with", "subclasses": false, "value": ""} 3`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "with", "subclasses": false, "value": [Object]} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
@@ -815,28 +483,6 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 `;
 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "without", "subclasses": false, "value": ""} 1`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "without", "subclasses": false, "value": ""} 2`] = `
-"SELECT DISTINCT ?item WHERE {
-  ?item wikibase:sitelinks _:anyValue.
-  MINUS {
-    ?item p:P123 ?statement0.
-    ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
-  }
-}"
-`;
-
-exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": true, "propertyId": "P123", "propertyValueRelation": "regardless-of-value", "referenceRelation": "without", "subclasses": false, "value": ""} 3`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
