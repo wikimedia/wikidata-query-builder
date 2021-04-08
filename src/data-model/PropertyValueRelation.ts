@@ -4,7 +4,7 @@ export enum BasePropertyValueRelation {
 	Regardless = 'regardless-of-value',
 }
 
-enum RangePropertyValueRelation {
+export enum RangePropertyValueRelation {
 	LessThan = 'less-than',
 	MoreThan = 'more-than',
 }
