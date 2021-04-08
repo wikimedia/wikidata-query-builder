@@ -1,6 +1,6 @@
+import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ConditionValues from '@/form/ConditionValues';
 import Validator, { ValidationResult } from '@/form/Validator';
-import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 
 describe( 'validator', () => {
 	it( 'returns no errors with a complete form', () => {
@@ -333,4 +333,106 @@ describe( 'validator', () => {
 			expect( validator.validate() ).toStrictEqual( expectedResult );
 		} );
 	} );
+
+	describe( 'for time datatypes', () => {
+		it( 'returns a missing value error if the value is plain missing', () => {
+			const formValues: ConditionValues = {
+				property: {
+					id: 'P585',
+					label: 'point in time',
+					datatype: 'time',
+				},
+				value: null,
+				propertyValueRelation: PropertyValueRelation.Matching,
+			};
+			const expectedResult: ValidationResult = {
+				formErrors: [
+					{
+						message: 'query-builder-result-error-incomplete-form',
+						type: 'error',
+					},
+				],
+				fieldErrors: [ {
+					property: null,
+					value: {
+						message: 'query-builder-result-error-missing-value',
+						type: 'error',
+					},
+				} ],
+			};
+
+			const validator = new Validator( [ formValues ] );
+
+			expect( validator.validate() ).toStrictEqual( expectedResult );
+		} );
+
+		it( 'returns and error with the API\'s error message if there is only formattedValue', () => {
+			const apiError = 'The value is malformed.';
+			const formValues: ConditionValues = {
+				property: {
+					id: 'P585',
+					label: 'point in time',
+					datatype: 'time',
+				},
+				value: { parseResult: null, formattedValue: apiError },
+				propertyValueRelation: PropertyValueRelation.Matching,
+			};
+			const expectedResult: ValidationResult = {
+				formErrors: [
+					{
+						message: 'query-builder-result-error-incomplete-form',
+						type: 'error',
+					},
+				],
+				fieldErrors: [ {
+					property: null,
+					value: {
+						message: apiError,
+						type: 'error',
+					},
+				} ],
+			};
+
+			const validator = new Validator( [ formValues ] );
+
+			expect( validator.validate() ).toStrictEqual( expectedResult );
+		} );
+
+		it( 'returns null if the value is valid', () => {
+			const formValues: ConditionValues = {
+				property: {
+					id: 'P585',
+					label: 'point in time',
+					datatype: 'time',
+				},
+				value: {
+					parseResult: {
+						value: {
+							time: '+2012-03-02T00:00:00Z',
+							timezone: 0,
+							before: 0,
+							after: 0,
+							precision: 11,
+							calendarmodel: 'http://www.wikidata.org/entity/Q1985727',
+						},
+						type: 'time',
+					}, formattedValue: '2 March 2012',
+				},
+				propertyValueRelation: PropertyValueRelation.Matching,
+			};
+			const expectedResult: ValidationResult = {
+				formErrors: [],
+				fieldErrors: [ {
+					property: null,
+					value: null,
+				} ],
+			};
+
+			const validator = new Validator( [ formValues ] );
+
+			expect( validator.validate() ).toStrictEqual( expectedResult );
+		} );
+
+	} );
+
 } );
