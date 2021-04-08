@@ -105,7 +105,7 @@ export default (
 			},
 		);
 		const datatype = context.getters.datatype( payload.conditionIndex );
-		if ( datatype === 'time' ) {
+		if ( datatype === 'time' && payload.value ) {
 			context.dispatch( 'updateDateValue', { rawInput: payload.value, conditionIndex: payload.conditionIndex } );
 			return;
 		}
