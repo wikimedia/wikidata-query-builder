@@ -1,4 +1,4 @@
-import PropertyValueRelation from '@/data-model/PropertyValueRelation';
+import { BasePropertyValueRelation } from '@/data-model/PropertyValueRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import buildQuery from '@/sparql/buildQuery';
 import QueryRepresentation, { Condition } from '@/sparql/QueryRepresentation';
@@ -24,7 +24,8 @@ describe( 'buildQuery', () => {
 	}
 
 	function splitByPropertyValueRelations( condition: Partial<Condition> ): Partial<Condition>[] {
-		return Object.values( PropertyValueRelation ).map( ( option ) => {
+		// TODO: change BasePropertyValueRelation back to PropertyValueRelation when working on ticket T279629
+		return Object.values( BasePropertyValueRelation ).map( ( option ) => {
 			return {
 				propertyValueRelation: option,
 				...condition,
