@@ -1,16 +1,14 @@
 import allowedDatatypes from '@/allowedDataTypes';
 import RootState, { ConditionRow, DEFAULT_LIMIT, ItemValue, QuantityValue,
 	StringValue, DateValue, Value } from './RootState';
-import QueryRepresentation from '@/sparql/QueryRepresentation';
+import QueryRepresentation, { ConditionValue } from '@/sparql/QueryRepresentation';
 import Property from '@/data-model/Property';
 import Error from '@/data-model/Error';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
-import UnitValue from '@/data-model/UnitValue';
-import TimeValue from '@/data-model/TimeValue';
 
-function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): string | UnitValue | TimeValue {
+function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): ConditionValue {
 	if ( storeValue === null ) {
 		return '';
 	}
