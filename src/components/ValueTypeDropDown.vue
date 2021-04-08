@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import PropertyValueRelation from '@/data-model/PropertyValueRelation';
+import PropertyValueRelation, { BasePropertyValueRelation } from '@/data-model/PropertyValueRelation';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { Dropdown } from '@wmde/wikit-vue-components';
 
@@ -41,7 +41,7 @@ export default Vue.extend( {
 	},
 	computed: {
 		optionItems(): PropertyValueRelationMenuItem[] {
-			return Object.values( PropertyValueRelation ).map( ( value: PropertyValueRelation ) => {
+			return Object.values( BasePropertyValueRelation ).map( ( value: BasePropertyValueRelation ) => {
 				return {
 					/*
 					* Values that can be used here:
