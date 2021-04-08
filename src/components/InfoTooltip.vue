@@ -1,5 +1,5 @@
 <template>
-	<span class="querybuilder__Tooltip">
+	<span class="querybuilder-tooltip">
 		<Popover
 			:reactToHover="true"
 			:position="position"
@@ -43,7 +43,7 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-.querybuilder__Tooltip {
+.querybuilder-tooltip {
 	& .wikit-Popover__target .wikit.wikit-Button--iconOnly.wikit-Button--neutral {
 		padding-block: 0;
 		padding-inline: 0;

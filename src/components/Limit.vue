@@ -1,13 +1,13 @@
 <template>
-	<div class="querybuilder__limit">
+	<div class="querybuilder-limit">
 		<Checkbox
-			class="querybuilder__limit-checkbox"
+			class="querybuilder-limit__checkbox"
 			id="limit"
 			:checked.sync="checked"
 			:label="$i18n('query-builder-limit-number-results-description')"
 		/>
 		<TextInput
-			class="querybuilder__limit-input"
+			class="querybuilder-limit__input"
 			v-model="limit"
 			@input="onLimitChange"
 			:disabled="!checked"
@@ -88,12 +88,12 @@ export default Vue.extend( {
 
 <style lang="scss">
 
-.querybuilder__limit {
+.querybuilder-limit {
 	display: flex;
 	align-items: flex-start;
 
 	// extra specificity needed to overcome .wikit style resets *sigh* -> T277885
-	& .querybuilder__limit-checkbox {
+	&__checkbox {
 		// TODO: change to real ones
 		margin-inline-end: $dimension-layout-xxsmall;
 
@@ -101,24 +101,25 @@ export default Vue.extend( {
 		// because the Validation error causes misalignment with align-items: center
 		margin-block-start: 5px;
 	}
-}
 
-.querybuilder__limit-input {
-	// TODO: change to real ones
-	margin-inline-start: $dimension-layout-small;
-	width: 16em;
+	&__input {
+		// TODO: change to real ones
+		margin-inline-start: $dimension-layout-small;
+		width: 16em;
 
-	//hides the label of the TextInput while still allowing to be used by screen readers
-	.wikit-TextInput__label {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		white-space: nowrap;
-		-webkit-clip-path: inset(50%);
-		clip-path: inset(50%);
-		border: 0;
+		//hides the label of the TextInput while still allowing to be used by screen readers
+		.wikit-TextInput__label {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			-webkit-clip-path: inset(50%);
+			clip-path: inset(50%);
+			border: 0;
+		}
 	}
 }
+
 </style>

@@ -24,16 +24,16 @@
 					:key="condition.conditionId"
 					:class="[
 						'querybuilder__condition-group',
-						(isAboveOr(index)) ? 'querybuilder__condition-group-above' : '',
+						(isAboveOr(index)) ? 'querybuilder__condition-group--above' : '',
 					]"
 				>
 					<div
 						:class="[
 							'querybuilder__condition-wrapper',
-							(index == 0) ? 'querybuilder__condition-wrapper-first' : '',
-							((index + 1) == conditionRows.length) ? 'querybuilder__condition-wrapper-last' : '',
-							(isBelowOr(index)) ? 'querybuilder__condition-wrapper-below' : '',
-							(isAboveOr(index)) ? 'querybuilder__condition-wrapper-above' : '',
+							(index == 0) ? 'querybuilder__condition-wrapper--first' : '',
+							((index + 1) == conditionRows.length) ? 'querybuilder__condition-wrapper--last' : '',
+							(isBelowOr(index)) ? 'querybuilder__condition-wrapper--below' : '',
+							(isAboveOr(index)) ? 'querybuilder__condition-wrapper--above' : '',
 						]"
 					><QueryCondition
 						:condition-index="index"
@@ -121,7 +121,7 @@ export default Vue.extend( {
 			await this.$store.dispatch( 'addCondition' );
 			setTimeout( () => {
 				document
-					.getElementsByClassName( 'querybuilder__condition-wrapper-last' )[ 0 ]
+					.getElementsByClassName( 'querybuilder__condition-wrapper--last' )[ 0 ]
 					.scrollIntoView( { behavior: 'smooth' } );
 
 				const toggle = document
@@ -220,23 +220,23 @@ $largeViewportWidth: 90em; //~1438px
 		padding-inline: $dimension-layout-xxsmall;
 	}
 
-	&.querybuilder__condition-wrapper-first {
+	&.querybuilder__condition-wrapper--first {
 		margin-block-start: 0;
 	}
 }
 
-.querybuilder__condition-wrapper-below {
+.querybuilder__condition-wrapper--below {
 	margin-block-start: 0;
 	border-block-start: none;
 }
 
-.querybuilder__condition-wrapper-above {
+.querybuilder__condition-wrapper--above {
 	margin-block-end: 0;
 	border-inline: none;
 	border-block-end: none;
 }
 
-.querybuilder__condition-group-above {
+.querybuilder__condition-group--above {
 	border-inline: $border-width-thin $border-style-base $border-color-base-subtle;
 	background-color: $background-color-neutral-default;
 }

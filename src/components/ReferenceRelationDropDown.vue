@@ -1,7 +1,7 @@
 <template>
-	<div class="query-condition__references">
+	<div class="query-condition-references">
 		<Dropdown
-			class="query-condition__references-select"
+			class="query-condition-references__select"
 			@input="onInput"
 			:value="selected"
 			:label="$i18n('query-builder-reference-relation-label')"

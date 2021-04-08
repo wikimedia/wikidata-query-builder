@@ -72,7 +72,7 @@ describe( 'Component interaction test', () => {
 		cy.get( '.query-condition__value-input .wikit-Input' ).clear();
 
 		// set value to 'not matching' from dropdown. NotMatching => 'without',
-		cy.get( '.querybuilder__dropdown-select.wikit.wikit-Dropdown' ).first().click();
+		cy.get( '.querybuilder-dropdown__select.wikit.wikit-Dropdown' ).first().click();
 		cy.get( '.wikit-OptionsMenu__item.wikit-OptionsMenu__item' ).contains( 'without' ).click();
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
@@ -102,11 +102,11 @@ describe( 'Component interaction test', () => {
 		cy.get( '.query-condition__property-lookup:nth(1) .wikit-OptionsMenu__item' ).click();
 
 		// set value to 'regardless of value on the second query_condition block'.
-		cy.get( '.querybuilder__dropdown-select.wikit.wikit-Dropdown' )
+		cy.get( '.querybuilder-dropdown__select.wikit.wikit-Dropdown' )
 			.eq( 1 )
 			.first()
 			.click();
-		cy.get( '.querybuilder__dropdown-select.wikit.wikit-Dropdown:nth(1) .wikit-OptionsMenu__item' )
+		cy.get( '.querybuilder-dropdown__select.wikit.wikit-Dropdown:nth(1) .wikit-OptionsMenu__item' )
 			.contains( 'regardless of value' )
 			.click();
 
@@ -146,7 +146,7 @@ describe( 'Component interaction test', () => {
 		cy.get( '.querybuilder__run .wikit-Button--progressive' ).click();
 
 		// assert the reslulting sparql query
-		cy.get( '.querybuilder__result__iframe' ).then( ( element ) => {
+		cy.get( '.querybuilder-result__iframe' ).then( ( element ) => {
 			const url = element.attr( 'src' );
 			const query = url.split( '#' )[ 1 ];
 

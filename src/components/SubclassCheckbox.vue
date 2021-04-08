@@ -1,7 +1,7 @@
 <template>
-	<div class="querybuilder__include-subclasses">
+	<div class="querybuilder-include-subclasses">
 		<Checkbox
-			class="querybuilder__include-subclasses-checkbox"
+			class="querybuilder-include-subclasses__checkbox"
 			:id="id"
 			:checked="isChecked"
 			:disabled="disabled"
@@ -46,12 +46,12 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-.querybuilder__include-subclasses {
+.querybuilder-include-subclasses {
 	display: flex;
 	align-items: flex-start;
 	margin-block-start: $dimension-layout-xxsmall;
 
-	&-checkbox {
+	&__checkbox {
 		// TODO: change to real ones
 		margin-inline-end: $dimension-layout-xxsmall;
 	}

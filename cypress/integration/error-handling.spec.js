@@ -15,7 +15,7 @@ describe( 'Test error handling of the Query Building', () => {
 
 		// Run query without any input and assert if any error message is displayed
 		cy.get( runQueryButtonSelector ).click();
-		cy.get( '.querybuilder__result__errors' ).should( 'be.visible' );
+		cy.get( '.querybuilder-result__errors' ).should( 'be.visible' );
 
 		cy.intercept(
 			wikibaseApiRequest( { action: 'wbsearchentities', search: 'has pet' } ),
@@ -67,13 +67,13 @@ describe( 'Test error handling of the Query Building', () => {
 			.should( 'be.visible' );
 
 		// Delete the second query condition
-		cy.get( '.query-condition:nth(1) .delete-condition-button' ).click();
+		cy.get( '.query-condition:nth(1) .delete-condition' ).click();
 
 		// Run query
 		cy.get( runQueryButtonSelector ).click();
 
 		// Assert the resulting sparql query and make sure there are no errors generated.
-		cy.get( '.querybuilder__result__iframe' ).then( ( element ) => {
+		cy.get( '.querybuilder-result__iframe' ).then( ( element ) => {
 			const url = element.attr( 'src' );
 			const query = url.split( '#' )[ 1 ];
 

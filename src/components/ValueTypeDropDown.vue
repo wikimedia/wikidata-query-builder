@@ -1,7 +1,7 @@
 <template>
-	<div class="querybuilder__dropdown">
+	<div class="querybuilder-dropdown">
 		<Dropdown
-			class="querybuilder__dropdown-select"
+			class="querybuilder-dropdown__select"
 			@input="onInput"
 			:value="selected"
 			label="Value Type"
@@ -96,7 +96,7 @@ export default Vue.extend( {
 </script>
 <style lang="scss">
 	// will be removed once dropdown component is implemented in the DS
-	.querybuilder__dropdown-select {
+	.querybuilder-dropdown__select {
 		.wikit-Dropdown__label {
 			position: absolute;
 			width: 1px;

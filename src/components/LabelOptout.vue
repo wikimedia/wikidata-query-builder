@@ -1,7 +1,6 @@
 <template>
-	<div class="querybuilder__label-optout">
+	<div class="querybuilder-label-optout">
 		<Checkbox
-			class="querybuilder__label-optout-checkbox"
 			id="label-optout"
 			:checked.sync="checked"
 			:label="$i18n('query-builder-label-opt-out')"
@@ -32,7 +31,7 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-.querybuilder__label-optout {
+.querybuilder-label-optout {
 	display: flex;
 	align-items: flex-end;
 	margin-block-start: $dimension-layout-xsmall;

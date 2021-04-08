@@ -30,7 +30,7 @@ describe( 'QueryResult.vue', () => {
 				iframeRenderKey: 0,
 			},
 		} );
-		expect( wrapper.find( '.querybuilder__result__description' ).text() ).toBe( 'Result placeholder' );
+		expect( wrapper.find( '.querybuilder-result__description' ).text() ).toBe( 'Result placeholder' );
 		expect( wrapper.findAll( 'iframe' ) ).toHaveLength( 0 );
 	} );
 
@@ -53,7 +53,7 @@ describe( 'QueryResult.vue', () => {
 				iframeRenderKey: 0,
 			},
 		} );
-		expect( wrapper.find( '.querybuilder__result__errors' ).text() ).toBe( 'Something happened' );
+		expect( wrapper.find( '.querybuilder-result__errors' ).text() ).toBe( 'Something happened' );
 		expect( wrapper.findAll( 'iframe' ) ).toHaveLength( 0 );
 	} );
 
@@ -67,7 +67,7 @@ describe( 'QueryResult.vue', () => {
 				errors: [],
 			},
 		} );
-		expect( wrapper.find( '.querybuilder__result__link' ).text() ).toBe( 'Link to query service' );
-		expect( wrapper.find( '.querybuilder__result__link a' ).attributes( 'href' ) ).toContain( 'foo-query-result' );
+		expect( wrapper.find( '.querybuilder-result__link' ).text() ).toBe( 'Link to query service' );
+		expect( wrapper.find( '.querybuilder-result__link a' ).attributes( 'href' ) ).toContain( 'foo-query-result' );
 	} );
 } );
