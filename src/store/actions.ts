@@ -190,7 +190,7 @@ export default (
 			'updatePropertyValueRelation',
 			{ propertyValueRelation: PropertyValueRelation.Regardless, conditionIndex },
 		);
-		context.dispatch( 'updateValue', { value: '', conditionIndex } );
+		context.dispatch( 'updateValue', { value: null, conditionIndex } );
 		context.commit(
 			'setFieldErrors',
 			{
