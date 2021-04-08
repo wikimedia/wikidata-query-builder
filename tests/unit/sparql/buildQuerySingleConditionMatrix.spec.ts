@@ -72,6 +72,11 @@ describe( 'buildQuery', () => {
 			subclasses: true,
 		},
 		{
+			value: '',
+			datatype: 'quantity',
+			propertyValueRelation: BasePropertyValueRelation.Regardless,
+		},
+		{
 			value: { value: 3.2, unit: null },
 			datatype: 'quantity',
 		},
