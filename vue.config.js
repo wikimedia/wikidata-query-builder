@@ -7,7 +7,14 @@ module.exports = {
 	css: {
 		loaderOptions: {
 			sass: {
-				prependData: '@import "~@wmde/wikit-tokens/dist/variables";',
+				prependData: () => {
+					const modules = [
+						'@import "~ress";',
+						'@import "~@wmde/wikit-tokens/dist/variables";',
+						'@import "~@wmde/wikit-vue-components/dist/wikit-vue-components.css";',
+					];
+					return modules.join( '\n' );
+				},
 			},
 		},
 	},
