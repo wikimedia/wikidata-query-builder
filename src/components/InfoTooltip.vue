@@ -48,8 +48,6 @@ export default Vue.extend( {
 		padding-block: 0;
 		padding-inline: 0;
 		line-height: 0.7;
-		border: 0;
-		box-shadow: none;
 
 		&:active {
 			background-color: $wikit-Button-quiet-background-color;
