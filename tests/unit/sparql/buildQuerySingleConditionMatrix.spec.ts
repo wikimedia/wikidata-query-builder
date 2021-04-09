@@ -112,6 +112,18 @@ describe( 'buildQuery', () => {
 			value: { value: '+2020-12-00T00:00:00Z', precision: 10 },
 			datatype: 'time',
 		},
+		{
+			propertyId: 'P585',
+			value: { value: '+2020-12-00T00:00:00Z', precision: 10 },
+			datatype: 'time',
+			propertyValueRelation: RangePropertyValueRelation.MoreThan,
+		},
+		{
+			propertyId: 'P585',
+			value: { value: '+2021-01-20T00:00:00Z', precision: 11 },
+			datatype: 'time',
+			propertyValueRelation: RangePropertyValueRelation.LessThan,
+		},
 	];
 
 	it.each(

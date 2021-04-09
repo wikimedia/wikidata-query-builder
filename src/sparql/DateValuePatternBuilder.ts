@@ -111,7 +111,23 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 			patterns.push( notMatchingFilter );
 		}
 
-		// TODO: add less-than and more-than here T279631
+		if ( propertyValueRelation === PropertyValueRelation.LessThan ) {
+			const beforeFilter = this.syntaxBuilder.buildOperatorFilterPattern(
+				datetimeVariable,
+				'<',
+				this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
+			);
+			patterns.push( beforeFilter );
+		}
+
+		if ( propertyValueRelation === PropertyValueRelation.MoreThan ) {
+			const afterFilter = this.syntaxBuilder.buildOperatorFilterPattern(
+				datetimeVariable,
+				'>',
+				this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
+			);
+			patterns.push( afterFilter );
+		}
 
 		return patterns;
 	}
@@ -197,7 +213,21 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 			);
 		}
 
-		// TODO: add less-than and more-than here T279631
+		if ( propertyValueRelation === PropertyValueRelation.LessThan ) {
+			return this.syntaxBuilder.buildOperatorFilterPattern(
+				this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
+				'<',
+				dateTimeVariable,
+			);
+		}
+
+		if ( propertyValueRelation === PropertyValueRelation.MoreThan ) {
+			return this.syntaxBuilder.buildOperatorFilterPattern(
+				dateTimeVariable,
+				'>=',
+				this.syntaxBuilder.buildLiteralTermForDateTime( followingDateTime ),
+			);
+		}
 
 		throw new Error( 'Unexpected property value relation: ' + propertyValueRelation );
 	}
