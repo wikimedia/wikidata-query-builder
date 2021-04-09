@@ -84,7 +84,7 @@ export default Vue.extend( {
 
 <style lang="scss">
 $tinyViewportWidth: 38em;
-$largeViewportWidth: 1438px;
+$largeViewportWidth: 90em;
 
 .querybuilder-footer {
 	padding-block: $dimension-layout-small;
@@ -98,20 +98,14 @@ $largeViewportWidth: 1438px;
 
 	@media (min-width: $largeViewportWidth) {
 		// set maximum width of the page
-		width: $largeViewportWidth;
+		max-width: $largeViewportWidth;
 		margin-block: auto;
 		margin-inline: auto;
 	}
 
-	font-family: $font-family-style-description;
-	font-weight: $font-weight-style-description;
-	font-size: $font-size-style-description;
-	line-height: $font-line-height-style-description;
-	color: $font-color-base;
 	display: flex;
 
 	@media (max-width: $tinyViewportWidth) {
-		padding-inline: 0;
 		flex-direction: column;
 	}
 
@@ -122,6 +116,14 @@ $largeViewportWidth: 1438px;
 	// More selective css to override the browser's default.
 	h2 {
 		font-size: $font-size-style-body;
+	}
+
+	&__column {
+		font-family: $font-family-style-description;
+		font-weight: $font-weight-style-description;
+		font-size: $font-size-style-description;
+		line-height: $font-line-height-style-description;
+		color: $font-color-base;
 	}
 
 	&__column:first-of-type {
