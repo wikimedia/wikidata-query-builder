@@ -12,6 +12,8 @@
 import ItemValueLookup from '@/components/ItemValueLookup.vue';
 import StringValueInput from '@/components/StringValueInput.vue';
 import QuantityValueInput from '@/components/QuantityValueInput.vue';
+import DateValueInput from '@/components/DateValueInput.vue';
+
 import Vue from 'vue';
 
 export default Vue.extend( {
@@ -20,6 +22,7 @@ export default Vue.extend( {
 		StringValueInput,
 		ItemValueLookup,
 		QuantityValueInput,
+		DateValueInput,
 	},
 	computed: {
 		dispatchComponent(): string {
@@ -28,6 +31,8 @@ export default Vue.extend( {
 					return 'ItemValueLookup';
 				case 'quantity':
 					return 'QuantityValueInput';
+				case 'time':
+					return 'DateValueInput';
 				case 'string':
 				case 'external-id':
 				default:

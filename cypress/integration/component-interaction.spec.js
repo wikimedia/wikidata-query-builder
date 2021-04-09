@@ -46,6 +46,19 @@ describe( 'Component interaction test', () => {
 		).as( 'hasUnitRequest' );
 
 		cy.intercept(
+			wikibaseApiRequest( { action: 'wbsearchentities', search: 'publication date' } ),
+			{ fixture: 'wbsearchentities-publication-date.json' },
+		).as( 'hasPublicationDateRequest' );
+		cy.intercept(
+			wikibaseApiRequest( { action: 'wbparsevalue' } ),
+			{ fixture: 'wbparsevalue-date.json' },
+		).as( 'hasParseValueRequest' );
+		cy.intercept(
+			wikibaseApiRequest( { action: 'wbformatvalue' } ),
+			{ fixture: 'wbformatvalue-date.json' },
+		).as( 'hasFormatvalueRequest' );
+
+		cy.intercept(
 			wikibaseApiRequest( { action: 'wbsearchentities', search: 'LilyPond notation' } ),
 			{ fixture: 'wbsearchentities-limited-support.json' },
 		).as( 'hasLimitedSupportedRequest' );
@@ -142,6 +155,20 @@ describe( 'Component interaction test', () => {
 			.wait( '@hasUnitRequest' );
 		cy.get( '.wikit-QuantityInput__unit-lookup .wikit-OptionsMenu__item' ).eq( 0 ).click();
 
+		// click 'Add condition' button and expand to a third block
+		cy.get( '.querybuilder__add-condition button' ).click();
+		cy.get( '.query-condition__property-lookup .wikit-Input' )
+			.eq( 3 )
+			.type( 'publication date' )
+			.wait( '@hasPublicationDateRequest' );
+		cy.get( '.query-condition__property-lookup:nth(3) .wikit-OptionsMenu__item' ).click();
+
+		cy.get( '.wikit-InputWithExtender .wikit-Input' )
+			.type( '31-12-2020' )
+			.wait( '@hasParseValueRequest' )
+			.wait( '@hasFormatvalueRequest' );
+		cy.get( '.wikit-InputWithExtender__extension' ).click();
+
 		// run query
 		cy.get( '.querybuilder__run .wikit-Button--progressive' ).click();
 
@@ -176,6 +203,10 @@ describe( 'Component interaction test', () => {
       ?statement2 (psn:P2044/wikibase:quantityAmount) ?statementQuantity;
         (psn:P2044/wikibase:quantityUnit) ?coherentUnit.
       FILTER(?statementQuantity = ?coherentUserQuantity)
+      ?item p:P577 ?statement_3.
+      ?statement_3 psv:P577 ?statementValue_3.
+      ?statementValue_3 wikibase:timeValue ?P577_3.
+      BIND("+2020-12-31T00:00:00Z"^^xsd:dateTime AS ?P577_3)
     }
     LIMIT 100
   }
