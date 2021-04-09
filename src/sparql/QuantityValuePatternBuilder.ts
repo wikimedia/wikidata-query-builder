@@ -31,30 +31,18 @@ export default class QuantityValuePatternBuilder implements ValuePatternBuilder 
 		if ( datatype !== 'quantity' ) {
 			throw new Error( 'Unexpected datatype: ' + datatype );
 		}
-		if ( !this.isQuantityValue( value ) ) {
-			throw new Error( 'Unexpected value: ' + JSON.stringify( value ) );
-		}
-
-		const numericValue = value.value;
-		const unit = value.unit;
 
 		let patterns: Pattern[];
-		if ( unit === null || propertyValueRelation === PropertyValueRelation.Regardless ) {
-			patterns = this.buildPatternsForUnitlessValue(
-				propertyId,
-				numericValue,
-				conditionIndex,
-				referenceRelation,
-				propertyValueRelation,
-			);
+
+		if ( propertyValueRelation === PropertyValueRelation.Regardless ) {
+			patterns = this.buildRegardlessOfValuePattern( propertyId, conditionIndex, referenceRelation );
 		} else {
-			patterns = this.buildFullQuantityPattern(
-				numericValue,
-				unit,
-				conditionIndex,
-				propertyId,
-				referenceRelation,
+			patterns = this.buildValuePatterns(
+				value,
 				propertyValueRelation,
+				propertyId,
+				conditionIndex,
+				referenceRelation,
 			);
 		}
 
@@ -64,6 +52,79 @@ export default class QuantityValuePatternBuilder implements ValuePatternBuilder 
 				patterns: patterns,
 			} ];
 		}
+		return patterns;
+	}
+
+	private buildValuePatterns(
+		value: ConditionValue,
+		propertyValueRelation: PropertyValueRelation,
+		propertyId: string,
+		conditionIndex: number,
+		referenceRelation: ReferenceRelation,
+	): Pattern[] {
+		if ( !this.isQuantityValue( value ) ) {
+			throw new Error( 'Unexpected value quantity value: ' + JSON.stringify( value ) );
+		}
+
+		const numericValue = value.value;
+		const unit = value.unit;
+
+		if ( unit === null || propertyValueRelation === PropertyValueRelation.Regardless ) {
+			return this.buildPatternsForUnitlessValue(
+				propertyId,
+				numericValue,
+				conditionIndex,
+				referenceRelation,
+				propertyValueRelation,
+			);
+		} else {
+			return this.buildFullQuantityPattern(
+				numericValue,
+				unit,
+				conditionIndex,
+				propertyId,
+				referenceRelation,
+				propertyValueRelation,
+			);
+		}
+	}
+
+	private buildRegardlessOfValuePattern(
+		propertyId: string,
+		conditionIndex: number,
+		referenceRelation: ReferenceRelation,
+	): Pattern[] {
+		const numericQuantityVariable = this.syntaxBuilder.buildVariableTermFromName( 'numericQuantity' );
+		const statementVariable = this.syntaxBuilder.buildVariableTermFromName( 'statement' + conditionIndex );
+		const bgp = this.syntaxBuilder.buildBgpPattern( [
+			this.syntaxBuilder.buildSimpleTriple(
+				{
+					termType: 'Variable',
+					value: 'item',
+				},
+				rdfNamespaces.p + propertyId,
+				statementVariable,
+			),
+			this.syntaxBuilder.buildPathTriple(
+				statementVariable,
+				[
+					rdfNamespaces.psv + propertyId,
+					rdfNamespaces.wikibase + 'quantityAmount',
+				],
+				numericQuantityVariable,
+			),
+		] );
+
+		const patterns: Pattern[] = [ bgp ];
+
+		const referenceFilterPattern = this.tripleBuilder.buildReferenceFilterPattern(
+			referenceRelation,
+			statementVariable,
+		);
+		if ( referenceFilterPattern !== null ) {
+			patterns.push( referenceFilterPattern );
+		}
+
 		return patterns;
 	}
 
