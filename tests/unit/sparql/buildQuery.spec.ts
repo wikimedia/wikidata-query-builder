@@ -374,9 +374,9 @@ describe( 'buildQuery', () => {
 			const value: TimeValue = { value: '+1789-07-14T00:00:00Z', precision: 11 };
 			const expectedQuery = `SELECT DISTINCT ?item WHERE {
 			?item p:${propertyId} ?statement_0.
-			?statement_0 psv:${propertyId} ?statementValue_0. 
-			?statementValue_0 wikibase:timeValue ?P585_0.
-			BIND("${value.value}"^^xsd:dateTime AS ?P585_0)
+			?statement_0 psv:${propertyId} ?statementValue_0.
+			?statementValue_0 wikibase:timeValue ?${propertyId}_0.
+			BIND("${value.value}"^^xsd:dateTime AS ?${propertyId}_0)
 		 }`;
 			const testCondition = getSimpleCondition( propertyId, value );
 			testCondition.datatype = 'time';
@@ -399,9 +399,9 @@ describe( 'buildQuery', () => {
 			?statementValue_0 wikibase:timePrecision ?precision_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
 			FILTER(?precision_0 >= "10"^^xsd:decimal)
 
-			?statementValue_0 wikibase:timeValue ?P585_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
-			FILTER(("+1789-07-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) &&
-         (?P585_0 < "+1789-08-00T00:00:00Z"^^xsd:dateTime))
+			?statementValue_0 wikibase:timeValue ?${propertyId}_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+			FILTER(("+1789-07-00T00:00:00Z"^^xsd:dateTime <= ?${propertyId}_0) &&
+         (?${propertyId}_0 < "+1789-08-00T00:00:00Z"^^xsd:dateTime))
 		 }`;
 			const testCondition = getSimpleCondition( propertyId, value );
 			testCondition.datatype = 'time';
@@ -424,9 +424,9 @@ describe( 'buildQuery', () => {
 			?statementValue_0 wikibase:timePrecision ?precision_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
 			FILTER(?precision_0 >= "9"^^xsd:decimal)
 
-			?statementValue_0 wikibase:timeValue ?P585_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
-			FILTER(("+1789-00-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) &&
-         (?P585_0 < "+1790-00-00T00:00:00Z"^^xsd:dateTime))
+			?statementValue_0 wikibase:timeValue ?${propertyId}_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+			FILTER(("+1789-00-00T00:00:00Z"^^xsd:dateTime <= ?${propertyId}_0) &&
+         (?${propertyId}_0 < "+1790-00-00T00:00:00Z"^^xsd:dateTime))
 		 }`;
 			const testCondition = getSimpleCondition( propertyId, value );
 			testCondition.datatype = 'time';
