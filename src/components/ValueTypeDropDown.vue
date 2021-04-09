@@ -81,6 +81,23 @@ export default Vue.extend( {
 				) );
 			}
 
+			if ( this.datatype === 'time' ) {
+				relationOptions.push( ...Object.values( RangePropertyValueRelation ).map(
+					( value: RangePropertyValueRelation ) => {
+						return {
+							/*
+							* Values that can be used here:
+							* query-builder-value-type-relation-dropdown-less-than-date
+							* query-builder-value-type-relation-dropdown-more-than-date
+							*/
+							label: this.$i18n( `query-builder-value-type-relation-dropdown-${value}-date` ),
+							description: '',
+							value,
+						};
+					},
+				) );
+			}
+
 			return relationOptions;
 		},
 		selected(): PropertyValueRelationMenuItem | null {

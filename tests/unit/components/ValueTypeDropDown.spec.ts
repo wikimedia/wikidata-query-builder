@@ -75,4 +75,26 @@ describe( 'ValueTypeDropDown.vue', () => {
 			'more-than',
 		] );
 	} );
+
+	it( 'contains the base three and two range options for datatype time', () => {
+		const wrapper = mount( ValueTypeDropDown, {
+			propsData: {
+				value: PropertyValueRelation.Matching,
+				datatype: 'time',
+				disabled: true,
+			},
+		} );
+
+		const optionValues = wrapper.findComponent( Dropdown ).props( 'menuItems' ).map(
+			( option: { value: string } ) => option.value,
+		);
+
+		expect( optionValues ).toStrictEqual( [
+			'matching',
+			'without',
+			'regardless-of-value',
+			'less-than',
+			'more-than',
+		] );
+	} );
 } );

@@ -28,6 +28,8 @@
   "query-builder-value-type-relation-dropdown-regardless-of-value": "regardless of value",
   "query-builder-value-type-relation-dropdown-less-than-quantity": "less than",
   "query-builder-value-type-relation-dropdown-more-than-quantity": "more than",
+  "query-builder-value-type-relation-dropdown-less-than-date": "before",
+  "query-builder-value-type-relation-dropdown-more-than-date": "after",
   "query-builder-reference-relation-label": "References",
   "query-builder-reference-relation-tooltip": "You can further narrow your results by only showing statements with or without references.",
   "query-builder-reference-relation-dropdown-with": "only with references",
