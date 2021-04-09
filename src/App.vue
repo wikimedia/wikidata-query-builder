@@ -69,8 +69,3 @@ export default Vue.extend( {
 	},
 } );
 </script>
-
-<style lang="scss">
-@import '~ress';
-@import '~@wmde/wikit-vue-components/dist/wikit-vue-components.css';
-</style>
