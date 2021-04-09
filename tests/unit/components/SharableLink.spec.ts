@@ -77,6 +77,6 @@ describe( 'SharableLink component', () => {
 		const href = decodeURIComponent( wrapper.vm.href );
 
 		expect( window.fetch ).toHaveBeenCalledTimes( 1 );
-		expect( href ).toStrictEqual( 'bar' );
+		expect( href ).toStrictEqual( window.location.protocol + '//bar' );
 	} );
 } );

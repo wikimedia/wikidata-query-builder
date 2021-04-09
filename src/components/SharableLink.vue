@@ -81,7 +81,8 @@ export default Vue.extend( {
 				const response = await fetch( shortnerUrl.toString(), requestOptions );
 				if ( response.ok ) {
 					const data = await response.json();
-					this.href = data.shortenurl.shorturl || data.shortenurl.shorturlalt;
+					this.href = window.location.protocol + '//' +
+						( data.shortenurl.shorturl || data.shortenurl.shorturlalt );
 				}
 			} catch ( err ) {
 				// nothing happens here. the long url is not shortned.
