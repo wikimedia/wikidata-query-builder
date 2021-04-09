@@ -68,9 +68,9 @@
 				:iframeRenderKey="iframeRenderKey"
 			/>
 		</main>
-		<Footer
-			class="query-builder__footer"
-		/>
+		<div class="query-builder__footer">
+			<Footer/>
+		</div>
 	</div>
 </template>
 
@@ -190,7 +190,7 @@ $tinyViewportWidth: 38em;
  */
 $largeViewportWidth: 90em; //~1438px
 
-.querybuilder {
+.querybuilder main {
 	padding-block: $dimension-layout-small;
 	padding-inline: $dimension-layout-small;
 
@@ -342,6 +342,6 @@ $largeViewportWidth: 90em; //~1438px
 }
 
 .query-builder__footer {
-	margin-block-start: 60px;
+	background-color: $color-base-90;
 }
 </style>
