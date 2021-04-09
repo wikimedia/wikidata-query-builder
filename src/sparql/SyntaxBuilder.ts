@@ -116,4 +116,15 @@ export default class SyntaxBuilder {
 			},
 		} as LiteralTerm;
 	}
+
+	public buildLiteralTermForDateTime( dateTime: string ): LiteralTerm {
+		return {
+			termType: 'Literal',
+			value: dateTime,
+			datatype: {
+				termType: 'NamedNode',
+				value: 'http://www.w3.org/2001/XMLSchema#dateTime',
+			},
+		} as LiteralTerm;
+	}
 }

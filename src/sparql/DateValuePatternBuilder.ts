@@ -98,14 +98,7 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 			const matchingDateBind: BindPattern = {
 				type: 'bind',
 				variable: datetimeVariable,
-				expression: {
-					termType: 'Literal',
-					value: value.value,
-					datatype: {
-						termType: 'NamedNode',
-						value: rdfNamespaces.xsd + 'dateTime',
-					} as RdfJs.NamedNode,
-				},
+				expression: this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
 			};
 			patterns.push( matchingDateBind );
 		}
@@ -113,14 +106,7 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 			const notMatchingFilter = this.syntaxBuilder.buildOperatorFilterPattern(
 				datetimeVariable,
 				'!=',
-				{
-					termType: 'Literal',
-					value: value.value,
-					datatype: {
-						termType: 'NamedNode',
-						value: rdfNamespaces.xsd + 'dateTime',
-					} as RdfJs.NamedNode,
-				},
+				this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
 			);
 			patterns.push( notMatchingFilter );
 		}
@@ -183,14 +169,7 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 		if ( propertyValueRelation === PropertyValueRelation.Matching ) {
 			return this.syntaxBuilder.buildOperatorFilterPattern(
 				this.syntaxBuilder.buildOperationsExpression(
-					{
-						termType: 'Literal',
-						value: value.value,
-						datatype: {
-							termType: 'NamedNode',
-							value: rdfNamespaces.xsd + 'dateTime',
-						} as RdfJs.NamedNode,
-					},
+					this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
 					'<=',
 					dateTimeVariable,
 				),
@@ -198,28 +177,14 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 				this.syntaxBuilder.buildOperationsExpression(
 					dateTimeVariable,
 					'<',
-					{
-						termType: 'Literal',
-						value: followingDateTime,
-						datatype: {
-							termType: 'NamedNode',
-							value: rdfNamespaces.xsd + 'dateTime',
-						} as RdfJs.NamedNode,
-					},
+					this.syntaxBuilder.buildLiteralTermForDateTime( followingDateTime ),
 				),
 			);
 		}
 		if ( propertyValueRelation === PropertyValueRelation.NotMatching ) {
 			return this.syntaxBuilder.buildOperatorFilterPattern(
 				this.syntaxBuilder.buildOperationsExpression(
-					{
-						termType: 'Literal',
-						value: value.value,
-						datatype: {
-							termType: 'NamedNode',
-							value: rdfNamespaces.xsd + 'dateTime',
-						} as RdfJs.NamedNode,
-					},
+					this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
 					'<',
 					dateTimeVariable,
 				),
@@ -227,14 +192,7 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 				this.syntaxBuilder.buildOperationsExpression(
 					dateTimeVariable,
 					'>=',
-					{
-						termType: 'Literal',
-						value: followingDateTime,
-						datatype: {
-							termType: 'NamedNode',
-							value: rdfNamespaces.xsd + 'dateTime',
-						} as RdfJs.NamedNode,
-					},
+					this.syntaxBuilder.buildLiteralTermForDateTime( followingDateTime ),
 				),
 			);
 		}
