@@ -375,6 +375,10 @@ describe( 'buildQuery', () => {
 			const expectedQuery = `SELECT DISTINCT ?item WHERE {
 			?item p:${propertyId} ?statement_0.
 			?statement_0 psv:${propertyId} ?statementValue_0.
+
+			?statementValue_0 wikibase:timePrecision ?precision_0.
+			FILTER(?precision_0 >= "11"^^xsd:decimal)
+
 			?statementValue_0 wikibase:timeValue ?${propertyId}_0.
 			BIND("${value.value}"^^xsd:dateTime AS ?${propertyId}_0)
 		 }`;

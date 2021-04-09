@@ -91,6 +91,10 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 
 		patterns = this.addEntityToStatementPattern( patterns, propertyId );
 		patterns = this.addStatementToStatementValuePattern( patterns, propertyId );
+
+		patterns = this.addStatementValueToPrecisionPattern( patterns );
+		patterns = this.addPrecisionFilterPattern( patterns, value );
+
 		patterns = this.addStatementValueToTimeValuePattern( patterns, propertyId );
 
 		const datetimeVariable = this.getConditionVariable( propertyId );
