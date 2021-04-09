@@ -6,6 +6,9 @@ import QueryRepresentation, { Condition } from '@/sparql/QueryRepresentation';
 describe( 'buildQuery', () => {
 
 	function splitByNegateOption( condition: Partial<Condition> ): Partial<Condition>[] {
+		if ( 'negate' in condition ) {
+			return [ condition ];
+		}
 		return [ true, false ].map( ( option ) => {
 			return {
 				negate: option,
@@ -15,6 +18,9 @@ describe( 'buildQuery', () => {
 	}
 
 	function splitByReferenceOption( condition: Partial<Condition> ): Partial<Condition>[] {
+		if ( 'referenceRelation' in condition ) {
+			return [ condition ];
+		}
 		return Object.values( ReferenceRelation ).map( ( option ) => {
 			return {
 				referenceRelation: option,
@@ -24,7 +30,9 @@ describe( 'buildQuery', () => {
 	}
 
 	function splitByPropertyValueRelations( condition: Partial<Condition> ): Partial<Condition>[] {
-		// TODO: change BasePropertyValueRelation back to PropertyValueRelation when working on ticket T279629
+		if ( 'propertyValueRelation' in condition ) {
+			return [ condition ];
+		}
 		return Object.values( BasePropertyValueRelation ).map( ( option ) => {
 			return {
 				propertyValueRelation: option,
