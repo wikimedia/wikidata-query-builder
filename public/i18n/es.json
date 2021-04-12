@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Fitoschido",
+			"Lys534",
 			"MarcoAurelio",
 			"Rodney Araujo",
 			"ZealousBlaze"
@@ -11,6 +12,7 @@
 	"query-builder-result-placeholder": "Los resultados aparecerán aquí",
 	"query-builder-add-condition": "Añadir condición",
 	"query-builder-value-type-relation-dropdown-without": "sin",
+	"query-builder-value-type-relation-dropdown-more-than-date": "despues",
 	"query-builder-delete-condition": "Eliminar condición",
 	"query-builder-condition-relation-toggle-and": "y",
 	"query-builder-condition-relation-toggle-or": "o",

@@ -45,5 +45,7 @@
 	"query-builder-label-opt-out": "إظهار المعرفات بدلاً من التسميات (قد يمنع انتهاء المهلة)",
 	"query-builder-include-subclasses": "قم بتضمين القيم من الفئات الفرعية لهذه القيمة",
 	"query-builder-negation-option-label-with": "مع",
-	"query-builder-negation-option-label-without": "دون"
+	"query-builder-negation-option-label-without": "دون",
+	"query-builder-footer-privacy-policy": "سياسة الخصوصية",
+	"query-builder-footer-wikimedia-deutchland": "ويكيميديا ألمانيا"
 }

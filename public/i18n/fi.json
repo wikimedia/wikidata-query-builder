@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"MITO",
 			"Maantietäjä",
 			"Nike"
 		]
@@ -24,6 +25,15 @@
 	"query-builder-value-type-relation-dropdown-matching": "vastaavuus",
 	"query-builder-value-type-relation-dropdown-without": "ilman",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "arvosta riippumatta",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "vähemmän kuin",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "enemmän kuin",
+	"query-builder-value-type-relation-dropdown-less-than-date": "ennen",
+	"query-builder-value-type-relation-dropdown-more-than-date": "jälkeen",
 	"query-builder-condition-relation-toggle-and": "ja",
-	"query-builder-condition-relation-toggle-or": "tai"
+	"query-builder-condition-relation-toggle-or": "tai",
+	"query-builder-footer-report-link": "Ilmoita ongelmasta",
+	"query-builder-footer-about-us": "Tietoja meistä",
+	"query-builder-footer-privacy-policy": "Tietosuojakäytäntö",
+	"query-builder-date-input-value-label": "Arvo",
+	"query-builder-date-input-prompt-text": "Syötä päivämäärä"
 }

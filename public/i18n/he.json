@@ -33,6 +33,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "תואם",
 	"query-builder-value-type-relation-dropdown-without": "ללא",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "ללא תלות בערך",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "נמוך מ־",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "גבוה מ־",
+	"query-builder-value-type-relation-dropdown-less-than-date": "לפני",
+	"query-builder-value-type-relation-dropdown-more-than-date": "אחרי",
 	"query-builder-reference-relation-label": "הערות שוליים",
 	"query-builder-reference-relation-tooltip": "באפשרותך לצמצם עוד יותר את התוצאות שלך באמצעות הצגה רק של קביעות עם או בלי מקורות.",
 	"query-builder-reference-relation-dropdown-with": "רק עם מקורות",
@@ -53,6 +57,9 @@
 	"query-builder-negation-option-label-without": "בלי",
 	"query-builder-sharable-link-text": "קבלת קישור לשיתוף",
 	"query-builder-sharable-link-message": "ה־URL הועתק ללוח!",
+	"query-builder-quantity-value-error-number": "נא להזין מספר",
+	"query-builder-quantity-value-error-unit": "נא לבחור יחידה תקינה או להסיר את הקלט",
+	"query-builder-quantity-value-error-number-and-unit": "נא להזין מספר ולבחור יחידה תקינה או להסיר את הקלט",
 	"query-builder-quantity-value-label": "ערך ויחידה (לא חובה)",
 	"query-builder-quantity-value-number-input-placeholder": "נא להזין מספר",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "נא להזין יחידה",
@@ -65,5 +72,10 @@
 	"query-builder-footer-about-us": "אודותינו",
 	"query-builder-footer-privacy-policy": "מדיניות פרטיות",
 	"query-builder-footer-wikimedia-deutchland": "ויקימדיה גרמניה",
-	"query-builder-footer-team": "נוצר על־ידי צוות ויקינתונים"
+	"query-builder-footer-team": "נוצר על־ידי צוות ויקינתונים",
+	"query-builder-date-input-value-label": "ערך",
+	"query-builder-date-input-placeholder": "למשל 31-12-2020",
+	"query-builder-date-input-prompt-text": "נא למלא תאריך",
+	"query-builder-date-input-results-intro-text": "יפורש בתור:",
+	"query-builder-date-input-calendar-notice-text": "כל התאריכים מפורשים בתור תאריכים גרגוריאניים"
 }

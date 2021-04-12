@@ -35,6 +35,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "eşleme",
 	"query-builder-value-type-relation-dropdown-without": "olmadan",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "değeri ne olursa olsun",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "daha az",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "daha fazla",
+	"query-builder-value-type-relation-dropdown-less-than-date": "öncesinde",
+	"query-builder-value-type-relation-dropdown-more-than-date": "sonrasında",
 	"query-builder-reference-relation-label": "Kaynakça",
 	"query-builder-reference-relation-tooltip": "Sadece kaynaklı ya da kaynaksız ifadeleri göstererek sonuçlarınızı daha da daraltabilirsiniz.",
 	"query-builder-reference-relation-dropdown-with": "sadece kaynağa sahip olanlar",
@@ -70,5 +74,10 @@
 	"query-builder-footer-about-us": "Hakkımızda",
 	"query-builder-footer-privacy-policy": "Gizlilik İlkesi",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Almanya",
-	"query-builder-footer-team": "Vikiveri takımı tarafından yapılmıştır"
+	"query-builder-footer-team": "Vikiveri takımı tarafından yapılmıştır",
+	"query-builder-date-input-value-label": "Değer",
+	"query-builder-date-input-placeholder": "örneğin 31-12-2020",
+	"query-builder-date-input-prompt-text": "Lütfen bir tarih girin",
+	"query-builder-date-input-results-intro-text": "Şu şekilde yorumlanacaktır:",
+	"query-builder-date-input-calendar-notice-text": "Tüm tarihler miladi olarak yorumlanmıştır"
 }

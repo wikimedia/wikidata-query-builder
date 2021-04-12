@@ -36,6 +36,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "correspondant à",
 	"query-builder-value-type-relation-dropdown-without": "sans",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "quelle que soit la valeur",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "moins de",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "plus de",
+	"query-builder-value-type-relation-dropdown-less-than-date": "avant",
+	"query-builder-value-type-relation-dropdown-more-than-date": "après",
 	"query-builder-reference-relation-label": "Références",
 	"query-builder-reference-relation-tooltip": "Vous pouvez affiner davantage vos résultats en n’affichant que les déclaration avec ou sans références.",
 	"query-builder-reference-relation-dropdown-with": "seulement avec les références",
@@ -58,7 +62,7 @@
 	"query-builder-sharable-link-message": "URL copiée vers le presse-papiers !",
 	"query-builder-quantity-value-error-number": "Veuillez saisir un nombre",
 	"query-builder-quantity-value-error-unit": "Veuillez saisir une unité valide ou supprimer l’entrée",
-	"query-builder-quantity-value-error-number-and-unit": "Veuillez saisir un nombre et sélectionner une unité valide, ou supprimer l’entrée",
+	"query-builder-quantity-value-error-number-and-unit": "Veuillez saisir un nombre et sélectionner une unité valide ou supprimer l’entrée",
 	"query-builder-quantity-value-label": "Valeur et unité (facultatifs)",
 	"query-builder-quantity-value-number-input-placeholder": "Saisir un nombre",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Saisir une unité",
@@ -71,5 +75,10 @@
 	"query-builder-footer-about-us": "À notre sujet",
 	"query-builder-footer-privacy-policy": "Politique de confidentialité",
 	"query-builder-footer-wikimedia-deutchland": "Wikimédia Allemagne",
-	"query-builder-footer-team": "Réalisé par l’équipe Wikidata"
+	"query-builder-footer-team": "Réalisé par l’équipe Wikidata",
+	"query-builder-date-input-value-label": "Valeur",
+	"query-builder-date-input-placeholder": "par exemple 31-12-2020",
+	"query-builder-date-input-prompt-text": "Veuillez saisir une date",
+	"query-builder-date-input-results-intro-text": "Sera interprété comme :",
+	"query-builder-date-input-calendar-notice-text": "Toutes les dates sont interprétées comme des dates grégoriennes"
 }

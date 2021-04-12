@@ -48,8 +48,20 @@
 	"query-builder-negation-option-label-without": "제외",
 	"query-builder-sharable-link-text": "공유 링크 가져오기",
 	"query-builder-sharable-link-message": "URL이 클립보드에 복사되었습니다!",
+	"query-builder-quantity-value-error-number": "숫자를 입력해 주십시오",
 	"query-builder-quantity-value-label": "값과 단위 (선택 사항)",
 	"query-builder-quantity-value-number-input-placeholder": "숫자를 입력하십시오",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "단위를 입력하십시오",
-	"query-builder-quantity-value-unit-lookup-screenreader-label": "단위 (선택 사항)"
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "단위 (선택 사항)",
+	"query-builder-footer-about-query-builder": "쿼리 생성기 정보",
+	"query-builder-footer-view-source": "원본 보기",
+	"query-builder-footer-report-link": "버그 보고",
+	"query-builder-footer-about-us": "정보",
+	"query-builder-footer-privacy-policy": "개인정보처리방침",
+	"query-builder-footer-wikimedia-deutchland": "위키미디어 독일",
+	"query-builder-date-input-value-label": "값",
+	"query-builder-date-input-placeholder": "예: 31-12-2020",
+	"query-builder-date-input-prompt-text": "날짜를 입력해 주십시오",
+	"query-builder-date-input-results-intro-text": "다음으로 해석됩니다:",
+	"query-builder-date-input-calendar-notice-text": "모든 날짜는 그레고리력으로 해석됩니다"
 }

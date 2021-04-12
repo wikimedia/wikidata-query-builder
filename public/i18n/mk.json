@@ -31,6 +31,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "соодветство",
 	"query-builder-value-type-relation-dropdown-without": "без",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "независно од вредноста",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "помалку од",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "повеќе од",
+	"query-builder-value-type-relation-dropdown-less-than-date": "пред",
+	"query-builder-value-type-relation-dropdown-more-than-date": "по",
 	"query-builder-reference-relation-label": "Наводи",
 	"query-builder-reference-relation-tooltip": "Можете уште повеќе да го уточнувате исходот ако укажете да се прикажуваат само искази без наводи.",
 	"query-builder-reference-relation-dropdown-with": "само со наводи",
@@ -66,5 +70,10 @@
 	"query-builder-footer-about-us": "За нас",
 	"query-builder-footer-privacy-policy": "Заштита на личните податоци",
 	"query-builder-footer-wikimedia-deutchland": "Викимедија Германија",
-	"query-builder-footer-team": "Направено од екипата на Википодатоците"
+	"query-builder-footer-team": "Направено од екипата на Википодатоците",
+	"query-builder-date-input-value-label": "Вредност",
+	"query-builder-date-input-placeholder": "на пример 31-12-2020",
+	"query-builder-date-input-prompt-text": "Внесете датум",
+	"query-builder-date-input-results-intro-text": "Ќе се протолкува како:",
+	"query-builder-date-input-calendar-notice-text": "Сите датуми ќе се толкуваат како грегоријански"
 }

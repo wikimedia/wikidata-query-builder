@@ -36,6 +36,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "passend zu",
 	"query-builder-value-type-relation-dropdown-without": "ohne",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "unabhängig vom Wert",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "kleiner als",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "mehr als",
+	"query-builder-value-type-relation-dropdown-less-than-date": "vor",
+	"query-builder-value-type-relation-dropdown-more-than-date": "nach",
 	"query-builder-reference-relation-label": "Einzelnachweise",
 	"query-builder-reference-relation-tooltip": "Du kannst die Ergebnisse weiter einschränken, indem du nur Aussagen mit oder ohne Referenzen anzeigen lässt.",
 	"query-builder-reference-relation-dropdown-with": "nur mit Einzelnachweisen",
@@ -71,5 +75,10 @@
 	"query-builder-footer-about-us": "Über uns",
 	"query-builder-footer-privacy-policy": "Datenschutzrichtlinie",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
-	"query-builder-footer-team": "Erstellt durch das Wikidata-Team"
+	"query-builder-footer-team": "Erstellt durch das Wikidata-Team",
+	"query-builder-date-input-value-label": "Wert",
+	"query-builder-date-input-placeholder": "zum Beispiel 31-12-2020",
+	"query-builder-date-input-prompt-text": "Bitte ein Datum angeben",
+	"query-builder-date-input-results-intro-text": "Wird interpretiert als:",
+	"query-builder-date-input-calendar-notice-text": "Alle Daten werden als gregorianische Daten interpretiert"
 }

@@ -21,6 +21,10 @@
 	"query-builder-result-error-missing-property": "Seleziona una proprietà",
 	"query-builder-result-error-missing-value": "Inserisci un valore",
 	"query-builder-add-condition": "Aggiungi condizione",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "meno di",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "più di",
+	"query-builder-value-type-relation-dropdown-less-than-date": "prima",
+	"query-builder-value-type-relation-dropdown-more-than-date": "dopo",
 	"query-builder-delete-condition": "Cancella condizione",
 	"query-builder-condition-relation-toggle-and": "e",
 	"query-builder-condition-relation-toggle-or": "o",
@@ -34,5 +38,7 @@
 	"query-builder-quantity-value-label": "Valore e unità (facoltativa)",
 	"query-builder-quantity-value-number-input-placeholder": "Inserisci un numero",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Inserisci un'unità",
-	"query-builder-quantity-value-unit-lookup-screenreader-label": "Unità (facoltativa)"
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Unità (facoltativa)",
+	"query-builder-date-input-value-label": "Valore",
+	"query-builder-date-input-placeholder": "ad esempio 31-12-2020"
 }
