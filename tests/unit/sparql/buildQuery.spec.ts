@@ -377,7 +377,7 @@ describe( 'buildQuery', () => {
 			?statement_0 psv:${propertyId} ?statementValue_0.
 
 			?statementValue_0 wikibase:timePrecision ?precision_0.
-			FILTER(?precision_0 >= "11"^^xsd:decimal)
+			FILTER(?precision_0 >= 11 )
 
 			?statementValue_0 wikibase:timeValue ?${propertyId}_0.
 			BIND("${value.value}"^^xsd:dateTime AS ?${propertyId}_0)
@@ -401,7 +401,7 @@ describe( 'buildQuery', () => {
 			?statement_0 psv:${propertyId} ?statementValue_0.
 
 			?statementValue_0 wikibase:timePrecision ?precision_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
-			FILTER(?precision_0 >= "10"^^xsd:decimal)
+			FILTER(?precision_0 >= 10 )
 
 			?statementValue_0 wikibase:timeValue ?${propertyId}_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
 			FILTER(("+1789-07-00T00:00:00Z"^^xsd:dateTime <= ?${propertyId}_0) &&
@@ -426,7 +426,7 @@ describe( 'buildQuery', () => {
 			?statement_0 psv:${propertyId} ?statementValue_0.
 
 			?statementValue_0 wikibase:timePrecision ?precision_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
-			FILTER(?precision_0 >= "9"^^xsd:decimal)
+			FILTER(?precision_0 >= 9 )
 
 			?statementValue_0 wikibase:timeValue ?${propertyId}_0. hint:Prior hint:rangeSafe "true"^^xsd:boolean.
 			FILTER(("+1789-00-00T00:00:00Z"^^xsd:dateTime <= ?${propertyId}_0) &&

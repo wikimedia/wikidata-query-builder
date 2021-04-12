@@ -206,7 +206,7 @@ describe( 'Component interaction test', () => {
       ?item p:P577 ?statement_3.
       ?statement_3 psv:P577 ?statementValue_3.
       ?statementValue_3 wikibase:timePrecision ?precision_3.
-      FILTER(?precision_3 >= "11"^^xsd:decimal)
+      FILTER(?precision_3 >= 11 )
       ?statementValue_3 wikibase:timeValue ?P577_3.
       BIND("+2020-12-31T00:00:00Z"^^xsd:dateTime AS ?P577_3)
     }

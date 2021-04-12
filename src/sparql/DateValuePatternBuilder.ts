@@ -363,7 +363,14 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 		const precisionFilterPattern = this.syntaxBuilder.buildOperatorFilterPattern(
 			precisionVariable,
 			'>=',
-			this.syntaxBuilder.buildLiteralTermForDecimalNumber( value.precision ),
+			{
+				termType: 'Literal',
+				value: String( value.precision ),
+				datatype: {
+					termType: 'NamedNode',
+					value: 'http://www.w3.org/2001/XMLSchema#integer',
+				} as RdfJs.NamedNode,
+			},
 		);
 		patterns.push( precisionFilterPattern );
 		return patterns;
