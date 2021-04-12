@@ -226,4 +226,34 @@ describe( 'QueryCondition.vue', () => {
 			{ propertyValueRelation: PropertyValueRelation.Regardless, conditionIndex: 0 },
 		);
 	} );
+
+	it( 'resets property relation type when datatype of property has changed', async () => {
+		const property = { label: 'postal code', id: 'P31', datatype: 'wikibase-item' };
+		const property2 = { label: 'postal code', id: 'P123', datatype: 'string' };
+		const store = newStore();
+		const conditionIndex = 0;
+		store.dispatch = jest.fn();
+		const wrapper = shallowMount( QueryCondition, {
+			store,
+			localVue,
+			propsData: {
+				'condition-index': 0,
+			},
+		} );
+		wrapper.findAllComponents( PropertyLookup ).at( conditionIndex ).vm.$emit( 'input', property );
+		wrapper.findAllComponents( ValueTypeDropDown ).at( conditionIndex ).vm.$emit(
+			'input',
+			PropertyValueRelation.Regardless,
+		);
+		expect( store.dispatch ).toHaveBeenCalledWith(
+			'updatePropertyValueRelation',
+			{ propertyValueRelation: PropertyValueRelation.Regardless, conditionIndex: 0 },
+		);
+
+		wrapper.findAllComponents( PropertyLookup ).at( conditionIndex ).vm.$emit( 'input', property2 );
+		expect( store.dispatch ).toHaveBeenCalledWith(
+			'updatePropertyValueRelation',
+			{ propertyValueRelation: PropertyValueRelation.Matching, conditionIndex: 0 },
+		);
+	} );
 } );

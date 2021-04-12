@@ -172,7 +172,7 @@ describe( 'Component interaction test', () => {
 		// run query
 		cy.get( '.querybuilder__run .wikit-Button--progressive' ).click();
 
-		// assert the reslulting sparql query
+		// assert the resulting sparql query
 		cy.get( '.querybuilder-result__iframe' ).then( ( element ) => {
 			const url = element.attr( 'src' );
 			const query = url.split( '#' )[ 1 ];

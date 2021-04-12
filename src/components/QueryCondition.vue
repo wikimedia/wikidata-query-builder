@@ -102,6 +102,10 @@ export default Vue.extend( {
 				} else {
 					this.$store.dispatch( 'setSubclasses', { conditionIndex: this.conditionIndex, subclasses: false } );
 				}
+				if ( selectedProperty.datatype !== this.$store.getters.datatype( this.conditionIndex )
+				) {
+					this.selectedPropertyValueRelation = PropertyValueRelation.Matching;
+				}
 				this.$store.dispatch( 'updateProperty',
 					{ property: selectedProperty, conditionIndex: this.conditionIndex },
 				);

@@ -36,7 +36,7 @@ describe( 'Test error handling of the Query Building', () => {
 		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).click();
 
 		/**
-		 * Run the query only with a property and no value. And assert wheather
+		 * Run the query only with a property and no value. And assert whether
 		 * an error message is displayed on the value input.
 		 */
 		cy.get( runQueryButtonSelector ).click();
@@ -57,7 +57,7 @@ describe( 'Test error handling of the Query Building', () => {
 
 		/**
 		 * there shouldn't be an error on the first block.
-		 * However, we assert here that there are two errors displyed in the second block
+		 * However, we assert here that there are two errors displayed in the second block
 		 */
 		cy.get( '.query-condition:nth(0) .wikit.wikit-ValidationMessage' )
 			.should( 'not.exist' );
