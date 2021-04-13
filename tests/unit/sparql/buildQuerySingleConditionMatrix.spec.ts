@@ -124,6 +124,12 @@ describe( 'buildQuery', () => {
 			datatype: 'time',
 			propertyValueRelation: RangePropertyValueRelation.LessThan,
 		},
+		{
+			propertyId: 'P585',
+			value: { value: '+2021-00-00T00:00:00Z', precision: 11 },
+			datatype: 'time',
+			propertyValueRelation: RangePropertyValueRelation.LessThan,
+		},
 	];
 
 	it.each(

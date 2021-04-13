@@ -809,6 +809,17 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
+exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": false, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 2`] = `
+"SELECT DISTINCT ?item WHERE {
+  ?item p:P585 ?statement_0.
+  ?statement_0 psv:P585 ?statementValue_0.
+  ?statementValue_0 wikibase:timePrecision ?precision_0.
+  FILTER(?precision_0 >= 11 )
+  ?statementValue_0 wikibase:timeValue ?P585_0.
+  FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+}"
+`;
+
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": false, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   {
@@ -823,6 +834,20 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
+exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": false, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 2`] = `
+"SELECT DISTINCT ?item WHERE {
+  {
+    ?item p:P585 ?statement_0.
+    ?statement_0 psv:P585 ?statementValue_0.
+    ?statementValue_0 wikibase:timePrecision ?precision_0.
+    FILTER(?precision_0 >= 11 )
+    ?statementValue_0 wikibase:timeValue ?P585_0.
+    FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
+  }
+}"
+`;
+
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": false, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   {
@@ -832,6 +857,20 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
     FILTER(?P585_0 < \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
+  }
+}"
+`;
+
+exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": false, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 2`] = `
+"SELECT DISTINCT ?item WHERE {
+  {
+    ?item p:P585 ?statement_0.
+    ?statement_0 psv:P585 ?statementValue_0.
+    ?statementValue_0 wikibase:timePrecision ?precision_0.
+    FILTER(?precision_0 >= 11 )
+    ?statementValue_0 wikibase:timeValue ?P585_0.
+    FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
     FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -1124,6 +1163,20 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
+exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": true, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 2`] = `
+"SELECT DISTINCT ?item WHERE {
+  ?item wikibase:sitelinks _:anyValue.
+  MINUS {
+    ?item p:P585 ?statement_0.
+    ?statement_0 psv:P585 ?statementValue_0.
+    ?statementValue_0 wikibase:timePrecision ?precision_0.
+    FILTER(?precision_0 >= 11 )
+    ?statementValue_0 wikibase:timeValue ?P585_0.
+    FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+  }
+}"
+`;
+
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": true, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
@@ -1141,6 +1194,23 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 }"
 `;
 
+exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": true, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "with", "subclasses": false, "value": [Object]} 2`] = `
+"SELECT DISTINCT ?item WHERE {
+  ?item wikibase:sitelinks _:anyValue.
+  MINUS {
+    {
+      ?item p:P585 ?statement_0.
+      ?statement_0 psv:P585 ?statementValue_0.
+      ?statementValue_0 wikibase:timePrecision ?precision_0.
+      FILTER(?precision_0 >= 11 )
+      ?statementValue_0 wikibase:timeValue ?P585_0.
+      FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+      FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
+    }
+  }
+}"
+`;
+
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": true, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
@@ -1152,6 +1222,23 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
       FILTER(?P585_0 < \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+      FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
+    }
+  }
+}"
+`;
+
+exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "time", "negate": true, "propertyId": "P585", "propertyValueRelation": "less-than", "referenceRelation": "without", "subclasses": false, "value": [Object]} 2`] = `
+"SELECT DISTINCT ?item WHERE {
+  ?item wikibase:sitelinks _:anyValue.
+  MINUS {
+    {
+      ?item p:P585 ?statement_0.
+      ?statement_0 psv:P585 ?statementValue_0.
+      ?statementValue_0 wikibase:timePrecision ?precision_0.
+      FILTER(?precision_0 >= 11 )
+      ?statementValue_0 wikibase:timeValue ?P585_0.
+      FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
       FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }

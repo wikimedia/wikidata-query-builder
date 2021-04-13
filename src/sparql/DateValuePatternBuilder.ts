@@ -219,9 +219,9 @@ export default class DateValuePatternBuilder implements ValuePatternBuilder {
 
 		if ( propertyValueRelation === PropertyValueRelation.LessThan ) {
 			return this.syntaxBuilder.buildOperatorFilterPattern(
-				this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
-				'<',
 				dateTimeVariable,
+				'<',
+				this.syntaxBuilder.buildLiteralTermForDateTime( value.value ),
 			);
 		}
 
