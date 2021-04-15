@@ -73,7 +73,7 @@
 	"query-builder-footer-privacy-policy": "link to the privacy policy",
 	"query-builder-footer-wikimedia-deutchland": "Link to website of Wikimedia Deutschland",
 	"query-builder-footer-team": "Link to the page of the team",
-	"query-builder-date-input-value-label": "Label above the date value input",
+	"query-builder-date-input-value-label": "Label above the date value input\n{{identical|Value}}",
 	"query-builder-date-input-placeholder": "Placeholder for the date value input",
 	"query-builder-date-input-prompt-text": "Text for the date value input prompting the user to enter a date",
 	"query-builder-date-input-results-intro-text": "Text showing the user how the entered date will be interprated as",

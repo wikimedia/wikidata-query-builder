@@ -31,6 +31,8 @@
 	"query-builder-value-type-relation-dropdown-matching": "соответствие",
 	"query-builder-value-type-relation-dropdown-without": "без",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "независимо от значения",
+	"query-builder-value-type-relation-dropdown-less-than-date": "до",
+	"query-builder-value-type-relation-dropdown-more-than-date": "после",
 	"query-builder-reference-relation-label": "Ссылки",
 	"query-builder-reference-relation-dropdown-with": "только со ссылками",
 	"query-builder-reference-relation-dropdown-without": "только без ссылок",
