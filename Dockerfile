@@ -5,7 +5,9 @@ RUN apt-get update && \
 		ca-certificates \
 		build-essential \
 		python-pkgconfig \
-		git
+		git \
+		xvfb libnss3 libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libxss1 libasound2 libxtst6 xauth \
+		chromium
 
 ARG UID=1000
 ARG GID=1000

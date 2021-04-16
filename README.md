@@ -39,4 +39,4 @@ docker-compose up dev
 
 #### To run Cypress browser tests locally:
 
-Run: `docker-compose -f docker-compose.yml -f docker-compose.e2e.yml up e2e`
+Run: `docker-compose run --rm node npm run test:cy`
