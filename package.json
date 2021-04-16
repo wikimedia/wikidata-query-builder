@@ -8,6 +8,7 @@
   },
   "scripts": {
     "cypress": "unset DISPLAY && CYPRESS_API_URL=${VUE_APP_WIKIBASE_API_URL} CYPRESS_BASE_URL=${CYPRESS_BASE_URL:-http://localhost:8080} cypress run --browser chromium --headless",
+    "cypress:interactive": "CYPRESS_API_URL=${VUE_APP_WIKIBASE_API_URL} CYPRESS_BASE_URL=${CYPRESS_BASE_URL:-http://localhost:8080} cypress open",
     "test:lint-cypress": "vue-cli-service lint --no-fix --max-warnings 0 cypress",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --mode production",

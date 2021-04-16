@@ -40,3 +40,6 @@ docker-compose up dev
 #### To run Cypress browser tests locally:
 
 Run: `docker-compose run --rm node npm run test:cy`
+
+Note: If you wish to run cypress in the browser (and not in a headless mode) for debugging purposes, run `npm run cypress:interactive` locally (no docker).
+If cypress is not starting please double check that the port in the command is the same as the one your dev server is running on.
