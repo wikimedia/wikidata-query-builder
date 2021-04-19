@@ -31,6 +31,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "符合",
 	"query-builder-value-type-relation-dropdown-without": "不帶",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "不論值內容",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "小於",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "多於",
+	"query-builder-value-type-relation-dropdown-less-than-date": "之前",
+	"query-builder-value-type-relation-dropdown-more-than-date": "之後",
 	"query-builder-reference-relation-label": "參考資料",
 	"query-builder-reference-relation-tooltip": "您可以透過僅顯示帶有或是不帶有參考資料的陳述內容，來進一步縮小結果範圍。",
 	"query-builder-reference-relation-dropdown-with": "僅帶有參考資料",
@@ -51,8 +55,13 @@
 	"query-builder-negation-option-label-without": "不帶",
 	"query-builder-sharable-link-text": "取得可分享的連結",
 	"query-builder-sharable-link-message": "URL 已複製到剪貼簿！",
+	"query-builder-quantity-value-error-number": "請輸入數字",
 	"query-builder-quantity-value-label": "值與單位（可選）",
 	"query-builder-quantity-value-number-input-placeholder": "輸入數量",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "輸入單位",
-	"query-builder-quantity-value-unit-lookup-screenreader-label": "單位（可選）"
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "單位（可選）",
+	"query-builder-footer-report-link": "回報程式錯誤",
+	"query-builder-footer-about-us": "關於我們",
+	"query-builder-footer-team": "由維基數據團隊製作",
+	"query-builder-date-input-value-label": "值"
 }
