@@ -25,6 +25,12 @@
 	"query-builder-result-error-missing-property": "Wybierz właściwość",
 	"query-builder-result-error-missing-value": "Wprowadź wartość",
 	"query-builder-add-condition": "Dodaj warunek",
+	"query-builder-value-type-relation-dropdown-without": "bez",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "niezależnie od wartości",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "mniej niż",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "więcej niż",
+	"query-builder-value-type-relation-dropdown-less-than-date": "przed",
+	"query-builder-value-type-relation-dropdown-more-than-date": "po",
 	"query-builder-reference-relation-label": "Przypisy",
 	"query-builder-delete-condition": "Usuń warunek",
 	"query-builder-condition-relation-toggle-and": "i",
@@ -33,5 +39,8 @@
 	"query-builder-limit-number-placeholder": "Wpisz liczbę",
 	"query-builder-limit-number-screenreader-label": "Maksymalna liczba wyników",
 	"query-builder-label-opt-out": "Pokazuj ID zamiast etykiet (zapobiega błędom)",
-	"query-builder-sharable-link-message": "Adres URL skopiowany do schowka!"
+	"query-builder-sharable-link-message": "Adres URL skopiowany do schowka!",
+	"query-builder-footer-report-link": "Zgłoś błąd",
+	"query-builder-date-input-placeholder": "na przykład 31-12-2020",
+	"query-builder-date-input-prompt-text": "Podaj datę"
 }

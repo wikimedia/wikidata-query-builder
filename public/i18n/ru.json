@@ -31,6 +31,8 @@
 	"query-builder-value-type-relation-dropdown-matching": "соответствие",
 	"query-builder-value-type-relation-dropdown-without": "без",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "независимо от значения",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "менее",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "более",
 	"query-builder-value-type-relation-dropdown-less-than-date": "до",
 	"query-builder-value-type-relation-dropdown-more-than-date": "после",
 	"query-builder-reference-relation-label": "Ссылки",
@@ -58,5 +60,8 @@
 	"query-builder-footer-about-us": "О нас",
 	"query-builder-footer-privacy-policy": "Политика конфиденциальности",
 	"query-builder-footer-wikimedia-deutchland": "Викимедиа Германия",
-	"query-builder-footer-team": "Создано командой Викиданных"
+	"query-builder-footer-team": "Создано командой Викиданных",
+	"query-builder-date-input-value-label": "Значение",
+	"query-builder-date-input-placeholder": "например, 31-12-2020",
+	"query-builder-date-input-prompt-text": "Пожалуйста, введите дату"
 }
