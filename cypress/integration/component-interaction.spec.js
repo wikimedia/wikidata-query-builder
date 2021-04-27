@@ -186,9 +186,8 @@ describe( 'Component interaction test', () => {
           ?item p:P31 ?statement0.
           ?statement0 (ps:P31/(wdt:P279*)) ?instance.
         }
+        MINUS { ?item (p:P31/ps:P31) wd:Q146. }
       }
-      UNION
-      { MINUS { ?item (p:P31/ps:P31) wd:Q146. } }
       UNION
       {
         ?item p:P6883 ?statement1.

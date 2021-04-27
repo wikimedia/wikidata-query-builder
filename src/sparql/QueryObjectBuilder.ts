@@ -108,9 +108,11 @@ export default class QueryObjectBuilder {
 	private buildUnion( conditions: Condition[] ): void {
 		const unionConditions = [];
 		for ( let i = 0; i < conditions.length; i++ ) {
-			unionConditions.push(
-				...this.patternBuilder.buildValuePatternFromCondition( conditions[ i ], this.conditionIndex++ ),
-			);
+			const unionConditionGroup: Pattern = {
+				type: 'group',
+				patterns: this.patternBuilder.buildValuePatternFromCondition( conditions[ i ], this.conditionIndex++ ),
+			};
+			unionConditions.push( unionConditionGroup );
 		}
 		const union: Pattern = {
 			type: 'union',

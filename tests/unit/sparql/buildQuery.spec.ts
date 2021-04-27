@@ -444,4 +444,48 @@ describe( 'buildQuery', () => {
 		} );
 	} );
 
+	it( 'builds a query from date values connected with OR', () => {
+
+		const timeValue1: TimeValue = { value: '+2009-11-01T00:00:00Z', precision: 11 };
+		const timeValue2: TimeValue = { value: '+2010-11-01T00:00:00Z', precision: 11 };
+
+		const expectedQuery = `SELECT DISTINCT ?item WHERE {
+         {
+			 ?item p:P585 ?statement_0.
+			 ?statement_0 psv:P585 ?statementValue_0. 
+			 ?statementValue_0 wikibase:timePrecision ?precision_0. 
+			 FILTER(?precision_0 >= 11 ) 
+			 ?statementValue_0 wikibase:timeValue ?P585_0. 
+			 BIND("+2009-11-01T00:00:00Z"^^xsd:dateTime AS ?P585_0)
+			}
+			UNION
+			{
+			 ?item p:P585 ?statement_1. 
+			 ?statement_1 psv:P585 ?statementValue_1.
+			 ?statementValue_1 wikibase:timePrecision ?precision_1.
+			 FILTER(?precision_1 >= 11 ) 
+			 ?statementValue_1 wikibase:timeValue ?P585_1. 
+			 BIND("+2010-11-01T00:00:00Z"^^xsd:dateTime AS ?P585_1)
+			}
+		  }`;
+
+		const actualQuery = buildQuery( {
+			conditions: [
+				{
+					...getSimpleCondition( 'P585', timeValue1 ),
+					datatype: 'time',
+				},
+				{
+					...getSimpleCondition( 'P585', timeValue2 ),
+					datatype: 'time',
+					conditionRelation: ConditionRelation.Or,
+				},
+			],
+			omitLabels: true,
+		} );
+
+		expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
+
+	} );
+
 } );
