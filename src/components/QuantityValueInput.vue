@@ -120,6 +120,7 @@ export default Vue.extend( {
 		disabled( isDisabled: boolean ): void {
 			if ( isDisabled ) {
 				this.search = '';
+				this.numberInputValue = '';
 			}
 		},
 		search( newSearchString: string ): void {

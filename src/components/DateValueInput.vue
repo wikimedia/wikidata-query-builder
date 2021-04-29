@@ -65,6 +65,13 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	watch: {
+		disabled( isDisabled: boolean ): void {
+			if ( isDisabled ) {
+				this.rawInput = '';
+			}
+		},
+	},
 	components: {
 		DateInput,
 		InfoTooltip,
