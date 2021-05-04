@@ -17,7 +17,11 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 		this.syntaxBuilder = new SyntaxBuilder();
 	}
 
-	public buildValuePatternFromCondition( condition: Condition, conditionIndex: number ): Pattern[] {
+	public buildValuePatternFromCondition(
+		condition: Condition,
+		conditionIndex: number,
+		repeatingPropertyIndex: string,
+	): Pattern[] {
 		const {
 			propertyId,
 			referenceRelation,
@@ -44,7 +48,7 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 		const statementToValueTriple = this.syntaxBuilder.buildPathTriple(
 			statementVariable,
 			[ rdfNamespaces.ps + propertyId ],
-			this.buildObjectItems( propertyId, propertyValueRelation, value ),
+			this.buildObjectItems( propertyId, propertyValueRelation, value, repeatingPropertyIndex ),
 		);
 		const entityValuePattern = this.syntaxBuilder.buildBgpPattern( [
 			entityToStatementTriple,
@@ -101,6 +105,7 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 		propertyId: string,
 		propertyValueRelation: PropertyValueRelation,
 		value: string,
+		propertyIndex: string,
 	): Term {
 		switch ( propertyValueRelation ) {
 			case ( PropertyValueRelation.NotMatching ):
@@ -111,7 +116,7 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 			case ( PropertyValueRelation.Regardless ):
 				return {
 					termType: 'BlankNode',
-					value: 'anyValue' + propertyId,
+					value: propertyIndex !== '' ? `anyValue${propertyId}_${propertyIndex}` : `anyValue${propertyId}`,
 				};
 			case ( PropertyValueRelation.Matching ):
 				return {

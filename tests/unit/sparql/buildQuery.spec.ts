@@ -183,6 +183,82 @@ describe( 'buildQuery', () => {
 		expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
 	} );
 
+	it( 'builds a query from a property with "any value" used in multiple conditions', () => {
+		const firstRepeatingPropertyIndex = '1',
+			secondRepeatingPropertyIndex = '3';
+
+		const conditions: Condition[] = [
+			{
+				conditionRelation: null,
+				datatype: 'string',
+				negate: false,
+				propertyId: 'P281',
+				propertyValueRelation: PropertyValueRelation.Matching,
+				referenceRelation: ReferenceRelation.Regardless,
+				subclasses: false,
+				value: '6200',
+			},
+			{
+				conditionRelation: ConditionRelation.Or,
+				datatype: 'commonsMedia',
+				negate: false,
+				propertyId: 'P18',
+				propertyValueRelation: PropertyValueRelation.Regardless,
+				referenceRelation: ReferenceRelation.Regardless,
+				subclasses: false,
+				value: '',
+			},
+			{
+				conditionRelation: ConditionRelation.And,
+				datatype: 'wikibase-item',
+				negate: false,
+				propertyId: 'P30',
+				propertyValueRelation: PropertyValueRelation.Matching,
+				referenceRelation: ReferenceRelation.Regardless,
+				subclasses: true,
+				value: 'Q46',
+			},
+			{
+				conditionRelation: ConditionRelation.Or,
+				datatype: 'commonsMedia',
+				negate: false,
+				propertyId: 'P18',
+				propertyValueRelation: PropertyValueRelation.Regardless,
+				referenceRelation: ReferenceRelation.Regardless,
+				subclasses: false,
+				value: '',
+			},
+		];
+
+		const expectedQuery =
+			`SELECT DISTINCT ?item WHERE {
+				{
+				  ?item p:P281 ?statement0.
+				  ?statement0 (ps:P281) "6200".
+				}
+				UNION
+				{
+				  ?item p:P18 ?statement1.
+				  ?statement1 (ps:P18) _:anyValueP18_${firstRepeatingPropertyIndex}.
+				}
+				{
+				  ?item p:P30 ?statement2.
+				  ?statement2 (ps:P30/(wdt:P279*)) wd:Q46.
+				}
+				UNION
+				{
+				  ?item p:P18 ?statement3.
+				  ?statement3 (ps:P18) _:anyValueP18_${secondRepeatingPropertyIndex}.
+				}
+			  }`;
+		const actualQuery = buildQuery( {
+			conditions,
+			omitLabels: true,
+		} );
+
+		expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
+	} );
+
 	it( 'builds a query from multiple conditions, one matching and one regardless', () => {
 		const expectedQuery =
 			`SELECT DISTINCT ?item WHERE {
