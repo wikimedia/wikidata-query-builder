@@ -1,3 +1,4 @@
+import ReferenceRelation from '@/data-model/ReferenceRelation';
 import PatternBuilder from '@/sparql/PatternBuilder';
 import QueryRepresentation, { Condition } from '@/sparql/QueryRepresentation';
 import rdfNamespaces from '@/sparql/rdfNamespaces';
@@ -9,8 +10,10 @@ export default class QueryObjectBuilder {
 	private queryObject: SelectQuery;
 	private patternBuilder: PatternBuilder;
 	private conditionIndex = 0;
+	private queryRepresentation: QueryRepresentation;
+	private conditions: RootNode;
 
-	public constructor() {
+	public constructor( queryRepresentation: QueryRepresentation ) {
 		this.queryObject = {
 			queryType: 'SELECT',
 			distinct: true,
@@ -20,9 +23,11 @@ export default class QueryObjectBuilder {
 			prefixes: rdfNamespaces,
 		};
 		this.patternBuilder = new PatternBuilder();
+		this.queryRepresentation = queryRepresentation;
+		this.conditions = this.buildConditionTree( queryRepresentation.conditions );
 	}
 
-	public buildFromQueryRepresentation( queryRepresentation: QueryRepresentation ): SelectQuery {
+	public buildFromQueryRepresentation(): SelectQuery {
 
 		this.queryObject.variables = [
 			{
@@ -31,9 +36,7 @@ export default class QueryObjectBuilder {
 			},
 		];
 
-		const conditions = this.buildConditionTree( queryRepresentation.conditions );
-
-		conditions.forEach( ( condition ) => {
+		this.conditions.forEach( ( condition ) => {
 			if ( Array.isArray( condition ) ) {
 				this.buildUnion( condition );
 				return;
@@ -57,15 +60,22 @@ export default class QueryObjectBuilder {
 			}
 		}
 
-		if ( queryRepresentation.limit ) {
-			this.queryObject.limit = queryRepresentation.limit;
+		if ( this.queryRepresentation.limit ) {
+			this.queryObject.limit = this.queryRepresentation.limit;
 		}
 
-		if ( !queryRepresentation.omitLabels ) {
+		if ( !this.queryRepresentation.omitLabels ) {
 			return this.wrapQueryWithLabel();
 		}
 
 		return this.queryObject;
+	}
+
+	private propertyRegardlessOfValueOccursMoreThanOnce( propertyId: string ): boolean {
+		return this.queryRepresentation.conditions.filter( ( condition ) =>
+			condition.propertyId === propertyId &&
+				condition.referenceRelation === ReferenceRelation.Regardless,
+		).length > 1;
 	}
 
 	private buildConditionTree( conditions: Condition[] ): RootNode {
@@ -108,9 +118,18 @@ export default class QueryObjectBuilder {
 	private buildUnion( conditions: Condition[] ): void {
 		const unionConditions = [];
 		for ( let i = 0; i < conditions.length; i++ ) {
+			const conditionIndex = this.conditionIndex++;
+			const repeatingPropertyIndex =
+				this.propertyRegardlessOfValueOccursMoreThanOnce( conditions[ i ].propertyId ) ?
+					conditionIndex.toString() :
+					'';
 			const unionConditionGroup: Pattern = {
 				type: 'group',
-				patterns: this.patternBuilder.buildValuePatternFromCondition( conditions[ i ], this.conditionIndex++ ),
+				patterns: this.patternBuilder.buildValuePatternFromCondition(
+					conditions[ i ],
+					conditionIndex,
+					repeatingPropertyIndex,
+				),
 			};
 			unionConditions.push( unionConditionGroup );
 		}
@@ -124,12 +143,22 @@ export default class QueryObjectBuilder {
 		this.queryObject.where.push( union );
 	}
 
-	private buildFromQueryCondition( condition: Condition ): void {
+	private buildFromQueryCondition(
+		condition: Condition,
+	): void {
 		if ( !this.queryObject.where ) {
 			this.queryObject.where = [];
 		}
+		const conditionIndex = this.conditionIndex++;
+		const repeatingPropertyIndex = this.propertyRegardlessOfValueOccursMoreThanOnce( condition.propertyId ) ?
+			conditionIndex.toString() :
+			'';
 		this.queryObject.where.push(
-			...this.patternBuilder.buildValuePatternFromCondition( condition, this.conditionIndex++ ),
+			...this.patternBuilder.buildValuePatternFromCondition(
+				condition,
+				conditionIndex,
+				repeatingPropertyIndex,
+			),
 		);
 		return;
 	}

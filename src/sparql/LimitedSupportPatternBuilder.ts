@@ -15,7 +15,11 @@ export default class LimitedSupportPatternBuilder implements ValuePatternBuilder
 		this.syntaxBuilder = new SyntaxBuilder();
 	}
 
-	public buildValuePatternFromCondition( condition: Condition, conditionIndex: number ): Pattern[] {
+	public buildValuePatternFromCondition(
+		condition: Condition,
+		conditionIndex: number,
+		repeatingPropertyIndex: string,
+	): Pattern[] {
 		const {
 			propertyId,
 			referenceRelation,
@@ -40,7 +44,9 @@ export default class LimitedSupportPatternBuilder implements ValuePatternBuilder
 			[ rdfNamespaces.ps + propertyId ],
 			{
 				termType: 'BlankNode',
-				value: 'anyValue' + propertyId,
+				value: repeatingPropertyIndex !== '' ?
+					`anyValue${propertyId}_${repeatingPropertyIndex}` :
+					`anyValue${propertyId}`,
 			},
 		);
 		const entityValuePattern = this.syntaxBuilder.buildBgpPattern( [

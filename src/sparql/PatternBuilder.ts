@@ -15,9 +15,13 @@ export default class PatternBuilder implements ValuePatternBuilder {
 		this.tripleBuilder = new TripleBuilder();
 	}
 
-	public buildValuePatternFromCondition( condition: Condition, conditionIndex: number ): Pattern[] {
+	public buildValuePatternFromCondition(
+		condition: Condition,
+		conditionIndex: number,
+		repeatingPropertyIndex: string,
+	): Pattern[] {
 		return this.getValuePatternBuilderForDatatype( condition.datatype )
-			.buildValuePatternFromCondition( condition, conditionIndex );
+			.buildValuePatternFromCondition( condition, conditionIndex, repeatingPropertyIndex );
 	}
 
 	private getValuePatternBuilderForDatatype( datatype: string ): ValuePatternBuilder {

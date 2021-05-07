@@ -5,9 +5,25 @@ import allNamespaces from '@/sparql/rdfNamespaces';
 import expectedQuantityQueryJSON from './ObjectBuilderQuantityQueryJSON.json';
 
 describe( 'QueryObjectBuilder', () => {
+
 	it( 'simple', () => {
 		const prefixes = allNamespaces;
-		const builder = new QueryObjectBuilder();
+		const queryRepresentation = {
+			conditions: [
+				{
+					propertyId: 'P281',
+					value: 'XXXX',
+					datatype: 'string',
+					propertyValueRelation: PropertyValueRelation.Matching,
+					referenceRelation: ReferenceRelation.Regardless,
+					subclasses: false,
+					conditionRelation: null,
+					negate: false,
+				},
+			],
+			omitLabels: true,
+		};
+		const builder = new QueryObjectBuilder( queryRepresentation );
 		const expected = {
 			queryType: 'SELECT',
 			distinct: true,
@@ -62,28 +78,12 @@ describe( 'QueryObjectBuilder', () => {
 			prefixes: prefixes,
 		};
 
-		const actual = builder.buildFromQueryRepresentation( {
-			conditions: [
-				{
-					propertyId: 'P281',
-					value: 'XXXX',
-					datatype: 'string',
-					propertyValueRelation: PropertyValueRelation.Matching,
-					referenceRelation: ReferenceRelation.Regardless,
-					subclasses: false,
-					conditionRelation: null,
-					negate: false,
-				},
-			],
-			omitLabels: true,
-		} );
+		const actual = builder.buildFromQueryRepresentation();
 
 		expect( actual ).toStrictEqual( expected );
 	} );
 
 	it( 'with quantity value', () => {
-		const builder = new QueryObjectBuilder();
-
 		const quantityQueryRepresentation = {
 			conditions: [
 				{
@@ -99,8 +99,8 @@ describe( 'QueryObjectBuilder', () => {
 			],
 			omitLabels: true,
 		};
-
-		const actual = builder.buildFromQueryRepresentation( quantityQueryRepresentation );
+		const builder = new QueryObjectBuilder( quantityQueryRepresentation );
+		const actual = builder.buildFromQueryRepresentation();
 
 		expect(
 			actual,
@@ -109,7 +109,23 @@ describe( 'QueryObjectBuilder', () => {
 
 	it( 'with limit', () => {
 		const prefixes = allNamespaces;
-		const builder = new QueryObjectBuilder();
+		const queryRepresentation = {
+			conditions: [
+				{
+					propertyId: 'P281',
+					value: 'XXXX',
+					propertyValueRelation: PropertyValueRelation.Matching,
+					referenceRelation: ReferenceRelation.Regardless,
+					datatype: 'string',
+					subclasses: false,
+					conditionRelation: null,
+					negate: false,
+				},
+			],
+			omitLabels: true,
+			limit: 20,
+		};
+		const builder = new QueryObjectBuilder( queryRepresentation );
 		const expected = {
 			queryType: 'SELECT',
 			distinct: true,
@@ -165,29 +181,29 @@ describe( 'QueryObjectBuilder', () => {
 			prefixes: prefixes,
 		};
 
-		const actual = builder.buildFromQueryRepresentation( {
-			conditions: [
-				{
-					propertyId: 'P281',
-					value: 'XXXX',
-					propertyValueRelation: PropertyValueRelation.Matching,
-					referenceRelation: ReferenceRelation.Regardless,
-					datatype: 'string',
-					subclasses: false,
-					conditionRelation: null,
-					negate: false,
-				},
-			],
-			omitLabels: true,
-			limit: 20,
-		} );
+		const actual = builder.buildFromQueryRepresentation();
 
 		expect( actual ).toStrictEqual( expected );
 	} );
 
 	it( 'with labels (omitLabels = false)', () => {
 		const prefixes = allNamespaces;
-		const builder = new QueryObjectBuilder();
+		const queryRepresentation = {
+			conditions: [
+				{
+					propertyId: 'P281',
+					value: 'XXXX',
+					datatype: 'string',
+					propertyValueRelation: PropertyValueRelation.Matching,
+					referenceRelation: ReferenceRelation.Regardless,
+					subclasses: false,
+					conditionRelation: null,
+					negate: false,
+				},
+			],
+			omitLabels: false,
+		};
+		const builder = new QueryObjectBuilder( queryRepresentation );
 		const internalExpectedQuery = {
 			queryType: 'SELECT',
 			distinct: true,
@@ -293,28 +309,29 @@ describe( 'QueryObjectBuilder', () => {
 			prefixes: prefixes,
 		};
 
-		const actual = builder.buildFromQueryRepresentation( {
-			conditions: [
-				{
-					propertyId: 'P281',
-					value: 'XXXX',
-					datatype: 'string',
-					propertyValueRelation: PropertyValueRelation.Matching,
-					referenceRelation: ReferenceRelation.Regardless,
-					subclasses: false,
-					conditionRelation: null,
-					negate: false,
-				},
-			],
-			omitLabels: false,
-		} );
+		const actual = builder.buildFromQueryRepresentation();
 
 		expect( actual ).toMatchObject( expected );
 	} );
 
 	it( 'with subclasses', () => {
 		const prefixes = allNamespaces;
-		const builder = new QueryObjectBuilder();
+		const queryRepresentation = {
+			conditions: [
+				{
+					propertyId: 'P281',
+					value: 'Q456',
+					datatype: 'wikibase-item',
+					propertyValueRelation: PropertyValueRelation.Matching,
+					referenceRelation: ReferenceRelation.Regardless,
+					subclasses: true,
+					conditionRelation: null,
+					negate: false,
+				},
+			],
+			omitLabels: true,
+		};
+		const builder = new QueryObjectBuilder( queryRepresentation );
 		const expected = {
 			queryType: 'SELECT',
 			distinct: true,
@@ -377,28 +394,29 @@ describe( 'QueryObjectBuilder', () => {
 			prefixes: prefixes,
 		};
 
-		const actual = builder.buildFromQueryRepresentation( {
-			conditions: [
-				{
-					propertyId: 'P281',
-					value: 'Q456',
-					datatype: 'wikibase-item',
-					propertyValueRelation: PropertyValueRelation.Matching,
-					referenceRelation: ReferenceRelation.Regardless,
-					subclasses: true,
-					conditionRelation: null,
-					negate: false,
-				},
-			],
-			omitLabels: true,
-		} );
+		const actual = builder.buildFromQueryRepresentation();
 
 		expect( actual ).toStrictEqual( expected );
 	} );
 
 	it( 'with negate', () => {
 		const prefixes = allNamespaces;
-		const builder = new QueryObjectBuilder();
+		const queryRepresentation = {
+			conditions: [
+				{
+					propertyId: 'P281',
+					value: 'XXXX',
+					datatype: 'string',
+					propertyValueRelation: PropertyValueRelation.Matching,
+					referenceRelation: ReferenceRelation.Regardless,
+					subclasses: false,
+					conditionRelation: null,
+					negate: true,
+				},
+			],
+			omitLabels: true,
+		};
+		const builder = new QueryObjectBuilder( queryRepresentation );
 		const expected = {
 			queryType: 'SELECT',
 			distinct: true,
@@ -477,7 +495,14 @@ describe( 'QueryObjectBuilder', () => {
 			prefixes: prefixes,
 		};
 
-		const actual = builder.buildFromQueryRepresentation( {
+		const actual = builder.buildFromQueryRepresentation();
+
+		expect( actual ).toStrictEqual( expected );
+	} );
+
+	it( 'with negate but labels enabled', () => {
+		const prefixes = allNamespaces;
+		const queryRepresentation = {
 			conditions: [
 				{
 					propertyId: 'P281',
@@ -490,15 +515,9 @@ describe( 'QueryObjectBuilder', () => {
 					negate: true,
 				},
 			],
-			omitLabels: true,
-		} );
-
-		expect( actual ).toStrictEqual( expected );
-	} );
-
-	it( 'with negate but labels enabled', () => {
-		const prefixes = allNamespaces;
-		const builder = new QueryObjectBuilder();
+			omitLabels: false,
+		};
+		const builder = new QueryObjectBuilder( queryRepresentation );
 		const internalExpectedQuery = {
 			queryType: 'SELECT',
 			distinct: true,
@@ -627,21 +646,7 @@ describe( 'QueryObjectBuilder', () => {
 			prefixes: prefixes,
 		};
 
-		const actual = builder.buildFromQueryRepresentation( {
-			conditions: [
-				{
-					propertyId: 'P281',
-					value: 'XXXX',
-					datatype: 'string',
-					propertyValueRelation: PropertyValueRelation.Matching,
-					referenceRelation: ReferenceRelation.Regardless,
-					subclasses: false,
-					conditionRelation: null,
-					negate: true,
-				},
-			],
-			omitLabels: false,
-		} );
+		const actual = builder.buildFromQueryRepresentation();
 
 		expect( actual ).toStrictEqual( expected );
 	} );
