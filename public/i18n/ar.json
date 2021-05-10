@@ -46,6 +46,8 @@
 	"query-builder-include-subclasses": "قم بتضمين القيم من الفئات الفرعية لهذه القيمة",
 	"query-builder-negation-option-label-with": "مع",
 	"query-builder-negation-option-label-without": "دون",
+	"query-builder-footer-view-source": "عرض المصدر",
 	"query-builder-footer-privacy-policy": "سياسة الخصوصية",
-	"query-builder-footer-wikimedia-deutchland": "ويكيميديا ألمانيا"
+	"query-builder-footer-wikimedia-deutchland": "ويكيميديا ألمانيا",
+	"query-builder-date-input-value-label": "القيمة"
 }
