@@ -38,6 +38,7 @@
 	"query-builder-reference-relation-tooltip": "Você pode restringir ainda mais seus resultados, mostrando apenas declarações com ou sem referências.",
 	"query-builder-reference-relation-dropdown-with": "Apenas com referências",
 	"query-builder-reference-relation-dropdown-without": "Apenas sem referências",
+	"query-builder-reference-relation-dropdown-regardless": "com e sem referências",
 	"query-builder-delete-condition": "Excluir condição",
 	"query-builder-condition-placeholder": "Adicione uma condição para começar a construir uma consulta",
 	"query-builder-condition-relation-toggle-and": "e",
