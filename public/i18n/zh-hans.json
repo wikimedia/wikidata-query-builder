@@ -5,6 +5,7 @@
 			"Colathewikian",
 			"Gerongfenh",
 			"LeijieWang",
+			"Njzjz",
 			"Si109",
 			"Wuqianye",
 			"Xzonn",
@@ -52,8 +53,13 @@
 	"query-builder-negation-option-label-without": "无",
 	"query-builder-sharable-link-text": "获取一个可分享的链接",
 	"query-builder-sharable-link-message": "网址已复制到剪贴板！",
+	"query-builder-quantity-value-error-number": "请输入数字",
 	"query-builder-quantity-value-number-input-placeholder": "输入数量",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "输入单位",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "单位（可选）",
 	"query-builder-footer-report-link": "报告错误",
 	"query-builder-footer-about-us": "关于我们",
-	"query-builder-footer-privacy-policy": "隐私政策"
+	"query-builder-footer-privacy-policy": "隐私政策",
+	"query-builder-date-input-value-label": "值",
+	"query-builder-date-input-prompt-text": "请输入日期"
 }

@@ -4,7 +4,8 @@
 			"A2y4",
 			"Kkairri",
 			"Omotecho",
-			"Tamaki Wakita"
+			"Tamaki Wakita",
+			"Tmv"
 		]
 	},
 	"query-builder-heading": "ウィキデータクエリビルダー",
@@ -32,6 +33,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "一致",
 	"query-builder-value-type-relation-dropdown-without": "一致しない",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "値によらない",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "less than",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "以上",
+	"query-builder-value-type-relation-dropdown-less-than-date": "これより前",
+	"query-builder-value-type-relation-dropdown-more-than-date": "これより後",
 	"query-builder-reference-relation-label": "情報源",
 	"query-builder-reference-relation-dropdown-with": "情報源付きのものに限定",
 	"query-builder-reference-relation-dropdown-without": "情報源無しのものに限定",
@@ -46,5 +51,9 @@
 	"query-builder-label-opt-out": "ラベルの代わりにIDを表示（タイムアウトを抑制します）",
 	"query-builder-include-subclasses": "検索に関連のある値を含める (推奨)",
 	"query-builder-sharable-link-text": "共有リンクを取得",
-	"query-builder-sharable-link-message": "URLがクリップボードにコピーされました！"
+	"query-builder-sharable-link-message": "URLがクリップボードにコピーされました！",
+	"query-builder-footer-about-us": "私たちについて",
+	"query-builder-footer-privacy-policy": "プライバシー・ポリシー",
+	"query-builder-footer-wikimedia-deutchland": "ドイツ語版ウィキメディア",
+	"query-builder-date-input-value-label": "値"
 }
