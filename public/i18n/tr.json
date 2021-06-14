@@ -15,7 +15,7 @@
 	"query-builder-find-all-items": "Tüm ögeleri bul...",
 	"query-builder-run-query": "Sorguyu çalıştır",
 	"query-builder-input-value-label": "Değer",
-	"query-builder-input-value-tooltip": "<em>Değer</em> alanı bir öğeyi tanımlamak için somut bilgiyi içerir. Örneğin, \"renk\" <em>özelliği</em> için muhtemel bir <em>değer</em> \"mavi\"dir.",
+	"query-builder-input-value-tooltip": "<em>Değer</em> alanı bir ögeyi tanımlamak için somut bilgiyi içerir. Örneğin, \"renk\" <em>özelliği</em> için muhtemel bir <em>değer</em> \"mavi\"dir.",
 	"query-builder-input-value-placeholder": "Bir değer girin",
 	"query-builder-item-value-lookup-no-match-found": "Eşleşme bulunamadı",
 	"query-builder-property-lookup-label": "Özellik",
