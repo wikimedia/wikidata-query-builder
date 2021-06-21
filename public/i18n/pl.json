@@ -40,7 +40,11 @@
 	"query-builder-limit-number-screenreader-label": "Maksymalna liczba wyników",
 	"query-builder-label-opt-out": "Pokazuj ID zamiast etykiet (zapobiega błędom)",
 	"query-builder-sharable-link-message": "Adres URL skopiowany do schowka!",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "Wpisz jednostkę",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Jednostka (opcjonalnie)",
 	"query-builder-footer-report-link": "Zgłoś błąd",
+	"query-builder-footer-about-us": "O nas",
+	"query-builder-date-input-value-label": "Wartość",
 	"query-builder-date-input-placeholder": "na przykład 31-12-2020",
 	"query-builder-date-input-prompt-text": "Podaj datę"
 }
