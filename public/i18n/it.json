@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Beta16",
 			"Costabile",
 			"EditGio"
@@ -21,6 +22,7 @@
 	"query-builder-result-error-missing-property": "Seleziona una proprietà",
 	"query-builder-result-error-missing-value": "Inserisci un valore",
 	"query-builder-add-condition": "Aggiungi condizione",
+	"query-builder-value-type-relation-dropdown-without": "senza",
 	"query-builder-value-type-relation-dropdown-less-than-quantity": "meno di",
 	"query-builder-value-type-relation-dropdown-more-than-quantity": "più di",
 	"query-builder-value-type-relation-dropdown-less-than-date": "prima",

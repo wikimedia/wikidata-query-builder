@@ -51,6 +51,7 @@
 	"query-builder-limit-number-screenreader-label": "Maximalt antal resultat",
 	"query-builder-label-opt-out": "Visa ID:n istället för etiketter (kan förhindra timeout)",
 	"query-builder-include-subclasses": "Inkludera relaterade värden i sökningen (rekommenderas)",
+	"query-builder-include-subclasses-tooltip": "Inkluderar värden från delmängder av det valda värdet, när man exempelvis filtrerar efter \"skola → som ligger i det administrativa territoriella enheten → Grekland\", inkluderas också \"skola → som ligger i... → Aten\" i resultaten. Att bocka i den här rutan garanterar mer en mer fullständig resultatlista. Bocka ur om du bara behöver se exakta träffar för det angivna värdet.",
 	"query-builder-negation-option-label-with": "Med",
 	"query-builder-negation-option-label-without": "Utan",
 	"query-builder-sharable-link-text": "Få en delbar länk",
