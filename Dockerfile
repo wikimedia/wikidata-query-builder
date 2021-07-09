@@ -1,4 +1,4 @@
-FROM docker-registry.wikimedia.org/nodejs10-devel
+FROM node:12
 
 RUN apt-get update && \
 	apt-get install -y \
