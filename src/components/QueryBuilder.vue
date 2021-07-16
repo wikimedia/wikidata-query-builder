@@ -329,7 +329,6 @@ $largeViewportWidth: 90em; //~1438px
 .querybuilder__run {
 	font-family: $font-family-style-heading-sans;
 	font-weight: $font-weight-style-h4;
-	font-size: $font-size-style-h4;
 	line-height: $font-line-height-style-heading;
 	color: $font-color-base;
 	margin-block-start: $dimension-layout-medium;
