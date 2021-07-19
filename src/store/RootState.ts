@@ -1,4 +1,4 @@
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
@@ -8,7 +8,7 @@ export const DEFAULT_LIMIT = 100;
 
 export default interface RootState {
 	conditionRows: ConditionRow[];
-	errors: Error[];
+	errors: QueryBuilderError[];
 	limit: number | null | undefined;
 	useLimit: boolean;
 	omitLabels: boolean;
@@ -39,7 +39,7 @@ export interface ConditionRow {
 	propertyData: PropertyData;
 	valueData: {
 		value: Value;
-		valueError: Error|null;
+		valueError: QueryBuilderError|null;
 	};
 	propertyValueRelationData: {
 		value: PropertyValueRelation;
@@ -57,6 +57,6 @@ export interface PropertyData {
 	id: string;
 	label: string;
 	datatype: string|null;
-	propertyError: Error|null;
+	propertyError: QueryBuilderError|null;
 	isPropertySet: boolean;
 }

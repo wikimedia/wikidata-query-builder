@@ -1,5 +1,5 @@
 import Property from '@/data-model/Property';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import { Value } from '@/store/RootState';
 
@@ -10,6 +10,6 @@ export default interface ConditionValues {
 }
 
 export interface ConditionErrors {
-	property: Error | null;
-	value: Error | null;
+	property: QueryBuilderError | null;
+	value: QueryBuilderError | null;
 }

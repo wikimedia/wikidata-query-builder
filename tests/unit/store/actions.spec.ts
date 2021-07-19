@@ -5,7 +5,7 @@ import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import { ConditionRow, DEFAULT_LIMIT } from '@/store/RootState';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 
 function createActionsWithMockServices(
 	serviceOverrides: Partial<Services> = {},
@@ -713,7 +713,7 @@ describe( 'actions', () => {
 			};
 			const actions = createActionsWithMockServices();
 
-			const expectedError: Error = {
+			const expectedError: QueryBuilderError = {
 				type: 'error',
 				message: 'query-builder-result-error-incomplete-form',
 			};

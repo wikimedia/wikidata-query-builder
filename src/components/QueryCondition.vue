@@ -60,7 +60,7 @@ import SubclassCheckbox from '@/components/SubclassCheckbox.vue';
 import SearchResult from '@/data-access/SearchResult';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ReferenceRelationDropDown from '@/components/ReferenceRelationDropDown.vue';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 import { mapGetters } from 'vuex';
 import NegationToggle from '@/components/NegationToggle.vue';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
@@ -161,7 +161,7 @@ export default Vue.extend( {
 				this.$store.dispatch( 'setNegate', { value: valueBoolean, conditionIndex: this.conditionIndex } );
 			},
 		},
-		valueError(): Error | null {
+		valueError(): QueryBuilderError | null {
 			const valueError = this.$store.getters.valueError( this.conditionIndex );
 			if ( valueError === null ) {
 				return null;

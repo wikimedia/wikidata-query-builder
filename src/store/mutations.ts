@@ -1,7 +1,7 @@
 import RootState from './RootState';
 import Property from '@/data-model/Property';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 import { getFreshConditionRow } from './index';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
@@ -49,7 +49,7 @@ export default {
 	setConditionRelation( state: RootState, payload: { value: ConditionRelation; conditionIndex: number } ): void {
 		state.conditionRows[ payload.conditionIndex ].conditionRelation = payload.value;
 	},
-	setErrors( state: RootState, errors: Error[] ): void {
+	setErrors( state: RootState, errors: QueryBuilderError[] ): void {
 		state.errors = errors;
 	},
 	addCondition( state: RootState ): void {
@@ -66,8 +66,8 @@ export default {
 		payload: {
 			index: number;
 			errors: {
-				propertyError?: Error|null;
-				valueError?: Error|null;
+				propertyError?: QueryBuilderError|null;
+				valueError?: QueryBuilderError|null;
 			};
 		},
 	): void {

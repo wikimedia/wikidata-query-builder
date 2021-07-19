@@ -37,7 +37,7 @@ import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';
 import InfoTooltip from '@/components/InfoTooltip.vue';
-import { QuantityError } from '@/data-model/Error';
+import { QuantityError } from '@/data-model/QueryBuilderError';
 import QuantityValidator from '@/form/QuantityValidator';
 import { QuantityValue } from '@/store/RootState';
 import debounce from 'lodash/debounce';
