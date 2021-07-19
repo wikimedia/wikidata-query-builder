@@ -3,7 +3,7 @@ import RootState, { ConditionRow, DEFAULT_LIMIT, ItemValue, QuantityValue,
 	StringValue, DateValue, Value } from './RootState';
 import QueryRepresentation, { ConditionValue } from '@/sparql/QueryRepresentation';
 import Property from '@/data-model/Property';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
@@ -68,7 +68,7 @@ export default {
 		};
 	},
 	propertyError( rootState: RootState ) {
-		return ( conditionIndex: number ): ( Error | null ) => {
+		return ( conditionIndex: number ): ( QueryBuilderError | null ) => {
 			return rootState.conditionRows[ conditionIndex ].propertyData.propertyError;
 		};
 	},
@@ -92,7 +92,7 @@ export default {
 		};
 	},
 	valueError( rootState: RootState ) {
-		return ( conditionIndex: number ): ( Error | null ) => {
+		return ( conditionIndex: number ): ( QueryBuilderError | null ) => {
 			return rootState.conditionRows[ conditionIndex ].valueData.valueError;
 		};
 	},
@@ -130,7 +130,7 @@ export default {
 			return rootState.conditionRows[ conditionIndex ].conditionRelation;
 		};
 	},
-	getErrors( rootState: RootState ): Error[] {
+	getErrors( rootState: RootState ): QueryBuilderError[] {
 		return rootState.errors;
 	},
 };

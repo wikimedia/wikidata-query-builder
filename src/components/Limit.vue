@@ -22,13 +22,13 @@
 import Vue from 'vue';
 import { DEFAULT_LIMIT } from '@/store/RootState';
 import { Checkbox, TextInput } from '@wmde/wikit-vue-components';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 
 export default Vue.extend( {
 	name: 'Limit',
 	data() {
 		return {
-			error: null as null | Error,
+			error: null as null | QueryBuilderError,
 			limit: String( DEFAULT_LIMIT ),
 		};
 	},

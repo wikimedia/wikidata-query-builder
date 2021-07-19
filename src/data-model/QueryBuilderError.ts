@@ -7,6 +7,6 @@ export interface QuantityError extends BaseError {
 	subproperty: 'number' | 'unit' | 'both' | null;
 }
 
-type Error = BaseError | QuantityError;
+type QueryBuilderError = BaseError | QuantityError;
 
-export default Error;
+export default QueryBuilderError;

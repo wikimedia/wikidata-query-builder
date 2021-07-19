@@ -2,13 +2,13 @@ import Property from '@/data-model/Property';
 import BaseValidator from '@/form/BaseValidator';
 import ConditionValues, { ConditionErrors } from '@/form/ConditionValues';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 import DateValidator from '@/form/DateValidator';
 import QuantityValidator from '@/form/QuantityValidator';
 import { DateValue, QuantityValue, Value } from '@/store/RootState';
 
 export interface ValidationResult {
-	formErrors: Error[];
+	formErrors: QueryBuilderError[];
 	fieldErrors: ConditionErrors[];
 }
 
@@ -76,7 +76,7 @@ export default class Validator {
 		property: Property | null,
 		propertyValueRelation: PropertyValueRelation,
 		value: Value | null,
-	): Error | null {
+	): QueryBuilderError | null {
 		if ( propertyValueRelation === PropertyValueRelation.Regardless ) {
 			return null;
 		}

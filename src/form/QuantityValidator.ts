@@ -1,4 +1,4 @@
-import { QuantityError } from '@/data-model/Error';
+import { QuantityError } from '@/data-model/QueryBuilderError';
 import { QuantityValue } from '@/store/RootState';
 
 export default class QuantityValidator {

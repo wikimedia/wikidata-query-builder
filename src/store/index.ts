@@ -7,13 +7,13 @@ import getters from './getters';
 import QueryBuilderServices from '@/QueryBuilderServices';
 import RootState, { ConditionRow, PropertyData } from '@/store/RootState';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 
 Vue.use( Vuex );
 
-export function newEmptyPropertyData( propertyError: Error | null = null ): PropertyData {
+export function newEmptyPropertyData( propertyError: QueryBuilderError | null = null ): PropertyData {
 	return {
 		label: '',
 		id: '',

@@ -27,6 +27,9 @@ module.exports = {
 		} ],
 
 		'vue/html-indent': [ 'error', 'tab' ],
+
+		// This is done by Typescript itself and only causes false positives
+		'no-undef': 'off',
 	},
 	overrides: [
 		{

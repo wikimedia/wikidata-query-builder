@@ -8,7 +8,7 @@ import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { ActionContext, ActionTree } from 'vuex';
 import RootState, { ConditionRow, DateValue, DEFAULT_LIMIT } from './RootState';
 import SearchResult from '@/data-access/SearchResult';
-import Error from '@/data-model/Error';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import MetricsCollector from '@/data-access/MetricsCollector';
 import SearchEntityRepository from '@/data-access/SearchEntityRepository';
@@ -173,7 +173,7 @@ export default (
 		payload: { value: ConditionRelation | null; conditionIndex: number } ): void {
 		context.commit( 'setConditionRelation', payload );
 	},
-	setErrors( context: ActionContext<RootState, RootState>, errors: Error[] ): void {
+	setErrors( context: ActionContext<RootState, RootState>, errors: QueryBuilderError[] ): void {
 		context.commit( 'setErrors', errors );
 	},
 	incrementMetric( context: ActionContext<RootState, RootState>, metric: string ): void {
