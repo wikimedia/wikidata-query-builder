@@ -19,6 +19,7 @@ spec:
           containers:
           - name: update
             workingDir: /data/project/query-builder-test
+            # The image doesn't matter
             image:  docker-registry.tools.wmflabs.org/toolforge-node10-sssd-web:latest
             args:
             - /bin/sh
