@@ -67,5 +67,6 @@
 	"query-builder-footer-privacy-policy": "隱私政策",
 	"query-builder-footer-team": "由維基數據團隊製作",
 	"query-builder-date-input-value-label": "值",
+	"query-builder-date-input-placeholder": "例如：31-12-2020",
 	"query-builder-date-input-prompt-text": "請輸入日期"
 }
