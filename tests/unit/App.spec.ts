@@ -9,7 +9,7 @@ jest.mock( '@/ServicesFactory', () => {
 			if ( name === 'languageService' ) {
 				return {
 					getAppLanguageCode: jest.fn(),
-					getMessagesForLangCode: jest.fn().mockReturnValue( {} ),
+					getMessagesForLangCode: jest.fn().mockReturnValue( { 'query-builder-heading': 'Assistant de requêtes Wikidata'} ),
 				};
 			}
 		} ),
@@ -27,6 +27,21 @@ describe( 'App.vue', () => {
 			value: location,
 			writable: true,
 		} );
+	} );
+
+	it( 'sets the window heading based on a localized string', async () => {
+		Object.defineProperty( global.window, 'location', {
+			value: {
+				search: `?uselang=fr`,
+			},
+			writable: true,
+		} );
+
+		shallowMount( App, { store: new Vuex.Store( {} ), localVue } );
+
+		await localVue.nextTick();
+
+		expect( global.window.document.title ).toBe( 'Assistant de requêtes Wikidata' );
 	} );
 
 	it( 'reconstructs QB state if URL has a query parameter', async () => {

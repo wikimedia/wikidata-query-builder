@@ -54,6 +54,8 @@ export default Vue.extend( {
 				wikilinks: true,
 			} );
 			this.isi18nLoaded = true;
+			this.setDocumentTitle( messages );
+
 		},
 		reconstructStateFromURL(): void {
 			const urlParams = new URLSearchParams( window.location.search );
@@ -62,6 +64,9 @@ export default Vue.extend( {
 			}
 			this.$store.dispatch( 'parseState', urlParams.get( 'query' ) );
 		},
+		setDocumentTitle( messages: { [langCode: string]: { [msgKey: string]: string} } ): void {
+			window.document.title = messages[ this.lang ][ 'query-builder-heading' ] || messages[ 'en' ][ 'query-builder-heading' ];
+		}
 	},
 	name: 'App',
 	components: {
