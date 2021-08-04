@@ -4,4 +4,4 @@ git checkout master
 git reset --hard origin/master
 git pull
 rm -rf public_html/*
-cp -R . ../public_html/
+cp -R * ../public_html/
