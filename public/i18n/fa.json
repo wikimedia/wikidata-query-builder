@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jeeputer",
 			"Ladsgroup",
 			"Reza koulivand",
 			"Reza1615"
@@ -39,5 +40,6 @@
 	"query-builder-limit-number-placeholder": "یک عدد وارد کنید",
 	"query-builder-limit-number-screenreader-label": "حداکثر تعداد نتایج",
 	"query-builder-negation-option-label-with": "با",
-	"query-builder-negation-option-label-without": "بدون"
+	"query-builder-negation-option-label-without": "بدون",
+	"query-builder-sharable-link-text": "دریافت پیوند قابل اشتراک‌گذاری"
 }
