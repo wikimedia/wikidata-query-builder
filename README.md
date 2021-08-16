@@ -43,3 +43,8 @@ Run: `docker-compose run --rm node npm run test:cy`
 
 Note: If you wish to run cypress in the browser (and not in a headless mode) for debugging purposes, run `npm run cypress:interactive` locally (no docker).
 If cypress is not starting please double check that the port in the command is the same as the one your dev server is running on.
+
+## Deploying to production
+
+After merge, trigger a build job in [Wikimedia CI](https://integration.wikimedia.org/ci/job/wikidata-query-builder-build/) and once the patch in [deploy repo](https://gerrit.wikimedia.org/r/q/project:wikidata%252Fquery-builder%252Fdeploy) is created, force merge it.
+It will by [synced to production](https://gerrit.wikimedia.org/r/plugins/gitiles/operations/puppet/+/9d52148c28c3391d32f0b83c8762f70e8af1ad15/modules/profile/templates/wdqs/httpd-query.wikidata.org.erb#24) by the puppet agent which is set to run every 30 minutes.
