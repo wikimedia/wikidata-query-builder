@@ -15,14 +15,14 @@
     "build": "tsc --noEmit && vite build --out-dir dist",
     "test:unit": "jest --no-cache",
     "test:integration": "jest -c jest.config.integration.js",
-    "test:lint": "eslint --no-fix --max-warnings 0",
+    "test:lint": "eslint --no-fix --max-warnings 0 --ignore-path .gitignore .",
     "test": "npm-run-all test:* && vite build",
     "test:lintcss": "stylelint '**/*.vue'",
     "test:a11y": "jest --testMatch=\"**/tests/a11y/**\"",
     "test:cy": "env $(grep -v '^#' .env.example | xargs) start-server-and-test serve http-get://localhost:8080 cypress",
     "fix:css": "stylelint '**/*.vue' --fix",
-    "fix:ts": "eslint",
-    "fix:cypress": "eslint cypress"
+    "fix:ts": "eslint --fix --ignore-path .gitignore .",
+    "fix:cypress": "eslint --fix cypress"
   },
   "main": "index.js",
   "dependencies": {

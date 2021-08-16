@@ -43,6 +43,9 @@ module.exports = {
 			extends: [
 				'wikimedia/node',
 			],
+			parserOptions: {
+				sourceType: 'module',
+			},
 			rules: {
 				'@typescript-eslint/explicit-function-return-type': 'off',
 				'@typescript-eslint/explicit-member-accessibility': 'off',

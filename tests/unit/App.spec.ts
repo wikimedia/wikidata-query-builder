@@ -9,7 +9,9 @@ jest.mock( '@/ServicesFactory', () => {
 			if ( name === 'languageService' ) {
 				return {
 					getAppLanguageCode: jest.fn(),
-					getMessagesForLangCode: jest.fn().mockReturnValue( { 'query-builder-heading': 'Assistant de requêtes Wikidata'} ),
+					getMessagesForLangCode: jest.fn().mockReturnValue(
+						{ 'query-builder-heading': 'Assistant de requêtes Wikidata' },
+					),
 				};
 			}
 		} ),
@@ -32,7 +34,7 @@ describe( 'App.vue', () => {
 	it( 'sets the window heading based on a localized string', async () => {
 		Object.defineProperty( global.window, 'location', {
 			value: {
-				search: `?uselang=fr`,
+				search: '?uselang=fr',
 			},
 			writable: true,
 		} );
