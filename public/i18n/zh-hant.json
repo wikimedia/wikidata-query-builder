@@ -49,7 +49,7 @@
 	"query-builder-limit-number-placeholder": "輸入數量",
 	"query-builder-limit-number-screenreader-label": "結果數量上限",
 	"query-builder-label-opt-out": "顯示 ID 而非標籤（可能會逾時）",
-	"query-builder-include-subclasses": "另外包含來自屬性子分類的值",
+	"query-builder-include-subclasses": "包含在搜尋裡的相關值（建議）",
 	"query-builder-include-subclasses-tooltip": "包含子分類，例如：在篩選「work of art」（藝術品）時包括「painting」（繪畫）例子。勾選此方框會得到更完整的結果清單。",
 	"query-builder-negation-option-label-with": "帶",
 	"query-builder-negation-option-label-without": "不帶",
@@ -65,8 +65,11 @@
 	"query-builder-footer-report-link": "回報程式錯誤",
 	"query-builder-footer-about-us": "關於我們",
 	"query-builder-footer-privacy-policy": "隱私政策",
+	"query-builder-footer-wikimedia-deutchland": "德國維基媒體",
 	"query-builder-footer-team": "由維基數據團隊製作",
 	"query-builder-date-input-value-label": "值",
 	"query-builder-date-input-placeholder": "例如：31-12-2020",
-	"query-builder-date-input-prompt-text": "請輸入日期"
+	"query-builder-date-input-prompt-text": "請輸入日期",
+	"query-builder-date-input-results-intro-text": "將會呈現成：",
+	"query-builder-date-input-calendar-notice-text": "所有日期以格里曆呈現"
 }
