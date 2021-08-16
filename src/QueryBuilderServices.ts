@@ -3,9 +3,11 @@ import SearchEntityRepository from '@/data-access/SearchEntityRepository';
 import ParseValueRepository from '@/data-access/ParseValueRepository';
 import FormatValueRepository from '@/data-access/FormatValueRepository';
 import MetricsCollector from '@/data-access/MetricsCollector';
+import UrlShortenerRepository from '@/data-access/UrlShortenerRepository';
 
 export interface Services {
 	searchEntityRepository: SearchEntityRepository;
+	urlShortenerRepository: UrlShortenerRepository;
 	parseValueRepository: ParseValueRepository;
 	formatValueRepository: FormatValueRepository;
 	metricsCollector: MetricsCollector;

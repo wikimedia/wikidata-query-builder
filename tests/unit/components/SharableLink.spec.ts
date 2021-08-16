@@ -5,6 +5,25 @@ import Vuex from 'vuex';
 import { newStore } from '../../util/store';
 import { Button } from '@wmde/wikit-vue-components';
 import SharableLink from '@/components/SharableLink.vue';
+import UrlShortenerRepository from '@/data-access/UrlShortenerRepository';
+import TechnicalProblem from '@/data-access/errors/TechnicalProblem';
+
+jest.mock( '@/ServicesFactory', () => {
+	return {
+		get: jest.fn().mockImplementation( ( name ): UrlShortenerRepository | undefined => {
+			if ( name === 'urlShortenerRepository' ) {
+				return {
+					shortenUrl: jest.fn().mockImplementation( ( longUrl: string ) => {
+						if ( longUrl.includes( 'P123' ) ) {
+							throw new TechnicalProblem( '500: internal server error' );
+						}
+						return 'https://w.wiki/abcde';
+					} ),
+				};
+			}
+		} ),
+	};
+} );
 
 Vue.use( i18n, {
 	locale: 'en',
@@ -25,22 +44,13 @@ describe( 'SharableLink component', () => {
 		expect( wrapper.findAllComponents( Button ) ).toHaveLength( 1 );
 	} );
 
-	it( 'shouldn\'t error out on click', async () => {
-		const property = { label: 'postal code', id: 'P123' };
-		const propertyGetter = () => () => ( property );
+	it( 'shouldn\'t error out on click but still copy the long url', async () => {
+		const store = newStore();
+		store.state.conditionRows[ 0 ].propertyData.id = 'P123';
 		const wrapper = mount( SharableLink, {
-			store: newStore( { property: propertyGetter } ),
+			store,
 			localVue,
 		} );
-
-		process.env.VUE_APP_URL_SHORTNER_SERVICE_URL = 'https://example.com/w/api.php';
-
-		// If the service can'tbe reached, we still get the long url
-		window.fetch = jest.fn().mockImplementation( () => Promise.resolve( {
-			ok: false,
-			status: 500,
-			statusText: 'Server Error',
-		} ) );
 
 		await wrapper.findComponent( Button ).trigger( 'click' );
 
@@ -48,26 +58,17 @@ describe( 'SharableLink component', () => {
 		// @ts-ignore
 		const href = decodeURIComponent( wrapper.vm.href );
 
-		expect( window.fetch ).toHaveBeenCalledTimes( 1 );
 		expect( href ).toContain( '?query={' );
 		expect( href ).toContain( '"propertyId":"P123"' );
 	} );
 
 	it( 'shortens a long url', async () => {
-		const property = { label: 'postal code', id: 'P123' };
-		const propertyGetter = () => () => ( property );
+		const store = newStore();
+		store.state.conditionRows[ 0 ].propertyData.id = 'P456';
 		const wrapper = mount( SharableLink, {
-			store: newStore( { property: propertyGetter } ),
+			store,
 			localVue,
 		} );
-
-		process.env.VUE_APP_URL_SHORTNER_SERVICE_URL = 'https://example.com/w/api.php';
-		const expectedResult = { shorturl: 'bar' };
-
-		window.fetch = jest.fn().mockImplementation( () => Promise.resolve( {
-			ok: true,
-			json: async () => ( { shortenurl: expectedResult } ),
-		} ) );
 
 		await wrapper.findComponent( Button ).trigger( 'click' );
 		await localVue.nextTick();
@@ -76,7 +77,6 @@ describe( 'SharableLink component', () => {
 		// @ts-ignore
 		const href = decodeURIComponent( wrapper.vm.href );
 
-		expect( window.fetch ).toHaveBeenCalledTimes( 1 );
-		expect( href ).toStrictEqual( 'bar' );
+		expect( href ).toStrictEqual( 'https://w.wiki/abcde' );
 	} );
 } );

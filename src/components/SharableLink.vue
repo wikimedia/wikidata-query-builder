@@ -29,6 +29,7 @@
 import Vue from 'vue';
 import { Icon, Button, Popover } from '@wmde/wikit-vue-components';
 import QuerySerializer from '@/serialization/QuerySerializer';
+import services from '@/ServicesFactory';
 
 export default Vue.extend( {
 	name: 'SharableLink',
@@ -49,42 +50,17 @@ export default Vue.extend( {
 			const current = new URL( window.location.href );
 			current.searchParams.set( 'query', serializedQuery );
 			this.href = current.href;
-			await this.shortenUrl( current.href );
+			const urlShortener = services.get( 'urlShortenerRepository' );
+			try {
+				this.href = await urlShortener.shortenUrl( current.href );
+			} catch ( err ) {
+				// nothing happens here. the long url is not shortned.
+			}
 			try {
 				await navigator.clipboard.writeText( this.href );
 			} catch ( err ) {
 				// The code might run in a context that doesn't have a clipboard API (like test).
 				// Ignore and pass.
-			}
-		},
-		async shortenUrl( url: string ): Promise<void> {
-			const requestOptions = {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			};
-
-			const params: { [key: string]: string } = {
-				action: 'shortenurl',
-				format: 'json',
-				origin: '*',
-				url: url,
-			};
-			const shortnerUrl = new URL( process.env.VUE_APP_URL_SHORTNER_SERVICE_URL || '' );
-
-			for ( const key in params ) {
-				shortnerUrl.searchParams.set( key, params[ key ] );
-			}
-
-			try {
-				const response = await fetch( shortnerUrl.toString(), requestOptions );
-				if ( response.ok ) {
-					const data = await response.json();
-					this.href = ( data.shortenurl.shorturl || data.shortenurl.shorturlalt );
-				}
-			} catch ( err ) {
-				// nothing happens here. the long url is not shortned.
 			}
 		},
 	},

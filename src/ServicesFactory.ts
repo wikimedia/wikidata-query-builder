@@ -4,6 +4,7 @@ import FetchSearchEntityRepository from '@/data-access/FetchSearchEntityReposito
 import FetchParseValueRepository from '@/data-access/FetchParseValueRepository';
 import FetchFormatValueRepository from '@/data-access/FetchFormatValueRepository';
 import StatsvMetricsCollector from '@/data-access/StatsvMetricsCollector';
+import FetchUrlShortenerRepository from './data-access/FetchUrlShortenerRepository';
 
 const services = new QueryBuilderServices();
 const languageService = new FetchLanguageService();
@@ -24,5 +25,10 @@ services.set( 'metricsCollector', new StatsvMetricsCollector(
 	'Wikidata.query-builder',
 	process.env.VUE_APP_STATSV_ENDPOINT || null,
 ) );
+
+services.set(
+	'urlShortenerRepository',
+	new FetchUrlShortenerRepository( process.env.VUE_APP_URL_SHORTNER_SERVICE_URL || '' ),
+);
 
 export default services;
