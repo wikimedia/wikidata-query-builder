@@ -2,7 +2,7 @@
 	<div class="querybuilder">
 		<main>
 			<h1 class="querybuilder__heading">
-				<bdi id="directionSample"
+				<bdi dir="auto" id="directionSample"
 					v-i18n="{msg: 'query-builder-heading'}" />
 			</h1>
 			<p class="querybuilder__description"
