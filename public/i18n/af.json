@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Taalvalk",
 			"Winstonza"
 		]
 	},
@@ -21,7 +22,7 @@
 	"query-builder-result-error-missing-value": "Vul asseblief 'n waarde in",
 	"query-builder-value-type-relation-dropdown-matching": "Stem ooreen",
 	"query-builder-value-type-relation-dropdown-without": "sonder",
-	"query-builder-value-type-relation-dropdown-regardless-of-value": "ongeag waarde",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "ongeag van die waarde",
 	"query-builder-value-type-relation-dropdown-less-than-quantity": "minder as",
 	"query-builder-value-type-relation-dropdown-more-than-quantity": "meer as",
 	"query-builder-value-type-relation-dropdown-less-than-date": "voor",
@@ -36,20 +37,20 @@
 	"query-builder-limit-number-error-message": "Die limiet moet 'n getal wees",
 	"query-builder-limit-number-results-description": "Beperk die getal resultate tot",
 	"query-builder-limit-number-placeholder": "Vul 'n getal in",
-	"query-builder-limit-number-screenreader-label": "Maksimum getal resulate",
+	"query-builder-limit-number-screenreader-label": "Maksimum aantal resulate",
 	"query-builder-include-subclasses": "Sluit verwante waardes in die soektog in (aanbeveel)",
 	"query-builder-negation-option-label-with": "Met",
 	"query-builder-negation-option-label-without": "Sonder",
 	"query-builder-sharable-link-text": "Kry 'n skakel wat jy kan deel",
 	"query-builder-sharable-link-message": "Teks na knipbord gekopieer!",
-	"query-builder-quantity-value-error-number": "Vul asseblief 'n waarde in",
+	"query-builder-quantity-value-error-number": "Vul asseblief 'n getal in",
 	"query-builder-quantity-value-number-input-placeholder": "Vul 'n getal in",
 	"query-builder-footer-view-source": "Wys bronteks",
 	"query-builder-footer-report-link": "Rapporteer ’n fout",
 	"query-builder-footer-about-us": "Meer oor ons",
 	"query-builder-footer-privacy-policy": "Privaatheidsbeleid",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
-	"query-builder-footer-team": "Verskaf deur die Wikidata-span",
+	"query-builder-footer-team": "Geskep deur die Wikidata-span",
 	"query-builder-date-input-value-label": "Waarde",
 	"query-builder-date-input-placeholder": "byvoorbeeld 31-12-2020",
 	"query-builder-date-input-prompt-text": "Vul asseblief 'n datum in",

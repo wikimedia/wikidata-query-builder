@@ -63,6 +63,7 @@
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "輸入單位",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "單位（可選）",
 	"query-builder-footer-about-query-builder": "關於查詢建置器",
+	"query-builder-footer-licence": "基於 [$1 BSD 3-Clause License] 許可",
 	"query-builder-footer-build-time": "上一次建置於 [$1 $2]",
 	"query-builder-footer-view-source": "檢視原始碼",
 	"query-builder-footer-report-link": "回報程式錯誤",

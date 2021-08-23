@@ -7,7 +7,7 @@
 		]
 	},
 	"query-builder-heading": "בונה שאילתות ויקינתונים",
-	"query-builder-intro-text": "בונה השאילתות של ויקינתונים מספק ממשק חזותי לבניית שאילתת ויקינתונים פשוטה. הוא מושלם למשתמשים שיש להם ניסיון מועט, או שאין להם ניסיון בכלל ב־[$1 ספארקל] (SPARQL), שפת השאילתות החזקה. בונה השאילתות לא מציע את כל היכולות של ספארקל, אבל תמיד אפשר לפתוח את השאילתה שלך בשירות השאילתות, ושם אפשר להציג, לערוך, או להרחיב אותה דרך הקישור מעל התוצאות. [$2 משוב מתקבל בברכה].",
+	"query-builder-intro-text": "בונה השאילתות של ויקינתונים מספק ממשק חזותי לבניית שאילתת ויקינתונים פשוטה. הוא מושלם למשתמשים שיש להם ניסיון מועט, או שאין להם ניסיון בכלל ב[$1 ספארקל] (SPARQL), שפת השאילתות החזקה. בונה השאילתות לא מציע את כל היכולות של ספארקל, אבל תמיד אפשר לפתוח את השאילתה שלך בשירות השאילתות, ושם אפשר להציג, לערוך, או להרחיב אותה דרך הקישור מעל התוצאות. [$2 משוב מתקבל כאן בברכה].",
 	"query-builder-query-heading": "שאילתה",
 	"query-builder-settings-heading": "הגדרות",
 	"query-builder-find-all-items": "איתור כל הפריטים…",
@@ -64,7 +64,7 @@
 	"query-builder-quantity-value-number-input-placeholder": "נא להזין מספר",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "נא להזין יחידה",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "יחידה (לא חובה)",
-	"query-builder-footer-about-query-builder": "עודות בונה השאילתות",
+	"query-builder-footer-about-query-builder": "אודות בונה השאילתות",
 	"query-builder-footer-licence": "מתפרסם לפי תנאי [$1 רישיון BSD בעל 3 חלקים]",
 	"query-builder-footer-build-time": "בנייה אחרונה ב־[$1 $2]",
 	"query-builder-footer-view-source": "הצגת מקור",
