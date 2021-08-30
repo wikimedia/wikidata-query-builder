@@ -31,7 +31,7 @@
 	"query-builder-add-condition": "Lägg till villkor",
 	"query-builder-value-type-relation-dropdown-matching": "matchar",
 	"query-builder-value-type-relation-dropdown-without": "utan",
-	"query-builder-value-type-relation-dropdown-regardless-of-value": "oavsett värdet",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "oavsett värde",
 	"query-builder-value-type-relation-dropdown-less-than-quantity": "mindre än",
 	"query-builder-value-type-relation-dropdown-more-than-quantity": "mer än",
 	"query-builder-value-type-relation-dropdown-less-than-date": "innan",
