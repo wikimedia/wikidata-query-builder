@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Danieldegroot2",
 			"Husky",
 			"Nickthijssen1994",
 			"Romaine",
@@ -8,7 +9,7 @@
 			"Xbaked potatox"
 		]
 	},
-	"query-builder-heading": "Wikidata Zoekvraagbouwer",
+	"query-builder-heading": "Wikidata Zoekopdrachtbouwer",
 	"query-builder-intro-text": "De Wikidata Zoekvraagbouwer biedt een visuele interface voor het bouwen van een eenvoudige Wikidata-zoekopdracht. Het is ideaal voor gebruikers met weinig of geen ervaring in [$1 SPARQL], de krachtige zoektaal van Wikidata. De zoekvraagbouwer biedt niet de volledige functionaliteit van SPARQL, maar u kunt uw zoekvraag altijd openen in de zoekvraagservice, waar u deze kunt bekijken, bewerken of uitbreiden via de link boven de resultaten. [$2 Opmerkingen zijn hier welkom].",
 	"query-builder-query-heading": "Zoekvraag",
 	"query-builder-settings-heading": "Instellingen",
@@ -27,7 +28,7 @@
 	"query-builder-result-link-text": "Geef zoekopdracht weer in de zoekvraagbouwer",
 	"query-builder-result-placeholder": "Resultaten worden hier weergegeven",
 	"query-builder-result-header": "Resultaten",
-	"query-builder-result-error-empty-form": "Het lijkt erop dat de zoekvraagbouwer leeg is. Voer een zoekvraag in en probeer het opnieuw.",
+	"query-builder-result-error-empty-form": "Het lijkt erop dat de zoekopdrachtbouwer leeg is. Voer een zoekopdracht in en probeer het opnieuw.",
 	"query-builder-result-error-incomplete-form": "Een of meer velden zijn leeg of bevatten waardes die niet wordt herkend. Pas uw zoekvraag aan en probeer nogmaals.",
 	"query-builder-result-error-missing-property": "Selecteer een eigenschap",
 	"query-builder-result-error-missing-value": "Voer een waarde in",
@@ -66,7 +67,7 @@
 	"query-builder-quantity-value-number-input-placeholder": "Voer een cijfer in",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Voer een eenheid in",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Eenheid (optioneel)",
-	"query-builder-footer-about-query-builder": "Over de Zoekopdracht Bouwer",
+	"query-builder-footer-about-query-builder": "Over de Zoekopdrachtbouwer",
 	"query-builder-footer-licence": "Gelicentieerd onder [$1 BSD 3-Clause Licentie]",
 	"query-builder-footer-build-time": "Laatste creatie op [$1 $2]",
 	"query-builder-footer-view-source": "Broncode bekijken",
