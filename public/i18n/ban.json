@@ -51,6 +51,7 @@
 	"query-builder-negation-option-label-without": "Tanpa",
 	"query-builder-sharable-link-message": "URL katurun nuju papan klip",
 	"query-builder-quantity-value-error-number": "Durusang dagingin satunggal angka",
+	"query-builder-quantity-value-label": "Nilai miwah Satuan (dadi-dadi)",
 	"query-builder-quantity-value-number-input-placeholder": "Dagingin satunggal angka",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Dagingin satunggal satuan",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Satuan (opsional)",
