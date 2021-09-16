@@ -753,4 +753,172 @@ describe( 'actions', () => {
 		expect( context.commit ).toHaveBeenCalledWith( 'setReferenceRelation', { referenceRelation, conditionIndex } );
 	} );
 
+	describe( 'parseState', () => {
+		it( 'parses state and dispatches action to search for entities', () => {
+			const context = {
+				rootState: {},
+				commit: jest.fn(),
+				dispatch: jest.fn(),
+			};
+			const payload = {
+				conditions: [ {
+					propertyId: 'P31',
+					propertyDataType: 'wikibase-item',
+					propertyValueRelation: 'matching',
+					referenceRelation: 'regardless',
+					value: 'Q146',
+					subclasses: true,
+					conditionRelation: null,
+					negate: false,
+				} ],
+				limit: 10,
+				useLimit: true,
+				omitLabels: false,
+			};
+
+			const actions = createActionsWithMockServices();
+
+			actions.parseState( context as any, JSON.stringify( payload ) );
+
+			expect( context.commit ).toHaveBeenCalledWith( 'setState', {
+				conditionRows: [ {
+					conditionId: '1',
+					propertyData: {
+						datatype: 'wikibase-item',
+						id: 'P31',
+						isPropertySet: true,
+						label: 'P31',
+						propertyError: null,
+					},
+					propertyValueRelationData: { value: 'matching' },
+					referenceRelation: 'regardless',
+					valueData: {
+						value: {
+							id: 'Q146',
+							label: 'Q146',
+						},
+						valueError: null,
+					},
+					subclasses: true,
+					conditionRelation: null,
+					negate: false,
+				} ],
+				limit: 10,
+				omitLabels: false,
+				useLimit: true,
+				errors: [],
+			} );
+			expect( context.dispatch ).toHaveBeenCalledWith( 'searchForEntities' );
+		} );
+
+		it( 'does nothing for invalid payload', () => {
+			const context = {
+				rootState: {},
+				commit: jest.fn(),
+				dispatch: jest.fn(),
+			};
+
+			const actions = createActionsWithMockServices();
+
+			actions.parseState( context as any, 'invalid' );
+
+			expect( context.commit ).not.toHaveBeenCalled();
+			expect( context.dispatch ).not.toHaveBeenCalled();
+		} );
+	} );
+
+	describe( 'searchForEntities', () => {
+		it( 'searches for properties', async () => {
+			const searchProperties = jest.fn().mockResolvedValue( [ {
+				id: 'P646',
+				label: 'Freebase ID',
+			} ] );
+			const searchItemValues = jest.fn();
+			const actions = createActionsWithMockServices( {
+				searchEntityRepository: { searchProperties, searchItemValues },
+			} );
+
+			const context = {
+				rootState: { conditionRows: [
+					{
+						propertyData: {
+							id: 'P646',
+							datatype: 'external-id',
+						},
+					},
+					{
+						propertyData: {
+							id: 'P18',
+							datatype: 'commonsMedia',
+						},
+					},
+				] },
+				dispatch: jest.fn(),
+			};
+
+			await actions.searchForEntities( context as any );
+
+			expect( searchProperties ).toHaveBeenCalledTimes( 2 );
+			expect( searchProperties ).toHaveBeenCalledWith( 'P646', 1, 0 );
+			expect( searchProperties ).toHaveBeenCalledWith( 'P18', 1, 0 );
+			expect( context.dispatch ).toHaveBeenCalledTimes( 1 );
+			expect( context.dispatch ).toHaveBeenCalledWith( 'updateProperty', {
+				property: {
+					id: 'P646',
+					label: 'Freebase ID',
+				},
+				conditionIndex: 0,
+			} );
+			// searchProperties returned “wrong” result for second call,
+			// so updateProperty() only gets dispatched once
+		} );
+
+		it( 'searches for items', async () => {
+			const searchProperties = jest.fn().mockResolvedValue( [] );
+			const searchItemValues = jest.fn().mockResolvedValue( [ {
+				id: 'Q146',
+				label: 'house cat',
+			} ] );
+			const actions = createActionsWithMockServices( {
+				searchEntityRepository: { searchProperties, searchItemValues },
+			} );
+
+			const context = {
+				rootState: { conditionRows: [
+					{
+						propertyData: {
+							id: 'P31',
+							datatype: 'wikibase-item',
+						},
+						valueData: { value: { id: 'Q146' } },
+					},
+					{
+						propertyData: {
+							id: 'P4743',
+							datatype: 'wikibase-item',
+						},
+						valueData: { value: { id: 'Q42604' } },
+					},
+				] },
+				dispatch: jest.fn(),
+			};
+
+			await actions.searchForEntities( context as any );
+
+			expect( searchItemValues ).toHaveBeenCalledTimes( 2 );
+			expect( searchItemValues ).toHaveBeenCalledWith( 'Q146', 1, 0 );
+			expect( searchItemValues ).toHaveBeenCalledWith( 'Q42604', 1, 0 );
+			expect( context.dispatch ).toHaveBeenCalledTimes( 1 );
+			expect( context.dispatch ).toHaveBeenCalledWith( 'updateValue', {
+				value: {
+					id: 'Q146',
+					label: 'house cat',
+				},
+				conditionIndex: 0,
+			} );
+			// searchItemValues returned “wrong” result for second call,
+			// so updateValue() only gets dispatched once
+		} );
+	} );
+
 } );

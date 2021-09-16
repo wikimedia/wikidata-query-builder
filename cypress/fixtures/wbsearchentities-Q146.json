@@ -1,0 +1,22 @@
+{
+  "searchinfo": {
+    "search": "Q146"
+  },
+  "search": [
+    {
+      "id": "Q146",
+      "title": "Q146",
+      "pageid": 282,
+      "repository": "wikidata",
+      "url": "//www.wikidata.org/wiki/Q146",
+      "concepturi": "http://www.wikidata.org/entity/Q146",
+      "label": "house cat",
+      "description": "domesticated feline",
+      "match": {
+        "type": "entityId",
+        "text": "Q146"
+      }
+    }
+  ],
+  "success": 1
+}
