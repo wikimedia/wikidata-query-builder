@@ -6,7 +6,12 @@ import Validator from '@/form/Validator';
 import QueryDeserializer from '@/serialization/QueryDeserializer';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { ActionContext, ActionTree } from 'vuex';
-import RootState, { ConditionRow, DateValue, DEFAULT_LIMIT } from './RootState';
+import RootState, {
+	ConditionRow,
+	DateValue,
+	DEFAULT_LIMIT,
+	ItemValue,
+} from './RootState';
 import SearchResult from '@/data-access/SearchResult';
 import QueryBuilderError from '@/data-model/QueryBuilderError';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
@@ -255,13 +260,64 @@ export default (
 			return;
 		}
 	},
-	parseState( context: ActionContext<RootState, RootState>, payload: string ): void {
+	parseState( context: ActionContext<RootState, RootState>, payload: string ): Promise<unknown> {
 		const deserializer = new QueryDeserializer();
 		try {
 			const rootState = deserializer.deserialize( payload );
 			context.commit( 'setState', rootState );
 		} catch ( e ) {
 			// do nothing if parameter is invalid
+			return Promise.resolve();
 		}
+
+		return context.dispatch( 'searchForEntities' );
+	},
+	searchForEntities( context: ActionContext<RootState, RootState> ): Promise<unknown> {
+		// search for all the entity IDs in the state, so that they can be shown with their labels
+		const promises: Promise<unknown>[] = [];
+
+		context.rootState.conditionRows.forEach( ( conditionRow, conditionIndex ) => {
+			const propertyId = conditionRow.propertyData.id;
+			promises.push(
+				searchEntityRepository.searchProperties( propertyId, 1, 0 )
+					.then( ( searchResults ) => {
+						const searchResult = searchResults[ 0 ];
+						const currentConditionRow = context.rootState.conditionRows[ conditionIndex ];
+						if (
+							!searchResult || searchResult.id !== propertyId ||
+							!currentConditionRow || currentConditionRow.propertyData.id !== propertyId
+						) {
+							return;
+						}
+						return context.dispatch( 'updateProperty', {
+							property: searchResult,
+							conditionIndex,
+						} );
+					} ),
+			);
+
+			if ( conditionRow.propertyData.datatype === 'wikibase-item' ) {
+				const itemId = ( conditionRow.valueData.value as ItemValue ).id;
+				promises.push(
+					searchEntityRepository.searchItemValues( itemId, 1, 0 )
+						.then( ( searchResults ) => {
+							const searchResult = searchResults[ 0 ];
+							const currentConditionRow = context.rootState.conditionRows[ conditionIndex ];
+							if (
+								!searchResult || searchResult.id !== itemId || !currentConditionRow ||
+								( currentConditionRow.valueData.value as ItemValue )?.id !== itemId
+							) {
+								return;
+							}
+							return context.dispatch( 'updateValue', {
+								value: searchResult,
+								conditionIndex,
+							} );
+						} ),
+				);
+			}
+		} );
+
+		return Promise.all( promises );
 	},
 } );
