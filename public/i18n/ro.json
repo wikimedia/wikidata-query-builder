@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"KlaudiuMihaila",
+			"WebSourceContentRO"
+		]
+	},
+	"query-builder-heading": "Asistent de interogări Wikidata",
+	"query-builder-query-heading": "Interogare",
+	"query-builder-settings-heading": "Setări",
+	"query-builder-run-query": "Rulare interogare",
+	"query-builder-input-value-label": "Valoare",
+	"query-builder-item-value-lookup-no-match-found": "Nu au fost găsite potriviri",
+	"query-builder-property-lookup-label": "Proprietate",
+	"query-builder-property-lookup-no-match-found": "Nu au fost găsite potriviri",
+	"query-builder-result-header": "Rezultate",
+	"query-builder-result-error-missing-property": "Vă rugăm să selectați o proprietate",
+	"query-builder-result-error-missing-value": "Va rugăm să introduceți o valoare",
+	"query-builder-add-condition": "Adăugați o condiție",
+	"query-builder-value-type-relation-dropdown-matching": "potrivire",
+	"query-builder-value-type-relation-dropdown-without": "fără",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "indiferent de valoare",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "mai mic decât",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "mai mare decât",
+	"query-builder-value-type-relation-dropdown-less-than-date": "înainte",
+	"query-builder-value-type-relation-dropdown-more-than-date": "după",
+	"query-builder-reference-relation-label": "Referințe",
+	"query-builder-reference-relation-tooltip": "You can further narrow your results by only showing statements with or without references.",
+	"query-builder-reference-relation-dropdown-with": "numai cu referințe",
+	"query-builder-reference-relation-dropdown-without": "numai fără referințe",
+	"query-builder-reference-relation-dropdown-regardless": "cu și fără referințe",
+	"query-builder-delete-condition": "Ștergeți condiția",
+	"query-builder-condition-placeholder": "Adăugați o condiție pentru a începe să creați o interogare",
+	"query-builder-condition-relation-toggle-and": "și",
+	"query-builder-condition-relation-toggle-or": "sau",
+	"query-builder-limit-number-error-message": "Limita trebuie să fie un număr.",
+	"query-builder-limit-number-results-description": "Limitați numărul de rezultate la",
+	"query-builder-limit-number-placeholder": "Introduceți un număr"
+}
