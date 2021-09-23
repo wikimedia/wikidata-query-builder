@@ -28,7 +28,7 @@
   "main": "index.js",
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.0.2",
-    "@vue/compiler-sfc": "^3.1.5",
+    "@vue/compiler-sfc": "^3.2.16",
     "@wmde/wikit-tokens": "^2.0.0",
     "@wmde/wikit-vue-components": "^2.0.0",
     "core-js": "^3.8.3",
