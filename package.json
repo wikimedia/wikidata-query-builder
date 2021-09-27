@@ -31,7 +31,7 @@
     "@vue/compiler-sfc": "^3.1.5",
     "@wmde/wikit-tokens": "^2.0.0",
     "@wmde/wikit-vue-components": "^2.0.0",
-    "core-js": "^3.8.3",
+    "core-js": "^3.18.1",
     "lodash.debounce": "^4.0.8",
     "ress": "^3.0.0",
     "sparqljs": "^3.2.0",
