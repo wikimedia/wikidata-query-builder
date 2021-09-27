@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"Narazeni"
+		]
+	},
+	"query-builder-heading": "ვიკიმუნაჩემეფიშ გჷმოკითხირიშ კონსტრუქტორი",
+	"query-builder-query-heading": "გჷმოკითხირი",
+	"query-builder-settings-heading": "პარამეტრეფი",
+	"query-builder-find-all-items": "არძა ელემენტიშ გორუა...",
+	"query-builder-run-query": "გჷმოკითხირიშ გოტება",
+	"query-builder-input-value-label": "შანულობა",
+	"query-builder-property-lookup-label": "მუშობურობა",
+	"query-builder-result-header": "შედეგეფი",
+	"query-builder-result-error-missing-property": "ქორთხინთ, გეგშაგორით მუშობურობა",
+	"query-builder-result-error-missing-value": "ქორთხინთ, გენშიჸონით შანულობა",
+	"query-builder-add-condition": "პიჯალაშ გეჯინა",
+	"query-builder-value-type-relation-dropdown-matching": "მანგურობა",
+	"query-builder-value-type-relation-dropdown-without": "უმუშო",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "შანულობაშ უმკუჯინალო",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "მერკე ვინდარო",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "უმოსი ვინდარო",
+	"query-builder-value-type-relation-dropdown-less-than-date": "თეიშახ",
+	"query-builder-value-type-relation-dropdown-more-than-date": "უკული",
+	"query-builder-reference-relation-label": "სქოლიოეფი",
+	"query-builder-reference-relation-dropdown-with": "ხვალე სქოლიოეფით",
+	"query-builder-reference-relation-dropdown-without": "ხვალე სქოლიოეფიშ უმუშო",
+	"query-builder-reference-relation-dropdown-regardless": "სქოლიოეფით დო თინეფიშ უმუშო",
+	"query-builder-condition-relation-toggle-and": "დო",
+	"query-builder-condition-relation-toggle-or": "ვარ-და",
+	"query-builder-limit-number-placeholder": "გემშიონით ნომერი",
+	"query-builder-limit-number-screenreader-label": "შედეგეფიშ მაქსიმალური მუდანობა",
+	"query-builder-negation-option-label-with": "წკჷმა",
+	"query-builder-negation-option-label-without": "უმუშო",
+	"query-builder-date-input-placeholder": "სამანგათ 31-12-2020",
+	"query-builder-date-input-prompt-text": "ქორთხინთ, გემშეჸონით თარიღი"
+}

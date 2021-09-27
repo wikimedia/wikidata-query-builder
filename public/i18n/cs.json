@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"KPX8",
+			"Matěj Suchánek",
 			"Want",
 			"YjM"
 		]
@@ -38,10 +39,10 @@
 	"query-builder-value-type-relation-dropdown-less-than-date": "před",
 	"query-builder-value-type-relation-dropdown-more-than-date": "po",
 	"query-builder-reference-relation-label": "Reference",
-	"query-builder-reference-relation-tooltip": "Výsledky můžete dále zúžit tím, že zobrazíte pouze výroky s odkazy nebo bez nich.",
-	"query-builder-reference-relation-dropdown-with": "pouze s odkazy (referencemi)",
-	"query-builder-reference-relation-dropdown-without": "pouze bez odkazů (referencí)",
-	"query-builder-reference-relation-dropdown-regardless": "s odkazy (referencemi) a bez nich",
+	"query-builder-reference-relation-tooltip": "Výsledky můžete dále zúžit tím, že zobrazíte pouze výroky s referencemi nebo bez nich.",
+	"query-builder-reference-relation-dropdown-with": "pouze s referencemi",
+	"query-builder-reference-relation-dropdown-without": "pouze bez referencí",
+	"query-builder-reference-relation-dropdown-regardless": "s referencemi a bez nich",
 	"query-builder-delete-condition": "Odstranit podmínku",
 	"query-builder-condition-placeholder": "Přidáním podmínky začněte vytvářet dotaz",
 	"query-builder-condition-relation-toggle-and": "a",
