@@ -14,5 +14,9 @@ module.exports = {
 
 		'at-rule-no-unknown': null,
 		'scss/at-rule-no-unknown': true,
+
+		// This rule is for the standard CSS spec, it does not support Sass at-rules fully
+		// so using both @use and @import in a file doesn't work https://github.com/stylelint/stylelint/issues/5133
+		'no-invalid-position-at-import-rule': null,
 	},
 };
