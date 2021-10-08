@@ -41,7 +41,7 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-env": "^7.15.8",
     "@types/jest": "^24.0.19",
     "@types/jest-axe": "^3.5.1",
     "@types/lodash": "^4.14.168",
@@ -75,7 +75,7 @@
     "stylelint-use-logical": "^1.1.0",
     "ts-jest": "^27.0.4",
     "typescript": "^3.9.9",
-    "vite": "^2.4.1",
+    "vite": "^2.6.5",
     "vite-plugin-env-compatible": "^1.0.0",
     "vite-plugin-vue2": "^1.7.2",
     "vue-jest": "^3.0.7",
