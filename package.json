@@ -60,7 +60,7 @@
     "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-vue": "^6.2.2",
     "jest": "^27.0.6",
-    "jest-axe": "^4.1.0",
+    "jest-axe": "^5.0.1",
     "netlify-cli": "^6.9.2",
     "npm-run-all": "^4.1.5",
     "postcss-dir-pseudo-class": "^5.0.0",
