@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"1917 Ekim Devrimi"
+			"1917 Ekim Devrimi",
+			"Mirzali"
 		]
 	},
 	"query-builder-heading": "Basit Pers Vıraştoğ",
@@ -18,7 +19,7 @@
 	"query-builder-property-lookup-limited-support-note": "Xısusiyetê ke wayırê paştiya limitıni gorey erci parzûn nêbenê",
 	"query-builder-result-placeholder": "Neticey do tiya de bımocneyê",
 	"query-builder-result-header": "Neticeyi",
-	"query-builder-result-error-empty-form": "Wuni aseno ke vıraştoğê persi vengo, kerem kerê vêri ravêrde yew pers cı kerê, dıma reyna akarfınayışi bıcerrebnê",
+	"query-builder-result-error-empty-form": "Heni aseno ke vıraştoğê persi vengo, kerem kerê, verênde yew pers cı kerê, dıma reyna gurenayışi bıcerrebnê.",
 	"query-builder-result-error-incomplete-form": "Yew yana zêde ca vengo. Kerem kerê persi temam kerê yana ravêrde yew tewrê vayi weçinê",
 	"query-builder-result-error-missing-property": "Yew xısusiyetê weçinê",
 	"query-builder-result-error-missing-value": "Yew ercê weçinê",
