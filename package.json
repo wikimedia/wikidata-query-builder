@@ -29,7 +29,7 @@
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@types/rdf-js": "^4.0.2",
-    "@vue/compiler-sfc": "^3.2.19",
+    "@vue/compiler-sfc": "^3.2.20",
     "@wmde/wikit-tokens": "^2.0.0",
     "@wmde/wikit-vue-components": "^2.0.0",
     "core-js": "^3.18.2",
