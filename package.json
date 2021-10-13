@@ -32,7 +32,7 @@
     "@vue/compiler-sfc": "^3.2.20",
     "@wmde/wikit-tokens": "^2.0.0",
     "@wmde/wikit-vue-components": "^2.0.0",
-    "core-js": "^3.18.2",
+    "core-js": "^3.18.3",
     "lodash.debounce": "^4.0.8",
     "ress": "^3.0.0",
     "sparqljs": "^3.5.1",
