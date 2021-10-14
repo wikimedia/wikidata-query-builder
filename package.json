@@ -62,7 +62,7 @@
     "eslint-plugin-vue": "^7.19.1",
     "jest": "^27.2.5",
     "jest-axe": "^5.0.1",
-    "netlify-cli": "^6.10.4",
+    "netlify-cli": "^6.13.1",
     "npm-run-all": "^4.1.5",
     "postcss-dir-pseudo-class": "^6.0.0",
     "postcss-logical": "^5.0.0",
