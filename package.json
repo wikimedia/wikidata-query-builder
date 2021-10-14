@@ -34,7 +34,7 @@
     "@wmde/wikit-vue-components": "^2.0.0",
     "core-js": "^3.18.3",
     "lodash.debounce": "^4.0.8",
-    "ress": "^3.0.0",
+    "ress": "^4.0.0",
     "sparqljs": "^3.5.1",
     "vite-plugin-importer": "^0.2.5",
     "vue": "^2.6.11",
