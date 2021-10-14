@@ -8,11 +8,13 @@
 		]
 	},
 	"query-builder-heading": "Wikidata-kyselyrakentaja",
+	"query-builder-query-heading": "Kysely",
 	"query-builder-settings-heading": "Asetukset",
 	"query-builder-find-all-items": "Etsi kaikki kohteet...",
 	"query-builder-run-query": "Suorita kysely",
 	"query-builder-input-value-label": "Arvo",
 	"query-builder-input-value-placeholder": "Syötä arvo",
+	"query-builder-item-value-lookup-no-match-found": "Ei hakutuloksia",
 	"query-builder-property-lookup-label": "Ominaisuus",
 	"query-builder-property-lookup-placeholder": "Syötä ominaisuus",
 	"query-builder-property-lookup-no-match-found": "Ei hakutuloksia",
