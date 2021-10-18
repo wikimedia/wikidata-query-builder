@@ -21,7 +21,7 @@
 	"query-builder-result-placeholder": "Tutaj zostaną wyświetlone wyniki",
 	"query-builder-result-header": "Wyniki",
 	"query-builder-result-error-empty-form": "Wygląda na to, że kreator zapytań był pusty. Wprowadź poprawne zapytanie i spróbuj uruchomić go ponownie.",
-	"query-builder-result-error-incomplete-form": "Jedno lub więcej pól jest puste. Dokończ zapytanie lub wybierz odpowiedni rodzaj pola.",
+	"query-builder-result-error-incomplete-form": "Co najmniej jedno pole jest puste lub zawiera nierozpoznaną zawartość. Rozwiąż wszystkie problemy i spróbuj ponownie.",
 	"query-builder-result-error-missing-property": "Wybierz właściwość",
 	"query-builder-result-error-missing-value": "Wprowadź wartość",
 	"query-builder-add-condition": "Dodaj warunek",
@@ -39,12 +39,16 @@
 	"query-builder-limit-number-placeholder": "Wpisz liczbę",
 	"query-builder-limit-number-screenreader-label": "Maksymalna liczba wyników",
 	"query-builder-label-opt-out": "Pokazuj ID zamiast etykiet (zapobiega błędom)",
+	"query-builder-negation-option-label-with": "Z",
+	"query-builder-negation-option-label-without": "Bez",
 	"query-builder-sharable-link-message": "Adres URL skopiowany do schowka!",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Wpisz jednostkę",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Jednostka (opcjonalnie)",
+	"query-builder-footer-view-source": "Zobacz źródło",
 	"query-builder-footer-report-link": "Zgłoś błąd",
 	"query-builder-footer-about-us": "O nas",
 	"query-builder-date-input-value-label": "Wartość",
 	"query-builder-date-input-placeholder": "na przykład 31-12-2020",
-	"query-builder-date-input-prompt-text": "Podaj datę"
+	"query-builder-date-input-prompt-text": "Podaj datę",
+	"query-builder-date-input-calendar-notice-text": "Wszystkie daty są interpretowane jako daty gregoriańskie"
 }
