@@ -1,13 +1,16 @@
 {
 	"@metadata": {
 		"authors": [
+			"Iriman",
 			"Jeeputer",
 			"Ladsgroup",
 			"Reza koulivand",
 			"Reza1615"
 		]
 	},
-	"query-builder-heading": "سازنده پرس‌وجوی ساده",
+	"query-builder-heading": "پرس‌وجوساز ویکی‌داده",
+	"query-builder-query-heading": "پرس‌وجو",
+	"query-builder-settings-heading": "تنظیمات",
 	"query-builder-find-all-items": "یافتن همه آیتم‌هایی که...",
 	"query-builder-run-query": "اجرای پرس و جو",
 	"query-builder-input-value-label": "مقدار",
@@ -22,7 +25,7 @@
 	"query-builder-result-placeholder": "نتایج در اینجا نمایش داده خواهند شد",
 	"query-builder-result-header": "نتایج",
 	"query-builder-result-error-empty-form": "به نظر می‌رسد که سازنده پرس‌وجو خالی است. لطفا یک پرس‌وجوی معتبر وارد کنید و دوباره تلاش کنید.",
-	"query-builder-result-error-incomplete-form": "یک یا چند ورودی خالی هستند. لطفا پرس‌وجو را کامل کنید یا یک نوع ورودی صحیح انتخاب کنید.",
+	"query-builder-result-error-incomplete-form": "یک یا چند ورودی خالی یا حاوی محتوای ناشناخته هستند. لطفاً همهٔ مسئله‌ها را حل کنید و دوباره تلاش نمایید.",
 	"query-builder-result-error-missing-property": "لطفاً یک خصوصیت انتخاب کنید",
 	"query-builder-result-error-missing-value": "لطفا یک مقدار وارد کنید",
 	"query-builder-add-condition": "افزودن شرایط",

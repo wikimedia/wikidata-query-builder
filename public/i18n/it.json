@@ -4,7 +4,8 @@
 			"Ajeje Brazorf",
 			"Beta16",
 			"Costabile",
-			"EditGio"
+			"EditGio",
+			"Salvemm el lombard"
 		]
 	},
 	"query-builder-query-heading": "Interrogazione",
@@ -27,6 +28,7 @@
 	"query-builder-value-type-relation-dropdown-more-than-quantity": "più di",
 	"query-builder-value-type-relation-dropdown-less-than-date": "prima",
 	"query-builder-value-type-relation-dropdown-more-than-date": "dopo",
+	"query-builder-reference-relation-label": "Riferimenti",
 	"query-builder-delete-condition": "Cancella condizione",
 	"query-builder-condition-relation-toggle-and": "e",
 	"query-builder-condition-relation-toggle-or": "o",
@@ -41,6 +43,8 @@
 	"query-builder-quantity-value-number-input-placeholder": "Inserisci un numero",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Inserisci un'unità",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Unità (facoltativa)",
+	"query-builder-footer-about-us": "Su di noi",
+	"query-builder-footer-privacy-policy": "Informativa sulla privacy",
 	"query-builder-date-input-value-label": "Valore",
 	"query-builder-date-input-placeholder": "ad esempio 31-12-2020"
 }
