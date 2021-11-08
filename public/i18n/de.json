@@ -4,6 +4,7 @@
 			"Distel135",
 			"FF-11",
 			"Gebu",
+			"Lucas Werkmeister",
 			"ManuelFranz",
 			"Pittigrilli",
 			"Wolfdietmann"
@@ -13,7 +14,7 @@
 	"query-builder-intro-text": "Der Wikidata Query Builder bietet eine visuelle Schnittstelle zum Erstellen einer einfachen Wikidata-Abfrage. Er ist ideal für Benutzer mit wenig oder keiner Erfahrung in [$1 SPARQL], der mächtigen Abfragesprache. Der Query Builder bietet nicht die volle Funktionalität von SPARQL, aber du kannst deine Abfrage jederzeit im Query Service öffnen, wo du sie über den Link über den Ergebnissen ansiehst, bearbeiten oder erweitern kannst. [$2 Feedback ist willkommen].",
 	"query-builder-query-heading": "Abfrage",
 	"query-builder-settings-heading": "Einstellungen",
-	"query-builder-find-all-items": "Alle Eintröge finden …",
+	"query-builder-find-all-items": "Alle Einträge finden …",
 	"query-builder-run-query": "Abfrage ausführen",
 	"query-builder-input-value-label": "Wert",
 	"query-builder-input-value-tooltip": "Das <em>Wert</em>-Feld enthält die konkreten Informationen, die verwendet werden, um einen Gegenstand zu beschreiben. Zum Beispiel ist \"blau ein möglicher <em>Wert</em> für die <em>Eigenschaft</em> \"Farbe\".",
