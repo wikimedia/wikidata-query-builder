@@ -6,7 +6,7 @@
 		]
 	},
 	"query-builder-heading": "Wikidatas frågebyggare",
-	"query-builder-intro-text": "Wikidatas frågebyggare tillhandahåller ett visuellt gränssnitt för att bygga en enklare Wikidata-fråga. Den är ideell för användare med lite eller ingen erfarenhet med [$1 SPARQL], det kraftfulla frågespråket. Query Builder erbjuder inte SPARQL:s fullständiga funktionalitet, men du kan alltid öppna din fråga i Query Service där du kan visa, redigera eller utvidga den via länken ovanför resultaten. [$2 Återkoppling välkomnas här].",
+	"query-builder-intro-text": "Wikidatas frågebyggare tillhandahåller ett visuellt gränssnitt för att bygga en enklare Wikidata-fråga. Den är perfekt för användare med lite eller ingen erfarenhet med [$1 SPARQL], det kraftfulla frågespråket. Query Builder erbjuder inte SPARQL:s fullständiga funktionalitet, men du kan alltid öppna din fråga i Query Service där du kan visa, redigera eller utvidga den via länken ovanför resultaten. [$2 Återkoppling välkomnas här].",
 	"query-builder-query-heading": "Fråga",
 	"query-builder-settings-heading": "Inställningar",
 	"query-builder-find-all-items": "Hitta alla objekt...",
