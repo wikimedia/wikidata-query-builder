@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Underbaaar",
 			"Ykhwong",
 			"그냥기여자"
 		]
@@ -30,6 +31,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "포함",
 	"query-builder-value-type-relation-dropdown-without": "제외",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "값에 무관하게",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "이하",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "이상",
+	"query-builder-value-type-relation-dropdown-less-than-date": "이전",
+	"query-builder-value-type-relation-dropdown-more-than-date": "다음",
 	"query-builder-reference-relation-label": "각주",
 	"query-builder-reference-relation-dropdown-with": "참고 문헌이 있는 것만",
 	"query-builder-reference-relation-dropdown-without": "참고 문헌이 없는 것만",

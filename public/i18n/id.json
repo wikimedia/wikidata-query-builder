@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Akmaie Ajam",
 			"Daud I.F. Argana",
 			"Naufal06"
 		]
@@ -12,15 +13,17 @@
 	"query-builder-run-query": "Jalankan kueri",
 	"query-builder-input-value-label": "Nilai",
 	"query-builder-input-value-placeholder": "Masukkan sebuah nilai",
+	"query-builder-item-value-lookup-no-match-found": "Tidak ada yang cocok",
 	"query-builder-property-lookup-label": "Atribut",
 	"query-builder-property-lookup-placeholder": "Masukkan sebuah atribut",
 	"query-builder-property-lookup-no-match-found": "Tidak ditemukan atribut yang cocok",
 	"query-builder-property-lookup-limited-support-tag": "dukungan terbatas",
 	"query-builder-property-lookup-limited-support-note": "Atribut dengan dukungan terbatas tidak bisa disaring berdasarkan nilai",
+	"query-builder-result-link-text": "Tampilkan kueri dalam Layanan Kueri",
 	"query-builder-result-placeholder": "Hasilnya akan ditampilkan di sini",
 	"query-builder-result-header": "Hasil",
 	"query-builder-result-error-empty-form": "Kelihatannya Pembangun Kueri masih kosong, tolong masukkan kueri yang valid terlebih dahulu, lalu coba jalankan lagi.",
-	"query-builder-result-error-incomplete-form": "Satu atau lebih isian masih kosong. Tolong lengkapi kueri atau pilih tipe isian yang sesuai.",
+	"query-builder-result-error-incomplete-form": "Satu atau lebih isian masih kosong atau mengandung konten yang tidak dikenal. Tolong selesaikan semua masalah dan coba lagi.",
 	"query-builder-result-error-missing-property": "Tolong pilih sebuah atribut",
 	"query-builder-result-error-missing-value": "Tolong masukkan sebuah nilai",
 	"query-builder-add-condition": "Tambahkan kondisi",
@@ -31,5 +34,28 @@
 	"query-builder-value-type-relation-dropdown-more-than-quantity": "lebih dari",
 	"query-builder-value-type-relation-dropdown-less-than-date": "sebelum",
 	"query-builder-value-type-relation-dropdown-more-than-date": "setelah",
-	"query-builder-reference-relation-label": "Referensi"
+	"query-builder-reference-relation-label": "Referensi",
+	"query-builder-reference-relation-dropdown-with": "hanya dengan referensi",
+	"query-builder-reference-relation-dropdown-without": "hanya tanpa referensi",
+	"query-builder-reference-relation-dropdown-regardless": "dengan dan tanpa referensi",
+	"query-builder-delete-condition": "Hapus kondisi",
+	"query-builder-condition-placeholder": "Tambahkan kondisi untuk memulai pembangunan sebuah kueri",
+	"query-builder-condition-relation-toggle-and": "dan",
+	"query-builder-condition-relation-toggle-or": "atau",
+	"query-builder-limit-number-placeholder": "Masukkan angka",
+	"query-builder-limit-number-screenreader-label": "Jumlah hasil maksimal",
+	"query-builder-negation-option-label-with": "Dengan",
+	"query-builder-negation-option-label-without": "Tanpa",
+	"query-builder-sharable-link-text": "Dapatkan pranala yang bisa dibagikan",
+	"query-builder-sharable-link-message": "URL disalin ke papan klip!",
+	"query-builder-quantity-value-error-number": "Tolong masukkan sebuah angka",
+	"query-builder-footer-view-source": "Lihat Sumber",
+	"query-builder-footer-report-link": "Laporkan kesalahan",
+	"query-builder-footer-about-us": "Tentang kami",
+	"query-builder-footer-privacy-policy": "Kebijakan Privasi",
+	"query-builder-footer-team": "Dibuat oleh Tim Wikidata",
+	"query-builder-date-input-value-label": "Nilai",
+	"query-builder-date-input-placeholder": "misalnya 31-12-2020",
+	"query-builder-date-input-prompt-text": "Tolong masukkan sebuah tanggal",
+	"query-builder-date-input-results-intro-text": "Akan dianggap sebagai:"
 }
