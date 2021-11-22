@@ -37,7 +37,7 @@
 	"query-builder-value-type-relation-dropdown-more-than-quantity": "גבוה מ־",
 	"query-builder-value-type-relation-dropdown-less-than-date": "לפני",
 	"query-builder-value-type-relation-dropdown-more-than-date": "אחרי",
-	"query-builder-reference-relation-label": "הערות שוליים",
+	"query-builder-reference-relation-label": "מקורות",
 	"query-builder-reference-relation-tooltip": "באפשרותך לצמצם עוד יותר את התוצאות שלך באמצעות הצגה רק של קביעות עם או בלי מקורות.",
 	"query-builder-reference-relation-dropdown-with": "רק עם מקורות",
 	"query-builder-reference-relation-dropdown-without": "רק בלי מקורות",
