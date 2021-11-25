@@ -3,7 +3,8 @@
 		"authors": [
 			"Underbaaar",
 			"Ykhwong",
-			"그냥기여자"
+			"그냥기여자",
+			"렌즈"
 		]
 	},
 	"query-builder-heading": "위키데이터 쿼리 생성기",
@@ -47,7 +48,7 @@
 	"query-builder-limit-number-results-description": "결과 수를 다음으로 제한",
 	"query-builder-limit-number-placeholder": "숫자를 입력하십시오",
 	"query-builder-limit-number-screenreader-label": "최대 결과 수",
-	"query-builder-label-opt-out": "이름 대신 ID 표시 (시간 초과 문제가 햐결될 수 있음)",
+	"query-builder-label-opt-out": "이름 대신 ID 표시 (시간 초과 문제가 해결될 수 있음)",
 	"query-builder-include-subclasses": "이 값의 하위 클래스의 값 포함",
 	"query-builder-negation-option-label-with": "포함",
 	"query-builder-negation-option-label-without": "제외",

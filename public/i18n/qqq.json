@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Ajeje Brazorf",
 			"Amire80",
 			"MuratTheTurkish",
 			"Robby"
@@ -9,7 +10,7 @@
 	"query-builder-heading": "Title of the page",
 	"query-builder-intro-text": "Intro text describing what query builder is.",
 	"query-builder-query-heading": "Heading of the section for building the query",
-	"query-builder-settings-heading": "Heading of the section for query settings",
+	"query-builder-settings-heading": "Heading of the section for query settings\n\n{{Identical|Settings}}",
 	"query-builder-find-all-items": "header for part of the form finding all items",
 	"query-builder-run-query": "Text on the button that runs the query",
 	"query-builder-input-value-label": "Label of value input field in the form\n{{identical|Value}}",
@@ -24,7 +25,7 @@
 	"query-builder-property-lookup-limited-support-note": "Note in the form explaining some fields are disabled because for the selected property there's limited support",
 	"query-builder-result-link-text": "Text of the link that opens the query in the query service.",
 	"query-builder-result-placeholder": "Placeholder of query builder result",
-	"query-builder-result-header": "Header of result table of the query",
+	"query-builder-result-header": "Header of result table of the query\n\n{{Identical|Result}}",
 	"query-builder-result-error-empty-form": "Error message when the form is empty",
 	"query-builder-result-error-incomplete-form": "Error message when the form is incomplete",
 	"query-builder-result-error-missing-property": "Error when property is missing",
@@ -70,7 +71,7 @@
 	"query-builder-footer-view-source": "Link to the source code",
 	"query-builder-footer-report-link": "Link to create a new bug for query builder",
 	"query-builder-footer-about-us": "Title of the column containing links about the people",
-	"query-builder-footer-privacy-policy": "link to the privacy policy",
+	"query-builder-footer-privacy-policy": "link to the privacy policy\n\n{{Identical|Privacy policy}}",
 	"query-builder-footer-wikimedia-deutchland": "Link to website of Wikimedia Deutschland",
 	"query-builder-footer-team": "Link to the page of the team",
 	"query-builder-date-input-value-label": "Label above the date value input\n{{identical|Value}}",

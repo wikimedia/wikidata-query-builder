@@ -1,0 +1,26 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ajeje Brazorf"
+		]
+	},
+	"query-builder-settings-heading": "Mpustazzioni",
+	"query-builder-input-value-label": "Valuri",
+	"query-builder-input-value-placeholder": "Nzirisci nu valuri",
+	"query-builder-property-lookup-label": "Prupità",
+	"query-builder-result-header": "Risurtati",
+	"query-builder-result-error-missing-value": "Pi favuri nzirisci nu valuri",
+	"query-builder-value-type-relation-dropdown-without": "senza",
+	"query-builder-reference-relation-label": "Rifirenzi",
+	"query-builder-condition-relation-toggle-and": "e",
+	"query-builder-condition-relation-toggle-or": "o",
+	"query-builder-limit-number-placeholder": "Nzirisci nu nùmmiru",
+	"query-builder-negation-option-label-with": "Cu",
+	"query-builder-negation-option-label-without": "Senza",
+	"query-builder-quantity-value-number-input-placeholder": "Nzirisci nu nùmmiru",
+	"query-builder-footer-view-source": "Talìa la surgenti",
+	"query-builder-footer-privacy-policy": "Pulìtica supra la privacy",
+	"query-builder-footer-wikimedia-deutchland": "Wikimedia Girmania",
+	"query-builder-date-input-value-label": "Valuri",
+	"query-builder-date-input-placeholder": "pi asempiu 31-12-2020"
+}
