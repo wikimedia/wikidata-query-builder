@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eleassar"
+			"Eleassar",
+			"Mtej"
 		]
 	},
 	"query-builder-heading": "Konstruktor poizvedb v Wikipodatkih",
@@ -31,6 +32,10 @@
 	"query-builder-value-type-relation-dropdown-matching": "ujemanje z",
 	"query-builder-value-type-relation-dropdown-without": "brez",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "ne glede na vrednost",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "manjši kot",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "večji kot",
+	"query-builder-value-type-relation-dropdown-less-than-date": "prej",
+	"query-builder-value-type-relation-dropdown-more-than-date": "potem",
 	"query-builder-reference-relation-label": "Sklici",
 	"query-builder-reference-relation-tooltip": "Zadetke lahko dodatno zožite s prikazom samo tistih izjav, ki vsebujejo sklice, ali samo tistih, ki jih ne vsebujejo.",
 	"query-builder-reference-relation-dropdown-with": "samo s sklici",
@@ -51,8 +56,13 @@
 	"query-builder-negation-option-label-without": "Brez",
 	"query-builder-sharable-link-text": "Pridobite povezavo za deljenje",
 	"query-builder-sharable-link-message": "URL ste skopirali na odložišče!",
+	"query-builder-quantity-value-error-number": "Vnesite število",
 	"query-builder-quantity-value-label": "Vrednost in enota (izbirno)",
 	"query-builder-quantity-value-number-input-placeholder": "Vnesite število",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Vnesite enoto",
-	"query-builder-quantity-value-unit-lookup-screenreader-label": "Enota (izbirno)"
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Enota (izbirno)",
+	"query-builder-footer-report-link": "Prijavite napako",
+	"query-builder-footer-about-us": "O nas",
+	"query-builder-date-input-value-label": "Vrednost",
+	"query-builder-date-input-prompt-text": "Vnesite datum"
 }
