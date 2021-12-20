@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"R4356th",
+			"Tahmid",
+			"Yahya",
+			"আফতাবুজ্জামান"
+		]
+	},
+	"query-builder-heading": "উইকিউপাত্ত কোয়েরি নির্মাণকারী",
+	"query-builder-query-heading": "কোয়েরি",
+	"query-builder-settings-heading": "সেটিংস",
+	"query-builder-find-all-items": "সকল আইটেম খুঁজুন...",
+	"query-builder-run-query": "কুয়েরি চালান",
+	"query-builder-input-value-label": "মান",
+	"query-builder-input-value-placeholder": "একটি মান লিখুন",
+	"query-builder-item-value-lookup-no-match-found": "কোন মিল খুঁজে পাওয়া যায়নি",
+	"query-builder-property-lookup-label": "বৈশিষ্ট্য",
+	"query-builder-result-placeholder": "ফলাফল এখানে দেখানো হবে",
+	"query-builder-result-header": "ফলাফল",
+	"query-builder-result-error-missing-value": "অনুগ্রহ করে একটি মান লিখুন",
+	"query-builder-add-condition": "শর্ত যোগ করুন",
+	"query-builder-reference-relation-label": "তথ্যসূত্র",
+	"query-builder-delete-condition": "শর্ত অপসারণ করুন",
+	"query-builder-condition-relation-toggle-and": "এবং",
+	"query-builder-condition-relation-toggle-or": "বা",
+	"query-builder-negation-option-label-with": "এটি সহ",
+	"query-builder-negation-option-label-without": "এটি ছাড়া",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "একক (ঐচ্ছিক)",
+	"query-builder-footer-view-source": "উৎস দেখুন",
+	"query-builder-footer-report-link": "ত্রুটি প্রতিবেদন করুন",
+	"query-builder-footer-about-us": "আমাদের সম্পর্কে",
+	"query-builder-footer-privacy-policy": "গোপনীয়তার নীতি",
+	"query-builder-footer-wikimedia-deutchland": "উইকিমিডিয়া ডয়েচল্যান্ড",
+	"query-builder-date-input-value-label": "মান"
+}
