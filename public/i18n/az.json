@@ -1,0 +1,37 @@
+{
+	"@metadata": {
+		"authors": [
+			"1917 Ekim Devrimi",
+			"Şeyx Şamil"
+		]
+	},
+	"query-builder-query-heading": "Sorğu",
+	"query-builder-settings-heading": "Nizamlamalar",
+	"query-builder-run-query": "Sorğunu işlət",
+	"query-builder-input-value-label": "Dəyər",
+	"query-builder-input-value-placeholder": "Dəyər daxil edin",
+	"query-builder-property-lookup-label": "Xüsusiyyət",
+	"query-builder-property-lookup-limited-support-tag": "məhdud dəstək",
+	"query-builder-result-header": "Nəticələr",
+	"query-builder-result-error-missing-value": "Zəhmət olmasa, dəyər daxil edin",
+	"query-builder-value-type-relation-dropdown-without": "olmadan",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "daha az",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "daha çox",
+	"query-builder-value-type-relation-dropdown-less-than-date": "əvvəl",
+	"query-builder-value-type-relation-dropdown-more-than-date": "sonra",
+	"query-builder-reference-relation-label": "İstinadlar",
+	"query-builder-reference-relation-dropdown-with": "ancaq mənbəli",
+	"query-builder-reference-relation-dropdown-without": "ancaq mənbəsiz",
+	"query-builder-reference-relation-dropdown-regardless": "mənbəli və mənbəsiz",
+	"query-builder-condition-relation-toggle-and": "və",
+	"query-builder-condition-relation-toggle-or": "və ya",
+	"query-builder-limit-number-placeholder": "Say daxil edin",
+	"query-builder-limit-number-screenreader-label": "Nəticələrin maksimum sayı",
+	"query-builder-footer-view-source": "Mənbəyə bax",
+	"query-builder-footer-report-link": "Xəta bildir",
+	"query-builder-footer-about-us": "Haqqımızda",
+	"query-builder-footer-privacy-policy": "Məxfilik siyasəti",
+	"query-builder-date-input-value-label": "Dəyər",
+	"query-builder-date-input-placeholder": "məsələn 31-12-2020",
+	"query-builder-date-input-prompt-text": "Zəhmət olmasa, tarix daxil edin"
+}
