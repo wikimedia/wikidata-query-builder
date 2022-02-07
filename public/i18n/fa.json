@@ -4,6 +4,7 @@
 			"Iriman",
 			"Jeeputer",
 			"Ladsgroup",
+			"LordProfo",
 			"Reza koulivand",
 			"Reza1615"
 		]
@@ -44,5 +45,9 @@
 	"query-builder-limit-number-screenreader-label": "حداکثر تعداد نتایج",
 	"query-builder-negation-option-label-with": "با",
 	"query-builder-negation-option-label-without": "بدون",
-	"query-builder-sharable-link-text": "دریافت پیوند قابل اشتراک‌گذاری"
+	"query-builder-sharable-link-text": "دریافت پیوند قابل اشتراک‌گذاری",
+	"query-builder-footer-view-source": "نمایش مبدأ",
+	"query-builder-footer-report-link": "گزارش یک اشکال",
+	"query-builder-footer-about-us": "دربارهٔ ما",
+	"query-builder-footer-privacy-policy": "سیاست محرمانگی"
 }
