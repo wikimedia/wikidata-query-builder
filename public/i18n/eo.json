@@ -2,11 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Javiero",
+			"Robin van der Vliet",
 			"Spenĉjo",
 			"Wierzbowski"
 		]
 	},
 	"query-builder-settings-heading": "Agordoj",
+	"query-builder-find-all-items": "Trovi ĉiujn erojn...",
 	"query-builder-input-value-label": "Valoro",
 	"query-builder-input-value-placeholder": "Entajpu valoron",
 	"query-builder-property-lookup-label": "Atributo",
@@ -35,8 +37,14 @@
 	"query-builder-sharable-link-message": "URL kopiita al la tondujo!",
 	"query-builder-quantity-value-error-number": "Entajpu numeron",
 	"query-builder-quantity-value-number-input-placeholder": "Entajpu numeron",
+	"query-builder-footer-view-source": "Vidi la fonton",
+	"query-builder-footer-report-link": "Raporti cimon",
 	"query-builder-footer-about-us": "Pri ni",
+	"query-builder-footer-privacy-policy": "Politiko pri privateco",
+	"query-builder-footer-wikimedia-deutchland": "Vikimedio Germanio",
+	"query-builder-footer-team": "Farita de la Vikidatumoj-teamo",
 	"query-builder-date-input-value-label": "Valoro",
 	"query-builder-date-input-placeholder": "ekzemple 31-12-2020",
-	"query-builder-date-input-prompt-text": "Entajpu daton"
+	"query-builder-date-input-prompt-text": "Entajpu daton",
+	"query-builder-date-input-results-intro-text": "Estos interpretita kiel:"
 }
