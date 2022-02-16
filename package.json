@@ -76,7 +76,7 @@
     "stylelint-use-logical": "^1.1.0",
     "ts-jest": "^27.0.6",
     "typescript": "^3.9.9",
-    "vite": "^2.6.7",
+    "vite": "^2.8.3",
     "vite-plugin-env-compatible": "^1.1.1",
     "vite-plugin-vue2": "^1.8.2",
     "vue-jest": "^3.0.7",
