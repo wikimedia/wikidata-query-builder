@@ -16,6 +16,7 @@
 	"query-builder-input-value-placeholder": "वैल्यू दर्ज करें",
 	"query-builder-item-value-lookup-no-match-found": "कोई मेल खाते परिणाम नहीं मिले",
 	"query-builder-property-lookup-label": "गुणधर्म",
+	"query-builder-property-lookup-tooltip": "किसी स्थिति में <em>गुणधर्म</em> फील्ड <em>वैल्यू</em> का विवरण या श्रेणी है। उदाहरणस्वरूप, \"रंग\" वह <em>गुणधर्म</em> होगा जिसका आप <em>वैल्यू</em> \"नीला\" के लिए इस्तेमाल करेंगे।",
 	"query-builder-property-lookup-placeholder": "एक गुणधर्म दर्ज करें",
 	"query-builder-property-lookup-no-match-found": "कोई मेल खाते परिणाम नहीं मिले",
 	"query-builder-property-lookup-limited-support-tag": "सामित समर्थन",
