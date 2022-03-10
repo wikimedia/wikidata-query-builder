@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"AnupamM",
 			"Saurmandal",
 			"ThisIsACreeper0101"
 		]
@@ -19,7 +20,7 @@
 	"query-builder-property-lookup-tooltip": "किसी स्थिति में <em>गुणधर्म</em> फील्ड <em>वैल्यू</em> का विवरण या श्रेणी है। उदाहरणस्वरूप, \"रंग\" वह <em>गुणधर्म</em> होगा जिसका आप <em>वैल्यू</em> \"नीला\" के लिए इस्तेमाल करेंगे।",
 	"query-builder-property-lookup-placeholder": "एक गुणधर्म दर्ज करें",
 	"query-builder-property-lookup-no-match-found": "कोई मेल खाते परिणाम नहीं मिले",
-	"query-builder-property-lookup-limited-support-tag": "सामित समर्थन",
+	"query-builder-property-lookup-limited-support-tag": "सीमित समर्थन",
 	"query-builder-property-lookup-limited-support-note": "सीमित समर्थन वाले गुणधर्मों को वैल्यू के आधार पर नहीं छाँटा जा सकता",
 	"query-builder-result-link-text": "क्वेरी सेवा में क्वेरी देखें",
 	"query-builder-result-placeholder": "परिणाम यहाँ दिखाए जाएँगे",
@@ -38,14 +39,14 @@
 	"query-builder-value-type-relation-dropdown-more-than-date": "इसके बाद",
 	"query-builder-reference-relation-label": "सन्दर्भ",
 	"query-builder-reference-relation-tooltip": "आप सन्दर्भों वाले या बिना सन्दर्भों के बयानों के साथ अपने परिणाम को और छाँट सकते हैं।",
-	"query-builder-reference-relation-dropdown-with": "सिर्फ सन्दर्भों वाले",
-	"query-builder-reference-relation-dropdown-without": "सिर्फ बिना सन्दर्भों के",
+	"query-builder-reference-relation-dropdown-with": "केवल सन्दर्भों वाले",
+	"query-builder-reference-relation-dropdown-without": "केवल बिना सन्दर्भों के",
 	"query-builder-reference-relation-dropdown-regardless": "सन्दर्भों के साथ या बिना",
 	"query-builder-delete-condition": "स्थिति हटाएँ",
 	"query-builder-condition-placeholder": "क्वेरी बनाने के लिए स्थिति जोड़ें",
 	"query-builder-condition-relation-toggle-and": "और",
 	"query-builder-condition-relation-toggle-or": "या",
-	"query-builder-limit-number-error-message": "सीमा को एक संख्या होना होगा",
+	"query-builder-limit-number-error-message": "सीमा एक संख्या होनी चाहिए",
 	"query-builder-limit-number-results-description": "परिणामों की संख्या को इस तक सीमित करें:",
 	"query-builder-limit-number-placeholder": "संख्या दर्ज करें",
 	"query-builder-limit-number-screenreader-label": "परिणामों की उच्चतम संख्या",
