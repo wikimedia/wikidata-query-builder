@@ -1,12 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
+			"FiberAhmed",
 			"Mohanad Kh",
 			"NEHAOUA",
 			"محمد أحمد عبد الفتاح"
 		]
 	},
-	"query-builder-heading": "منشئ استعلام بسيط",
+	"query-builder-heading": "منشئ استعلام ويكي بيانات",
 	"query-builder-intro-text": "يوفر Wikidata Query Builder واجهة مرئية لإنشاء استعلام ويكي بيانات بسيط. إنه مثالي للمستخدمين الذين لديهم خبرة قليلة أو معدومة في [$1 SPARQL] ، لغة الاستعلام القوية. لا يوفر Query Builder وظائف SPARQL الكاملة، ولكن يمكنك دائمًا فتح استعلامك في خدمة الاستعلام، حيث يمكنك عرضه أو تعديله أو توسيعه عبر الرابط الموجود أعلى النتائج. [$2 التعليقات مرحب بها هنا].",
 	"query-builder-query-heading": "استعلام",
 	"query-builder-settings-heading": "الإعدادات",
