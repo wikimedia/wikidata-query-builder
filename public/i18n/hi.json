@@ -55,7 +55,7 @@
 	"query-builder-include-subclasses-tooltip": "चयनित वैल्यूओं के सबसेट से वैल्यूओं को शामिल करता है, जैसे \"विद्यालय → इस देश में स्थित → यूनान\" के लिए खोजते समय परिणामों में \"विद्यालय → इसमें स्थति... → एथेंस\" के भी परिणाम शामिल होंगे। इस बॉक्स को चेक करने पर परिणाम अधिक पूर्ण आ सकते हैं। अगर आपको सिर्फ चयनित वैल्यू के परिणाम चाहिए, इसे अनचेक कर दें।",
 	"query-builder-negation-option-label-with": "इसके साथ",
 	"query-builder-negation-option-label-without": "इसके बिना",
-	"query-builder-sharable-link-text": "बाँटने योग्य कड़ी पाएँ",
+	"query-builder-sharable-link-text": "साझा करने योग्य लिंक पाएँ",
 	"query-builder-sharable-link-message": "क्लिपबोर्ड पर URL की प्रतिलिपि बनाई गई!",
 	"query-builder-quantity-value-error-number": "कृपया एक संख्या दर्ज करें",
 	"query-builder-quantity-value-error-unit": "कृपया एक मान्य मात्रक चुनें या इनपुट हटा दें",
