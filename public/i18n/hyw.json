@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"Շահէն"
+		]
+	},
+	"query-builder-query-heading": "Հարցակէտ",
+	"query-builder-settings-heading": "Կարգաւորումներ",
+	"query-builder-find-all-items": "Գտնել բոլորը...",
+	"query-builder-input-value-label": "Արժէք",
+	"query-builder-input-value-placeholder": "Մուտքագրէ արժէք մը",
+	"query-builder-result-header": "Արդիւնքներ",
+	"query-builder-result-error-missing-value": "Մուտքագրէ արժէք մը",
+	"query-builder-value-type-relation-dropdown-without": "առանց",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "նուազ",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "աւելի",
+	"query-builder-value-type-relation-dropdown-less-than-date": "առաջ",
+	"query-builder-value-type-relation-dropdown-more-than-date": "յետագայ",
+	"query-builder-reference-relation-label": "Ծանօթագրութիւններ",
+	"query-builder-reference-relation-dropdown-with": "միայն ծանօթագրութիւններով",
+	"query-builder-reference-relation-dropdown-without": "միայն առանց ծանօթագրութիւններու",
+	"query-builder-condition-relation-toggle-and": "եւ",
+	"query-builder-condition-relation-toggle-or": "կամ",
+	"query-builder-limit-number-error-message": "Սահմանը թիւ պէտք է ըլլայ",
+	"query-builder-limit-number-results-description": "Արդիւնքներու թիւը սահմանել՝",
+	"query-builder-limit-number-placeholder": "Մուտքագրէ թիւ մը",
+	"query-builder-limit-number-screenreader-label": "Առաւելագոյն արդիւնքներու թիւ",
+	"query-builder-negation-option-label-with": "հետ",
+	"query-builder-negation-option-label-without": "Առանց",
+	"query-builder-quantity-value-error-number": "Մուտքագրէ թիւ մը",
+	"query-builder-quantity-value-number-input-placeholder": "Մուտքագրէ թիւ մը",
+	"query-builder-footer-view-source": "Տեսնել աղբիւրը",
+	"query-builder-footer-report-link": "Յայտնել խնդիր մը",
+	"query-builder-footer-about-us": "Մեր մասին",
+	"query-builder-footer-privacy-policy": "Սեփական տուեալներու պահպանման քաղաքականութիւն",
+	"query-builder-footer-wikimedia-deutchland": "Ուիքիմետիա Գերմանիա",
+	"query-builder-footer-team": "Ուիքիտուեալներու խումբին կողմէ պատրաստուած",
+	"query-builder-date-input-value-label": "Արժէք",
+	"query-builder-date-input-placeholder": "օրինակ 31-12-2020",
+	"query-builder-date-input-prompt-text": "Մուտքագրէ թուական մը"
+}
