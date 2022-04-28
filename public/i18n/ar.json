@@ -32,6 +32,8 @@
 	"query-builder-value-type-relation-dropdown-matching": "تطابق",
 	"query-builder-value-type-relation-dropdown-without": "دون",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "بغض النظر عن القيمة",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "أقل من",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "أكثر من",
 	"query-builder-value-type-relation-dropdown-less-than-date": "قبل",
 	"query-builder-value-type-relation-dropdown-more-than-date": "بعد",
 	"query-builder-reference-relation-label": "مراجع",
@@ -49,7 +51,9 @@
 	"query-builder-include-subclasses": "قم بتضمين القيم من الفئات الفرعية لهذه القيمة",
 	"query-builder-negation-option-label-with": "مع",
 	"query-builder-negation-option-label-without": "دون",
+	"query-builder-quantity-value-number-input-placeholder": "أدخِل رقمًا",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "أدخل وحدة",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "الوحدة (اختياري)",
 	"query-builder-footer-view-source": "عرض المصدر",
 	"query-builder-footer-report-link": "الإبلاغ عن خطأ",
 	"query-builder-footer-about-us": "عنا",
@@ -57,5 +61,6 @@
 	"query-builder-footer-wikimedia-deutchland": "ويكيميديا ألمانيا",
 	"query-builder-footer-team": "صنع بواسطة فريق ويكي بيانات",
 	"query-builder-date-input-value-label": "القيمة",
+	"query-builder-date-input-placeholder": "مثلًا 31-12-2020",
 	"query-builder-date-input-prompt-text": "رجاءً أدخل تاريخًا"
 }
