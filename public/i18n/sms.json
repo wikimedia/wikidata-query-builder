@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Yupik"
+		]
+	},
+	"query-builder-query-heading": "Kõjldõs",
+	"query-builder-settings-heading": "Asetõõzz",
+	"query-builder-input-value-label": "Ärvv",
+	"query-builder-input-value-placeholder": "Ǩeeʹrjet äärv",
+	"query-builder-item-value-lookup-no-match-found": "Ni mâiʹd ij käunnʼjam",
+	"query-builder-property-lookup-no-match-found": "Ni mâiʹd ij käunnʼjam",
+	"query-builder-result-header": "Puåđõõzz",
+	"query-builder-result-error-missing-value": "Ǩeeʹrjet äärv",
+	"query-builder-add-condition": "Lââʹzzet määin",
+	"query-builder-reference-relation-label": "Teâttkääiv",
+	"query-builder-reference-relation-dropdown-with": "pâi teâttkääivaivuiʹm",
+	"query-builder-reference-relation-dropdown-without": "pâi teâttkääivaitää",
+	"query-builder-reference-relation-dropdown-regardless": "teâttkääivaivuiʹm da teâttkääivaitää",
+	"query-builder-delete-condition": "Jaukkâd määin",
+	"query-builder-condition-relation-toggle-and": "da",
+	"query-builder-condition-relation-toggle-or": "leʹbe",
+	"query-builder-footer-view-source": "Čuäʹjet käivvkood",
+	"query-builder-footer-about-us": "Teâđ mij pirr",
+	"query-builder-footer-privacy-policy": "Teâttsuejjčiõʹlǧǧõs",
+	"query-builder-footer-wikimedia-deutchland": "Wikimedia Saksslajânnam",
+	"query-builder-date-input-value-label": "Ärvv",
+	"query-builder-date-input-placeholder": "ouddmiârkkân 31-12-2020",
+	"query-builder-date-input-prompt-text": "Ǩeeʹrjet peiʹvvmeäʹr"
+}
