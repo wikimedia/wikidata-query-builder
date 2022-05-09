@@ -13,6 +13,8 @@
 	"query-builder-result-header": "Puåđõõzz",
 	"query-builder-result-error-missing-value": "Ǩeeʹrjet äärv",
 	"query-builder-add-condition": "Lââʹzzet määin",
+	"query-builder-value-type-relation-dropdown-less-than-date": "ouddâl",
+	"query-builder-value-type-relation-dropdown-more-than-date": "mâŋŋa",
 	"query-builder-reference-relation-label": "Teâttkääiv",
 	"query-builder-reference-relation-dropdown-with": "pâi teâttkääivaivuiʹm",
 	"query-builder-reference-relation-dropdown-without": "pâi teâttkääivaitää",
