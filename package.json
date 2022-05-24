@@ -54,7 +54,7 @@
     "@vue/test-utils": "^1.2.1",
     "@wmde/eslint-config-wikimedia-typescript": "^0.2.0",
     "babel-core": "^7.0.0-bridge.0",
-    "cypress": "^6.3.0",
+    "cypress": "^9.7.0",
     "eslint": "^7.32.0",
     "eslint-config-wikimedia": "^0.17.0",
     "eslint-plugin-chai-friendly": "^0.7.2",
