@@ -1,0 +1,42 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sveinki"
+		]
+	},
+	"query-builder-query-heading": "Fyrirspurn",
+	"query-builder-settings-heading": "Stillingar",
+	"query-builder-find-all-items": "Finna öll atriði...",
+	"query-builder-run-query": "Keyra fyrirspurn",
+	"query-builder-input-value-label": "Gildi",
+	"query-builder-input-value-placeholder": "Settu inn gildi",
+	"query-builder-item-value-lookup-no-match-found": "Engin samsvörun fannst",
+	"query-builder-property-lookup-label": "Eiginleiki",
+	"query-builder-property-lookup-no-match-found": "Engin samsvörun fannst",
+	"query-builder-result-header": "Niðurstöður",
+	"query-builder-result-error-missing-property": "Veldu eiginleika",
+	"query-builder-result-error-missing-value": "Settu inn gildi",
+	"query-builder-add-condition": "Bættu við skilyrði",
+	"query-builder-value-type-relation-dropdown-matching": "samsvarandi",
+	"query-builder-value-type-relation-dropdown-without": "án",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "án tillits til gildis",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "minna en",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "meira en",
+	"query-builder-value-type-relation-dropdown-less-than-date": "á undan",
+	"query-builder-value-type-relation-dropdown-more-than-date": "á eftir",
+	"query-builder-reference-relation-label": "Tilvísanir",
+	"query-builder-condition-relation-toggle-and": "og",
+	"query-builder-condition-relation-toggle-or": "eða",
+	"query-builder-negation-option-label-with": "Með",
+	"query-builder-negation-option-label-without": "án",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "Settu inn einingu",
+	"query-builder-footer-view-source": "Skoða frumkóða",
+	"query-builder-footer-report-link": "Tilkynna um villu",
+	"query-builder-footer-about-us": "Um okkur",
+	"query-builder-footer-privacy-policy": "Meðferð persónuupplýsinga",
+	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
+	"query-builder-date-input-value-label": "Gildi",
+	"query-builder-date-input-placeholder": "til dæmis 31-12-2020",
+	"query-builder-date-input-prompt-text": "Settu inn dagsetningu",
+	"query-builder-date-input-calendar-notice-text": "Allar dagsetningar verða túlkaðar sem gregoríanskar dagsetningar"
+}
