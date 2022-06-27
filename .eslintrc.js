@@ -30,6 +30,12 @@ module.exports = {
 
 		// This is done by Typescript itself and only causes false positives
 		'no-undef': 'off',
+
+		// temporarily disabled for update
+		'no-shadow': 'off',
+		'no-use-before-define': 'off',
+		'@typescript-eslint/ban-types': 'off',
+		'@typescript-eslint/explicit-member-accessibility': 'off',
 	},
 	overrides: [
 		{

@@ -5,7 +5,7 @@ import RootState, { ConditionRow } from '@/store/RootState';
 
 function unsetStateConditionIds( state: RootState ): void {
 	state.conditionRows.forEach( ( row ) => {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		row.conditionId = null;
 	} );

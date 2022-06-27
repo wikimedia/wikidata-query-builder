@@ -54,7 +54,7 @@ describe( 'SharableLink component', () => {
 
 		await wrapper.findComponent( Button ).trigger( 'click' );
 
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		const href = decodeURIComponent( wrapper.vm.href );
 
@@ -73,7 +73,7 @@ describe( 'SharableLink component', () => {
 		await wrapper.findComponent( Button ).trigger( 'click' );
 		await localVue.nextTick();
 
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		const href = decodeURIComponent( wrapper.vm.href );
 

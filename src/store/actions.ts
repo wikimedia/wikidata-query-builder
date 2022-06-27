@@ -71,7 +71,7 @@ export default (
 		} catch ( e ) {
 			const errorDateValue: DateValue = {
 				parseResult: null,
-				formattedValue: e.message,
+				formattedValue: ( e as Error ).message,
 			};
 
 			context.commit( 'setValue', { value: errorDateValue, conditionIndex: payload.conditionIndex } );
@@ -80,7 +80,7 @@ export default (
 				{
 					index: payload.conditionIndex,
 					errors: {
-						valueError: { type: 'error', message: e.message },
+						valueError: { type: 'error', message: ( e as Error ).message },
 					},
 				},
 			);

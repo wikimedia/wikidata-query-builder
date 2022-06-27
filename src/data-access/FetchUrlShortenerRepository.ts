@@ -32,8 +32,8 @@ export default class FetchUrlShortenerRepository implements UrlShortenerReposito
 		let response: Response;
 		try {
 			response = await fetch( shortnerUrl.toString(), requestOptions );
-		} catch ( err ) {
-			throw new TechnicalProblem( 'Network error: ' + err.message );
+		} catch ( err: unknown ) {
+			throw new TechnicalProblem( 'Network error: ' + ( err as TypeError ).message );
 		}
 		if ( !response.ok ) {
 			throw new TechnicalProblem( `${response.status}: ${response.statusText}` );

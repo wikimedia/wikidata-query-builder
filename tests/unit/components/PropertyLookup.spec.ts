@@ -55,12 +55,12 @@ describe( 'PropertyLookup.vue', () => {
 		const wrapper = shallowMount( PropertyLookup, { store, localVue } );
 
 		expect( wrapper.findComponent( EntityLookup ).props( 'searchForMenuItems' ) )
-			// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			.toBe( wrapper.vm.searchForProperties );
 
 		const searchOptions: SearchOptions = { search: 'postal', limit: 12 };
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		const actualSearchOptions = await wrapper.vm.searchForProperties( searchOptions );
 
