@@ -6,14 +6,6 @@ import ParseResult from '@/data-access/ParseResult';
 
 export const DEFAULT_LIMIT = 100;
 
-export default interface RootState {
-	conditionRows: ConditionRow[];
-	errors: QueryBuilderError[];
-	limit: number | null | undefined;
-	useLimit: boolean;
-	omitLabels: boolean;
-}
-
 export interface ItemValue {
 	id: string;
 	label: string;
@@ -35,6 +27,14 @@ export interface DateValue {
 
 export type Value = ItemValue | StringValue | QuantityValue | DateValue | null;
 
+export interface PropertyData {
+	id: string;
+	label: string;
+	datatype: string|null;
+	propertyError: QueryBuilderError|null;
+	isPropertySet: boolean;
+}
+
 export interface ConditionRow {
 	propertyData: PropertyData;
 	valueData: {
@@ -53,10 +53,10 @@ export interface ConditionRow {
 	readonly conditionId: string;
 }
 
-export interface PropertyData {
-	id: string;
-	label: string;
-	datatype: string|null;
-	propertyError: QueryBuilderError|null;
-	isPropertySet: boolean;
+export default interface RootState {
+	conditionRows: ConditionRow[];
+	errors: QueryBuilderError[];
+	limit: number | null | undefined;
+	useLimit: boolean;
+	omitLabels: boolean;
 }

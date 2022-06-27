@@ -9,42 +9,10 @@ declare module 'sparqljs' {
 	// Copied from https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/sparqljs/index.d.ts
 	import * as RdfJs from 'rdf-js';
 
-	export const Parser: new ( options?: ParserOptions ) => SparqlParser;
-
-	export interface ParserOptions {
-		prefixes?: { [ prefix: string ]: string };
-		baseIRI?: string;
-		factory?: RdfJs.DataFactory;
-		sparqlStar?: boolean;
-	}
-
-	export const Generator: new ( options?: GeneratorOptions ) => SparqlGenerator;
-
-	export interface GeneratorOptions {
-		allPrefixes?: boolean;
-		prefixes?: { [ prefix: string ]: string };
-		indent?: string;
-		newline?: string;
-		sparqlStar?: boolean;
-	}
-
-	export interface SparqlParser {
-		parse( query: string ): SparqlQuery;
-	}
-
-	export interface SparqlGenerator {
-		stringify( query: SelectQuery | {} ): string;
-
-		/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-		createGenerator(): any;
-	}
-
 	export interface Wildcard {
 		readonly termType: 'Wildcard';
 		readonly value: '*';
 	}
-
-	export type Term = VariableTerm | IriTerm | LiteralTerm | BlankTerm | QuadTerm;
 
 	export interface VariableTerm {
 		termType: 'Variable';
@@ -77,136 +45,19 @@ declare module 'sparqljs' {
 		/* eslint-disable:enable */
 	}
 
-	export type SparqlQuery = Query | Update;
+	export type Term = VariableTerm | IriTerm | LiteralTerm | BlankTerm | QuadTerm;
 
-	export type Query = SelectQuery | ConstructQuery | AskQuery | DescribeQuery;
-
-	export interface BaseQuery {
-		type: 'query';
-		base?: string;
-		prefixes: { [ prefix: string ]: string };
-		where?: Pattern[];
-		values?: ValuePatternRow[];
+	export interface PropertyPath {
+		type: 'path';
+		pathType: '|' | '/' | '^' | '+' | '*' | '!';
+		items: ( IriTerm | PropertyPath )[];
 	}
 
-	export interface SelectQuery extends BaseQuery {
-		queryType: 'SELECT';
-		variables: Variable[] | [ Wildcard ];
-		distinct?: boolean;
-		from?: {
-			default: IriTerm[];
-			named: IriTerm[];
-		};
-		reduced?: boolean;
-		group?: Grouping[];
-		having?: Expression[];
-		order?: Ordering[];
-		limit?: number;
-		offset?: number;
+	export interface Triple {
+		subject: IriTerm | BlankTerm | VariableTerm | QuadTerm;
+		predicate: IriTerm | VariableTerm | PropertyPath;
+		object: Term;
 	}
-
-	export interface Grouping {
-		expression: Expression;
-	}
-
-	export interface Ordering {
-		expression: Expression;
-		descending?: boolean;
-	}
-
-	export interface ConstructQuery extends BaseQuery {
-		queryType: 'CONSTRUCT';
-		template?: Triple[];
-	}
-
-	export interface AskQuery extends BaseQuery {
-		queryType: 'ASK';
-	}
-
-	export interface DescribeQuery extends BaseQuery {
-		queryType: 'DESCRIBE';
-		variables: Variable[] | [ Wildcard ];
-	}
-
-	export interface Update {
-		type: 'update';
-		prefixes: { [ prefix: string ]: string };
-		updates: UpdateOperation[];
-	}
-
-	export type UpdateOperation = InsertDeleteOperation | ManagementOperation;
-
-	export interface InsertDeleteOperation {
-		updateType: 'insert' | 'delete' | 'deletewhere' | 'insertdelete';
-		graph?: IriTerm;
-		insert?: Quads[];
-		delete?: Quads[];
-		where?: Pattern[];
-	}
-
-	export type Quads = BgpPattern | GraphQuads;
-
-	export type ManagementOperation =
-		| CopyMoveAddOperation
-		| LoadOperation
-		| CreateOperation
-		| ClearDropOperation;
-
-	export interface CopyMoveAddOperation {
-		type: 'copy' | 'move' | 'add';
-		silent: boolean;
-		source: GraphOrDefault;
-		destination: GraphOrDefault;
-	}
-
-	export interface LoadOperation {
-		type: 'load';
-		silent: boolean;
-		source: IriTerm;
-		destination: IriTerm | false;
-	}
-
-	export interface CreateOperation {
-		type: 'create';
-		silent: boolean;
-		graph: IriTerm;
-	}
-
-	export interface ClearDropOperation {
-		type: 'clear' | 'drop';
-		silent: boolean;
-		graph: GraphReference;
-	}
-
-	export interface GraphOrDefault {
-		type: 'graph';
-		name?: IriTerm;
-		default?: boolean;
-	}
-
-	export interface GraphReference extends GraphOrDefault {
-		named?: boolean;
-		all?: boolean;
-	}
-
-	/**
-	 * Examples: '?var', '*',
-	 *   SELECT (?a as ?b) ... ==> { expression: '?a', variable: '?b' }
-	 */
-	export type Variable = VariableExpression | VariableTerm;
-
-	export interface VariableExpression {
-		expression: Expression;
-		variable: VariableTerm;
-	}
-
-	export type Pattern =
-		| BgpPattern
-		| BlockPattern
-		| FilterPattern
-		| BindPattern
-		| ValuesPattern
-		| SelectQuery;
 
 	/**
 	 * Basic Graph Pattern
@@ -222,13 +73,62 @@ declare module 'sparqljs' {
 		triples: Triple[];
 	}
 
-	export type BlockPattern =
-		| OptionalPattern
-		| UnionPattern
-		| GroupPattern
+	export type Quads = BgpPattern | GraphQuads;
+
+	export interface ValuePatternRow {
+		[ variable: string ]: IriTerm | BlankTerm | LiteralTerm | undefined;
+	}
+
+	export interface BaseExpression {
+		type: string;
+		distinct?: boolean;
+	}
+
+	// allow Expression circularly reference itself
+	/* eslint-disable no-use-before-define */
+	export type Expression =
+		| OperationExpression
+		| FunctionCallExpression
+		| AggregateExpression
+		| BgpPattern
 		| GraphPattern
-		| MinusPattern
-		| ServicePattern;
+		| GroupPattern
+		| Tuple
+		| Term;
+	/* eslint-disable:enable */
+
+	export interface OperationExpression extends BaseExpression {
+		type: 'operation';
+		operator: string;
+		args: Expression[];
+	}
+
+	export interface Tuple extends Array<Expression> {
+	}
+
+	export interface FunctionCallExpression extends BaseExpression {
+		type: 'functionCall';
+		function: string;
+		args: Expression[];
+	}
+
+	export interface AggregateExpression extends BaseExpression {
+		type: 'aggregate';
+		expression: Expression;
+		aggregation: string;
+		separator?: string;
+	}
+
+	export interface VariableExpression {
+		expression: Expression;
+		variable: VariableTerm;
+	}
+
+	/**
+	 * Examples: '?var', '*',
+	 *   SELECT (?a as ?b) ... ==> { expression: '?a', variable: '?b' }
+	 */
+	export type Variable = VariableExpression | VariableTerm;
 
 	export interface OptionalPattern {
 		type: 'optional';
@@ -279,59 +179,154 @@ declare module 'sparqljs' {
 		values: ValuePatternRow[];
 	}
 
-	export interface ValuePatternRow {
-		[ variable: string ]: IriTerm | BlankTerm | LiteralTerm | undefined;
-	}
-
-	export interface Triple {
-		subject: IriTerm | BlankTerm | VariableTerm | QuadTerm;
-		predicate: IriTerm | VariableTerm | PropertyPath;
-		object: Term;
-	}
-
-	export interface PropertyPath {
-		type: 'path';
-		pathType: '|' | '/' | '^' | '+' | '*' | '!';
-		items: ( IriTerm | PropertyPath )[];
-	}
-
-	export type Expression =
-		| OperationExpression
-		| FunctionCallExpression
-		| AggregateExpression
-		| BgpPattern
-		| GraphPattern
+	export type BlockPattern =
+		| OptionalPattern
+		| UnionPattern
 		| GroupPattern
-		| Tuple
-		| Term;
+		| GraphPattern
+		| MinusPattern
+		| ServicePattern;
 
-	// allow Expression circularly reference itself
-	// tslint:disable-next-line no-empty-interface
-	export interface Tuple extends Array<Expression> {
-	}
+	export type Pattern =
+		| BgpPattern
+		| BlockPattern
+		| FilterPattern
+		| BindPattern
+		| ValuesPattern
+		| SelectQuery;
 
-	export interface BaseExpression {
-		type: string;
-		distinct?: boolean;
-	}
-
-	export interface OperationExpression extends BaseExpression {
-		type: 'operation';
-		operator: string;
-		args: Expression[];
-	}
-
-	export interface FunctionCallExpression extends BaseExpression {
-		type: 'functionCall';
-		function: string;
-		args: Expression[];
-	}
-
-	export interface AggregateExpression extends BaseExpression {
-		type: 'aggregate';
+	export interface Grouping {
 		expression: Expression;
-		aggregation: string;
-		separator?: string;
 	}
 
+	export interface Ordering {
+		expression: Expression;
+		descending?: boolean;
+	}
+	export interface BaseQuery {
+		type: 'query';
+		base?: string;
+		prefixes: { [ prefix: string ]: string };
+		where?: Pattern[];
+		values?: ValuePatternRow[];
+	}
+
+	export interface SelectQuery extends BaseQuery {
+		queryType: 'SELECT';
+		variables: Variable[] | [ Wildcard ];
+		distinct?: boolean;
+		from?: {
+			default: IriTerm[];
+			named: IriTerm[];
+		};
+		reduced?: boolean;
+		group?: Grouping[];
+		having?: Expression[];
+		order?: Ordering[];
+		limit?: number;
+		offset?: number;
+	}
+
+	export interface ConstructQuery extends BaseQuery {
+		queryType: 'CONSTRUCT';
+		template?: Triple[];
+	}
+
+	export interface AskQuery extends BaseQuery {
+		queryType: 'ASK';
+	}
+
+	export interface DescribeQuery extends BaseQuery {
+		queryType: 'DESCRIBE';
+		variables: Variable[] | [ Wildcard ];
+	}
+
+	export interface InsertDeleteOperation {
+		updateType: 'insert' | 'delete' | 'deletewhere' | 'insertdelete';
+		graph?: IriTerm;
+		insert?: Quads[];
+		delete?: Quads[];
+		where?: Pattern[];
+	}
+
+	export interface LoadOperation {
+		type: 'load';
+		silent: boolean;
+		source: IriTerm;
+		destination: IriTerm | false;
+	}
+
+	export interface CreateOperation {
+		type: 'create';
+		silent: boolean;
+		graph: IriTerm;
+	}
+
+	export interface GraphOrDefault {
+		type: 'graph';
+		name?: IriTerm;
+		default?: boolean;
+	}
+
+	export interface GraphReference extends GraphOrDefault {
+		named?: boolean;
+		all?: boolean;
+	}
+	export interface ClearDropOperation {
+		type: 'clear' | 'drop';
+		silent: boolean;
+		graph: GraphReference;
+	}
+
+	export interface CopyMoveAddOperation {
+		type: 'copy' | 'move' | 'add';
+		silent: boolean;
+		source: GraphOrDefault;
+		destination: GraphOrDefault;
+	}
+
+	export type ManagementOperation =
+	| CopyMoveAddOperation
+	| LoadOperation
+	| CreateOperation
+	| ClearDropOperation;
+
+	export type UpdateOperation = InsertDeleteOperation | ManagementOperation;
+
+	export interface Update {
+		type: 'update';
+		prefixes: { [ prefix: string ]: string };
+		updates: UpdateOperation[];
+	}
+
+	export type Query = SelectQuery | ConstructQuery | AskQuery | DescribeQuery;
+	export type SparqlQuery = Query | Update;
+
+	export interface SparqlParser {
+		parse( query: string ): SparqlQuery;
+	}
+	export interface ParserOptions {
+		prefixes?: { [ prefix: string ]: string };
+		baseIRI?: string;
+		factory?: RdfJs.DataFactory;
+		sparqlStar?: boolean;
+	}
+
+	export const Parser: new ( options?: ParserOptions ) => SparqlParser;
+
+	export interface GeneratorOptions {
+		allPrefixes?: boolean;
+		prefixes?: { [ prefix: string ]: string };
+		indent?: string;
+		newline?: string;
+		sparqlStar?: boolean;
+	}
+
+	export interface SparqlGenerator {
+		stringify( query: SelectQuery | {} ): string;
+
+		/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
+		createGenerator(): any;
+	}
+	export const Generator: new ( options?: GeneratorOptions ) => SparqlGenerator;
 }

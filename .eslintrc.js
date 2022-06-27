@@ -33,7 +33,6 @@ module.exports = {
 
 		// temporarily disabled for update
 		'no-shadow': 'off',
-		'no-use-before-define': 'off',
 		'@typescript-eslint/ban-types': 'off',
 		'@typescript-eslint/explicit-member-accessibility': 'off',
 	},
