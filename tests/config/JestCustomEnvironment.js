@@ -1,6 +1,6 @@
-const JSDOMEnvironment = require( 'jest-environment-jsdom' );
+const { TestEnvironment } = require( 'jest-environment-jsdom' );
 
-class JestCustomEnvironment extends JSDOMEnvironment {
+class JestCustomEnvironment extends TestEnvironment {
 	constructor( config, context ) {
 		super( config, context );
 		Object.assign( context.console, {

@@ -10,7 +10,7 @@ module.exports = {
 		'^@/(.*)$': '<rootDir>/src/$1',
 	},
 	transform: {
-		'.*\\.(vue)$': 'vue-jest',
+		'.*\\.(vue)$': '@vue/vue2-jest',
 	},
 	// jest doesn't seem to work with cypress
 	// https://stackoverflow.com/questions/64792387/jest-ignore-cypress-test
