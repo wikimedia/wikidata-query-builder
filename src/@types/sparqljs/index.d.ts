@@ -37,12 +37,10 @@ declare module 'sparqljs' {
 	}
 
 	export interface QuadTerm extends RdfJs.BaseQuad {
-		/* eslint-disable camelcase */
 		subject: RdfJs.Quad_Subject;
 		predicate: RdfJs.Quad_Predicate;
 		object: RdfJs.Quad_Object;
 		graph: RdfJs.Quad_Graph;
-		/* eslint-disable:enable */
 	}
 
 	export type Term = VariableTerm | IriTerm | LiteralTerm | BlankTerm | QuadTerm;

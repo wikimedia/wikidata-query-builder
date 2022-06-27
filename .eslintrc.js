@@ -7,11 +7,12 @@ module.exports = {
 		'plugin:vue/essential',
 		'eslint:recommended',
 		'@vue/typescript/recommended',
-		'wikimedia',
+		'wikimedia/client-common',
 		'wikimedia/language/es2020',
 		'@wmde/wikimedia-typescript',
 	],
 	parser: 'vue-eslint-parser',
+	plugins: [ 'es' ],
 	rules: {
 		'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -34,6 +35,7 @@ module.exports = {
 		// temporarily disabled for update
 		'no-shadow': 'off',
 	},
+	ignorePatterns: [ '*.json', '*.yml', '*.yaml' ],
 	overrides: [
 		{
 			files: [ 'tests/util/*.ts', '**/tests/{unit,a11y,integration}/**/*.spec.{j,t}s?(x)' ],

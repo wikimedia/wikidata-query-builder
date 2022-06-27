@@ -4,7 +4,7 @@ import * as path from 'path';
 import { createVuePlugin } from 'vite-plugin-vue2';
 import envCompatible from 'vite-plugin-env-compatible';
 
-process.env.VUE_APP_BUILD_TIME = new Date().getTime();
+process.env.VUE_APP_BUILD_TIME = Date.now();
 process.env.VUE_APP_GIT_COMMIT = childProcess.execSync( 'git rev-parse HEAD' ).toString().trim();
 
 const base = ( process.env.NODE_ENV === 'production' ) ? '/querybuilder/' : '/';

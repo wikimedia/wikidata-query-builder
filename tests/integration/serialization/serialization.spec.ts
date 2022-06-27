@@ -18,7 +18,7 @@ function replaceLabelsWithId( state: RootState ): void {
 		}
 
 		if ( typeof row.valueData?.value !== 'string' ) {
-			if ( row.valueData?.value && 'id' in row.valueData?.value ) {
+			if ( row.valueData?.value && 'id' in row.valueData.value ) {
 				row.valueData.value.label = row.valueData.value.id;
 			}
 		}
