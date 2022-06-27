@@ -33,7 +33,6 @@ module.exports = {
 
 		// temporarily disabled for update
 		'no-shadow': 'off',
-		'@typescript-eslint/ban-types': 'off',
 	},
 	overrides: [
 		{

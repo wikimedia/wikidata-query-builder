@@ -28,7 +28,7 @@ export function getFreshRootState(): RootState {
 	};
 }
 
-export function newStore( getters: Record<string, Function> = {} ): Store<any> {
+export function newStore( getters: Record<string, () => unknown> = {} ): Store<any> {
 	return new Vuex.Store( {
 		state: getFreshRootState(),
 		getters: {
