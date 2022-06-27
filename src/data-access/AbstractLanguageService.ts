@@ -8,5 +8,5 @@ export default abstract class AbstractLanguageService implements LanguageService
 		}
 		return 'en';
 	}
-	abstract getMessagesForLangCode( code: string ): Promise<{ [key: string]: string}>;
+	public abstract getMessagesForLangCode( code: string ): Promise<{ [key: string]: string}>;
 }
