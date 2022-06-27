@@ -108,7 +108,7 @@ export default Vue.extend( {
 		padding-inline-start: $dimension-spacing-xlarge;
 		// TODO: Remove this once we have the share button and use padding instead
 		height: 3em;
-		border-bottom: none;
+		border-block-end: none;
 
 		& h2 {
 			font-family: $font-family-style-heading-sans;
