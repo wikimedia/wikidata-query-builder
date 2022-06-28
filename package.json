@@ -34,7 +34,7 @@
     "autoprefixer": "^10.4.7",
     "core-js": "^3.18.3",
     "lodash.debounce": "^4.0.8",
-    "ress": "^3.0.0",
+    "ress": "^5.0.2",
     "sparqljs": "^3.5.1",
     "vite-plugin-importer": "^0.2.5",
     "vue": "^2.6.14",
