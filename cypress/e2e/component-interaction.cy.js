@@ -3,7 +3,7 @@ const API_URL = Cypress.env( 'API_URL' ).replace( /(^')|('$)/g, '' );
 
 function wikibaseApiRequest( query ) {
 	return {
-		url: API_URL,
+		url: API_URL + '*',
 		query,
 	};
 }
@@ -12,6 +12,14 @@ describe( 'Component interaction test', () => {
 	it( 'Tests whether components behave as they should when values change', () => {
 		cy.visit( '/' );
 
+		/**
+		 * The defined routes are evaluated last to first, to allow overriding.
+		 * However, that makes it necessary to specify more generic routes first.
+		 */
+		cy.intercept(
+			wikibaseApiRequest( { action: 'wbsearchentities' } ),
+			{ fixture: 'wbsearchentities-empty.json' },
+		);
 		/**
 		 * The intercepts basically mock an API request, as we type into the lookup component
 		 * with different search strings. see the .json files in the /fixtures directory
@@ -62,11 +70,6 @@ describe( 'Component interaction test', () => {
 			wikibaseApiRequest( { action: 'wbsearchentities', search: 'LilyPond notation' } ),
 			{ fixture: 'wbsearchentities-limited-support.json' },
 		).as( 'hasLimitedSupportedRequest' );
-
-		cy.intercept(
-			wikibaseApiRequest( { action: 'wbsearchentities' } ),
-			{ fixture: 'wbsearchentities-empty.json' },
-		);
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
 			.type( 'has pet' )

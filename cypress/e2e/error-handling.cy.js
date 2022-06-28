@@ -3,7 +3,7 @@ const API_URL = Cypress.env( 'API_URL' ).replace( /(^')|('$)/g, '' );
 
 function wikibaseApiRequest( query ) {
 	return {
-		url: API_URL,
+		url: API_URL + '*',
 		query,
 	};
 }
@@ -17,6 +17,11 @@ describe( 'Test error handling of the Query Building', () => {
 		cy.get( runQueryButtonSelector ).click();
 		cy.get( '.querybuilder-result__errors' ).should( 'be.visible' );
 
+		// more generic intercepts must come first because they are evaluated in reverse order
+		cy.intercept(
+			wikibaseApiRequest( { action: 'wbsearchentities' } ),
+			{ fixture: 'wbsearchentities-empty.json' },
+		);
 		cy.intercept(
 			wikibaseApiRequest( { action: 'wbsearchentities', search: 'has pet' } ),
 			{ fixture: 'wbsearchentities-has-pet.json' },
@@ -25,10 +30,6 @@ describe( 'Test error handling of the Query Building', () => {
 			wikibaseApiRequest( { action: 'wbsearchentities', search: 'house cat' } ),
 			{ fixture: 'wbsearchentities-house-cat.json' },
 		).as( 'houseCatRequest' );
-		cy.intercept(
-			wikibaseApiRequest( { action: 'wbsearchentities' } ),
-			{ fixture: 'wbsearchentities-empty.json' },
-		);
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
 			.type( 'has pet' )

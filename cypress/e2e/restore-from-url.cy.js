@@ -3,17 +3,13 @@ const API_URL = Cypress.env( 'API_URL' ).replace( /(^')|('$)/g, '' );
 
 function wikibaseApiRequest( query ) {
 	return {
-		url: API_URL,
+		url: API_URL + '*',
 		query,
 	};
 }
 
 describe( 'restore state from URL', () => {
 	it( 'Tests whether the query can be restored from the URL while showing entity labels', () => {
-		cy.intercept(
-			wikibaseApiRequest( { action: 'wbsearchentities', search: 'P31' } ),
-			{ fixture: 'wbsearchentities-P31.json' },
-		).as( 'p31Request' );
 		cy.intercept(
 			wikibaseApiRequest( { action: 'wbsearchentities', search: 'Q146' } ),
 			{ fixture: 'wbsearchentities-Q146.json' },
@@ -27,6 +23,10 @@ describe( 'restore state from URL', () => {
 			wikibaseApiRequest( { action: 'wbsearchentities', search: 'house cat' } ),
 			{ fixture: 'wbsearchentities-house-cat.json' },
 		).as( 'houseCatRequest' );
+		cy.intercept(
+			wikibaseApiRequest( { action: 'wbsearchentities', search: 'P31' } ),
+			{ fixture: 'wbsearchentities-P31.json' },
+		).as( 'p31Request' );
 
 		const query = {
 			conditions: [ {
