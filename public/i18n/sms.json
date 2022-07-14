@@ -26,6 +26,8 @@
 	"query-builder-delete-condition": "Jaukkâd määin",
 	"query-builder-condition-relation-toggle-and": "da",
 	"query-builder-condition-relation-toggle-or": "leʹbe",
+	"query-builder-quantity-value-error-number": "Lââʹzzet nââmar",
+	"query-builder-quantity-value-number-input-placeholder": "Lââʹzzet nââmar",
 	"query-builder-footer-licence": "Lisenssiõsttum [$1 BSD 3-Clause License] -liseeʹnsin",
 	"query-builder-footer-view-source": "Čuäʹjet käivvkood",
 	"query-builder-footer-report-link": "Iʹlmmet čuõlmâst",

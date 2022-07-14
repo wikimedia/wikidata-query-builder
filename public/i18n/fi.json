@@ -4,7 +4,8 @@
 			"3Johnny",
 			"MITO",
 			"Maantietäjä",
-			"Nike"
+			"Nike",
+			"Yupik"
 		]
 	},
 	"query-builder-heading": "Wikidata-kyselyrakentaja",
@@ -50,7 +51,7 @@
 	"query-builder-limit-number-screenreader-label": "Tulosten maksimimäärä",
 	"query-builder-sharable-link-text": "Hanki jaettava linkki",
 	"query-builder-sharable-link-message": "URL kopioitu leikepöydälle!",
-	"query-builder-quantity-value-error-number": "Ole hyvä ja anna numero",
+	"query-builder-quantity-value-error-number": "Anna numero",
 	"query-builder-quantity-value-error-unit": "Valitse kelvollinen yksikkö tai poista syöte",
 	"query-builder-quantity-value-error-number-and-unit": "Anna numero ja valitse kelvollinen yksikkö tai poista syöte",
 	"query-builder-quantity-value-label": "Arvo ja yksikkö (valinnainen)",
