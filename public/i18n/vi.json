@@ -33,7 +33,7 @@
 	"query-builder-value-type-relation-dropdown-less-than-date": "trước",
 	"query-builder-value-type-relation-dropdown-more-than-date": "sau",
 	"query-builder-reference-relation-label": "Tham chiếu",
-	"query-builder-reference-relation-tooltip": "Bạn có thể tiếp tục lọc kết quả bằng cách chỉ hiển thị các lời tuyên bố có hoặc không có chú thích.",
+	"query-builder-reference-relation-tooltip": "Bạn có thể tiếp tục lọc kết quả bằng cách chỉ hiển thị các lời phát biểu có hoặc không có chú thích.",
 	"query-builder-reference-relation-dropdown-with": "phải có tham chiếu",
 	"query-builder-reference-relation-dropdown-without": "phải thiếu tham chiếu",
 	"query-builder-reference-relation-dropdown-regardless": "không kể có tham chiếu hay không",
