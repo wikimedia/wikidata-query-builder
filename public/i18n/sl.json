@@ -5,7 +5,7 @@
 			"Mtej"
 		]
 	},
-	"query-builder-heading": "Konstruktor poizvedb v Wikipodatkih",
+	"query-builder-heading": "Graditelj poizvedb v Wikipodatkih",
 	"query-builder-intro-text": "Konstruktor poizvedb Wikipodatkov zagotavlja vizualni vmesnik za konstrukcijo preprostih poizvedb v Wikipodatkih. Idealen je za uporabnike z malo izkušnjami z močnim poizvedbenim jezikom [$1 SPARQL]. Konstruktor poizvedb ne podpira vseh funkcij SPARQL-a, vendar lahko svojo poizvedbo kadar koli odprete v Storitvi za poizvedbe in jo tam pregledujete, urejate in razširjate s povezavo nad zadetki. [$2 Dobrodošle so povratne informacije].",
 	"query-builder-query-heading": "Poizvedba",
 	"query-builder-settings-heading": "Nastavitve",
@@ -61,6 +61,7 @@
 	"query-builder-quantity-value-number-input-placeholder": "Vnesite število",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Vnesite enoto",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Enota (izbirno)",
+	"query-builder-footer-about-query-builder": "O Graditelju poizvedb",
 	"query-builder-footer-report-link": "Prijavite napako",
 	"query-builder-footer-about-us": "O nas",
 	"query-builder-date-input-value-label": "Vrednost",
