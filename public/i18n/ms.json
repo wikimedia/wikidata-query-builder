@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Tofeiku"
+			"Tofeiku",
+			"Ultron90"
 		]
 	},
-	"query-builder-heading": "Pembina Pertanyaan Mudah",
+	"query-builder-heading": "Pembina Pertanyaan Wikidata",
 	"query-builder-intro-text": "Pembina Pertanyaan Wikidata menyediakan antara muka visual untuk membina pertanyaan Wikidata yang mudah. Ia paling sesuai untuk pengguna dengan sedikit pengalaman atau tiada langsung dalam [$1 SPARQL], bahasa pertanyaan yang berkuasa. Pembina Pertanyaan tidak menawarkan kefungsian penuh SPARQL, tetapi anada boleh selalu membuka pertanyaan anda di Perkhidmatan Pertanyaan, yang anda boleh lihat, sunting atau kembangkannya melalui pautan di atas hasil. [$2 Maklum balas dialu-alukan di sini].",
 	"query-builder-query-heading": "Pertanyaan",
 	"query-builder-settings-heading": "Tetapan",
@@ -22,7 +23,7 @@
 	"query-builder-result-placeholder": "Hasil akan dipaparkan di sini",
 	"query-builder-result-header": "Hasil",
 	"query-builder-result-error-empty-form": "Nampaknya Pembina Pertanyaan masih kosong, sila masukkan pertanyaan sah dahulu, kemudian cuba jalankannya lagi.",
-	"query-builder-result-error-incomplete-form": "Satu atau lebih medan masih kosong. Sila lengkapkan pertanyaan atau pilih jenis medan yang sesuai.",
+	"query-builder-result-error-incomplete-form": "Satu atau lebih medan kini kosong atau mengandungi kandungan yang tidak dikenali. Sila selesaikan semua isu dan cuba lagi.",
 	"query-builder-result-error-missing-property": "Sila pilih sifat",
 	"query-builder-result-error-missing-value": "Sila masukkan nilai",
 	"query-builder-add-condition": "Tambahkan syarat",
@@ -46,14 +47,26 @@
 	"query-builder-limit-number-placeholder": "Masukkan nombor",
 	"query-builder-limit-number-screenreader-label": "Bilangan maksimum hasil",
 	"query-builder-label-opt-out": "Tunjukkan ID selain daripada label (boleh mencegah masa rehat)",
-	"query-builder-include-subclasses": "Masukkan nilai daripada subkelas nilai ini",
+	"query-builder-include-subclasses": "Sertakan nilai berkaitan dalam pencarian (disyorkan)",
 	"query-builder-negation-option-label-with": "Dengan",
 	"query-builder-negation-option-label-without": "Tanpa",
+	"query-builder-sharable-link-text": "Dapatkan pautan yang dibolehkongsikan",
 	"query-builder-quantity-value-error-number": "Sila masukkan nombor",
+	"query-builder-quantity-value-error-unit": "Sila pilih unit yang sah atau padamkan masukan",
+	"query-builder-quantity-value-label": "Nilai dan Unit (pilihan)",
+	"query-builder-quantity-value-number-input-placeholder": "Masukkan nombor",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "Masukkan unit",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Unit (pilihan)",
+	"query-builder-footer-about-query-builder": "Tentang Pembina Pertanyaan",
+	"query-builder-footer-build-time": "Binaan terakhir pada [$1 $2]",
 	"query-builder-footer-view-source": "Lihat Sumber",
 	"query-builder-footer-report-link": "Laporkan pepijat",
+	"query-builder-footer-about-us": "Tentang kami",
 	"query-builder-footer-privacy-policy": "Dasar Privasi",
+	"query-builder-footer-team": "Dibuat oleh pasukan Wikidata",
 	"query-builder-date-input-value-label": "Nilai",
+	"query-builder-date-input-placeholder": "contohnya 31-12-2020",
 	"query-builder-date-input-prompt-text": "Sila masukkan tarikh",
-	"query-builder-date-input-results-intro-text": "Akan ditafsirkan sebagai:"
+	"query-builder-date-input-results-intro-text": "Akan ditafsirkan sebagai:",
+	"query-builder-date-input-calendar-notice-text": "Semua tarikh ditafsirkan sebagai tarikh Masihi"
 }
