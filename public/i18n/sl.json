@@ -26,7 +26,7 @@
 	"query-builder-result-header": "Zadetki",
 	"query-builder-result-error-empty-form": "Zdi se, da je konstruktor poizvedb prazen. Vnesite veljavno poizvedbo in poskusite znova.",
 	"query-builder-result-error-incomplete-form": "Eno ali več polj je praznih ali vsebujejo vsebino, ki ni prepoznana. Prosimo, odpravite vse napake in poskusite znova.",
-	"query-builder-result-error-missing-property": "Izberite lastnost",
+	"query-builder-result-error-missing-property": "Prosimo, izberite lastnost",
 	"query-builder-result-error-missing-value": "Vnesite vrednost",
 	"query-builder-add-condition": "Dodaj pogoj",
 	"query-builder-value-type-relation-dropdown-matching": "ujemanje z",
@@ -55,8 +55,9 @@
 	"query-builder-negation-option-label-with": "Z",
 	"query-builder-negation-option-label-without": "Brez",
 	"query-builder-sharable-link-text": "Pridobite povezavo za deljenje",
-	"query-builder-sharable-link-message": "URL ste skopirali na odložišče!",
+	"query-builder-sharable-link-message": "URL skopiran v odložišče!",
 	"query-builder-quantity-value-error-number": "Vnesite število",
+	"query-builder-quantity-value-error-unit": "Prosimo, izberite veljavno enoto ali odstranite vnos",
 	"query-builder-quantity-value-label": "Vrednost in enota (izbirno)",
 	"query-builder-quantity-value-number-input-placeholder": "Vnesite število",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Vnesite enoto",
@@ -64,6 +65,7 @@
 	"query-builder-footer-about-query-builder": "O Graditelju poizvedb",
 	"query-builder-footer-report-link": "Prijavite napako",
 	"query-builder-footer-about-us": "O nas",
+	"query-builder-footer-privacy-policy": "Pravilnik o zasebnosti",
 	"query-builder-date-input-value-label": "Vrednost",
 	"query-builder-date-input-prompt-text": "Vnesite datum"
 }
