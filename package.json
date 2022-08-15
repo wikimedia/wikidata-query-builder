@@ -29,8 +29,8 @@
   "dependencies": {
     "@rollup/plugin-node-resolve": "^13.0.5",
     "@types/rdf-js": "^4.0.2",
-    "@wmde/wikit-tokens": "^2.0.0",
-    "@wmde/wikit-vue-components": "^2.0.0",
+    "@wmde/wikit-tokens": "^2.1.0-alpha.13",
+    "@wmde/wikit-vue-components": "^2.1.0-alpha.13",
     "autoprefixer": "^10.4.7",
     "core-js": "^3.24.0",
     "lodash.debounce": "^4.0.8",
