@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Adriendelucca",
+			"Y-M D"
+		]
+	},
+	"query-builder-query-heading": "Reked",
+	"query-builder-settings-heading": "Arventennoù",
+	"query-builder-input-value-label": "Talvoud",
+	"query-builder-item-value-lookup-no-match-found": "N'eus bet kavet netra o klotañ",
+	"query-builder-property-lookup-no-match-found": "N'eus bet kavet netra o klotañ",
+	"query-builder-result-header": "Disoc'hoù",
+	"query-builder-value-type-relation-dropdown-without": "hep",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "nebeutoc'h eget",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "muioc'h eget",
+	"query-builder-value-type-relation-dropdown-less-than-date": "a-raok",
+	"query-builder-value-type-relation-dropdown-more-than-date": "goude",
+	"query-builder-reference-relation-label": "Daveennoù",
+	"query-builder-condition-relation-toggle-and": "ha(g)",
+	"query-builder-condition-relation-toggle-or": "pe",
+	"query-builder-limit-number-placeholder": "Skrivañ un niver",
+	"query-builder-negation-option-label-with": "Gant",
+	"query-builder-negation-option-label-without": "Hep",
+	"query-builder-footer-about-us": "Piv omp?",
+	"query-builder-footer-privacy-policy": "Reolennoù prevezded",
+	"query-builder-date-input-value-label": "Talvoud"
+}
