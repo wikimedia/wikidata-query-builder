@@ -55,7 +55,7 @@
     "@vue/vue2-jest": "^28.0.1",
     "@wmde/eslint-config-wikimedia-typescript": "^0.2.3",
     "babel-core": "^7.0.0-bridge.0",
-    "cypress": "^10.3.1",
+    "cypress": "^10.7.0",
     "eslint": "^8.23.0",
     "eslint-config-wikimedia": "^0.22.1",
     "eslint-plugin-chai-friendly": "^0.7.2",
