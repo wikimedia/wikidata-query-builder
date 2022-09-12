@@ -5,6 +5,7 @@
 			"Afaz",
 			"Higa4",
 			"Kkairri",
+			"Kokage si",
 			"Omotecho",
 			"Tamaki Wakita",
 			"Tmv"
@@ -21,7 +22,7 @@
 	"query-builder-input-value-placeholder": "値を入力",
 	"query-builder-item-value-lookup-no-match-found": "該当するものはありません",
 	"query-builder-property-lookup-label": "プロパティ",
-	"query-builder-property-lookup-tooltip": "条件内の<em>プロパティ</em>とは、<em>値</em>に対するカテゴリまたは記述子です。例えば「色」は、「青」という<em>値</em>に使われる<em>プロパティ</em>です。\n（訳注：物事に相当する「項目」を検索する際の属性を各国語で指定します。ここで「分類」と指定し、値の欄で「ヒト」と指定すると人間の一覧が表示されます。ただしそれだけでは件数が多すぎるので「条件を追加」でプロパティ「国籍」、値「日本」など、条件を追加することで対象を絞り込みます。）",
+	"query-builder-property-lookup-tooltip": "条件となる<em>プロパティ</em>欄は、<em>値</em>に対するカテゴリまたは記述子です。例えば「青」という<em>値</em>に対しては、「色」という<em>プロパティ</em>を使うことになるでしょう。",
 	"query-builder-property-lookup-placeholder": "プロパティを入力",
 	"query-builder-property-lookup-no-match-found": "該当するものはありません",
 	"query-builder-property-lookup-limited-support-tag": "限定的なサポート",

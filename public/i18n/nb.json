@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Abuluntu",
+			"EdoAug",
 			"Jon Harald Søby"
 		]
 	},
@@ -19,9 +20,12 @@
 	"query-builder-property-lookup-placeholder": "Angi en egenskap",
 	"query-builder-property-lookup-no-match-found": "Ingen treff funnet",
 	"query-builder-property-lookup-limited-support-tag": "begrenset støtte",
+	"query-builder-property-lookup-limited-support-note": "Egenskaper med begrenset støtte kan ikke filtreres etter verdi",
 	"query-builder-result-link-text": "Vis spørringen i spørringstjenesten",
 	"query-builder-result-placeholder": "Resultater vil vises her",
 	"query-builder-result-header": "Resultater",
+	"query-builder-result-error-empty-form": "Virker som om spørringsbyggeren var tom, vennligst angi en gyldig spørring først og deretter prøv på nytt.",
+	"query-builder-result-error-incomplete-form": "En eller flere felt er tomme eller inneholder innhold som ikke er gjenkjent. Vennligst løs alle problemene og prøv igjen.",
 	"query-builder-result-error-missing-property": "Velg en egenskap",
 	"query-builder-result-error-missing-value": "Skriv inn en verdi",
 	"query-builder-add-condition": "Legg til en betingelse",
@@ -52,12 +56,15 @@
 	"query-builder-sharable-link-text": "Få en lenke som kan deles",
 	"query-builder-sharable-link-message": "URL kopiert til utklippstavlen!",
 	"query-builder-quantity-value-error-number": "Skriv inn et tall",
+	"query-builder-quantity-value-error-unit": "Vennligst velg en gyldig enhet eller fjern inndata",
+	"query-builder-quantity-value-error-number-and-unit": "Vennligst angi et tall, velg en gyldig enhet eller fjern inndata",
 	"query-builder-quantity-value-label": "Verdi og enhet (valgfritt)",
 	"query-builder-quantity-value-number-input-placeholder": "Skriv inn et tall",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Skriv inn en enhet",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Enhet (valgfritt)",
 	"query-builder-footer-about-query-builder": "Om spørringsbyggeren",
 	"query-builder-footer-licence": "Linsensiert under [$1 BSD 3-Clause License]",
+	"query-builder-footer-build-time": "Sist oppdatert [$1 $2]",
 	"query-builder-footer-view-source": "Vis kilde",
 	"query-builder-footer-report-link": "Rapporter en feil",
 	"query-builder-footer-about-us": "Om oss",
