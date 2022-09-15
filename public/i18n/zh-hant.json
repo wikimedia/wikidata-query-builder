@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kly"
+			"Kly",
+			"Winston Sung"
 		]
 	},
 	"query-builder-heading": "維基數據查詢建置器",
@@ -68,7 +69,7 @@
 	"query-builder-footer-view-source": "檢視原始碼",
 	"query-builder-footer-report-link": "回報程式錯誤",
 	"query-builder-footer-about-us": "關於我們",
-	"query-builder-footer-privacy-policy": "隱私政策",
+	"query-builder-footer-privacy-policy": "隱私權政策",
 	"query-builder-footer-wikimedia-deutchland": "德國維基媒體",
 	"query-builder-footer-team": "由維基數據團隊製作",
 	"query-builder-date-input-value-label": "值",
