@@ -27,7 +27,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rollup/plugin-node-resolve": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
     "@types/rdf-js": "^4.0.2",
     "@wmde/wikit-tokens": "^2.1.0-alpha.13",
     "@wmde/wikit-vue-components": "^2.1.0-alpha.13",
