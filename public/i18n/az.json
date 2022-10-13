@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"1917 Ekim Devrimi",
+			"Toghrul Rahimli",
 			"Şeyx Şamil"
 		]
 	},
@@ -10,7 +11,7 @@
 	"query-builder-run-query": "Sorğunu işlət",
 	"query-builder-input-value-label": "Dəyər",
 	"query-builder-input-value-placeholder": "Dəyər daxil edin",
-	"query-builder-property-lookup-label": "Xüsusiyyət",
+	"query-builder-property-lookup-label": "Parametr",
 	"query-builder-property-lookup-limited-support-tag": "məhdud dəstək",
 	"query-builder-result-header": "Nəticələr",
 	"query-builder-result-error-missing-value": "Zəhmət olmasa, dəyər daxil edin",
