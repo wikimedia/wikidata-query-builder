@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Eleassar",
+			"GeographieMan",
 			"Mtej"
 		]
 	},
@@ -52,11 +53,11 @@
 	"query-builder-label-opt-out": "Prikaži ID-je namesto oznak (lahko prepreči pretek)",
 	"query-builder-include-subclasses": "V iskanje vključi povezane vrednosti (priporočeno)",
 	"query-builder-include-subclasses-tooltip": "Vključuje vrednosti iz podnaborov izbranih vrednosti, npr. pri filtriranju za »šola → navedeno pri administrativni teritorialni entiteti → Grčija« vključi v zadetke tudi »šola → navedeno pri ... → Atene«. Ob obkljukanju tega polja bodo zadetki verjetno izčrpnejši. Če potrebujete točne zadetke samo za izbrano vrednost, polje odkljukajte.",
-	"query-builder-negation-option-label-with": "Z",
+	"query-builder-negation-option-label-with": "S/Z",
 	"query-builder-negation-option-label-without": "Brez",
 	"query-builder-sharable-link-text": "Pridobite povezavo za deljenje",
 	"query-builder-sharable-link-message": "URL skopiran v odložišče!",
-	"query-builder-quantity-value-error-number": "Vnesite število",
+	"query-builder-quantity-value-error-number": "Prosimo, vnesite število",
 	"query-builder-quantity-value-error-unit": "Prosimo, izberite veljavno enoto ali odstranite vnos",
 	"query-builder-quantity-value-error-number-and-unit": "Vnesite številko in izberite veljavno enoto ali odstranite vnos",
 	"query-builder-quantity-value-label": "Vrednost in enota (izbirno)",
