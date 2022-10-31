@@ -17,6 +17,8 @@
 	"query-builder-value-type-relation-dropdown-matching": "koon ärvv lij",
 	"query-builder-value-type-relation-dropdown-without": "koon ärvv ij leäkku",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "vääʹldǩâni äärv lokku",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "uuʹccab ǥu",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "jäänab ǥu",
 	"query-builder-value-type-relation-dropdown-less-than-date": "ouddâl",
 	"query-builder-value-type-relation-dropdown-more-than-date": "mâŋŋa",
 	"query-builder-reference-relation-label": "Teâttkääiv",

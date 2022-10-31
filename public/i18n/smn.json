@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Seipinne",
+			"Yupik"
+		]
+	},
+	"query-builder-settings-heading": "Asâttâsah",
+	"query-builder-input-value-label": "Árvu",
+	"query-builder-input-value-placeholder": "Čääli áárvu",
+	"query-builder-item-value-lookup-no-match-found": "Táin ucâmáin ij kavnuu mihheen",
+	"query-builder-property-lookup-label": "Jiešvuotâ",
+	"query-builder-property-lookup-placeholder": "Čääli jiešvuođâ",
+	"query-builder-property-lookup-no-match-found": "Táin ucâmáin ij kavnuu mihheen",
+	"query-builder-result-header": "Puátuseh",
+	"query-builder-result-error-missing-property": "Valjii jiešvuođâ",
+	"query-builder-result-error-missing-value": "Čääli áárvu",
+	"query-builder-add-condition": "Lasseet iävtu",
+	"query-builder-value-type-relation-dropdown-without": "nuhtán",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "ucceeb ko",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "eenâb ko",
+	"query-builder-value-type-relation-dropdown-less-than-date": "ovdil",
+	"query-builder-value-type-relation-dropdown-more-than-date": "maŋa",
+	"query-builder-reference-relation-label": "Käldeeh",
+	"query-builder-reference-relation-dropdown-with": "tuše käldeigijn",
+	"query-builder-reference-relation-dropdown-without": "tuše käldeittáá",
+	"query-builder-reference-relation-dropdown-regardless": "käldeigijn já käldeittáá",
+	"query-builder-delete-condition": "Siho iävtu",
+	"query-builder-condition-relation-toggle-and": "já",
+	"query-builder-condition-relation-toggle-or": "teikkâ",
+	"query-builder-limit-number-placeholder": "Čääli nummeer",
+	"query-builder-limit-number-screenreader-label": "Puátusij maksimmeeri",
+	"query-builder-quantity-value-error-number": "Čääli áárvu",
+	"query-builder-quantity-value-number-input-placeholder": "Čääli nummeer",
+	"query-builder-footer-licence": "Lisensistum lisenssáin [$1 BSD 3-Clause License]",
+	"query-builder-footer-view-source": "Čääiti käldeekoodi",
+	"query-builder-footer-about-us": "Tiäđuh mist",
+	"query-builder-footer-privacy-policy": "Tiätusyejikeevâtlâšvuotâ",
+	"query-builder-footer-wikimedia-deutchland": "Wikimedia Saksa",
+	"query-builder-date-input-value-label": "Árvu",
+	"query-builder-date-input-placeholder": "ovdâmerkkân 31-12-2020",
+	"query-builder-date-input-prompt-text": "Čääli peivimere"
+}
