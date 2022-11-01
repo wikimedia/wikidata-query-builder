@@ -29,6 +29,9 @@ module.exports = {
 
 		'vue/html-indent': [ 'error', 'tab' ],
 
+		'vue/multi-word-component-names': 'off',
+		'vue/no-reserved-component-names': 'off',
+
 		// This is done by Typescript itself and only causes false positives
 		'no-undef': 'off',
 
