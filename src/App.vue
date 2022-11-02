@@ -65,9 +65,8 @@ export default Vue.extend( {
 			this.$store.dispatch( 'parseState', urlParams.get( 'query' ) );
 		},
 		setDocumentTitle( messages: { [langCode: string]: { [msgKey: string]: string} } ): void {
-			// eslint-disable-next-line dot-notation, max-len
 			window.document.title = messages[ this.lang ][ 'query-builder-heading' ] || messages[ 'en' ][ 'query-builder-heading' ];
-		},
+		}
 	},
 	name: 'App',
 	components: {
