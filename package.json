@@ -35,7 +35,7 @@
     "core-js": "^3.26.0",
     "lodash.debounce": "^4.0.8",
     "ress": "^5.0.2",
-    "sparqljs": "^3.5.1",
+    "sparqljs": "^3.6.1",
     "vite-plugin-importer": "^0.2.5",
     "vue": "^2.6.14",
     "vue-banana-i18n": "^1.5.2",
