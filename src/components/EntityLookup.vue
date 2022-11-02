@@ -44,7 +44,7 @@ export default Vue.extend( {
 			search: '',
 			searchResults: [] as MenuItem[],
 			topItemIndex: 1,
-			debouncedUpdateMenuItems: null as Function | null,
+			debouncedUpdateMenuItems: null as ( ( arg0: SearchOptions ) => void ) | null,
 		};
 	},
 	methods: {

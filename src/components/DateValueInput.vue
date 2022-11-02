@@ -32,7 +32,7 @@ export default Vue.extend( {
 	data() {
 		return {
 			rawInput: '',
-			debouncedDateValue: null as Function | null,
+			debouncedDateValue: null as ( ( arg0: string ) => void ) | null,
 		};
 	},
 	methods: {

@@ -53,7 +53,7 @@ export default Vue.extend( {
 			topItemIndex: 1,
 			numberInputValue: this.value === null ? null : this.value.value.toString(),
 			unitLookupValue: this.value === null ? null : this.value.unit,
-			debouncedUpdateMenuItems: null as Function | null,
+			debouncedUpdateMenuItems: null as ( ( arg0: SearchOptions ) => void ) | null,
 			quantityError: this.error,
 		};
 	},
