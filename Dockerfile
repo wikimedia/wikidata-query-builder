@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14.17.5
 
 RUN apt-get update && \
 	apt-get install -y \
@@ -13,6 +13,6 @@ ARG UID=1000
 ARG GID=1000
 
 RUN groupmod -g $GID node && usermod -u $UID -g $GID node
-RUN npm install --global npm@6.14.8
+RUN npm install --global npm@7.21.0
 
 USER node
