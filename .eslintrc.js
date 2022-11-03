@@ -8,7 +8,6 @@ module.exports = {
 		'eslint:recommended',
 		'@vue/typescript/recommended',
 		'wikimedia/client-common',
-		'wikimedia/language/es2020',
 		'@wmde/wikimedia-typescript',
 	],
 	parser: 'vue-eslint-parser',
