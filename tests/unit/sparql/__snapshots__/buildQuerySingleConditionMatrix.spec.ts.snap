@@ -4,7 +4,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity < "3.2"^^xsd:decimal)
 }"
 `;
 
@@ -12,7 +12,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity < "3.2"^^xsd:decimal)
   FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
 }"
 `;
@@ -21,7 +21,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity < "3.2"^^xsd:decimal)
   FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
 }"
 `;
@@ -30,13 +30,13 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity = \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity = "3.2"^^xsd:decimal)
 }"
 `;
 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "matching", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 2`] = `
 "SELECT DISTINCT ?item WHERE {
-  BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+  BIND("3.2"^^xsd:decimal AS ?userQuantity)
   BIND(wd:Q9000 AS ?userUnit)
   ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
     (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -52,14 +52,14 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity = \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity = "3.2"^^xsd:decimal)
   FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
 }"
 `;
 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "matching", "referenceRelation": "with", "subclasses": false, "value": [Object]} 2`] = `
 "SELECT DISTINCT ?item WHERE {
-  BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+  BIND("3.2"^^xsd:decimal AS ?userQuantity)
   BIND(wd:Q9000 AS ?userUnit)
   ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
     (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -76,14 +76,14 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity = \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity = "3.2"^^xsd:decimal)
   FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
 }"
 `;
 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "matching", "referenceRelation": "without", "subclasses": false, "value": [Object]} 2`] = `
 "SELECT DISTINCT ?item WHERE {
-  BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+  BIND("3.2"^^xsd:decimal AS ?userQuantity)
   BIND(wd:Q9000 AS ?userUnit)
   ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
     (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -100,7 +100,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity > "3.2"^^xsd:decimal)
 }"
 `;
 
@@ -108,7 +108,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity > "3.2"^^xsd:decimal)
   FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
 }"
 `;
@@ -117,7 +117,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity > "3.2"^^xsd:decimal)
   FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
 }"
 `;
@@ -195,13 +195,13 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity != \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity != "3.2"^^xsd:decimal)
 }"
 `;
 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "without", "referenceRelation": "regardless", "subclasses": false, "value": [Object]} 2`] = `
 "SELECT DISTINCT ?item WHERE {
-  BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+  BIND("3.2"^^xsd:decimal AS ?userQuantity)
   BIND(wd:Q9000 AS ?userUnit)
   ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
     (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -217,14 +217,14 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity != \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity != "3.2"^^xsd:decimal)
   FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
 }"
 `;
 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "without", "referenceRelation": "with", "subclasses": false, "value": [Object]} 2`] = `
 "SELECT DISTINCT ?item WHERE {
-  BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+  BIND("3.2"^^xsd:decimal AS ?userQuantity)
   BIND(wd:Q9000 AS ?userUnit)
   ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
     (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -241,14 +241,14 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-  FILTER(?numericQuantity != \\"3.2\\"^^xsd:decimal)
+  FILTER(?numericQuantity != "3.2"^^xsd:decimal)
   FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
 }"
 `;
 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "quantity", "negate": false, "propertyId": "P123", "propertyValueRelation": "without", "referenceRelation": "without", "subclasses": false, "value": [Object]} 2`] = `
 "SELECT DISTINCT ?item WHERE {
-  BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+  BIND("3.2"^^xsd:decimal AS ?userQuantity)
   BIND(wd:Q9000 AS ?userUnit)
   ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
     (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -267,7 +267,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity < "3.2"^^xsd:decimal)
   }
 }"
 `;
@@ -278,7 +278,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity < "3.2"^^xsd:decimal)
     FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -290,7 +290,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity < \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity < "3.2"^^xsd:decimal)
     FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -302,7 +302,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity = \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity = "3.2"^^xsd:decimal)
   }
 }"
 `;
@@ -311,7 +311,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
-    BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+    BIND("3.2"^^xsd:decimal AS ?userQuantity)
     BIND(wd:Q9000 AS ?userUnit)
     ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
       (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -330,7 +330,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity = \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity = "3.2"^^xsd:decimal)
     FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -340,7 +340,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
-    BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+    BIND("3.2"^^xsd:decimal AS ?userQuantity)
     BIND(wd:Q9000 AS ?userUnit)
     ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
       (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -360,7 +360,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity = \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity = "3.2"^^xsd:decimal)
     FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -370,7 +370,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
-    BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+    BIND("3.2"^^xsd:decimal AS ?userQuantity)
     BIND(wd:Q9000 AS ?userUnit)
     ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
       (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -390,7 +390,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity > "3.2"^^xsd:decimal)
   }
 }"
 `;
@@ -401,7 +401,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity > "3.2"^^xsd:decimal)
     FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -413,7 +413,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity > \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity > "3.2"^^xsd:decimal)
     FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -521,7 +521,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity != \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity != "3.2"^^xsd:decimal)
   }
 }"
 `;
@@ -530,7 +530,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
-    BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+    BIND("3.2"^^xsd:decimal AS ?userQuantity)
     BIND(wd:Q9000 AS ?userUnit)
     ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
       (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -549,7 +549,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity != \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity != "3.2"^^xsd:decimal)
     FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -559,7 +559,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
-    BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+    BIND("3.2"^^xsd:decimal AS ?userQuantity)
     BIND(wd:Q9000 AS ?userUnit)
     ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
       (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -579,7 +579,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     ?item p:P123 ?statement0.
     ?statement0 (psv:P123/wikibase:quantityAmount) ?numericQuantity.
-    FILTER(?numericQuantity != \\"3.2\\"^^xsd:decimal)
+    FILTER(?numericQuantity != "3.2"^^xsd:decimal)
     FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -589,7 +589,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
-    BIND(\\"3.2\\"^^xsd:decimal AS ?userQuantity)
+    BIND("3.2"^^xsd:decimal AS ?userQuantity)
     BIND(wd:Q9000 AS ?userUnit)
     ?userUnit (p:P2370/psv:P2370/wikibase:quantityAmount) ?conversionFactor;
       (p:P2370/psv:P2370/wikibase:quantityUnit) ?coherentUnit.
@@ -606,7 +606,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 exports[`buildQuery builds a query from a single condition QueryRepresentation: {"conditionRelation": null, "datatype": "string", "negate": false, "propertyId": "P123", "propertyValueRelation": "matching", "referenceRelation": "regardless", "subclasses": false, "value": "a string value"} 1`] = `
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
-  ?statement0 (ps:P123) \\"a string value\\".
+  ?statement0 (ps:P123) "a string value".
 }"
 `;
 
@@ -614,7 +614,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   {
     ?item p:P123 ?statement0.
-    ?statement0 (ps:P123) \\"a string value\\".
+    ?statement0 (ps:P123) "a string value".
     FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -624,7 +624,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   {
     ?item p:P123 ?statement0.
-    ?statement0 (ps:P123) \\"a string value\\".
+    ?statement0 (ps:P123) "a string value".
     FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -661,7 +661,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
 "SELECT DISTINCT ?item WHERE {
   ?item p:P123 ?statement0.
   ?statement0 (ps:P123) ?instance.
-  MINUS { ?item (p:P123/ps:P123) \\"a string value\\". }
+  MINUS { ?item (p:P123/ps:P123) "a string value". }
 }"
 `;
 
@@ -672,7 +672,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statement0 (ps:P123) ?instance.
     FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
-  MINUS { ?item (p:P123/ps:P123) \\"a string value\\". }
+  MINUS { ?item (p:P123/ps:P123) "a string value". }
 }"
 `;
 
@@ -683,7 +683,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statement0 (ps:P123) ?instance.
     FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
   }
-  MINUS { ?item (p:P123/ps:P123) \\"a string value\\". }
+  MINUS { ?item (p:P123/ps:P123) "a string value". }
 }"
 `;
 
@@ -692,7 +692,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   ?item wikibase:sitelinks _:anyValue.
   MINUS {
     ?item p:P123 ?statement0.
-    ?statement0 (ps:P123) \\"a string value\\".
+    ?statement0 (ps:P123) "a string value".
   }
 }"
 `;
@@ -703,7 +703,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     {
       ?item p:P123 ?statement0.
-      ?statement0 (ps:P123) \\"a string value\\".
+      ?statement0 (ps:P123) "a string value".
       FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -716,7 +716,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   MINUS {
     {
       ?item p:P123 ?statement0.
-      ?statement0 (ps:P123) \\"a string value\\".
+      ?statement0 (ps:P123) "a string value".
       FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -766,7 +766,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P123 ?statement0.
     ?statement0 (ps:P123) ?instance.
   }
-  MINUS { ?item (p:P123/ps:P123) \\"a string value\\". }
+  MINUS { ?item (p:P123/ps:P123) "a string value". }
 }"
 `;
 
@@ -780,7 +780,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       FILTER(EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
     }
   }
-  MINUS { ?item (p:P123/ps:P123) \\"a string value\\". }
+  MINUS { ?item (p:P123/ps:P123) "a string value". }
 }"
 `;
 
@@ -794,7 +794,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       FILTER(NOT EXISTS { ?statement0 prov:wasDerivedFrom ?reference. })
     }
   }
-  MINUS { ?item (p:P123/ps:P123) \\"a string value\\". }
+  MINUS { ?item (p:P123/ps:P123) "a string value". }
 }"
 `;
 
@@ -805,7 +805,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   ?statementValue_0 wikibase:timePrecision ?precision_0.
   FILTER(?precision_0 >= 11 )
   ?statementValue_0 wikibase:timeValue ?P585_0.
-  FILTER(?P585_0 < \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+  FILTER(?P585_0 < "+2021-01-20T00:00:00Z"^^xsd:dateTime)
 }"
 `;
 
@@ -816,7 +816,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   ?statementValue_0 wikibase:timePrecision ?precision_0.
   FILTER(?precision_0 >= 11 )
   ?statementValue_0 wikibase:timeValue ?P585_0.
-  FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+  FILTER(?P585_0 < "+2021-00-00T00:00:00Z"^^xsd:dateTime)
 }"
 `;
 
@@ -828,7 +828,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 < \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 < "+2021-01-20T00:00:00Z"^^xsd:dateTime)
     FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -842,7 +842,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 < "+2021-00-00T00:00:00Z"^^xsd:dateTime)
     FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -856,7 +856,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 < \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 < "+2021-01-20T00:00:00Z"^^xsd:dateTime)
     FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -870,7 +870,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 < "+2021-00-00T00:00:00Z"^^xsd:dateTime)
     FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -883,7 +883,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   ?statementValue_0 wikibase:timePrecision ?precision_0.
   FILTER(?precision_0 >= 11 )
   ?statementValue_0 wikibase:timeValue ?P585_0.
-  BIND(\\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime AS ?P585_0)
+  BIND("+2021-01-20T00:00:00Z"^^xsd:dateTime AS ?P585_0)
 }"
 `;
 
@@ -892,11 +892,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   ?item p:P585 ?statement_0.
   ?statement_0 psv:P585 ?statementValue_0.
   ?statementValue_0 wikibase:timePrecision ?precision_0.
-  hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+  hint:Prior hint:rangeSafe "true"^^xsd:boolean.
   FILTER(?precision_0 >= 10 )
   ?statementValue_0 wikibase:timeValue ?P585_0.
-  hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-  FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime <= ?P585_0) && (?P585_0 < \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+  hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+  FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) && (?P585_0 < "+2021-01-00T00:00:00Z"^^xsd:dateTime))
 }"
 `;
 
@@ -908,7 +908,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    BIND(\\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime AS ?P585_0)
+    BIND("+2021-01-20T00:00:00Z"^^xsd:dateTime AS ?P585_0)
     FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -920,11 +920,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime <= ?P585_0) && (?P585_0 < \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) && (?P585_0 < "+2021-01-00T00:00:00Z"^^xsd:dateTime))
     FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -938,7 +938,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    BIND(\\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime AS ?P585_0)
+    BIND("+2021-01-20T00:00:00Z"^^xsd:dateTime AS ?P585_0)
     FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -950,11 +950,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime <= ?P585_0) && (?P585_0 < \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) && (?P585_0 < "+2021-01-00T00:00:00Z"^^xsd:dateTime))
     FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -965,11 +965,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   ?item p:P585 ?statement_0.
   ?statement_0 psv:P585 ?statementValue_0.
   ?statementValue_0 wikibase:timePrecision ?precision_0.
-  hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+  hint:Prior hint:rangeSafe "true"^^xsd:boolean.
   FILTER(?precision_0 >= 10 )
   ?statementValue_0 wikibase:timeValue ?P585_0.
-  hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-  FILTER(?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime)
+  hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+  FILTER(?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime)
 }"
 `;
 
@@ -979,11 +979,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER(?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime)
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime)
     FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -995,11 +995,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER(?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime)
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime)
     FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -1072,7 +1072,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   ?statementValue_0 wikibase:timePrecision ?precision_0.
   FILTER(?precision_0 >= 11 )
   ?statementValue_0 wikibase:timeValue ?P585_0.
-  FILTER(?P585_0 != \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+  FILTER(?P585_0 != "+2021-01-20T00:00:00Z"^^xsd:dateTime)
 }"
 `;
 
@@ -1081,11 +1081,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
   ?item p:P585 ?statement_0.
   ?statement_0 psv:P585 ?statementValue_0.
   ?statementValue_0 wikibase:timePrecision ?precision_0.
-  hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+  hint:Prior hint:rangeSafe "true"^^xsd:boolean.
   FILTER(?precision_0 >= 10 )
   ?statementValue_0 wikibase:timeValue ?P585_0.
-  hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-  FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime < ?P585_0) || (?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+  hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+  FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime < ?P585_0) || (?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime))
 }"
 `;
 
@@ -1097,7 +1097,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 != \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 != "+2021-01-20T00:00:00Z"^^xsd:dateTime)
     FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -1109,11 +1109,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime < ?P585_0) || (?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime < ?P585_0) || (?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime))
     FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -1127,7 +1127,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 != \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 != "+2021-01-20T00:00:00Z"^^xsd:dateTime)
     FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -1139,11 +1139,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime < ?P585_0) || (?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime < ?P585_0) || (?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime))
     FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
   }
 }"
@@ -1158,7 +1158,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 < \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 < "+2021-01-20T00:00:00Z"^^xsd:dateTime)
   }
 }"
 `;
@@ -1172,7 +1172,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 < "+2021-00-00T00:00:00Z"^^xsd:dateTime)
   }
 }"
 `;
@@ -1187,7 +1187,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?statementValue_0 wikibase:timePrecision ?precision_0.
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      FILTER(?P585_0 < \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+      FILTER(?P585_0 < "+2021-01-20T00:00:00Z"^^xsd:dateTime)
       FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1204,7 +1204,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?statementValue_0 wikibase:timePrecision ?precision_0.
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+      FILTER(?P585_0 < "+2021-00-00T00:00:00Z"^^xsd:dateTime)
       FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1221,7 +1221,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?statementValue_0 wikibase:timePrecision ?precision_0.
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      FILTER(?P585_0 < \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+      FILTER(?P585_0 < "+2021-01-20T00:00:00Z"^^xsd:dateTime)
       FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1238,7 +1238,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?statementValue_0 wikibase:timePrecision ?precision_0.
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      FILTER(?P585_0 < \\"+2021-00-00T00:00:00Z\\"^^xsd:dateTime)
+      FILTER(?P585_0 < "+2021-00-00T00:00:00Z"^^xsd:dateTime)
       FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1254,7 +1254,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    BIND(\\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime AS ?P585_0)
+    BIND("+2021-01-20T00:00:00Z"^^xsd:dateTime AS ?P585_0)
   }
 }"
 `;
@@ -1266,11 +1266,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime <= ?P585_0) && (?P585_0 < \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) && (?P585_0 < "+2021-01-00T00:00:00Z"^^xsd:dateTime))
   }
 }"
 `;
@@ -1285,7 +1285,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?statementValue_0 wikibase:timePrecision ?precision_0.
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      BIND(\\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime AS ?P585_0)
+      BIND("+2021-01-20T00:00:00Z"^^xsd:dateTime AS ?P585_0)
       FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1300,11 +1300,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?item p:P585 ?statement_0.
       ?statement_0 psv:P585 ?statementValue_0.
       ?statementValue_0 wikibase:timePrecision ?precision_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
       FILTER(?precision_0 >= 10 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-      FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime <= ?P585_0) && (?P585_0 < \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+      FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) && (?P585_0 < "+2021-01-00T00:00:00Z"^^xsd:dateTime))
       FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1321,7 +1321,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?statementValue_0 wikibase:timePrecision ?precision_0.
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      BIND(\\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime AS ?P585_0)
+      BIND("+2021-01-20T00:00:00Z"^^xsd:dateTime AS ?P585_0)
       FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1336,11 +1336,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?item p:P585 ?statement_0.
       ?statement_0 psv:P585 ?statementValue_0.
       ?statementValue_0 wikibase:timePrecision ?precision_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
       FILTER(?precision_0 >= 10 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-      FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime <= ?P585_0) && (?P585_0 < \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+      FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime <= ?P585_0) && (?P585_0 < "+2021-01-00T00:00:00Z"^^xsd:dateTime))
       FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1354,11 +1354,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER(?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime)
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime)
   }
 }"
 `;
@@ -1371,11 +1371,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?item p:P585 ?statement_0.
       ?statement_0 psv:P585 ?statementValue_0.
       ?statementValue_0 wikibase:timePrecision ?precision_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
       FILTER(?precision_0 >= 10 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-      FILTER(?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime)
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+      FILTER(?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime)
       FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1390,11 +1390,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?item p:P585 ?statement_0.
       ?statement_0 psv:P585 ?statementValue_0.
       ?statementValue_0 wikibase:timePrecision ?precision_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
       FILTER(?precision_0 >= 10 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-      FILTER(?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime)
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+      FILTER(?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime)
       FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1488,7 +1488,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?statementValue_0 wikibase:timePrecision ?precision_0.
     FILTER(?precision_0 >= 11 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    FILTER(?P585_0 != \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+    FILTER(?P585_0 != "+2021-01-20T00:00:00Z"^^xsd:dateTime)
   }
 }"
 `;
@@ -1500,11 +1500,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
     ?item p:P585 ?statement_0.
     ?statement_0 psv:P585 ?statementValue_0.
     ?statementValue_0 wikibase:timePrecision ?precision_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
     FILTER(?precision_0 >= 10 )
     ?statementValue_0 wikibase:timeValue ?P585_0.
-    hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-    FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime < ?P585_0) || (?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+    hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+    FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime < ?P585_0) || (?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime))
   }
 }"
 `;
@@ -1519,7 +1519,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?statementValue_0 wikibase:timePrecision ?precision_0.
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      FILTER(?P585_0 != \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+      FILTER(?P585_0 != "+2021-01-20T00:00:00Z"^^xsd:dateTime)
       FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1534,11 +1534,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?item p:P585 ?statement_0.
       ?statement_0 psv:P585 ?statementValue_0.
       ?statementValue_0 wikibase:timePrecision ?precision_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
       FILTER(?precision_0 >= 10 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-      FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime < ?P585_0) || (?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+      FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime < ?P585_0) || (?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime))
       FILTER(EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1555,7 +1555,7 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?statementValue_0 wikibase:timePrecision ?precision_0.
       FILTER(?precision_0 >= 11 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      FILTER(?P585_0 != \\"+2021-01-20T00:00:00Z\\"^^xsd:dateTime)
+      FILTER(?P585_0 != "+2021-01-20T00:00:00Z"^^xsd:dateTime)
       FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
@@ -1570,11 +1570,11 @@ exports[`buildQuery builds a query from a single condition QueryRepresentation: 
       ?item p:P585 ?statement_0.
       ?statement_0 psv:P585 ?statementValue_0.
       ?statementValue_0 wikibase:timePrecision ?precision_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
       FILTER(?precision_0 >= 10 )
       ?statementValue_0 wikibase:timeValue ?P585_0.
-      hint:Prior hint:rangeSafe \\"true\\"^^xsd:boolean.
-      FILTER((\\"+2020-12-00T00:00:00Z\\"^^xsd:dateTime < ?P585_0) || (?P585_0 >= \\"+2021-01-00T00:00:00Z\\"^^xsd:dateTime))
+      hint:Prior hint:rangeSafe "true"^^xsd:boolean.
+      FILTER(("+2020-12-00T00:00:00Z"^^xsd:dateTime < ?P585_0) || (?P585_0 >= "+2021-01-00T00:00:00Z"^^xsd:dateTime))
       FILTER(NOT EXISTS { ?statement_0 prov:wasDerivedFrom ?reference. })
     }
   }
