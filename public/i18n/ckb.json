@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Sarchia"
+		]
+	},
+	"query-builder-query-heading": "پرس",
+	"query-builder-settings-heading": "ڕێکخستنەکان",
+	"query-builder-input-value-label": "بەھا",
+	"query-builder-result-header": "ئەنجامەکان",
+	"query-builder-value-type-relation-dropdown-without": "بەبێ",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "کەمتر لە",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "زیاتر لە",
+	"query-builder-value-type-relation-dropdown-less-than-date": "پێش",
+	"query-builder-value-type-relation-dropdown-more-than-date": "دوای",
+	"query-builder-reference-relation-label": "سەرچاوەکان",
+	"query-builder-delete-condition": "سڕینەوەی مەرج",
+	"query-builder-condition-relation-toggle-and": "و",
+	"query-builder-condition-relation-toggle-or": "یان",
+	"query-builder-limit-number-placeholder": "ژمارەیەک داخڵ بکە",
+	"query-builder-limit-number-screenreader-label": "زۆرترین ژمارەی ئەنجامەکان",
+	"query-builder-negation-option-label-with": "لەگەڵ",
+	"query-builder-negation-option-label-without": "بەبێ",
+	"query-builder-quantity-value-number-input-placeholder": "ژمارەیەک داخڵ بکە",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "یەکەیەک داخڵ بکە",
+	"query-builder-footer-view-source": "بینینی سەرچاوە",
+	"query-builder-footer-about-us": "دەربارەی ئێمە",
+	"query-builder-date-input-value-label": "بەھا",
+	"query-builder-date-input-prompt-text": "تکایە ڕێکەوتێک بنووسە"
+}
