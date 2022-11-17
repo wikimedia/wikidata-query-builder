@@ -63,7 +63,7 @@
 	"query-builder-sharable-link-text": "Obtén un enlace para compartir",
 	"query-builder-sharable-link-message": "¡URL copiada al portapapeles!",
 	"query-builder-quantity-value-error-number": "Inserte un número",
-	"query-builder-quantity-value-error-unit": "Seleccione una unidad valida o elimine la entrada",
+	"query-builder-quantity-value-error-unit": "Seleccione una unidad válida o elimine la entrada",
 	"query-builder-quantity-value-error-number-and-unit": "Por favor inserta un número y selecciona una unidad válida o vacía el campo",
 	"query-builder-quantity-value-label": "Valor y Unidad (opcional)",
 	"query-builder-quantity-value-number-input-placeholder": "Inserte un número",
