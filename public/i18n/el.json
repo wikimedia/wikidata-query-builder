@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Geraki",
+			"Jimkats",
 			"Michail Angelos Georgoulas",
 			"Norhorn"
 		]
@@ -56,5 +57,18 @@
 	"query-builder-negation-option-label-without": "Χωρίς",
 	"query-builder-sharable-link-text": "Αποκτήστε έναν σύνδεσμο με δυνατότητα κοινής χρήσης",
 	"query-builder-sharable-link-message": "Η διεύθυνση URL αντιγράφηκε στο πρόχειρο!",
-	"query-builder-quantity-value-error-number": "Παρακαλούμε εισαγάγετε έναν αριθμό"
+	"query-builder-quantity-value-error-number": "Παρακαλούμε εισαγάγετε έναν αριθμό",
+	"query-builder-quantity-value-label": "Τιμή και Μονάδα (προαιρετικά)",
+	"query-builder-quantity-value-number-input-placeholder": "Εισάγετε αριθμό",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "Εισάγετε μονάδα",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Μονάδα (προαιρετικό)",
+	"query-builder-footer-view-source": "Προβολή κώδικα",
+	"query-builder-footer-report-link": "Αναφορά σφάλματος",
+	"query-builder-footer-about-us": "Σχετικά με εμάς",
+	"query-builder-footer-privacy-policy": "Πολιτική Απορρήτου",
+	"query-builder-date-input-value-label": "Τιμή",
+	"query-builder-date-input-placeholder": "για παράδειγμα 31-12-2020",
+	"query-builder-date-input-prompt-text": "Παρακαλούμε εισάγετε ημερομηνία",
+	"query-builder-date-input-results-intro-text": "Θα ερμηνευθεί ως:",
+	"query-builder-date-input-calendar-notice-text": "Όλες οι ημερομηνίες ερμηνεύονται ως Γρηγοριανές ημερομηνίες"
 }
