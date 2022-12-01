@@ -5,7 +5,8 @@
 			"Hedda",
 			"Joseph",
 			"MuratTheTurkish",
-			"SaldırganSincap"
+			"SaldırganSincap",
+			"ToprakM"
 		]
 	},
 	"query-builder-heading": "Vikiveri Sorgu Oluşturucu",
@@ -72,7 +73,7 @@
 	"query-builder-footer-view-source": "Kaynağı Gör",
 	"query-builder-footer-report-link": "Bir hata bildir",
 	"query-builder-footer-about-us": "Hakkımızda",
-	"query-builder-footer-privacy-policy": "Gizlilik İlkesi",
+	"query-builder-footer-privacy-policy": "Gizlilik Politikası",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Almanya",
 	"query-builder-footer-team": "Vikiveri takımı tarafından yapılmıştır",
 	"query-builder-date-input-value-label": "Değer",
