@@ -12,4 +12,4 @@ updates:
   open-pull-requests-limit: 10
   ignore:
     - dependency-name: "@wmde/wikit-*"
-      update-types: ["major"]
+      update-types: ["version-update:semver-major"]
