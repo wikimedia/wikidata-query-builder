@@ -73,7 +73,7 @@
     "sass-loader": "^13.2.0",
     "start-server-and-test": "^1.14.0",
     "style-loader": "^3.3.1",
-    "stylelint": "^14.15.0",
+    "stylelint": "^14.16.0",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-scss": "^4.3.0",
