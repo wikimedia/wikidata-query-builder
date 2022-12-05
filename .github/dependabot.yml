@@ -13,3 +13,5 @@ updates:
   ignore:
     - dependency-name: "@wmde/wikit-*"
       update-types: ["version-update:semver-major"]
+    - dependency-name: "vue*"
+      update-types: ["version-update:semver-major", "version-update:semver-minor"]
