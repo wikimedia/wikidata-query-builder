@@ -1,10 +1,12 @@
 <template>
 	<div class="querybuilder">
 		<main>
-			<h1 class="querybuilder__heading">
-				<bdi dir="auto" id="directionSample"
-					v-i18n="{msg: 'query-builder-heading'}" />
-			</h1>
+			<div class="querybuilder__heading">
+				<a href="/">
+					<div class="querybuilder__logo" />
+					<h1 class='visually-hidden'>{{ $i18n('query-builder-heading') }}</h1>
+				</a>
+			</div>
 			<p class="querybuilder__description"
 				v-html="$i18n(
 					'query-builder-intro-text',
@@ -262,18 +264,29 @@ $largeViewportWidth: 90em; //~1438px
 }
 
 .querybuilder__heading {
-	font-family: $font-family-style-heading-serif;
-	font-weight: $font-weight-style-h1;
-	font-size: $font-size-style-h1;
-	line-height: $font-line-height-style-heading;
-	color: $font-color-base;
-	margin-block-end: $dimension-layout-xxsmall;
+	padding-bottom: $dimension-layout-small;
 
-	// Arabic scripts should use sans fonts (T270111).
-	[lang=fa] &,
-	[lang=ar] & {
-		font-family: $font-family-style-heading-sans;
+	.querybuilder__logo {
+		background-image: url( '/img/QB_Logo.svg' );
+		width: 351px;
+		height: 24px;
+
+		@media (max-width: $tinyViewportWidth) {
+			background-image: url( '/img/QB_Logo_Mobile.svg' );
+			width: 239px;
+			height: 24px;
+		}
 	}
+}
+
+.visually-hidden:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(100%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }
 
 .querybuilder__description {
