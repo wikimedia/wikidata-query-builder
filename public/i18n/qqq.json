@@ -9,6 +9,7 @@
 		]
 	},
 	"query-builder-heading": "Title of the page",
+	"query-builder-intro-heading": "Heading for {{msg-mw|query-builder-intro-text}}",
 	"query-builder-intro-text": "Intro text describing what query builder is.",
 	"query-builder-query-heading": "Heading of the section for building the query",
 	"query-builder-settings-heading": "Heading of the section for query settings\n\n{{Identical|Settings}}",

@@ -7,6 +7,8 @@
 					<h1 class='visually-hidden'>{{ $i18n('query-builder-heading') }}</h1>
 				</a>
 			</div>
+			<h2 class="querybuilder__description-heading"
+				v-html="$i18n('query-builder-intro-heading')" />
 			<p class="querybuilder__description"
 				v-html="$i18n(
 					'query-builder-intro-text',
@@ -287,6 +289,15 @@ $largeViewportWidth: 90em; //~1438px
 	position: absolute;
 	white-space: nowrap;
 	width: 1px;
+}
+
+.querybuilder__description-heading {
+  font-family: $font-family-style-heading-sans;
+  font-size: $font-size-style-h4;
+  font-weight: $font-weight-style-h4;
+  line-height: $font-line-height-style-heading;
+  color: $font-color-emphasized;
+  margin: $dimension-layout-xsmall 0;
 }
 
 .querybuilder__description {
