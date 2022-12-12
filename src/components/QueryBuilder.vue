@@ -197,7 +197,7 @@ $largeViewportWidth: 90em; //~1438px
 	padding-inline: $dimension-layout-small;
 
 	@media (max-width: $tinyViewportWidth) {
-		padding-block: $dimension-layout-xsmall;
+		padding-block: $dimension-layout-small $dimension-layout-xsmall;
 		padding-inline: $dimension-layout-xsmall;
 	}
 
