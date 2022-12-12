@@ -25,7 +25,7 @@
 				:key="iframeRenderKey"
 				class="querybuilder-result__iframe"
 				referrerpolicy="origin"
-				sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+				sandbox="allow-downloads allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
 			</iframe>
 		</div>
 	</div>
