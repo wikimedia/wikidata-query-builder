@@ -26,10 +26,34 @@
 			<p>
 				<a href="https://www.wikimedia.de/" v-i18n="{msg: 'query-builder-footer-wikimedia-deutchland'}" />
 			</p>
+			<p
+				v-html="$i18n('query-builder-footer-team', teamLink)"
+			/>
+		</div>
+		<div class="querybuilder-footer__column">
+			<h2 class="querybuilder-footer__title" v-i18n="{msg: 'query-builder-footer-more-data-quality-tools'}" />
 			<p>
 				<a
-					href="https://www.wikidata.org/wiki/Wikidata:Contact_the_development_team"
-					v-i18n="{msg: 'query-builder-footer-team'}"
+					href="https://mismatch-finder.toolforge.org/"
+					v-i18n="{msg: 'query-builder-footer-mismatch-finder'}"
+				/>
+			</p>
+			<p>
+				<a
+					href="https://item-quality-evaluator.toolforge.org/"
+					v-i18n="{msg: 'query-builder-footer-item-quality-evaluator'}"
+				/>
+			</p>
+			<p>
+				<a
+					href="https://wikidata-analytics.wmcloud.org/app/CuriousFacts"
+					v-i18n="{msg: 'query-builder-footer-curious-facts'}"
+				/>
+			</p>
+			<p>
+				<a
+					href="https://github.com/wmde/wikidata-constraints-violation-checker"
+					v-i18n="{msg: 'query-builder-footer-constraints-violation-checker'}"
 				/>
 			</p>
 		</div>
@@ -46,6 +70,7 @@ export default Vue.extend( {
 		return {
 			// eslint-disable-next-line max-len
 			license: 'https://gerrit.wikimedia.org/r/plugins/gitiles/wikidata/query-builder/+/refs/heads/master/LICENSE',
+			teamLink: 'https://www.wikidata.org/wiki/Wikidata:Report_a_technical_problem',
 		};
 	},
 	computed: {
@@ -126,7 +151,7 @@ $largeViewportWidth: 90em;
 		color: $font-color-base;
 	}
 
-	&__column:first-of-type {
+	&__column:not(:last-of-type) {
 		padding-inline-end: 120px;
 
 		@media (max-width: $tinyViewportWidth) {
