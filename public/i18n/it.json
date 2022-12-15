@@ -43,8 +43,11 @@
 	"query-builder-quantity-value-number-input-placeholder": "Inserisci un numero",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Inserisci un'unità",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Unità (facoltativa)",
+	"query-builder-footer-view-source": "Ottieni il codice sorgente",
 	"query-builder-footer-about-us": "Su di noi",
 	"query-builder-footer-privacy-policy": "Informativa sulla privacy",
+	"query-builder-footer-team": "Realizzato con ❤️ dal [$1 team Wikidata]",
+	"query-builder-footer-curious-facts": "Curiosità",
 	"query-builder-date-input-value-label": "Valore",
 	"query-builder-date-input-placeholder": "ad esempio 31-12-2020"
 }

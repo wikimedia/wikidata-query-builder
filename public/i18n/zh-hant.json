@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Kly",
-			"Winston Sung"
+			"Wehwei",
+			"Winston Sung",
+			"捍粵者"
 		]
 	},
 	"query-builder-heading": "維基數據查詢建置器",
+	"query-builder-intro-heading": "關於本工具",
 	"query-builder-intro-text": "維基數據查詢建置器提供了用於建置出簡易維基數據查詢的視覺化介面。對於很少或是沒有使用過 [$1 SPARQL]（一種強大的查詢語言）的使用者來說，會是個理想選擇。查詢建置器雖然不提供 SPARQL 的全部功能，不過您可以隨時在查詢服務中開啟您的查詢，您可以透過在結果上方的連結來查看、編輯、或是擴充。[$2 我們也歡迎您點擊這裡來提供意見回饋]。",
 	"query-builder-query-heading": "查詢",
 	"query-builder-settings-heading": "設定",
@@ -66,12 +69,17 @@
 	"query-builder-footer-about-query-builder": "關於查詢建置器",
 	"query-builder-footer-licence": "基於 [$1 BSD 3-Clause License] 許可",
 	"query-builder-footer-build-time": "上一次建置於 [$1 $2]",
-	"query-builder-footer-view-source": "檢視原始碼",
-	"query-builder-footer-report-link": "回報程式錯誤",
+	"query-builder-footer-view-source": "檢視原碼",
+	"query-builder-footer-report-link": "回報程式問題",
 	"query-builder-footer-about-us": "關於我們",
 	"query-builder-footer-privacy-policy": "隱私權政策",
 	"query-builder-footer-wikimedia-deutchland": "德國維基媒體",
-	"query-builder-footer-team": "由維基數據團隊製作",
+	"query-builder-footer-team": "由[ $1 維基數據團隊]以 ❤️ 製作",
+	"query-builder-footer-more-data-quality-tools": "更多資料品質工具",
+	"query-builder-footer-mismatch-finder": "不匹配資料尋檢器",
+	"query-builder-footer-item-quality-evaluator": "項目質量評估工具",
+	"query-builder-footer-curious-facts": "奇趣冷知識",
+	"query-builder-footer-constraints-violation-checker": "限制違規檢查器",
 	"query-builder-date-input-value-label": "值",
 	"query-builder-date-input-placeholder": "例如：31-12-2020",
 	"query-builder-date-input-prompt-text": "請輸入日期",

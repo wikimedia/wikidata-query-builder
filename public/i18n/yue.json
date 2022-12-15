@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": [
+			"Al12si",
+			"Z423x5c6"
+		]
+	},
+	"query-builder-add-condition": "加條件",
+	"query-builder-value-type-relation-dropdown-matching": "符合",
+	"query-builder-value-type-relation-dropdown-without": "無",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "少過",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "多過",
+	"query-builder-value-type-relation-dropdown-less-than-date": "之前",
+	"query-builder-value-type-relation-dropdown-more-than-date": "之後",
+	"query-builder-reference-relation-label": "參考",
+	"query-builder-condition-relation-toggle-and": "同",
+	"query-builder-condition-relation-toggle-or": "或",
+	"query-builder-limit-number-error-message": "限制要係數字",
+	"query-builder-negation-option-label-with": "有",
+	"query-builder-negation-option-label-without": "無",
+	"query-builder-quantity-value-number-input-placeholder": "輸入數值",
+	"query-builder-quantity-value-unit-lookup-input-placeholder": "輸入單位",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "單位（可選）",
+	"query-builder-footer-about-us": "關於我哋",
+	"query-builder-footer-privacy-policy": "私隱政策",
+	"query-builder-date-input-placeholder": "例如 31-12-2020",
+	"query-builder-date-input-prompt-text": "請輸入日期"
+}

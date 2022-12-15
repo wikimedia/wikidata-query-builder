@@ -11,6 +11,7 @@
 		]
 	},
 	"query-builder-heading": "Wikidata Query Builder",
+	"query-builder-intro-heading": "Über dieses Tool",
 	"query-builder-intro-text": "Der Wikidata Query Builder bietet eine visuelle Schnittstelle zum Erstellen einer einfachen Wikidata-Abfrage. Er ist ideal für Benutzer mit wenig oder keiner Erfahrung in [$1 SPARQL], der mächtigen Abfragesprache. Der Query Builder bietet nicht die volle Funktionalität von SPARQL, aber du kannst deine Abfrage jederzeit im Query Service öffnen, wo du sie über den Link über den Ergebnissen ansiehst, bearbeiten oder erweitern kannst. [$2 Feedback ist willkommen].",
 	"query-builder-query-heading": "Abfrage",
 	"query-builder-settings-heading": "Einstellungen",
