@@ -1,0 +1,15 @@
+@mixin links-without-underline {
+	a {
+		text-decoration: none;
+
+		&:focus-visible { // for chrome
+			outline: dotted;
+			outline-width: 1px;
+			outline-color: gray;
+		}
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
