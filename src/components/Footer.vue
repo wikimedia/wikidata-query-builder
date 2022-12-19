@@ -9,22 +9,25 @@
 				v-html="$i18n('query-builder-footer-build-time', commitLink, buildTime)"
 			/>
 			<p>
-				<a
+				<WikitLink
 					href="https://gerrit.wikimedia.org/g/wikidata/query-builder"
 					v-i18n="{msg: 'query-builder-footer-view-source'}"
 				/>
 			</p>
 			<p class="querybuilder-footer__report-link">
-				<a :href="bugLink" v-i18n="{msg: 'query-builder-footer-report-link'}" />
+				<WikitLink :href="bugLink" v-i18n="{msg: 'query-builder-footer-report-link'}" />
 			</p>
 		</div>
 		<div class="querybuilder-footer__column">
 			<h2 class="querybuilder-footer__title" v-i18n="{msg: 'query-builder-footer-about-us'}" />
 			<p v-if="privacyPolicy" class="querybuilder-footer__privacy-policy">
-				<a :href="privacyPolicy" v-i18n="{msg: 'query-builder-footer-privacy-policy'}" />
+				<WikitLink :href="privacyPolicy" v-i18n="{msg: 'query-builder-footer-privacy-policy'}" />
 			</p>
 			<p>
-				<a href="https://www.wikimedia.de/" v-i18n="{msg: 'query-builder-footer-wikimedia-deutchland'}" />
+				<WikitLink
+					href="https://www.wikimedia.de/"
+					v-i18n="{msg: 'query-builder-footer-wikimedia-deutchland'}"
+				/>
 			</p>
 			<p
 				v-html="$i18n('query-builder-footer-team', teamLink)"
@@ -33,25 +36,25 @@
 		<div class="querybuilder-footer__column">
 			<h2 class="querybuilder-footer__title" v-i18n="{msg: 'query-builder-footer-more-data-quality-tools'}" />
 			<p>
-				<a
+				<WikitLink
 					href="https://mismatch-finder.toolforge.org/"
 					v-i18n="{msg: 'query-builder-footer-mismatch-finder'}"
 				/>
 			</p>
 			<p>
-				<a
+				<WikitLink
 					href="https://item-quality-evaluator.toolforge.org/"
 					v-i18n="{msg: 'query-builder-footer-item-quality-evaluator'}"
 				/>
 			</p>
 			<p>
-				<a
+				<WikitLink
 					href="https://wikidata-analytics.wmcloud.org/app/CuriousFacts"
 					v-i18n="{msg: 'query-builder-footer-curious-facts'}"
 				/>
 			</p>
 			<p>
-				<a
+				<WikitLink
 					href="https://github.com/wmde/wikidata-constraints-violation-checker"
 					v-i18n="{msg: 'query-builder-footer-constraints-violation-checker'}"
 				/>
@@ -63,6 +66,7 @@
 <script lang="ts">
 import QuerySerializer from '@/serialization/QuerySerializer';
 import Vue from 'vue';
+import { Link as WikitLink } from '@wmde/wikit-vue-components';
 
 export default Vue.extend( {
 	name: 'Footer',
@@ -72,6 +76,9 @@ export default Vue.extend( {
 			license: 'https://gerrit.wikimedia.org/r/plugins/gitiles/wikidata/query-builder/+/refs/heads/master/LICENSE',
 			teamLink: 'https://www.wikidata.org/wiki/Wikidata:Report_a_technical_problem',
 		};
+	},
+	components: {
+		WikitLink,
 	},
 	computed: {
 		buildTime(): string | false {

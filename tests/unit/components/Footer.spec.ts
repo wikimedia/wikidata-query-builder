@@ -1,5 +1,9 @@
 import Footer from '@/components/Footer.vue';
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import {
+	createLocalVue,
+	mount,
+	shallowMount,
+} from '@vue/test-utils';
 import Vue from 'vue';
 import i18n from 'vue-banana-i18n';
 import Vuex from 'vuex';
@@ -66,7 +70,7 @@ describe( 'Footer component', () => {
 		process.env = Object.assign( process.env, {
 			VUE_APP_PRIVACY_POLICY_URL: 'https://very-important-privacy-policy.com',
 		} );
-		const wrapper = shallowMount( Footer, {
+		const wrapper = mount( Footer, {
 			store: newStore(),
 			localVue,
 		} );
@@ -76,7 +80,7 @@ describe( 'Footer component', () => {
 		);
 	} );
 	it( 'adds link to phabricator', () => {
-		const wrapper = shallowMount( Footer, {
+		const wrapper = mount( Footer, {
 			store: newStore(),
 			localVue,
 		} );
