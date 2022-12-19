@@ -195,18 +195,16 @@ $tinyViewportWidth: 38em;
 $largeViewportWidth: 90em; //~1438px
 
 .querybuilder main {
-	padding-block: $dimension-layout-small;
+	padding-block: $dimension-layout-small $dimension-layout-large;
 	padding-inline: $dimension-layout-small;
 
 	@media (max-width: $tinyViewportWidth) {
-		padding-block: $dimension-layout-small $dimension-layout-xsmall;
 		padding-inline: $dimension-layout-xsmall;
 	}
 
 	@media (min-width: $largeViewportWidth) {
 		// set maximum width of the page
 		max-width: $largeViewportWidth;
-		margin-block: auto;
 		margin-inline: auto;
 	}
 }
