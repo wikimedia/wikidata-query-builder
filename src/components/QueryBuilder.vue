@@ -299,10 +299,10 @@ $largeViewportWidth: 90em; //~1438px
 }
 
 .querybuilder__description {
-	font-family: $font-family-style-description;
-	font-weight: $font-weight-style-description;
-	font-size: $font-size-style-description;
-	line-height: $font-line-height-style-description;
+	font-family: $font-family-style-body;
+	font-weight: $font-weight-style-body;
+	font-size: $font-size-style-body;
+	line-height: $font-line-height-style-body;
 	color: $font-color-base;
 	max-width: 672px; // TODO: replace with token
 
