@@ -2,10 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"Minh Nguyen",
-			"Nghiemtrongdai VN"
+			"Nghiemtrongdai VN",
+			"Nguyenphutrong2"
 		]
 	},
 	"query-builder-heading": "Trình xây dựng truy vấn Wikidata",
+	"query-builder-intro-heading": "Giới thiệu về công cụ này",
 	"query-builder-query-heading": "Truy vấn",
 	"query-builder-settings-heading": "Tùy chọn",
 	"query-builder-find-all-items": "Tìm mọi khoản mục…",
@@ -62,12 +64,17 @@
 	"query-builder-footer-about-query-builder": "Giới thiệu Trình xây dựng Truy vấn",
 	"query-builder-footer-licence": "Được phát hành theo [$1 giấy phép BSD 3 điều khoản]",
 	"query-builder-footer-build-time": "Được xây dựng lần cuối cùng vào [$1 $2]",
-	"query-builder-footer-view-source": "Xem mã nguồn",
-	"query-builder-footer-report-link": "Báo cáo lỗi",
+	"query-builder-footer-view-source": "Nhận mã nguồn",
+	"query-builder-footer-report-link": "Báo cáo một vấn đề",
 	"query-builder-footer-about-us": "Giới thiệu về chúng tôi",
 	"query-builder-footer-privacy-policy": "Quy định về quyền riêng tư",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Đức",
-	"query-builder-footer-team": "Nhóm Wikidata xây dựng",
+	"query-builder-footer-team": "Được tạo bằng ❤️ bởi nhóm [ $1 Wikidata]",
+	"query-builder-footer-more-data-quality-tools": "Thêm công cụ chất lượng dữ liệu",
+	"query-builder-footer-mismatch-finder": "Trình tìm kiếm không phù hợp",
+	"query-builder-footer-item-quality-evaluator": "Người đánh giá chất lượng mặt hàng",
+	"query-builder-footer-curious-facts": "sự thật tò mò",
+	"query-builder-footer-constraints-violation-checker": "Trình kiểm tra vi phạm ràng buộc",
 	"query-builder-date-input-value-label": "Giá trị",
 	"query-builder-date-input-placeholder": "ví dụ 31/12/2020",
 	"query-builder-date-input-prompt-text": "Xin hãy nhập ngày tháng",

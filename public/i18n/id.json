@@ -1,12 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Agam Riyandana",
 			"Akmaie Ajam",
 			"Daud I.F. Argana",
 			"Naufal06"
 		]
 	},
 	"query-builder-heading": "Pembangun Kueri Wikidata",
+	"query-builder-intro-heading": "Tentang alat ini",
 	"query-builder-intro-text": "Pembangun Kueri Wikidata menyediakan antarmuka visual untuk membangun kueri Wikidata yang sederhana. Pembangun Kueri cocok untuk digunakan pengguna dengan sedikit atau tanpa pengalaman menggunakan [$1 SPARQL], sebuah bahasa kueri yang kuat. Pembangun Kueri tidak menawarkan seluruh fungsionalias SPARSL, tetapi Anda bisa membuka kueri Anda di Layanan Kueri, di mana Anda bisa melihat, mengubah, atau memperluasnya menggunakan tautan di atas hasilnya. [$2 Umpan balik diterima di sini].",
 	"query-builder-query-heading": "Kueri",
 	"query-builder-settings-heading": "Pengaturan",
@@ -67,12 +69,14 @@
 	"query-builder-footer-about-query-builder": "Tentang Pembangun Kueri",
 	"query-builder-footer-licence": "Dilisensikan di bawah [$1 Lisensi BSD 3-Klausa]",
 	"query-builder-footer-build-time": "Terakhir kali dibangun pada [$1 $2]",
-	"query-builder-footer-view-source": "Lihat Sumber",
-	"query-builder-footer-report-link": "Laporkan kesalahan",
+	"query-builder-footer-view-source": "Dapatkan kode sumber",
+	"query-builder-footer-report-link": "Laporkan masalah",
 	"query-builder-footer-about-us": "Tentang kami",
 	"query-builder-footer-privacy-policy": "Kebijakan Privasi",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Jerman",
-	"query-builder-footer-team": "Dibuat oleh Tim Wikidata",
+	"query-builder-footer-team": "Dibuat dengan ❤️ oleh [ $1 tim Wikidata]",
+	"query-builder-footer-more-data-quality-tools": "Lebih banyak alat kualitas data",
+	"query-builder-footer-mismatch-finder": "Pencari Ketidakcocokan",
 	"query-builder-date-input-value-label": "Nilai",
 	"query-builder-date-input-placeholder": "misalnya 31-12-2020",
 	"query-builder-date-input-prompt-text": "Tolong masukkan sebuah tanggal",
