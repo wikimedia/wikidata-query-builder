@@ -1,0 +1,39 @@
+{
+	"@metadata": {
+		"authors": [
+			"Abylaikhan 94"
+		]
+	},
+	"query-builder-intro-heading": "Бу алат акында",
+	"query-builder-query-heading": "Сорав",
+	"query-builder-settings-heading": "Настройкалар",
+	"query-builder-find-all-items": "Савлай затларды табув...",
+	"query-builder-run-query": "Сорав ясав",
+	"query-builder-input-value-label": "Маьнеси",
+	"query-builder-input-value-placeholder": "Маьнесин язув",
+	"query-builder-item-value-lookup-no-match-found": "Рас туьсуьв табылмады",
+	"query-builder-property-lookup-label": "Оьзлик",
+	"query-builder-property-lookup-placeholder": "Оьзлигин язынъыз",
+	"query-builder-property-lookup-no-match-found": "Рас туьсуьв табылмады",
+	"query-builder-property-lookup-limited-support-tag": "шекленген ярдам",
+	"query-builder-property-lookup-limited-support-note": "Ярдамы шекленген оьзликлер маьнеси бойынша фильтрланып болмайдылар",
+	"query-builder-result-placeholder": "Бу ерде результатлары коьринедилер",
+	"query-builder-result-header": "Сонъы",
+	"query-builder-result-error-missing-property": "Оьзлигин сайланъыз",
+	"query-builder-result-error-missing-value": "Маьнесин язынъыз",
+	"query-builder-add-condition": "Шарт косув",
+	"query-builder-value-type-relation-dropdown-less-than-date": "бурын",
+	"query-builder-value-type-relation-dropdown-more-than-date": "сонъ",
+	"query-builder-reference-relation-label": "Кулланылган литература",
+	"query-builder-reference-relation-dropdown-with": "тек ссылкалар мен",
+	"query-builder-reference-relation-dropdown-without": "тек ссылкаларсыз",
+	"query-builder-reference-relation-dropdown-regardless": "ссылкалар мен эм онсыз",
+	"query-builder-delete-condition": "Шартты йоюв",
+	"query-builder-condition-placeholder": "Соравдынъ туьзуьлуьвин баслав уьшин шарт косынъыз",
+	"query-builder-condition-relation-toggle-and": "эм",
+	"query-builder-condition-relation-toggle-or": "яде",
+	"query-builder-limit-number-error-message": "Лимит сан болмага керек",
+	"query-builder-limit-number-results-description": "Сонълар санын дейим шекленъиз",
+	"query-builder-limit-number-placeholder": "Сан язынъыз",
+	"query-builder-limit-number-screenreader-label": "Сонълардынъ энъ коьп саны"
+}
