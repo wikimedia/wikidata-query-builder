@@ -1,0 +1,33 @@
+{
+	"@metadata": {
+		"authors": [
+			"Afalau",
+			"Robin Owain"
+		]
+	},
+	"query-builder-heading": "Crëwr Ymchwiliad Wicidata",
+	"query-builder-query-heading": "Ymholiad",
+	"query-builder-settings-heading": "Dewisiadau",
+	"query-builder-find-all-items": "Canfod yr holl eitemau...",
+	"query-builder-run-query": "Rhedeg yr ymholiad",
+	"query-builder-input-value-label": "Gwerth",
+	"query-builder-input-value-placeholder": "Nodwch y gwerth",
+	"query-builder-item-value-lookup-no-match-found": "Ni chafwyd hyd i ddim yn cyfateb",
+	"query-builder-property-lookup-label": "Priodwedd",
+	"query-builder-result-header": "Canlyniadau",
+	"query-builder-result-error-missing-value": "Nodwch y gwerth",
+	"query-builder-add-condition": "Ychwanegwch amod",
+	"query-builder-reference-relation-label": "Cyfeiriadau",
+	"query-builder-condition-relation-toggle-and": "a/ac",
+	"query-builder-condition-relation-toggle-or": "neu",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Uned (dewisol)",
+	"query-builder-footer-view-source": "Gweld y cod ffynhonnell",
+	"query-builder-footer-report-link": "Rhoi gwybod am nam",
+	"query-builder-footer-about-us": "Amdanom ni",
+	"query-builder-footer-privacy-policy": "Polisi Preifatrwydd",
+	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
+	"query-builder-footer-team": "Crëwyd gyda ❤️ gan y [$1 tîm Wicidata]",
+	"query-builder-date-input-value-label": "Gwerth",
+	"query-builder-date-input-placeholder": "er enghraifft 31-12-2020",
+	"query-builder-date-input-prompt-text": "Mewnosodwch ddyddiad"
+}
