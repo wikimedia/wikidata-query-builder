@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
+			"Luku123",
 			"Matlin",
 			"Rail"
 		]
@@ -66,7 +67,8 @@
 	"query-builder-footer-about-us": "O nas",
 	"query-builder-footer-privacy-policy": "Polityka prywatności",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
-	"query-builder-footer-team": "Stworzone przez zespół Wikidanych",
+	"query-builder-footer-team": "Stworzone z ❤️ przez [$1 Zespół wikadanych]",
+	"query-builder-footer-curious-facts": "Ciekawe fakty",
 	"query-builder-date-input-value-label": "Wartość",
 	"query-builder-date-input-placeholder": "na przykład 31-12-2020",
 	"query-builder-date-input-prompt-text": "Podaj datę",
