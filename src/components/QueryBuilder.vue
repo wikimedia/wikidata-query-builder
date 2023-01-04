@@ -4,7 +4,9 @@
 			<div class="querybuilder__heading">
 				<a href="/">
 					<div class="querybuilder__logo" />
-					<h1 class='visually-hidden'>{{ $i18n('query-builder-heading') }}</h1>
+					<h1 class='visually-hidden'>
+						<bdi dir="auto" id="directionSample">{{ $i18n('query-builder-heading') }}</bdi>
+					</h1>
 				</a>
 			</div>
 			<h2 class="querybuilder__description-heading"
