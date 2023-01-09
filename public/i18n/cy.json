@@ -20,6 +20,8 @@
 	"query-builder-reference-relation-label": "Cyfeiriadau",
 	"query-builder-condition-relation-toggle-and": "a/ac",
 	"query-builder-condition-relation-toggle-or": "neu",
+	"query-builder-negation-option-label-with": "Gyda",
+	"query-builder-negation-option-label-without": "Heb",
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Uned (dewisol)",
 	"query-builder-footer-view-source": "Gweld y cod ffynhonnell",
 	"query-builder-footer-report-link": "Rhoi gwybod am nam",

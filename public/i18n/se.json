@@ -1,0 +1,36 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kimberli Mäkäräinen (WMNO)",
+			"Yupik"
+		]
+	},
+	"query-builder-settings-heading": "Ásahusat",
+	"query-builder-input-value-label": "Árvu",
+	"query-builder-input-value-placeholder": "Čális árvvu",
+	"query-builder-item-value-lookup-no-match-found": "Eai bohtosat",
+	"query-builder-property-lookup-label": "Iešvuohta",
+	"query-builder-property-lookup-placeholder": "Čális iešvuođa",
+	"query-builder-property-lookup-no-match-found": "Eai bohtosat",
+	"query-builder-result-header": "Bohtosat",
+	"query-builder-result-error-missing-property": "Vállje iešvuođa",
+	"query-builder-result-error-missing-value": "Čális árvvu",
+	"query-builder-add-condition": "Lasit eavttu",
+	"query-builder-value-type-relation-dropdown-matching": "mii árvu lea",
+	"query-builder-value-type-relation-dropdown-without": "mii árvu ii leat",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "árvvus fuolakeahttá",
+	"query-builder-value-type-relation-dropdown-less-than-date": "ovdal",
+	"query-builder-value-type-relation-dropdown-more-than-date": "maŋŋá",
+	"query-builder-reference-relation-label": "Gáldut",
+	"query-builder-delete-condition": "Sihko eavttu",
+	"query-builder-condition-relation-toggle-and": "ja",
+	"query-builder-condition-relation-toggle-or": "dahje",
+	"query-builder-limit-number-placeholder": "Čális nummira",
+	"query-builder-limit-number-screenreader-label": "Bohtosiid badjerádjemearri",
+	"query-builder-quantity-value-error-number": "Čális nummira",
+	"query-builder-footer-view-source": "Oza gáldokoda",
+	"query-builder-footer-wikimedia-deutchland": "Wikimedia Duiska",
+	"query-builder-date-input-value-label": "Árvu",
+	"query-builder-date-input-placeholder": "ovdamearkka dihte 31-12-2020",
+	"query-builder-date-input-prompt-text": "Čális beaivemeari"
+}
