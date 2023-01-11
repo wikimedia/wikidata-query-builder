@@ -23,7 +23,7 @@
     "fix:css": "stylelint '**/*.vue' --fix",
     "fix:ts": "eslint --fix --ignore-path .gitignore .",
     "fix:cypress": "eslint --fix cypress",
-    "branch-deploy": "npm run build -- --base=/ && NETLIFY_AUTH_TOKEN=$BRANCHDEPLOY_AUTH_TOKEN NETLIFY_SITE_ID=$BRANCHDEPLOY_SITE_ID npx netlify deploy --dir=dist --json"
+    "branch-deploy": "npm run build -- --base=/ && NETLIFY_AUTH_TOKEN=$BRANCHDEPLOY_AUTH_TOKEN NETLIFY_SITE_ID=$BRANCHDEPLOY_SITE_ID npx netlify deploy --dir=dist --json --alias $ZUUL_CHANGE"
   },
   "main": "index.js",
   "dependencies": {
