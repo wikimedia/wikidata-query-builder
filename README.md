@@ -70,8 +70,13 @@ The recommended way to update dependencies is to collect related dependency upda
 Make sure that all tests still pass and building still works for every local commit using `npm run test`.
 
 ## Deploying to production
+After merge:
+1. [Login to Jenkins](https://integration.wikimedia.org/ci/login) with your LDAP credentials, the same you use to login to wikitech.
+2. Trigger a build job for Query Builder in [Wikimedia CI](https://integration.wikimedia.org/ci/job/wikidata-query-builder-build/):
 
-After merge, trigger a build job in [Wikimedia CI](https://integration.wikimedia.org/ci/job/wikidata-query-builder-build/) and once the patch in [deploy repo](https://gerrit.wikimedia.org/r/q/project:wikidata%252Fquery-builder%252Fdeploy) is created, force merge it.
-It will by [synced to production](https://gerrit.wikimedia.org/r/plugins/gitiles/operations/puppet/+/9d52148c28c3391d32f0b83c8762f70e8af1ad15/modules/profile/templates/wdqs/httpd-query.wikidata.org.erb#24) by the puppet agent which is set to run every 30 minutes.
+![Screenshot of the Jenkins dashboard for the build repo. Highlighted are the build buttons in the sidebar with a "1" and the "Build" button in the main part with a "2"](docs/images/triggerDeployBuild.png)
 
-
+3. Once the patch in [deploy repo](https://gerrit.wikimedia.org/r/q/project:wikidata%252Fquery-builder%252Fdeploy) is created, force merge it:
+   1. Give +2 to _both_ "Code Review" and "Verified".
+   1. Click the "SUBMIT" button that then appears in the top right corner.
+4. It will be [synced to production](https://gerrit.wikimedia.org/r/plugins/gitiles/operations/puppet/+/9d52148c28c3391d32f0b83c8762f70e8af1ad15/modules/profile/templates/wdqs/httpd-query.wikidata.org.erb#24) by the puppet agent which is set to run every 30 minutes.
