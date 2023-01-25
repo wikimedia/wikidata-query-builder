@@ -8,7 +8,7 @@
 			outline-color: gray;
 		}
 
-		&:hover {
+		&:hover, &:active {
 			text-decoration: underline;
 		}
 	}

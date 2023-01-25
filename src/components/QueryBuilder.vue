@@ -170,6 +170,9 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
+@use '../styles/links' as *;
+
+@include links-without-underline;
 // TODO replace with link component once available
 a {
 	font-family: $wikit-Link-font-family;

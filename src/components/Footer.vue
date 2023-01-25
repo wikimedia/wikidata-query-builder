@@ -115,14 +115,10 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
-@use '../styles/links' as *;
-
 $tinyViewportWidth: 38em;
 $largeViewportWidth: 90em;
 
 .querybuilder-footer {
-	@include links-without-underline;
-
 	padding-block: $dimension-layout-small;
 	padding-inline: $dimension-layout-small;
 	margin-inline: 0;
