@@ -2,14 +2,13 @@
 	<div class="querybuilder-dropdown">
 		<Dropdown
 			class="querybuilder-dropdown__select"
-			@input="onInput"
 			:value="selected"
 			label="Value Type"
-			:menuItems="optionItems"
+			:menu-items="optionItems"
 			:disabled="disabled"
+			@input="onInput"
 		/>
 	</div>
-
 </template>
 
 <script lang="ts">
@@ -27,6 +26,9 @@ interface PropertyValueRelationMenuItem extends MenuItem {
 
 export default Vue.extend( {
 	name: 'ValueTypeDropDown',
+	components: {
+		Dropdown,
+	},
 	props: {
 		value: {
 			type: String as PropType<PropertyValueRelation>,
@@ -39,11 +41,6 @@ export default Vue.extend( {
 		disabled: {
 			type: Boolean,
 			default: false,
-		},
-	},
-	methods: {
-		onInput( event: PropertyValueRelationMenuItem ): void {
-			this.$emit( 'input', event.value );
 		},
 	},
 	computed: {
@@ -106,11 +103,14 @@ export default Vue.extend( {
 			) || null;
 		},
 	},
-	components: {
-		Dropdown,
+	methods: {
+		onInput( event: PropertyValueRelationMenuItem ): void {
+			this.$emit( 'input', event.value );
+		},
 	},
 } );
 </script>
+
 <style lang="scss">
 	// will be removed once dropdown component is implemented in the DS
 	.querybuilder-dropdown__select {

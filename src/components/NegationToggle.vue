@@ -1,10 +1,10 @@
 <template>
 	<ToggleButtonGroup
 		:value="value"
-		@input="$emit('input', $event)"
 		class="negationToggle"
+		@input="$emit( 'input', $event )"
 	>
-		<template v-slot:default>
+		<template #default>
 			<ToggleButton
 				value="with"
 			>

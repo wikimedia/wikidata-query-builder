@@ -60,12 +60,12 @@
     "eslint-config-wikimedia": "^0.23.0",
     "eslint-plugin-chai-friendly": "^0.7.2",
     "eslint-plugin-cypress": "^2.12.1",
-    "eslint-plugin-es": "^4.1.0",
+    "eslint-plugin-jsonc": "^2.6.0",
     "eslint-plugin-vue": "^9.8.0",
     "jest": "^29.3.1",
     "jest-axe": "^7.0.0",
     "jest-environment-jsdom": "^29.3.1",
-    "netlify-cli": "^12.2.8",
+    "netlify-cli": "12.2.8",
     "npm-run-all": "^4.1.5",
     "postcss-dir-pseudo-class": "^6.0.5",
     "postcss-logical": "^5.0.4",
@@ -83,7 +83,7 @@
     "vite": "~2.8.6",
     "vite-plugin-env-compatible": "^1.1.1",
     "vite-plugin-vue2": "^2.0.3",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "2.6.14"
   },
   "_id": "@wmde/query-builder@1.0.0",
   "bugs": {

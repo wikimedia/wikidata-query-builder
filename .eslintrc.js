@@ -4,14 +4,17 @@ module.exports = {
 		node: true,
 	},
 	extends: [
-		'plugin:vue/essential',
 		'eslint:recommended',
 		'@vue/typescript/recommended',
 		'wikimedia/client-common',
+		'wikimedia/vue2-common',
 		'@wmde/wikimedia-typescript',
+		'plugin:jsonc/base',
+		// this plugin is installed already as a dependency of eslint-config-wikimedia.
+		// So it is not necessary to add it again as a dependency in package.json
+		'plugin:yml/base',
 	],
 	parser: 'vue-eslint-parser',
-	plugins: [ 'es' ],
 	rules: {
 		'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 		'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -30,6 +33,7 @@ module.exports = {
 
 		'vue/multi-word-component-names': 'off',
 		'vue/no-reserved-component-names': 'off',
+		'vue/no-v-html': 'off',
 
 		// This is done by Typescript itself and only causes false positives
 		'no-undef': 'off',
@@ -37,7 +41,6 @@ module.exports = {
 		// temporarily disabled for update
 		'no-shadow': 'off',
 	},
-	ignorePatterns: [ '*.json', '*.yml', '*.yaml' ],
 	overrides: [
 		{
 			files: [ 'tests/util/*.ts', '**/tests/{unit,a11y,integration}/**/*.spec.{j,t}s?(x)' ],
@@ -58,6 +61,18 @@ module.exports = {
 				'@typescript-eslint/explicit-member-accessibility': 'off',
 				'@typescript-eslint/no-var-requires': 'off',
 			},
+		},
+		{
+			files: [ '*.json' ],
+			parser: 'jsonc-eslint-parser',
+			rules: {
+				'max-len': 'off',
+				'no-irregular-whitespace': 'off',
+			},
+		},
+		{
+			files: [ '*.yaml', '*.yml' ],
+			parser: 'yaml-eslint-parser',
 		},
 	],
 };

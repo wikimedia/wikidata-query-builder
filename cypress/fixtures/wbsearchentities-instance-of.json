@@ -1,43 +1,43 @@
 {
 	"searchinfo": {
-	  "search": "instance of"
+		"search": "instance of"
 	},
 	"search": [
-	  {
-		"id": "P31",
-		"title": "Property:P31",
-		"pageid": 3918489,
-		"repository": "wikidata",
-		"url": "//www.wikidata.org/wiki/Property:P31",
-		"datatype": "wikibase-item",
-		"concepturi": "http://www.wikidata.org/entity/P31",
-		"label": "instance of",
-		"description": "that class of which this subject is a particular example and member",
-		"match": {
-		  "type": "label",
-		  "language": "en",
-		  "text": "instance of"
-		}
-	  },
-	  {
-		"id": "P1647",
-		"title": "Property:P1647",
-		"pageid": 20177222,
-		"repository": "wikidata",
-		"url": "//www.wikidata.org/wiki/Property:P1647",
-		"datatype": "wikibase-property",
-		"concepturi": "http://www.wikidata.org/entity/P1647",
-		"label": "subproperty of",
-		"description": "all resources related by this property are also related by that property",
-		"match": {
-		  "type": "alias",
-		  "language": "en",
-		  "text": "instance of property"
+		{
+			"id": "P31",
+			"title": "Property:P31",
+			"pageid": 3918489,
+			"repository": "wikidata",
+			"url": "//www.wikidata.org/wiki/Property:P31",
+			"datatype": "wikibase-item",
+			"concepturi": "http://www.wikidata.org/entity/P31",
+			"label": "instance of",
+			"description": "that class of which this subject is a particular example and member",
+			"match": {
+				"type": "label",
+				"language": "en",
+				"text": "instance of"
+			}
 		},
-		"aliases": [
-		  "instance of property"
-		]
-	  }
+		{
+			"id": "P1647",
+			"title": "Property:P1647",
+			"pageid": 20177222,
+			"repository": "wikidata",
+			"url": "//www.wikidata.org/wiki/Property:P1647",
+			"datatype": "wikibase-property",
+			"concepturi": "http://www.wikidata.org/entity/P1647",
+			"label": "subproperty of",
+			"description": "all resources related by this property are also related by that property",
+			"match": {
+				"type": "alias",
+				"language": "en",
+				"text": "instance of property"
+			},
+			"aliases": [
+				"instance of property"
+			]
+		}
 	],
 	"success": 1
-  }
+}

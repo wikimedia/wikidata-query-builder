@@ -1,62 +1,62 @@
 <template>
 	<footer class="querybuilder-footer">
 		<div class="querybuilder-footer__column">
-			<h2 class="querybuilder-footer__title" v-i18n="{msg: 'query-builder-footer-about-query-builder'}" />
-			<p v-html="$i18n('query-builder-footer-licence', license)" />
+			<h2 v-i18n="{ msg: 'query-builder-footer-about-query-builder' }" class="querybuilder-footer__title" />
+			<p v-html="$i18n( 'query-builder-footer-licence', license )" />
 			<p
-				class="querybuilder-footer__build-info"
 				v-if="buildTime && commitLink"
-				v-html="$i18n('query-builder-footer-build-time', commitLink, buildTime)"
+				class="querybuilder-footer__build-info"
+				v-html="$i18n( 'query-builder-footer-build-time', commitLink, buildTime )"
 			/>
 			<p>
 				<WikitLink
+					v-i18n="{ msg: 'query-builder-footer-view-source' }"
 					href="https://gerrit.wikimedia.org/g/wikidata/query-builder"
-					v-i18n="{msg: 'query-builder-footer-view-source'}"
 				/>
 			</p>
 			<p class="querybuilder-footer__report-link">
-				<WikitLink :href="bugLink" v-i18n="{msg: 'query-builder-footer-report-link'}" />
+				<WikitLink v-i18n="{ msg: 'query-builder-footer-report-link' }" :href="bugLink" />
 			</p>
 		</div>
 		<div class="querybuilder-footer__column">
-			<h2 class="querybuilder-footer__title" v-i18n="{msg: 'query-builder-footer-about-us'}" />
+			<h2 v-i18n="{ msg: 'query-builder-footer-about-us' }" class="querybuilder-footer__title" />
 			<p v-if="privacyPolicy" class="querybuilder-footer__privacy-policy">
-				<WikitLink :href="privacyPolicy" v-i18n="{msg: 'query-builder-footer-privacy-policy'}" />
+				<WikitLink v-i18n="{ msg: 'query-builder-footer-privacy-policy' }" :href="privacyPolicy" />
 			</p>
 			<p>
 				<WikitLink
+					v-i18n="{ msg: 'query-builder-footer-wikimedia-deutchland' }"
 					href="https://www.wikimedia.de/"
-					v-i18n="{msg: 'query-builder-footer-wikimedia-deutchland'}"
 				/>
 			</p>
 			<p
-				v-html="$i18n('query-builder-footer-team', teamLink)"
+				v-html="$i18n( 'query-builder-footer-team', teamLink )"
 			/>
 		</div>
 		<div class="querybuilder-footer__column">
-			<h2 class="querybuilder-footer__title" v-i18n="{msg: 'query-builder-footer-more-data-quality-tools'}" />
+			<h2 v-i18n="{ msg: 'query-builder-footer-more-data-quality-tools' }" class="querybuilder-footer__title" />
 			<p>
 				<WikitLink
+					v-i18n="{ msg: 'query-builder-footer-mismatch-finder' }"
 					href="https://mismatch-finder.toolforge.org/"
-					v-i18n="{msg: 'query-builder-footer-mismatch-finder'}"
 				/>
 			</p>
 			<p>
 				<WikitLink
+					v-i18n="{ msg: 'query-builder-footer-item-quality-evaluator' }"
 					href="https://item-quality-evaluator.toolforge.org/"
-					v-i18n="{msg: 'query-builder-footer-item-quality-evaluator'}"
 				/>
 			</p>
 			<p>
 				<WikitLink
+					v-i18n="{ msg: 'query-builder-footer-curious-facts' }"
 					href="https://wikidata-analytics.wmcloud.org/app/CuriousFacts"
-					v-i18n="{msg: 'query-builder-footer-curious-facts'}"
 				/>
 			</p>
 			<p>
 				<WikitLink
+					v-i18n="{ msg: 'query-builder-footer-constraints-violation-checker' }"
 					href="https://github.com/wmde/wikidata-constraints-violation-checker"
-					v-i18n="{msg: 'query-builder-footer-constraints-violation-checker'}"
 				/>
 			</p>
 		</div>
@@ -70,15 +70,15 @@ import { Link as WikitLink } from '@wmde/wikit-vue-components';
 
 export default Vue.extend( {
 	name: 'Footer',
+	components: {
+		WikitLink,
+	},
 	data() {
 		return {
 			// eslint-disable-next-line max-len
 			license: 'https://gerrit.wikimedia.org/r/plugins/gitiles/wikidata/query-builder/+/refs/heads/master/LICENSE',
 			teamLink: 'https://www.wikidata.org/wiki/Wikidata:Report_a_technical_problem',
 		};
-	},
-	components: {
-		WikitLink,
 	},
 	computed: {
 		buildTime(): string | false {

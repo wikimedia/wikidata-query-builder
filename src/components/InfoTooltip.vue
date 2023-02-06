@@ -1,19 +1,19 @@
 <template>
 	<span class="querybuilder-tooltip">
 		<Popover
-			:reactToHover="true"
+			:react-to-hover="true"
 			:position="position"
 		>
-			<template v-slot:target>
+			<template #target>
 				<Button
 					variant="quiet"
 					type="neutral"
-					iconOnly
+					icon-only
 					aria-label="open tooltip with more information">
 					<Icon type="info-outlined" size="small" />
 				</Button>
 			</template>
-			<div v-html="message"/>
+			<div v-html="message" />
 		</Popover>
 	</span>
 </template>

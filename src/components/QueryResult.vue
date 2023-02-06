@@ -1,32 +1,35 @@
 <template>
 	<div class="querybuilder-result">
 		<div class="querybuilder-result__link">
-			<a :href="queryServiceUrl + ((encodedQuery.length !== 0) ? '#' + encodedQuery : '')" target="_blank" >
-				{{ $i18n('query-builder-result-link-text')}}
+			<a :href="queryServiceUrl + ( ( encodedQuery.length !== 0 ) ? '#' + encodedQuery : '' )" target="_blank">
+				{{ $i18n( 'query-builder-result-link-text' ) }}
 			</a>
 		</div>
 		<div class="querybuilder-result__header">
-			<h2>{{ $i18n('query-builder-result-header')}}</h2>
+			<h2>{{ $i18n( 'query-builder-result-header' ) }}</h2>
 		</div>
+		<!-- this is needed because vue2-common is not recognizing the errors property from mapGetters -->
+		<!-- eslint-disable-next-line vue/no-undef-properties -->
 		<div v-if="errors.length !== 0" class="querybuilder-result__errors">
 			<Message
-				v-for="(error, index) in errors" :type="error.type" :key="index">
-				<span>{{$i18n(error.message)}}</span>
+				v-for="( error, index ) in errors"
+				:key="index"
+				:type="error.type">
+				<span>{{ $i18n( error.message ) }}</span>
 			</Message>
 		</div>
 		<div v-else-if="encodedQuery.length === 0">
 			<div class="querybuilder-result__description">
-				{{ $i18n('query-builder-result-placeholder')}}
+				{{ $i18n( 'query-builder-result-placeholder' ) }}
 			</div>
 		</div>
 		<div v-else class="querybuilder-result__wrapper">
 			<iframe
-				:src="queryServiceEmbedUrl + '#' + encodedQuery"
 				:key="iframeRenderKey"
+				:src="queryServiceEmbedUrl + '#' + encodedQuery"
 				class="querybuilder-result__iframe"
 				referrerpolicy="origin"
-				sandbox="allow-downloads allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-			</iframe>
+				sandbox="allow-downloads allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox" />
 		</div>
 	</div>
 </template>
@@ -38,32 +41,29 @@ import { mapGetters } from 'vuex';
 
 export default Vue.extend( {
 	name: 'QueryResult',
+	components: {
+		Message,
+	},
+	props: {
+		encodedQuery: {
+			type: String,
+			default: '',
+		},
+		iframeRenderKey: {
+			type: Number,
+			default: 0,
+		},
+	},
 	data() {
 		return {
 			queryServiceEmbedUrl: process.env.VUE_APP_QUERY_SERVICE_EMBED_URL,
 			queryServiceUrl: process.env.VUE_APP_QUERY_SERVICE_URL,
 		};
 	},
-	props: {
-		encodedQuery: {
-			type: String,
-		},
-		iframeRenderKey: {
-			type: Number,
-		},
-	},
-	methods: {
-		updateInputTextValue( value: string ): void {
-			this.$store.dispatch( 'updateValue', value );
-		},
-	},
 	computed: {
 		...mapGetters( {
 			errors: 'getErrors',
 		} ),
-	},
-	components: {
-		Message,
 	},
 } );
 </script>

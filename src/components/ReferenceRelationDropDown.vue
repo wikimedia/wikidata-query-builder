@@ -2,20 +2,20 @@
 	<div class="query-condition-references">
 		<Dropdown
 			class="query-condition-references__select"
-			@input="onInput"
 			:value="selected"
-			:label="$i18n('query-builder-reference-relation-label')"
-			:menuItems="optionItems"
+			:label="$i18n( 'query-builder-reference-relation-label' )"
+			:menu-items="optionItems"
 			:disabled="disabled"
+			@input="onInput"
 		>
-			<template v-slot:suffix>
+			<template #suffix>
 				<InfoTooltip
 					position="top"
-					:message="$i18n('query-builder-reference-relation-tooltip')"
-				/></template>
+					:message="$i18n( 'query-builder-reference-relation-tooltip' )"
+				/>
+			</template>
 		</Dropdown>
 	</div>
-
 </template>
 
 <script lang="ts">
@@ -31,6 +31,10 @@ interface ReferenceRelationMenuItem extends MenuItem {
 
 export default Vue.extend( {
 	name: 'ReferenceRelationDropDown',
+	components: {
+		Dropdown,
+		InfoTooltip,
+	},
 	props: {
 		value: {
 			type: String as PropType<ReferenceRelation>,
@@ -39,11 +43,6 @@ export default Vue.extend( {
 		disabled: {
 			type: Boolean,
 			default: false,
-		},
-	},
-	methods: {
-		onInput( event: ReferenceRelationMenuItem ): void {
-			this.$emit( 'input', event.value );
 		},
 	},
 	computed: {
@@ -68,9 +67,10 @@ export default Vue.extend( {
 			) || null;
 		},
 	},
-	components: {
-		Dropdown,
-		InfoTooltip,
+	methods: {
+		onInput( event: ReferenceRelationMenuItem ): void {
+			this.$emit( 'input', event.value );
+		},
 	},
 } );
 </script>

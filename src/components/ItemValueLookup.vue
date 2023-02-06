@@ -1,14 +1,14 @@
 <template>
 	<EntityLookup
 		:value="value"
-		@input="$emit( 'input', $event )"
 		:error="error"
-		:searchForMenuItems="searchForItems"
-		:label="$i18n('query-builder-input-value-label')"
-		:tooltip="$i18n('query-builder-input-value-tooltip')"
-		:placeholder="$i18n('query-builder-input-value-placeholder')"
-		:no-match-found-message="$i18n('query-builder-item-value-lookup-no-match-found')"
+		:search-for-menu-items="searchForItems"
+		:label="$i18n( 'query-builder-input-value-label' )"
+		:tooltip="$i18n( 'query-builder-input-value-tooltip' )"
+		:placeholder="$i18n( 'query-builder-input-value-placeholder' )"
+		:no-match-found-message="$i18n( 'query-builder-item-value-lookup-no-match-found' )"
 		:disabled="disabled"
+		@input="$emit( 'input', $event )"
 	/>
 </template>
 
@@ -24,11 +24,6 @@ export default Vue.extend( {
 	components: {
 		EntityLookup,
 	},
-	methods: {
-		searchForItems( options: SearchOptions ): Promise<SearchResult[]> {
-			return this.$store.dispatch( 'searchItemValues', options );
-		},
-	},
 	props: {
 		value: {
 			type: Object as PropType<MenuItem>,
@@ -41,6 +36,11 @@ export default Vue.extend( {
 		disabled: {
 			type: Boolean,
 			default: false,
+		},
+	},
+	methods: {
+		searchForItems( options: SearchOptions ): Promise<SearchResult[]> {
+			return this.$store.dispatch( 'searchItemValues', options );
 		},
 	},
 } );

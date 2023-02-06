@@ -1,13 +1,13 @@
 <template>
 	<EntityLookup
 		:value="value"
-		@input="$emit( 'input', $event )"
 		:error="error"
-		:searchForMenuItems="searchForProperties"
-		:tooltip="$i18n('query-builder-property-lookup-tooltip')"
-		:label="$i18n('query-builder-property-lookup-label')"
-		:placeholder="$i18n('query-builder-property-lookup-placeholder')"
-		:no-match-found-message="$i18n('query-builder-property-lookup-no-match-found')"
+		:search-for-menu-items="searchForProperties"
+		:tooltip="$i18n( 'query-builder-property-lookup-tooltip' )"
+		:label="$i18n( 'query-builder-property-lookup-label' )"
+		:placeholder="$i18n( 'query-builder-property-lookup-placeholder' )"
+		:no-match-found-message="$i18n( 'query-builder-property-lookup-no-match-found' )"
+		@input="$emit( 'input', $event )"
 	/>
 </template>
 
@@ -22,6 +22,16 @@ export default Vue.extend( {
 	name: 'PropertyLookup',
 	components: {
 		EntityLookup,
+	},
+	props: {
+		value: {
+			type: Object as PropType<MenuItem>,
+			default: null,
+		},
+		error: {
+			type: Object,
+			default: null,
+		},
 	},
 	methods: {
 		setTagForSearchResults( searchResults: SearchResult[] ): SearchResult[] {
@@ -38,16 +48,6 @@ export default Vue.extend( {
 			return this.setTagForSearchResults(
 				await this.$store.dispatch( 'searchProperties', options ),
 			);
-		},
-	},
-	props: {
-		value: {
-			type: Object as PropType<MenuItem>,
-			default: null,
-		},
-		error: {
-			type: Object,
-			default: null,
 		},
 	},
 } );

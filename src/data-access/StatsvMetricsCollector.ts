@@ -20,7 +20,9 @@ export default class StatsvMetricsCollector implements MetricsCollector {
 		if ( navigator.sendBeacon ) {
 			try {
 				navigator.sendBeacon( url );
-			} catch ( e ) {}
+			} catch ( e ) {
+				return;
+			}
 		} else {
 			document.createElement( 'img' ).src = url;
 		}
