@@ -1,21 +1,21 @@
-version: '2'
+version: "2"
 
 services:
-    node:
-        build:
-            context: ./
-        image: wmde/query-builder
-        volumes:
-            - '~/.npm:/.npm'
-            - './:/app'
-            - '~/.cache:/home/runuser/.cache'
-        working_dir: /app
+  node:
+    build:
+      context: ./
+    image: wmde/query-builder
+    volumes:
+      - "~/.npm:/.npm"
+      - "./:/app"
+      - "~/.cache:/home/runuser/.cache"
+    working_dir: /app
 
-    dev:
-        extends:
-            service: node
-        command: 'npm run serve'
-        ports:
-            - '${PORT}:${PORT}'
-        environment:
-            - NODE_ENV=development
+  dev:
+    extends:
+      service: node
+    command: npm run serve
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - NODE_ENV=development

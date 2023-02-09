@@ -1,25 +1,25 @@
 <template>
 	<span class="querybuilder__sharable-link">
-		{{ $i18n('query-builder-sharable-link-text') }}
+		{{ $i18n( 'query-builder-sharable-link-text' ) }}
 		<Popover
-			:reactToHover="false"
+			:react-to-hover="false"
 			position="end"
 		>
-			<template v-slot:target>
+			<template #target>
 				<Button
 					variant="normal"
 					type="neutral"
-					iconOnly
-					@click.native="copyTextToClipboard"
-					aria-label="Sharable link">
+					icon-only
+					aria-label="Sharable link"
+					@click.native="copyTextToClipboard">
 					<Icon
 						type="link"
 						size="large"
 					/>
 				</Button>
 			</template>
-			<template v-slot:default>
-				{{ $i18n('query-builder-sharable-link-message') }}
+			<template #default>
+				{{ $i18n( 'query-builder-sharable-link-message' ) }}
 			</template>
 		</Popover>
 	</span>

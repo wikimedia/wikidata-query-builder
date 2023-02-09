@@ -4,78 +4,87 @@
 			<div class="querybuilder__heading">
 				<a href="/">
 					<div class="querybuilder__logo" />
-					<h1 class='visually-hidden'>
-						<bdi dir="auto" id="directionSample">{{ $i18n('query-builder-heading') }}</bdi>
+					<h1 class="visually-hidden">
+						<bdi id="directionSample" dir="auto">{{ $i18n( 'query-builder-heading' ) }}</bdi>
 					</h1>
 				</a>
 			</div>
-			<h2 class="querybuilder__description-heading"
-				v-html="$i18n('query-builder-intro-heading')" />
-			<p class="querybuilder__description"
+			<h2
+				class="querybuilder__description-heading"
+				v-html="$i18n( 'query-builder-intro-heading' )" />
+			<p
+				class="querybuilder__description"
 				v-html="$i18n(
 					'query-builder-intro-text',
 					'https://www.wikidata.org/wiki/Special:MyLanguage/Wikidata:SPARQL_tutorial',
 					'https://www.wikidata.org/wiki/Wikidata_talk:Query_Builder'
 				) " />
 			<div role="form">
-				<h2 class="querybuilder__query-title"
-					v-html="$i18n('query-builder-query-heading')" />
-				<p class="querybuilder__query-subtitle"
-					v-i18n="{msg: 'query-builder-find-all-items'}" />
-				<div v-if="!conditionRows.length"
-					class="querybuilder__condition-placeholder"
-					v-i18n="{msg: 'query-builder-condition-placeholder'}"/>
+				<h2
+					class="querybuilder__query-title"
+					v-html="$i18n( 'query-builder-query-heading' )" />
+				<p
+					v-i18n="{ msg: 'query-builder-find-all-items' }"
+					class="querybuilder__query-subtitle" />
 				<div
-					v-for="(condition, index) in conditionRows"
+					v-if="!conditionRows.length"
+					v-i18n="{ msg: 'query-builder-condition-placeholder' }"
+					class="querybuilder__condition-placeholder" />
+				<div
+					v-for="( condition, index ) in conditionRows"
 					:key="condition.conditionId"
+					class="querybuilder__condition-group"
 					:class="[
-						'querybuilder__condition-group',
-						(isAboveOr(index)) ? 'querybuilder__condition-group--above' : '',
+						( isAboveOr( index ) ) ? 'querybuilder__condition-group--above' : ''
 					]"
 				>
 					<div
+						class="querybuilder__condition-wrapper"
 						:class="[
-							'querybuilder__condition-wrapper',
-							(index == 0) ? 'querybuilder__condition-wrapper--first' : '',
-							((index + 1) == conditionRows.length) ? 'querybuilder__condition-wrapper--last' : '',
-							(isBelowOr(index)) ? 'querybuilder__condition-wrapper--below' : '',
-							(isAboveOr(index)) ? 'querybuilder__condition-wrapper--above' : '',
+							( index === 0 ) ? 'querybuilder__condition-wrapper--first' : '',
+							( ( index + 1 ) === conditionRows.length ) ? 'querybuilder__condition-wrapper--last' : '',
+							( isBelowOr( index ) ) ? 'querybuilder__condition-wrapper--below' : '',
+							( isAboveOr( index ) ) ? 'querybuilder__condition-wrapper--above' : ''
 						]"
-					><QueryCondition
-						:condition-index="index"
-					/></div>
+					>
+						<QueryCondition
+							:condition-index="index"
+						/>
+					</div>
 					<ConditionRelationToggle
-						v-if="(index + 1) !== conditionRows.length"
+						v-if="( index + 1 ) !== conditionRows.length"
+						class="querybuilder__condition-relation-toggle"
 						:class="[
-							'querybuilder__condition-relation-toggle',
-							(isBelowOr(index + 1)) ? 'querybuilder__condition-relation-toggle-or' : '',
+							( isBelowOr( index + 1 ) ) ? 'querybuilder__condition-relation-toggle-or' : ''
 						]"
 						:value="conditionRows[index + 1].conditionRelation"
-						@set-relation-toggle="setConditionRelation($event, index)"
-					/></div>
+						@set-relation-toggle="setConditionRelation( $event, index )"
+					/>
+				</div>
 				<AddCondition @add-condition="addCondition" />
-				<h2 class="querybuilder__setting-header"
-					v-html="$i18n('query-builder-settings-heading')" />
+				<h2
+					class="querybuilder__setting-header"
+					v-html="$i18n( 'query-builder-settings-heading' )" />
 				<div class="querybuilder__settings">
 					<Limit />
 					<LabelOptout />
 				</div>
 				<div class="querybuilder__run">
 					<Button
-						@click.native="runQuery"
+						v-i18n="{ msg: 'query-builder-run-query' }"
 						type="progressive"
 						variant="primary"
-						v-i18n="{msg: 'query-builder-run-query'}" />
+						@click.native="runQuery" />
 					<SharableLink />
 				</div>
 			</div>
 			<QueryResult
-				:encodedQuery="encodedQuery"
-				:iframeRenderKey="iframeRenderKey"
+				:encoded-query="encodedQuery"
+				:iframe-render-key="iframeRenderKey"
 			/>
 		</main>
 		<div class="query-builder__footer">
-			<Footer/>
+			<Footer />
 		</div>
 	</div>
 </template>
@@ -99,14 +108,30 @@ import SharableLink from '@/components/SharableLink.vue';
 
 export default Vue.extend( {
 	name: 'QueryBuilder',
+	components: {
+		Button,
+		ConditionRelationToggle,
+		QueryResult,
+		QueryCondition,
+		AddCondition,
+		Limit,
+		LabelOptout,
+		Footer,
+		SharableLink,
+	},
 	data() {
 		return {
 			encodedQuery: '',
 			iframeRenderKey: 0,
 		};
 	},
-	created() {
-		this.incrementMetric( 'main-page-loaded' );
+	computed: {
+		conditionRows(): ConditionRow[] {
+			return this.$store.getters.conditionRows;
+		},
+		...mapState( {
+			errors: 'errors',
+		} ),
 	},
 	methods: {
 		incrementMetric( metric: string ): void {
@@ -115,6 +140,9 @@ export default Vue.extend( {
 		async runQuery(): Promise<void> {
 			await this.$store.dispatch( 'validateForm' );
 			this.incrementMetric( 'run-query-button' );
+			// This rule is needed because the vue2-common config is not
+			// recognizing the error property defined in computed: mapState
+			// eslint-disable-next-line vue/no-undef-properties
 			if ( this.errors.length ) {
 				return;
 			}
@@ -147,24 +175,8 @@ export default Vue.extend( {
 			return index !== 0 && this.conditionRows[ index ].conditionRelation === ConditionRelation.Or;
 		},
 	},
-	computed: {
-		conditionRows(): ConditionRow[] {
-			return this.$store.getters.conditionRows;
-		},
-		...mapState( {
-			errors: 'errors',
-		} ),
-	},
-	components: {
-		Button,
-		ConditionRelationToggle,
-		QueryResult,
-		QueryCondition,
-		AddCondition,
-		Limit,
-		LabelOptout,
-		Footer,
-		SharableLink,
+	created() {
+		this.incrementMetric( 'main-page-loaded' );
 	},
 } );
 </script>

@@ -17,21 +17,20 @@ spec:
             toolforge: tool
         spec:
           containers:
-          - name: update
-            workingDir: /data/project/query-builder-test
-            # The image doesn't matter
-            image:  docker-registry.tools.wmflabs.org/toolforge-node10-sssd-web:latest
-            args:
-            - /bin/sh
-            - -c
-            - /data/project/query-builder-test/query-builder/build/updater.sh
-            env:
-            - name: HOME
-              value: /data/project/query-builder-test
-            resources:
-              requests:
-                memory: 1Gi
-              limits:
-                memory: 2Gi
+            - name: update
+              workingDir: /data/project/query-builder-test
+              # The image doesn't matter
+              image: docker-registry.tools.wmflabs.org/toolforge-node10-sssd-web:latest
+              args:
+                - /bin/sh
+                - -c
+                - /data/project/query-builder-test/query-builder/build/updater.sh
+              env:
+                - name: HOME
+                  value: /data/project/query-builder-test
+              resources:
+                requests:
+                  memory: 1Gi
+                limits:
+                  memory: 2Gi
           restartPolicy: OnFailure
-

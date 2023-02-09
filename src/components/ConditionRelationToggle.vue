@@ -1,16 +1,20 @@
 <template>
 	<ToggleButtonGroup
 		:value="value"
-		@input="$emit('set-relation-toggle', $event)"
 		class="conditionRelationToggle"
+		@input="$emit( 'set-relation-toggle', $event )"
 	>
-		<template v-slot:default>
+		<template #default>
 			<ToggleButton
 				value="and"
-			>{{ $i18n( 'query-builder-condition-relation-toggle-and' ) }}</ToggleButton>
+			>
+				{{ $i18n( 'query-builder-condition-relation-toggle-and' ) }}
+			</ToggleButton>
 			<ToggleButton
 				value="or"
-			>{{ $i18n( 'query-builder-condition-relation-toggle-or' ) }}</ToggleButton>
+			>
+				{{ $i18n( 'query-builder-condition-relation-toggle-or' ) }}
+			</ToggleButton>
 		</template>
 	</ToggleButtonGroup>
 </template>

@@ -1,17 +1,18 @@
 <template>
 	<TextInput
-		:label="$i18n('query-builder-input-value-label')"
-		@input="$emit('input', $event)"
+		:label="$i18n( 'query-builder-input-value-label' )"
 		:value="value"
-		:error="error ? {message: $i18n(error.message), type: error.type} : null"
-		:placeholder="$i18n('query-builder-input-value-placeholder')"
+		:error="error ? { message: $i18n( error.message ), type: error.type } : null"
+		:placeholder="$i18n( 'query-builder-input-value-placeholder' )"
 		:disabled="disabled"
+		@input="$emit( 'input', $event )"
 	>
-		<template v-slot:suffix>
+		<template #suffix>
 			<InfoTooltip
 				position="end"
-				:message="$i18n('query-builder-input-value-tooltip')"
-			/></template>
+				:message="$i18n( 'query-builder-input-value-tooltip' )"
+			/>
+		</template>
 	</TextInput>
 </template>
 
@@ -23,6 +24,10 @@ import InfoTooltip from '@/components/InfoTooltip.vue';
 
 export default Vue.extend( {
 	name: 'StringValueInput',
+	components: {
+		TextInput,
+		InfoTooltip,
+	},
 	props: {
 		value: {
 			type: String,
@@ -36,10 +41,6 @@ export default Vue.extend( {
 			type: Boolean,
 			default: false,
 		},
-	},
-	components: {
-		TextInput,
-		InfoTooltip,
 	},
 } );
 </script>

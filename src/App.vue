@@ -1,5 +1,8 @@
 <template>
-	<div id="app" :lang="lang" :dir="textDirection">
+	<div
+		id="app"
+		:lang="lang"
+		:dir="textDirection">
 		<QueryBuilder v-if="isi18nLoaded" />
 	</div>
 </template>
@@ -20,23 +23,16 @@ if ( process.env.NODE_ENV === 'production' ) {
 const languageService = services.get( 'languageService' );
 
 export default Vue.extend( {
+	name: 'App',
+	components: {
+		QueryBuilder,
+	},
 	data() {
 		return {
 			isi18nLoaded: false as boolean,
 			lang: languageService.getAppLanguageCode(),
 			textDirection: '',
 		};
-	},
-	created(): void {
-		this.fetchi18n();
-		this.reconstructStateFromURL();
-	},
-	updated() {
-		const sampleElement = document.getElementById( 'directionSample' );
-		if ( !sampleElement ) {
-			return;
-		}
-		this.textDirection = getComputedStyle( sampleElement as Element ).direction;
 	},
 	methods: {
 		async fetchi18n(): Promise<void> {
@@ -69,12 +65,20 @@ export default Vue.extend( {
 			window.document.title = messages[ this.lang ][ 'query-builder-heading' ] || messages[ 'en' ][ 'query-builder-heading' ];
 		},
 	},
-	name: 'App',
-	components: {
-		QueryBuilder,
+	created(): void {
+		this.fetchi18n();
+		this.reconstructStateFromURL();
+	},
+	updated() {
+		const sampleElement = document.getElementById( 'directionSample' );
+		if ( !sampleElement ) {
+			return;
+		}
+		this.textDirection = getComputedStyle( sampleElement as Element ).direction;
 	},
 } );
 </script>
+
 <style lang="scss">
 @use 'ress';
 

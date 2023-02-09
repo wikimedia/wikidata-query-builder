@@ -2,9 +2,9 @@
 	<component
 		:is="dispatchComponent"
 		:value="value"
-		@input="$emit('input', $event)"
 		:disabled="disabled"
 		:error="error"
+		@input="$emit( 'input', $event )"
 	/>
 </template>
 
@@ -24,6 +24,25 @@ export default Vue.extend( {
 		QuantityValueInput,
 		DateValueInput,
 	},
+	props: {
+		datatype: {
+			required: true,
+			default: null,
+			validator: prop => typeof prop === 'string' || prop === null,
+		},
+		value: {
+			default: null,
+			type: String,
+		},
+		error: {
+			type: Object,
+			default: null,
+		},
+		disabled: {
+			type: Boolean,
+			default: false,
+		},
+	},
 	computed: {
 		dispatchComponent(): string {
 			switch ( this.datatype ) {
@@ -38,22 +57,6 @@ export default Vue.extend( {
 				default:
 					return 'StringValueInput';
 			}
-		},
-	},
-	props: {
-		datatype: {
-			required: true,
-		},
-		value: {
-			default: null,
-		},
-		error: {
-			type: Object,
-			default: null,
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
 		},
 	},
 } );

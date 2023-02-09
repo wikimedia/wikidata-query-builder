@@ -1,43 +1,47 @@
 <template>
 	<div class="query-condition">
 		<NegationToggle
-			class="query-condition__toggle-button-group"
 			v-model="negateValue"
+			class="query-condition__toggle-button-group"
 		/>
 		<div class="query-condition__input-container">
 			<div>
+				<!-- this is needed because the vue2-common eslint configuration is not recognizing
+				the methods passed through mapGetters -->
+				<!-- eslint-disable vue/no-undef-properties -->
 				<PropertyLookup
-					class="query-condition__property-lookup"
 					v-model="selectedProperty"
-					:error="propertyError(conditionIndex)"
+					class="query-condition__property-lookup"
+					:error="propertyError( conditionIndex )"
 				/>
 			</div>
 			<div>
 				<ValueTypeDropDown
-					class="query-condition__value-type-dropdown"
 					v-model="selectedPropertyValueRelation"
-					:disabled="limitedSupport(conditionIndex)"
+					class="query-condition__value-type-dropdown"
+					:disabled="limitedSupport( conditionIndex )"
 					:datatype="datatype"
 				/>
 			</div>
 			<div>
 				<ValueInput
+					v-model="conditionValue"
 					class="query-condition__value-input"
 					:disabled="isValueInputDisabled()"
-					v-model="conditionValue"
 					:error="valueError"
 					:datatype="datatype"
 				/>
 				<SubclassCheckbox
 					v-if="isSubclassCheckboxVisible"
 					:disabled="isValueInputDisabled()"
-					@subclass-check="setSubclasses"
-					:isChecked="subclasses(conditionIndex)" />
+					:is-checked="subclasses( conditionIndex )"
+					@subclass-check="setSubclasses" />
 			</div>
+			<!-- eslint-enable -->
 			<div>
 				<ReferenceRelationDropDown
-					class="query-condition__references"
 					v-model="selectedReferenceRelation"
+					class="query-condition__references"
 				/>
 			</div>
 		</div>
@@ -67,21 +71,19 @@ import ReferenceRelation from '@/data-model/ReferenceRelation';
 
 export default Vue.extend( {
 	name: 'QueryCondition',
+	components: {
+		ValueInput,
+		PropertyLookup,
+		ReferenceRelationDropDown,
+		ValueTypeDropDown,
+		DeleteConditionButton,
+		NegationToggle,
+		SubclassCheckbox,
+	},
 	props: {
 		conditionIndex: {
 			type: Number,
 			required: true,
-		},
-	},
-	methods: {
-		isValueInputDisabled(): boolean {
-			return this.selectedPropertyValueRelation === PropertyValueRelation.Regardless;
-		},
-		removeCondition(): void {
-			this.$store.dispatch( 'removeCondition', this.conditionIndex );
-		},
-		setSubclasses( subclasses: boolean ): void {
-			this.$store.dispatch( 'setSubclasses', { subclasses, conditionIndex: this.conditionIndex } );
 		},
 	},
 	computed: {
@@ -177,14 +179,16 @@ export default Vue.extend( {
 			'subclasses',
 		] ),
 	},
-	components: {
-		ValueInput,
-		PropertyLookup,
-		ReferenceRelationDropDown,
-		ValueTypeDropDown,
-		DeleteConditionButton,
-		NegationToggle,
-		SubclassCheckbox,
+	methods: {
+		isValueInputDisabled(): boolean {
+			return this.selectedPropertyValueRelation === PropertyValueRelation.Regardless;
+		},
+		removeCondition(): void {
+			this.$store.dispatch( 'removeCondition', this.conditionIndex );
+		},
+		setSubclasses( subclasses: boolean ): void {
+			this.$store.dispatch( 'setSubclasses', { subclasses, conditionIndex: this.conditionIndex } );
+		},
 	},
 } );
 </script>

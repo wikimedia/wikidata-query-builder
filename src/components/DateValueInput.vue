@@ -1,21 +1,22 @@
 <template>
 	<DateInput
-		:label="$i18n('query-builder-date-input-value-label')"
-		:placeholder="$i18n('query-builder-date-input-placeholder')"
-		:promptText="$i18n('query-builder-date-input-prompt-text')"
-		:resultsIntroText="$i18n('query-builder-date-input-results-intro-text')"
-		:calendarNotice="$i18n('query-builder-date-input-calendar-notice-text')"
-		:error="error ? {message: $i18n(error.message), type: error.type} : null"
-		:parsedValue="(value && value.formattedValue) ? value.formattedValue : null"
+		v-model="rawInput"
+		:label="$i18n( 'query-builder-date-input-value-label' )"
+		:placeholder="$i18n( 'query-builder-date-input-placeholder' )"
+		:prompt-text="$i18n( 'query-builder-date-input-prompt-text' )"
+		:results-intro-text="$i18n( 'query-builder-date-input-results-intro-text' )"
+		:calendar-notice="$i18n( 'query-builder-date-input-calendar-notice-text' )"
+		:error="error ? { message: $i18n( error.message ), type: error.type } : null"
+		:parsed-value="( value && value.formattedValue ) ? value.formattedValue : null"
 		:disabled="disabled"
 		@input="onInput( $event )"
-		v-model="rawInput"
 	>
-		<template v-slot:suffix>
+		<template #suffix>
 			<InfoTooltip
 				position="top-end"
-				:message="$i18n('query-builder-input-value-tooltip')"
-			/></template>
+				:message="$i18n( 'query-builder-input-value-tooltip' )"
+			/>
+		</template>
 	</DateInput>
 </template>
 
@@ -29,6 +30,24 @@ import debounce from 'lodash/debounce';
 
 export default Vue.extend( {
 	name: 'DateValueInput',
+	components: {
+		DateInput,
+		InfoTooltip,
+	},
+	props: {
+		value: {
+			type: Object as PropType<DateValue>,
+			default: null,
+		},
+		error: {
+			type: Object,
+			default: null,
+		},
+		disabled: {
+			type: Boolean,
+			default: false,
+		},
+	},
 	data() {
 		return {
 			rawInput: '',
@@ -46,25 +65,6 @@ export default Vue.extend( {
 			this.debouncedDateValue( event );
 		},
 	},
-	mounted() {
-		if ( this.value ) {
-			this.rawInput = this.value.formattedValue || '';
-		}
-	},
-	props: {
-		value: {
-			type: Object as PropType<DateValue>,
-			default: null,
-		},
-		error: {
-			type: Object,
-			default: null,
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-	},
 	watch: {
 		disabled( isDisabled: boolean ): void {
 			if ( isDisabled ) {
@@ -72,9 +72,10 @@ export default Vue.extend( {
 			}
 		},
 	},
-	components: {
-		DateInput,
-		InfoTooltip,
+	mounted() {
+		if ( this.value ) {
+			this.rawInput = this.value.formattedValue || '';
+		}
 	},
 } );
 </script>

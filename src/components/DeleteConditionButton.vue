@@ -1,13 +1,18 @@
 <template>
 	<Button
-		iconOnly
+		icon-only
 		class="delete-condition"
 		type="neutral"
 		variant="quiet"
-		:aria-label="$i18n('query-builder-delete-condition')"
-		@click.native="$emit('click')"
+		:aria-label="$i18n( 'query-builder-delete-condition' )"
 		:disabled="disabled"
-	> <Icon type="trash" size="large" color="inherit" class="delete-condition__icon"/>
+		@click.native="$emit( 'click' )"
+	>
+		<Icon
+			type="trash"
+			size="large"
+			color="inherit"
+			class="delete-condition__icon" />
 	</Button>
 </template>
 
@@ -16,15 +21,15 @@ import { Button, Icon } from '@wmde/wikit-vue-components';
 import Vue from 'vue';
 export default Vue.extend( {
 	name: 'DeleteConditionButton',
+	components: {
+		Button,
+		Icon,
+	},
 	props: {
 		disabled: {
 			type: Boolean,
 			default: false,
 		},
-	},
-	components: {
-		Button,
-		Icon,
 	},
 } );
 </script>

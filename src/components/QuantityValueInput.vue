@@ -1,29 +1,29 @@
 <template>
 	<QuantityInput
-		:label="$i18n('query-builder-quantity-value-label')"
+		:label="$i18n( 'query-builder-quantity-value-label' )"
+		:error="quantityError ? { message: $i18n( quantityError.message ), type: quantityError.type } : null"
+		:error-cause="quantityError ? quantityError.subproperty : null"
+		:number-input-value.sync="numberInputValue"
+		:number-input-placeholder="$i18n( 'query-builder-quantity-value-number-input-placeholder' )"
+		:unit-lookup-value.sync="unitLookupValue"
+		:unit-lookup-placeholder="$i18n( 'query-builder-quantity-value-unit-lookup-input-placeholder' )"
+		:unit-lookup-label="$i18n( 'query-builder-quantity-value-unit-lookup-label' )"
+		:unit-lookup-menu-items="searchResults"
+		:unit-lookup-search-input.sync="search"
+		:disabled="disabled"
 		@update:numberInputValue="onValueChange"
 		@update:unitLookupValue="onValueChange"
-		:error="quantityError ? {message: $i18n(quantityError.message), type: quantityError.type} : null"
-		:errorCause="quantityError ? quantityError.subproperty : null"
-		:numberInputValue.sync="numberInputValue"
-		:numberInputPlaceholder="$i18n('query-builder-quantity-value-number-input-placeholder')"
-		:unitLookupValue.sync="unitLookupValue"
-		:unitLookupPlaceholder="$i18n('query-builder-quantity-value-unit-lookup-input-placeholder')"
-		:unitLookupLabel="$i18n('query-builder-quantity-value-unit-lookup-label')"
-		:unitLookupMenuItems="searchResults"
-		:unitLookupSearchInput.sync="search"
-		:disabled="disabled"
-		v-on:scroll="handleScroll"
+		@scroll="handleScroll"
 	>
 		<template
-			v-slot:no-results
+			#no-results
 		>
 			{{ $i18n( 'query-builder-property-lookup-no-match-found' ) }}
 		</template>
-		<template v-slot:suffix>
+		<template #suffix>
 			<InfoTooltip
 				position="top-end"
-				:message="$i18n('query-builder-input-value-tooltip')"
+				:message="$i18n( 'query-builder-input-value-tooltip' )"
 			/>
 		</template>
 	</QuantityInput>
@@ -46,6 +46,24 @@ const NUMBER_OF_SEARCH_RESULTS = 12;
 
 export default Vue.extend( {
 	name: 'QuantityValueInput',
+	components: {
+		QuantityInput,
+		InfoTooltip,
+	},
+	props: {
+		value: {
+			type: Object as PropType<QuantityValue | null>,
+			default: null,
+		},
+		error: {
+			type: Object as PropType<QuantityError | null>,
+			default: null,
+		},
+		disabled: {
+			type: Boolean,
+			default: false,
+		},
+	},
 	data() {
 		return {
 			search: '',
@@ -144,24 +162,6 @@ export default Vue.extend( {
 		if ( this.value?.unit?.id && !this.search ) {
 			this.search = this.value.unit.id;
 		}
-	},
-	props: {
-		value: {
-			type: Object as PropType<QuantityValue | null>,
-			default: null,
-		},
-		error: {
-			type: Object as PropType<QuantityError | null>,
-			default: null,
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	components: {
-		QuantityInput,
-		InfoTooltip,
 	},
 } );
 </script>

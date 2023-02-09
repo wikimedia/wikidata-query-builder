@@ -1,18 +1,19 @@
 <template>
 	<div class="querybuilder-include-subclasses">
 		<Checkbox
-			class="querybuilder-include-subclasses__checkbox"
 			:id="id"
+			class="querybuilder-include-subclasses__checkbox"
 			:checked="isChecked"
 			:disabled="disabled"
+			:label="$i18n( 'query-builder-include-subclasses' )"
 			@update:checked="$emit( 'subclass-check', $event )"
-			:label="$i18n('query-builder-include-subclasses' )"
 		>
-			<template v-slot:suffix>
+			<template #suffix>
 				<InfoTooltip
 					position="end"
-					:message="$i18n('query-builder-include-subclasses-tooltip')"
-				/></template>
+					:message="$i18n( 'query-builder-include-subclasses-tooltip' )"
+				/>
+			</template>
 		</Checkbox>
 	</div>
 </template>
@@ -23,10 +24,9 @@ import { Checkbox } from '@wmde/wikit-vue-components';
 import InfoTooltip from '@/components/InfoTooltip.vue';
 export default Vue.extend( {
 	name: 'SubclassCheckbox',
-	data() {
-		return {
-			id: `include-subclasses-${Math.random()}`,
-		};
+	components: {
+		Checkbox,
+		InfoTooltip,
 	},
 	props: {
 		isChecked: {
@@ -38,9 +38,10 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
-	components: {
-		Checkbox,
-		InfoTooltip,
+	data() {
+		return {
+			id: `include-subclasses-${Math.random()}`,
+		};
 	},
 } );
 </script>

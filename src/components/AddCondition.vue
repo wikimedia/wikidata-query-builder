@@ -1,8 +1,8 @@
 <template>
 	<div class="querybuilder__add-condition">
 		<Button
+			v-i18n="{ msg: 'query-builder-add-condition' }"
 			type="neutral"
-			v-i18n="{msg: 'query-builder-add-condition'}"
 			@click.native="$emit( 'add-condition', $event )"
 		/>
 	</div>

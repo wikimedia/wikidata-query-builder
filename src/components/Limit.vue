@@ -1,19 +1,19 @@
 <template>
 	<div class="querybuilder-limit">
 		<Checkbox
-			class="querybuilder-limit__checkbox"
 			id="limit"
+			class="querybuilder-limit__checkbox"
 			:checked.sync="checked"
-			:label="$i18n('query-builder-limit-number-results-description')"
+			:label="$i18n( 'query-builder-limit-number-results-description' )"
 		/>
 		<TextInput
-			class="querybuilder-limit__input"
 			v-model="limit"
-			@input="onLimitChange"
+			class="querybuilder-limit__input"
 			:disabled="!checked"
-			:label="$i18n('query-builder-limit-number-screenreader-label')"
-			:placeholder="$i18n('query-builder-limit-number-placeholder')"
-			:error="error ? {message: $i18n(error.message), type: error.type} : null"
+			:label="$i18n( 'query-builder-limit-number-screenreader-label' )"
+			:placeholder="$i18n( 'query-builder-limit-number-placeholder' )"
+			:error="error ? { message: $i18n( error.message ), type: error.type } : null"
+			@input="onLimitChange"
 		/>
 	</div>
 </template>
@@ -26,15 +26,28 @@ import QueryBuilderError from '@/data-model/QueryBuilderError';
 
 export default Vue.extend( {
 	name: 'Limit',
+	components: {
+		Checkbox,
+		TextInput,
+	},
 	data() {
 		return {
 			error: null as null | QueryBuilderError,
 			limit: String( DEFAULT_LIMIT ),
 		};
 	},
-	components: {
-		Checkbox,
-		TextInput,
+	computed: {
+		storeLimit(): number | null | undefined {
+			return this.$store.getters.limit;
+		},
+		checked: {
+			get(): boolean {
+				return this.$store.getters.useLimit;
+			},
+			set( value: boolean ): void {
+				this.$store.dispatch( 'setUseLimit', value );
+			},
+		},
 	},
 	methods: {
 		onLimitChange( value: string ): void {
@@ -59,9 +72,6 @@ export default Vue.extend( {
 			this.$store.dispatch( 'setLimit', limit );
 		},
 	},
-	mounted(): void {
-		this.limit = this.$store.getters.limit?.toString() || String( DEFAULT_LIMIT );
-	},
 	watch: {
 		storeLimit( newStoreLimitValue: number | null | undefined ): void {
 			if ( this.limit === '' && newStoreLimitValue ) {
@@ -70,18 +80,8 @@ export default Vue.extend( {
 			}
 		},
 	},
-	computed: {
-		storeLimit(): number | null | undefined {
-			return this.$store.getters.limit;
-		},
-		checked: {
-			get(): boolean {
-				return this.$store.getters.useLimit;
-			},
-			set( value: boolean ): void {
-				this.$store.dispatch( 'setUseLimit', value );
-			},
-		},
+	mounted(): void {
+		this.limit = this.$store.getters.limit?.toString() || String( DEFAULT_LIMIT );
 	},
 } );
 </script>

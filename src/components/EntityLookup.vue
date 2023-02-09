@@ -1,23 +1,26 @@
 <template>
 	<Lookup
 		:value="value"
-		@input="$emit( 'input', $event )"
-		:error="error ? {message: $i18n(error.message), type: error.type} : null"
+		:error="error ? { message: $i18n( error.message ), type: error.type } : null"
 		:menu-items="searchResults"
 		:search-input.sync="search"
 		:placeholder="placeholder"
 		:label="label"
 		:disabled="disabled"
-		v-on:scroll="handleScroll"
+		@input="$emit( 'input', $event )"
+		@scroll="handleScroll"
 	>
 		<template
-			v-slot:no-results
-		>{{ noMatchFoundMessage }}</template>
-		<template v-if="tooltip" v-slot:suffix>
+			#no-results
+		>
+			{{ noMatchFoundMessage }}
+		</template>
+		<template v-if="tooltip" #suffix>
 			<InfoTooltip
 				position="top-end"
 				:message="tooltip"
-			/></template>
+			/>
+		</template>
 	</Lookup>
 </template>
 
@@ -38,6 +41,40 @@ export default Vue.extend( {
 	components: {
 		InfoTooltip,
 		Lookup,
+	},
+	props: {
+		searchForMenuItems: {
+			type: Function as PropType<( searchOptions: SearchOptions ) => Promise<SearchResult[]>>,
+			required: true,
+		},
+		value: {
+			type: Object as PropType<MenuItem>,
+			default: null,
+		},
+		error: {
+			type: Object,
+			default: null,
+		},
+		disabled: {
+			type: Boolean,
+			default: false,
+		},
+		label: {
+			type: String,
+			required: true,
+		},
+		noMatchFoundMessage: {
+			type: String,
+			required: true,
+		},
+		placeholder: {
+			type: String,
+			default: '',
+		},
+		tooltip: {
+			type: String,
+			default: '',
+		},
 	},
 	data() {
 		return {
@@ -112,40 +149,6 @@ export default Vue.extend( {
 		if ( this.value && this.value.label && !this.search ) {
 			this.search = this.value.label;
 		}
-	},
-	props: {
-		searchForMenuItems: {
-			type: Function as PropType<( searchOptions: SearchOptions ) => Promise<SearchResult[]>>,
-			required: true,
-		},
-		value: {
-			type: Object as PropType<MenuItem>,
-			default: null,
-		},
-		error: {
-			type: Object,
-			default: null,
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		label: {
-			type: String,
-			required: true,
-		},
-		noMatchFoundMessage: {
-			type: String,
-			required: true,
-		},
-		placeholder: {
-			type: String,
-			default: '',
-		},
-		tooltip: {
-			type: String,
-			default: '',
-		},
 	},
 } );
 </script>

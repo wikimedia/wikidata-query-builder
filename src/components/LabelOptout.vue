@@ -3,7 +3,7 @@
 		<Checkbox
 			id="label-optout"
 			:checked.sync="checked"
-			:label="$i18n('query-builder-label-opt-out')"
+			:label="$i18n( 'query-builder-label-opt-out' )"
 		/>
 	</div>
 </template>
@@ -14,6 +14,9 @@ import { Checkbox } from '@wmde/wikit-vue-components';
 
 export default Vue.extend( {
 	name: 'LabelOptout',
+	components: {
+		Checkbox,
+	},
 	computed: {
 		checked: {
 			get(): boolean {
@@ -23,9 +26,6 @@ export default Vue.extend( {
 				this.$store.dispatch( 'setOmitLabels', value );
 			},
 		},
-	},
-	components: {
-		Checkbox,
 	},
 } );
 </script>
