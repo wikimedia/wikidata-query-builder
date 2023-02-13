@@ -1,11 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Robby"
+			"Robby",
+			"Volvox"
 		]
 	},
 	"query-builder-settings-heading": "Astellungen",
 	"query-builder-input-value-label": "Wäert",
+	"query-builder-input-value-placeholder": "Gitt e Wäert an",
 	"query-builder-property-lookup-label": "Eegenschaft",
 	"query-builder-property-lookup-no-match-found": "Et gouf näischt fonnt",
 	"query-builder-property-lookup-limited-support-tag": "limitéiert Ënnerstëtzung",
@@ -15,10 +17,14 @@
 	"query-builder-delete-condition": "Bedingung läschen",
 	"query-builder-condition-relation-toggle-and": "a(n)",
 	"query-builder-condition-relation-toggle-or": "oder",
+	"query-builder-limit-number-placeholder": "Gitt eng Zuel an",
 	"query-builder-limit-number-screenreader-label": "Maximal Zuel vu Resultater",
 	"query-builder-negation-option-label-with": "Mat",
 	"query-builder-negation-option-label-without": "Ouni",
 	"query-builder-sharable-link-text": "E Link kréien, deen een deele kann",
+	"query-builder-quantity-value-error-number": "Gitt wgl. eng Zuel an",
+	"query-builder-quantity-value-number-input-placeholder": "Gitt eng Zuel an",
 	"query-builder-footer-about-us": "Iwwer eis",
-	"query-builder-date-input-value-label": "Wäert"
+	"query-builder-date-input-value-label": "Wäert",
+	"query-builder-date-input-prompt-text": "Gitt wgl. en Datum an"
 }
