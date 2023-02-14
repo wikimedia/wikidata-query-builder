@@ -32,7 +32,7 @@
     "@wmde/wikit-tokens": "^2.1.0-alpha.15",
     "@wmde/wikit-vue-components": "^2.1.0-alpha.15",
     "autoprefixer": "^10.4.13",
-    "core-js": "^3.27.1",
+    "core-js": "^3.28.0",
     "lodash.debounce": "^4.0.8",
     "ress": "^5.0.2",
     "sparqljs": "^3.6.2",
