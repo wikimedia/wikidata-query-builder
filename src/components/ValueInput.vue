@@ -10,6 +10,7 @@
 
 <script lang="ts">
 import ItemValueLookup from '@/components/ItemValueLookup.vue';
+import LexemeValueLookup from '@/components/LexemeValueLookup.vue';
 import StringValueInput from '@/components/StringValueInput.vue';
 import QuantityValueInput from '@/components/QuantityValueInput.vue';
 import DateValueInput from '@/components/DateValueInput.vue';
@@ -21,6 +22,7 @@ export default Vue.extend( {
 	components: {
 		StringValueInput,
 		ItemValueLookup,
+		LexemeValueLookup,
 		QuantityValueInput,
 		DateValueInput,
 	},
@@ -48,6 +50,8 @@ export default Vue.extend( {
 			switch ( this.datatype ) {
 				case 'wikibase-item':
 					return 'ItemValueLookup';
+				case 'wikibase-lexeme':
+					return 'LexemeValueLookup';
 				case 'quantity':
 					return 'QuantityValueInput';
 				case 'time':

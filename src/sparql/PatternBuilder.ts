@@ -1,5 +1,5 @@
 import DateValuePatternBuilder from '@/sparql/DateValuePatternBuilder';
-import ItemValueBuilder from '@/sparql/ItemValueBuilder';
+import EntityValueBuilder from '@/sparql/EntityValueBuilder';
 import LimitedSupportPatternBuilder from '@/sparql/LimitedSupportPatternBuilder';
 import QuantityValuePatternBuilder from '@/sparql/QuantityValuePatternBuilder';
 import { Condition } from '@/sparql/QueryRepresentation';
@@ -30,7 +30,8 @@ export default class PatternBuilder implements ValuePatternBuilder {
 			case 'external-id':
 				return new StringValuePatternBuilder();
 			case 'wikibase-item':
-				return new ItemValueBuilder();
+			case 'wikibase-lexeme':
+				return new EntityValueBuilder( datatype );
 			case 'quantity':
 				return new QuantityValuePatternBuilder();
 			case 'time':

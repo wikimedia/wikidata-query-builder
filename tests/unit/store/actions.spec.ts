@@ -14,6 +14,7 @@ function createActionsWithMockServices(
 		serviceOverrides.searchEntityRepository ?? {
 			searchProperties: jest.fn(),
 			searchItemValues: jest.fn(),
+			searchLexemeValues: jest.fn(),
 		},
 		serviceOverrides.metricsCollector ?? {
 			increment: jest.fn(),
@@ -267,7 +268,11 @@ describe( 'actions', () => {
 			);
 			const actions = createActionsWithMockServices(
 				{
-					searchEntityRepository: { searchProperties, searchItemValues: jest.fn() },
+					searchEntityRepository: {
+						searchProperties,
+						searchItemValues: jest.fn(),
+						searchLexemeValues: jest.fn(),
+					},
 				},
 			);
 
@@ -294,7 +299,11 @@ describe( 'actions', () => {
 				JSON.parse( JSON.stringify( expectedResult ) ),
 			);
 			const actions = createActionsWithMockServices(
-				{ searchEntityRepository: { searchProperties, searchItemValues: jest.fn() } },
+				{ searchEntityRepository: {
+					searchProperties,
+					searchItemValues: jest.fn(),
+					searchLexemeValues: jest.fn(),
+				} },
 			);
 
 			const searchOptions: SearchOptions = { search: 'postal', limit: 12 };
@@ -312,7 +321,11 @@ describe( 'actions', () => {
 			);
 			const actions = createActionsWithMockServices(
 				{
-					searchEntityRepository: { searchProperties: jest.fn(), searchItemValues },
+					searchEntityRepository: {
+						searchProperties: jest.fn(),
+						searchItemValues,
+						searchLexemeValues: jest.fn(),
+					},
 				},
 			);
 
@@ -834,8 +847,9 @@ describe( 'actions', () => {
 				label: 'Freebase ID',
 			} ] );
 			const searchItemValues = jest.fn();
+			const searchLexemeValues = jest.fn();
 			const actions = createActionsWithMockServices( {
-				searchEntityRepository: { searchProperties, searchItemValues },
+				searchEntityRepository: { searchProperties, searchItemValues, searchLexemeValues },
 			} );
 
 			const context = {
@@ -880,7 +894,7 @@ describe( 'actions', () => {
 				label: 'house cat',
 			} ] );
 			const actions = createActionsWithMockServices( {
-				searchEntityRepository: { searchProperties, searchItemValues },
+				searchEntityRepository: { searchProperties, searchItemValues, searchLexemeValues: jest.fn() },
 			} );
 
 			const context = {

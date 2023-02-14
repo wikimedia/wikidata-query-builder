@@ -3,6 +3,7 @@ const allowedDataTypes = [
 	'string',
 	'external-id',
 	'wikibase-item',
+	'wikibase-lexeme',
 	'quantity',
 	'time',
 	/* other (non-string) typed datatypes - TODO: add support
@@ -15,7 +16,6 @@ const allowedDataTypes = [
 	'globe-coordinate',
 	'monolingualtext',
     'wikibase-property',
-	'wikibase-lexeme',
 	'wikibase-form',
     'wikibase-sense',
     */

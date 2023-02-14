@@ -10,6 +10,7 @@
   "query-builder-input-value-tooltip": "The <em>value</em> field contains the concrete information used to describe an item. For example, \"blue\" is one possible <em>value</em> for the <em>property</em> \"color\".",
   "query-builder-input-value-placeholder": "Enter a value",
   "query-builder-item-value-lookup-no-match-found": "No match was found",
+  "query-builder-lexeme-value-lookup-no-match-found": "No match was found",
   "query-builder-property-lookup-label": "Property",
   "query-builder-property-lookup-tooltip": "The <em>property</em> field in a condition, is the category or descriptor for the <em>value</em>. For example, \"color\" would be a <em>property</em> you'd likely use for the <em>value</em> \"blue\".",
   "query-builder-property-lookup-placeholder": "Enter a property",

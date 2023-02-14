@@ -91,6 +91,33 @@ describe( 'getters', () => {
 			expect( getters.query( state ) ).toStrictEqual( expectedValue );
 		} );
 
+		it.each( [
+			'wikibase-item',
+			'wikibase-lexeme',
+		] )( 'returns the QueryRepresentation of the RootState with an entity value (%s)', ( dataType ) => {
+			const state: RootState = getFreshRootState();
+			state.conditionRows[ 0 ].propertyData.datatype = dataType;
+			state.conditionRows[ 0 ].valueData.value = { id: 'X0', label: 'fake entity' };
+
+			const expectedValue: QueryRepresentation = {
+				conditions: [
+					{
+						propertyId: 'P123',
+						value: 'X0',
+						propertyValueRelation: PropertyValueRelation.Matching,
+						referenceRelation: ReferenceRelation.Regardless,
+						datatype: dataType,
+						subclasses: false,
+						conditionRelation: null,
+						negate: false,
+					},
+				],
+				omitLabels: true,
+			};
+
+			expect( getters.query( state ) ).toStrictEqual( expectedValue );
+		} );
+
 		it( 'returns the QueryRepresentation of the RootState with a limit', () => {
 			const state: RootState = getFreshRootState();
 			state.limit = 20;

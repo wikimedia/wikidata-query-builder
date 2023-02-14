@@ -1,6 +1,14 @@
 import allowedDatatypes from '@/allowedDataTypes';
-import RootState, { ConditionRow, DEFAULT_LIMIT, ItemValue, QuantityValue,
-	StringValue, DateValue, Value } from './RootState';
+import RootState, {
+	DEFAULT_LIMIT,
+	ConditionRow,
+	DateValue,
+	ItemValue,
+	LexemeValue,
+	QuantityValue,
+	StringValue,
+	Value,
+} from './RootState';
 import QueryRepresentation, { ConditionValue } from '@/sparql/QueryRepresentation';
 import Property from '@/data-model/Property';
 import QueryBuilderError from '@/data-model/QueryBuilderError';
@@ -14,6 +22,9 @@ function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): Con
 	}
 	if ( datatype === 'wikibase-item' ) {
 		return ( storeValue as ItemValue ).id;
+	}
+	if ( datatype === 'wikibase-lexeme' ) {
+		return ( storeValue as LexemeValue ).id;
 	}
 	if ( datatype === 'quantity' ) {
 		return {

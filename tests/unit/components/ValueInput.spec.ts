@@ -1,4 +1,5 @@
 import ItemValueLookup from '@/components/ItemValueLookup.vue';
+import LexemeValueLookup from '@/components/LexemeValueLookup.vue';
 import StringValueInput from '@/components/StringValueInput.vue';
 import ValueInput from '@/components/ValueInput.vue';
 import { shallowMount } from '@vue/test-utils';
@@ -10,6 +11,7 @@ describe( 'ValueInput', () => {
 		[ 'string', StringValueInput ],
 		[ 'external-id', StringValueInput ],
 		[ 'wikibase-item', ItemValueLookup ],
+		[ 'wikibase-lexeme', LexemeValueLookup ],
 	] )( 'shows the correct Input component for datatype %s', ( datatype, component ) => {
 		const wrapper = shallowMount( ValueInput, { propsData: {
 			datatype,

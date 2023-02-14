@@ -6,11 +6,13 @@ import TripleBuilder from '@/sparql/TripleBuilder';
 import ValuePatternBuilder from '@/sparql/ValuePatternBuilder';
 import { MinusPattern, Pattern, PropertyPath, Term } from 'sparqljs';
 
-export default class ItemValueBuilder implements ValuePatternBuilder {
+export default class EntityValueBuilder implements ValuePatternBuilder {
+	private readonly expectedDatatype: string;
 	private readonly tripleBuilder: TripleBuilder;
 	private readonly syntaxBuilder: SyntaxBuilder;
 
-	public constructor() {
+	public constructor( expectedDatatype: string ) {
+		this.expectedDatatype = expectedDatatype;
 		this.tripleBuilder = new TripleBuilder();
 		this.syntaxBuilder = new SyntaxBuilder();
 	}
@@ -29,12 +31,12 @@ export default class ItemValueBuilder implements ValuePatternBuilder {
 			negate,
 			subclasses,
 		} = condition;
-
-		if ( datatype !== 'wikibase-item' ) {
-			throw new Error( 'Expected datatype wikibase-item, got: ' + datatype );
+		if ( datatype !== this.expectedDatatype ) {
+			throw new Error( 'Expected datatype ' + this.expectedDatatype + ', got: ' + datatype );
 		}
+
 		if ( typeof value !== 'string' ) {
-			throw new Error( 'Unexpected wikibase-item value type: ' + typeof value );
+			throw new Error( 'Unexpected ' + this.expectedDatatype + ' value type: ' + typeof value );
 		}
 		let patterns: Pattern[] = [];
 
