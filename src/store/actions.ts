@@ -45,7 +45,6 @@ export default (
 	async searchItemValues(
 		_context: ActionContext<RootState, RootState>,
 		options: SearchOptions ): Promise<SearchResult[]> {
-		// check for empty
 		return await searchEntityRepository.searchItemValues(
 			options.search,
 			options.limit,
