@@ -3,6 +3,7 @@
 		"authors": [
 			"Ajeje Brazorf",
 			"Amire80",
+			"Lucas Werkmeister (WMDE)",
 			"MuratTheTurkish",
 			"Robby",
 			"Yupik"
@@ -18,11 +19,11 @@
 	"query-builder-input-value-label": "Label of value input field in the form\n{{identical|Value}}",
 	"query-builder-input-value-tooltip": "Tooltip explaining the value input field.",
 	"query-builder-input-value-placeholder": "Placeholder of the value input",
-	"query-builder-item-value-lookup-no-match-found": "Error when no Items match.\nSee also {{msg-wikimedia|query-builder-property-lookup-no-match-found}}",
+	"query-builder-item-value-lookup-no-match-found": "Error when no Items match.\n{{Identical|No match was found}}",
 	"query-builder-property-lookup-label": "Label of the property input\n{{identical|Property}}",
 	"query-builder-property-lookup-tooltip": "Tooltip explaining the property input field.",
 	"query-builder-property-lookup-placeholder": "Placeholder of the property input",
-	"query-builder-property-lookup-no-match-found": "Error when no properties match",
+	"query-builder-property-lookup-no-match-found": "Error when no properties match\n{{Identical|No match was found}}",
 	"query-builder-property-lookup-limited-support-tag": "Tags on properties that have a limited support in query builder",
 	"query-builder-property-lookup-limited-support-note": "Note in the form explaining some fields are disabled because for the selected property there's limited support",
 	"query-builder-result-link-text": "Text of the link that opens the query in the query service.",
