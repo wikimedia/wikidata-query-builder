@@ -1,5 +1,4 @@
-import ItemValueLookup from '@/components/ItemValueLookup.vue';
-import LexemeValueLookup from '@/components/LexemeValueLookup.vue';
+import EntityValueLookup from '@/components/EntityValueLookup.vue';
 import StringValueInput from '@/components/StringValueInput.vue';
 import ValueInput from '@/components/ValueInput.vue';
 import { shallowMount } from '@vue/test-utils';
@@ -10,14 +9,26 @@ describe( 'ValueInput', () => {
 		[ 'unknown', StringValueInput ],
 		[ 'string', StringValueInput ],
 		[ 'external-id', StringValueInput ],
-		[ 'wikibase-item', ItemValueLookup ],
-		[ 'wikibase-lexeme', LexemeValueLookup ],
+		[ 'wikibase-item', EntityValueLookup ],
+		[ 'wikibase-lexeme', EntityValueLookup ],
 	] )( 'shows the correct Input component for datatype %s', ( datatype, component ) => {
 		const wrapper = shallowMount( ValueInput, { propsData: {
 			datatype,
 		} } );
 
 		expect( wrapper.findComponent( component ).exists() ).toBe( true );
+	} );
+
+	it.each( [
+		[ 'wikibase-item', 'item' ],
+		[ 'wikibase-lexeme', 'lexeme' ],
+	] )( 'sets the entity type prop for datatype %s', ( datatype, entityType ) => {
+		const wrapper = shallowMount( ValueInput, { propsData: {
+			datatype,
+		} } );
+
+		expect( wrapper.findComponent( EntityValueLookup ).props() )
+			.toHaveProperty( 'entityType', entityType );
 	} );
 
 	it( 'passes down value, error, and disabled props', () => {

@@ -1,4 +1,4 @@
-import ItemValueLookup from '@/components/ItemValueLookup.vue';
+import EntityValueLookup from '@/components/EntityValueLookup.vue';
 import EntityLookup from '@/components/EntityLookup.vue';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Vuex from 'vuex';
@@ -16,9 +16,9 @@ Vue.use( i18n, {
 	wikilinks: true,
 } );
 
-describe( 'ItemValueLookup.vue', () => {
+describe( 'EntityValueLookup.vue', () => {
 	it( 'bubbles input events from the Lookup up', () => {
-		const wrapper = shallowMount( ItemValueLookup );
+		const wrapper = shallowMount( EntityValueLookup );
 		const someEventContent = {};
 
 		wrapper.findComponent( EntityLookup ).vm.$emit( 'input', someEventContent );
@@ -32,7 +32,7 @@ describe( 'ItemValueLookup.vue', () => {
 			description: 'some description',
 		};
 
-		const wrapper = shallowMount( ItemValueLookup, {
+		const wrapper = shallowMount( EntityValueLookup, {
 			propsData: {
 				value: item,
 			},
@@ -49,17 +49,17 @@ describe( 'ItemValueLookup.vue', () => {
 		];
 		store.dispatch = jest.fn().mockResolvedValue( searchResults );
 		const expectedSearchResults = JSON.parse( JSON.stringify( searchResults ) );
-		const wrapper = shallowMount( ItemValueLookup, { store, localVue } );
+		const wrapper = shallowMount( EntityValueLookup, { store, localVue } );
 
 		expect( wrapper.findComponent( EntityLookup ).props( 'searchForMenuItems' ) )
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
-			.toBe( wrapper.vm.searchForItems );
+			.toBe( wrapper.vm.searchForMenuItems );
 
 		const searchOptions: SearchOptions = { search: 'postal', limit: 12 };
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
-		const actualSearchOptions = await wrapper.vm.searchForItems( searchOptions );
+		const actualSearchOptions = await wrapper.vm.searchForMenuItems( searchOptions );
 
 		expect( store.dispatch ).toHaveBeenCalledWith( 'searchItemValues', searchOptions );
 		expect( actualSearchOptions ).toStrictEqual( expectedSearchResults );
@@ -71,7 +71,7 @@ describe( 'ItemValueLookup.vue', () => {
 			message: 'some description',
 		};
 
-		const wrapper = shallowMount( ItemValueLookup, {
+		const wrapper = shallowMount( EntityValueLookup, {
 			propsData: {
 				error,
 			},

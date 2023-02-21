@@ -1,6 +1,7 @@
 <template>
 	<component
 		:is="dispatchComponent"
+		v-bind="extraProps"
 		:value="value"
 		:disabled="disabled"
 		:error="error"
@@ -9,8 +10,7 @@
 </template>
 
 <script lang="ts">
-import ItemValueLookup from '@/components/ItemValueLookup.vue';
-import LexemeValueLookup from '@/components/LexemeValueLookup.vue';
+import EntityValueLookup from '@/components/EntityValueLookup.vue';
 import StringValueInput from '@/components/StringValueInput.vue';
 import QuantityValueInput from '@/components/QuantityValueInput.vue';
 import DateValueInput from '@/components/DateValueInput.vue';
@@ -21,8 +21,7 @@ export default Vue.extend( {
 	name: 'ValueInput',
 	components: {
 		StringValueInput,
-		ItemValueLookup,
-		LexemeValueLookup,
+		EntityValueLookup,
 		QuantityValueInput,
 		DateValueInput,
 	},
@@ -49,9 +48,9 @@ export default Vue.extend( {
 		dispatchComponent(): string {
 			switch ( this.datatype ) {
 				case 'wikibase-item':
-					return 'ItemValueLookup';
 				case 'wikibase-lexeme':
-					return 'LexemeValueLookup';
+					// further distinguished via extraProps below
+					return 'EntityValueLookup';
 				case 'quantity':
 					return 'QuantityValueInput';
 				case 'time':
@@ -60,6 +59,16 @@ export default Vue.extend( {
 				case 'external-id':
 				default:
 					return 'StringValueInput';
+			}
+		},
+		extraProps(): object {
+			switch ( this.datatype ) {
+				case 'wikibase-item':
+					return { entityType: 'item' };
+				case 'wikibase-lexeme':
+					return { entityType: 'lexeme' };
+				default:
+					return {};
 			}
 		},
 	},
