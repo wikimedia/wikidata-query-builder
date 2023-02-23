@@ -15,6 +15,7 @@
 	"query-builder-input-value-tooltip": "Полето <em>вредност</em> ги содржи конкретните информации кои го опишуваат предметот. На пример, „сина“ е една можна <em>вредност</em> за <em>својство</em> „боја“.",
 	"query-builder-input-value-placeholder": "Внесете вредност",
 	"query-builder-item-value-lookup-no-match-found": "Нема совпаѓања",
+	"query-builder-lexeme-value-lookup-no-match-found": "Нема совпаѓања",
 	"query-builder-property-lookup-label": "Својство",
 	"query-builder-property-lookup-tooltip": "Полето <em>својство</em> во услов е категоријата или описникот за <em>вредност</em>. На пример, „боја“ би била <em>својство</em> кое веројатно би го употребиле за <em>вредност</em> „сина“.",
 	"query-builder-property-lookup-placeholder": "Внесете својство",

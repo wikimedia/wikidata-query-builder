@@ -15,6 +15,7 @@
 	"query-builder-input-value-tooltip": "Le campo <em>valor</em> contine le informationes concrete que describe un elemento. Per exemplo, \"blau\" es un possibile <em>valor</em> pro le <em>proprietate</em> \"color\".",
 	"query-builder-input-value-placeholder": "Entrar un valor",
 	"query-builder-item-value-lookup-no-match-found": "Nulle correspondentia ha essite trovate",
+	"query-builder-lexeme-value-lookup-no-match-found": "Nulle correspondentia ha essite trovate",
 	"query-builder-property-lookup-label": "Proprietate",
 	"query-builder-property-lookup-tooltip": "Le campo <em>proprietate</em> in un condition es le categoria o descriptor pro le <em>valor</em>. Per exemplo, \"color\" es un <em>proprietate</em> que tu probabilemente usarea pro le <em>valor</em> \"blau\".",
 	"query-builder-property-lookup-placeholder": "Entra un proprietate",

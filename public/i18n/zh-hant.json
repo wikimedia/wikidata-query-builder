@@ -18,6 +18,7 @@
 	"query-builder-input-value-tooltip": "<em>value</em>（值）欄位包含用於描述項目的具體資訊。例如：「blue」會是 <em>property</em>（屬性）為「color」的可用 <em>value</em>。",
 	"query-builder-input-value-placeholder": "請輸入一個值",
 	"query-builder-item-value-lookup-no-match-found": "找不到符合的內容",
+	"query-builder-lexeme-value-lookup-no-match-found": "找不到符合的內容",
 	"query-builder-property-lookup-label": "屬性",
 	"query-builder-property-lookup-tooltip": "在條件中的 <em>property</em> （屬性）欄位是 <em>value</em> （值）的分類或描述。例如：「color」會是您用在 <em>value</em> 為「blue」的 <em>property</em>。",
 	"query-builder-property-lookup-placeholder": "請輸入一個屬性",
