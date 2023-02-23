@@ -87,5 +87,9 @@
 	"query-builder-date-input-placeholder": "Placeholder for the date value input",
 	"query-builder-date-input-prompt-text": "Text for the date value input prompting the user to enter a date",
 	"query-builder-date-input-results-intro-text": "Text showing the user how the entered date will be interpreted.",
-	"query-builder-date-input-calendar-notice-text": "Text notifying the user that all dates are interpreted as Gregorian dates"
+	"query-builder-date-input-calendar-notice-text": "Text notifying the user that all dates are interpreted as Gregorian dates",
+	"query-builder-language-selector-input-placeholder": "Placeholder for the input of the Language Selector",
+	"query-builder-language-selector-no-results": "Text in Language Selector menu when search yields no results",
+	"query-builder-language-selector-options-menu-aria-label": "Descriptive label for the Language Selector's Options Menu for screen readers",
+	"query-builder-language-selector-clear-button-label": "Descriptive test for the Language Selector Input clear text button"
 }
