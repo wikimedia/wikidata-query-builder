@@ -6,8 +6,10 @@ import TripleBuilder from '@/sparql/TripleBuilder';
 import ValuePatternBuilder from '@/sparql/ValuePatternBuilder';
 import { MinusPattern, Pattern, Term } from 'sparqljs';
 
+type StringTermType = 'NamedNode' | 'Literal';
+
 export default class StringValuePatternBuilder implements ValuePatternBuilder {
-	private readonly ALLOWED_DATATYPES = [ 'string', 'external-id' ];
+	private readonly ALLOWED_DATATYPES = [ 'string', 'external-id', 'url' ];
 
 	private readonly tripleBuilder: TripleBuilder;
 	private readonly syntaxBuilder: SyntaxBuilder;
@@ -37,6 +39,7 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 		if ( typeof value !== 'string' ) {
 			throw new Error( 'Unexpected value type: ' + typeof value );
 		}
+		const objectTermType: StringTermType = datatype === 'url' ? 'NamedNode' : 'Literal';
 		let patterns: Pattern[] = [];
 
 		const statementVariable = this.syntaxBuilder.buildVariableTermFromName( 'statement' + conditionIndex );
@@ -48,7 +51,7 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 		const statementToValueTriple = this.syntaxBuilder.buildPathTriple(
 			statementVariable,
 			[ rdfNamespaces.ps + propertyId ],
-			this.buildObjectItems( propertyId, propertyValueRelation, value, repeatingPropertyIndex ),
+			this.buildObjectItems( propertyId, propertyValueRelation, value, repeatingPropertyIndex, objectTermType ),
 		);
 		const entityValuePattern = this.syntaxBuilder.buildBgpPattern( [
 			entityToStatementTriple,
@@ -73,14 +76,18 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 		}
 
 		if ( propertyValueRelation === PropertyValueRelation.NotMatching ) {
-			const notMatchingPattern = this.buildNotMatchingPattern( propertyId, value );
+			const notMatchingPattern = this.buildNotMatchingPattern( propertyId, value, objectTermType );
 			patterns.push( notMatchingPattern );
 		}
 
 		return patterns;
 	}
 
-	private buildNotMatchingPattern( propertyId: string, value: string ): MinusPattern {
+	private buildNotMatchingPattern(
+		propertyId: string,
+		value: string,
+		objectTermType: StringTermType,
+	): MinusPattern {
 		const notMatchingValueTriple = this.syntaxBuilder.buildPathTriple(
 			{
 				termType: 'Variable',
@@ -91,7 +98,7 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 				rdfNamespaces.ps + propertyId,
 			],
 			{
-				termType: 'Literal',
+				termType: objectTermType,
 				value,
 			},
 		);
@@ -106,6 +113,7 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 		propertyValueRelation: PropertyValueRelation,
 		value: string,
 		propertyIndex: string,
+		objectTermType: StringTermType,
 	): Term {
 		switch ( propertyValueRelation ) {
 			case ( PropertyValueRelation.NotMatching ):
@@ -120,7 +128,7 @@ export default class StringValuePatternBuilder implements ValuePatternBuilder {
 				};
 			case ( PropertyValueRelation.Matching ):
 				return {
-					termType: 'Literal',
+					termType: objectTermType,
 					value,
 				};
 			default:

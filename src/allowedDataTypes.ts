@@ -2,6 +2,7 @@ const allowedDataTypes = [
 	/* string typed datatypes */
 	'string',
 	'external-id',
+	'url',
 	'wikibase-item',
 	'wikibase-lexeme',
 	'quantity',
@@ -11,7 +12,6 @@ const allowedDataTypes = [
 	'commonsMedia',
 	'geo-shape',
 	'tabular-data',
-	'url',
 	'math',
 	'musical-notation',
 	'globe-coordinate',

@@ -339,6 +339,25 @@ describe( 'buildQuery', () => {
 		expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
 	} );
 
+	it( 'builds a query from a property and an url value', () => {
+		const propertyId = 'P666';
+		const value = 'http://foo.bar/';
+		const expectedQuery = `SELECT DISTINCT ?item WHERE {
+			?item p:${propertyId} ?statement0.
+			?statement0 (ps:${propertyId}) <${value}>.
+			}`;
+		const actualQuery = buildQuery( {
+			conditions: [
+				{
+					...getSimpleCondition( propertyId, value ),
+					datatype: 'url',
+				},
+			],
+			omitLabels: true,
+		} );
+		expect( actualQuery.replace( /\s+/g, ' ' ) ).toEqual( expectedQuery.replace( /\s+/g, ' ' ) );
+	} );
+
 	it( 'builds a query from a property and a string value with omitLabels set to false (shows labels)', () => {
 		const propertyId = 'P666';
 		const value = 'blah';

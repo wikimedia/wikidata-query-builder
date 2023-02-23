@@ -58,6 +58,7 @@ export default Vue.extend( {
 					return 'DateValueInput';
 				case 'string':
 				case 'external-id':
+				case 'url':
 				default:
 					return 'StringValueInput';
 			}

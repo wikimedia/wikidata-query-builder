@@ -9,6 +9,7 @@ describe( 'ValueInput', () => {
 		[ 'unknown', StringValueInput ],
 		[ 'string', StringValueInput ],
 		[ 'external-id', StringValueInput ],
+		[ 'url', StringValueInput ],
 		[ 'wikibase-item', EntityValueLookup ],
 		[ 'wikibase-lexeme', EntityValueLookup ],
 		[ 'wikibase-sense', EntityValueLookup ],

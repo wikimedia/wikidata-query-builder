@@ -28,6 +28,7 @@ export default class PatternBuilder implements ValuePatternBuilder {
 		switch ( datatype ) {
 			case 'string':
 			case 'external-id':
+			case 'url':
 				return new StringValuePatternBuilder();
 			case 'wikibase-item':
 			case 'wikibase-lexeme':
