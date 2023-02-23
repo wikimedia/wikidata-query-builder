@@ -5,6 +5,7 @@ import RootState, {
 	DateValue,
 	ItemValue,
 	LexemeValue,
+	SenseValue,
 	QuantityValue,
 	StringValue,
 	Value,
@@ -25,6 +26,9 @@ function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): Con
 	}
 	if ( datatype === 'wikibase-lexeme' ) {
 		return ( storeValue as LexemeValue ).id;
+	}
+	if ( datatype === 'wikibase-sense' ) {
+		return ( storeValue as SenseValue ).id;
 	}
 	if ( datatype === 'quantity' ) {
 		return {

@@ -1,4 +1,11 @@
-import RootState, { ConditionRow, ItemValue, LexemeValue, QuantityValue, DateValue } from '@/store/RootState';
+import RootState, {
+	ConditionRow,
+	ItemValue,
+	LexemeValue,
+	SenseValue,
+	QuantityValue,
+	DateValue,
+} from '@/store/RootState';
 import SerializedObject, { SerializedValue } from '@/data-model/SerializedObject';
 
 export default class QuerySerializer {
@@ -35,6 +42,9 @@ export default class QuerySerializer {
 		}
 		if ( condition.propertyData.datatype === 'wikibase-lexeme' ) {
 			return ( condition.valueData.value as LexemeValue ).id;
+		}
+		if ( condition.propertyData.datatype === 'wikibase-sense' ) {
+			return ( condition.valueData.value as SenseValue ).id;
 		}
 		if ( condition.propertyData.datatype === 'quantity' ) {
 			const quantityValue: QuantityValue = condition.valueData.value as QuantityValue;

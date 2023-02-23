@@ -16,6 +16,11 @@ export interface LexemeValue {
 	label: string;
 }
 
+export interface SenseValue {
+	id: string;
+	label: string;
+}
+
 export type StringValue = string;
 
 export interface QuantityValue {
@@ -30,7 +35,7 @@ export interface DateValue {
 	formattedValue: string | null;
 }
 
-export type Value = ItemValue | LexemeValue | StringValue | QuantityValue | DateValue | null;
+export type Value = ItemValue | LexemeValue | SenseValue | StringValue | QuantityValue | DateValue | null;
 
 export interface PropertyData {
 	id: string;

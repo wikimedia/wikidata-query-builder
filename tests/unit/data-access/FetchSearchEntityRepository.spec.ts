@@ -7,6 +7,7 @@ describe( 'FetchSearchEntityRepository', () => {
 		[ 'property', 'searchProperties' as keyof FetchSearchEntityRepository ],
 		[ 'item', 'searchItemValues' as keyof FetchSearchEntityRepository ],
 		[ 'lexeme', 'searchLexemeValues' as keyof FetchSearchEntityRepository ],
+		[ 'sense', 'searchSenseValues' as keyof FetchSearchEntityRepository ],
 	] )( 'searches for %s with default values', async ( entityType, methodName ) => {
 		const testLang = 'eo';
 		const testEndpoint = 'https://example.com/w/api.php';
@@ -47,6 +48,7 @@ describe( 'FetchSearchEntityRepository', () => {
 		[ 'property', 'searchProperties' as keyof FetchSearchEntityRepository ],
 		[ 'item', 'searchItemValues' as keyof FetchSearchEntityRepository ],
 		[ 'lexeme', 'searchLexemeValues' as keyof FetchSearchEntityRepository ],
+		[ 'sense', 'searchSenseValues' as keyof FetchSearchEntityRepository ],
 	] )( 'searches for %s with provided limit and offset', async ( entityType, methodName ) => {
 		const testLang = 'eo';
 		const testEndpoint = 'https://example.com/w/api.php';

@@ -49,6 +49,7 @@ export default Vue.extend( {
 			switch ( this.datatype ) {
 				case 'wikibase-item':
 				case 'wikibase-lexeme':
+				case 'wikibase-sense':
 					// further distinguished via extraProps below
 					return 'EntityValueLookup';
 				case 'quantity':
@@ -67,6 +68,8 @@ export default Vue.extend( {
 					return { entityType: 'item' };
 				case 'wikibase-lexeme':
 					return { entityType: 'lexeme' };
+				case 'wikibase-sense':
+					return { entityType: 'sense' };
 				default:
 					return {};
 			}

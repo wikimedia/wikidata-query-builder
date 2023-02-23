@@ -60,6 +60,15 @@ export default (
 			options.offset,
 		);
 	},
+	async searchSenseValues(
+		_context: ActionContext<RootState, RootState>,
+		options: SearchOptions ): Promise<SearchResult[]> {
+		return await searchEntityRepository.searchSenseValues(
+			options.search,
+			options.limit,
+			options.offset,
+		);
+	},
 	async updateDateValue(
 		context: ActionContext<RootState, RootState>,
 		payload: { rawInput: string; conditionIndex: number },
