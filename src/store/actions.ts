@@ -69,6 +69,15 @@ export default (
 			options.offset,
 		);
 	},
+	async searchFormValues(
+		_context: ActionContext<RootState, RootState>,
+		options: SearchOptions ): Promise<SearchResult[]> {
+		return await searchEntityRepository.searchFormValues(
+			options.search,
+			options.limit,
+			options.offset,
+		);
+	},
 	async updateDateValue(
 		context: ActionContext<RootState, RootState>,
 		payload: { rawInput: string; conditionIndex: number },

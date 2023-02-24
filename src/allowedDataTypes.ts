@@ -8,6 +8,7 @@ const allowedDataTypes = [
 	'quantity',
 	'time',
 	'wikibase-sense',
+	'wikibase-form',
 	/* other (non-string) typed datatypes - TODO: add support
 	'commonsMedia',
 	'geo-shape',
@@ -17,7 +18,6 @@ const allowedDataTypes = [
 	'globe-coordinate',
 	'monolingualtext',
     'wikibase-property',
-	'wikibase-form',
     */
 ];
 

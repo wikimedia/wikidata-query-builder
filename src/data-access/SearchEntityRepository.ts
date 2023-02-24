@@ -9,4 +9,5 @@ export default interface SearchEntityRepository {
 	searchItemValues( searchString: string, limit?: number, offset?: number ): Promise<SearchResult[]>;
 	searchLexemeValues( searchString: string, limit?: number, offset?: number ): Promise<SearchResult[]>;
 	searchSenseValues( searchString: string, limit?: number, offset?: number ): Promise<SearchResult[]>;
+	searchFormValues( searchString: string, limit?: number, offset?: number ): Promise<SearchResult[]>;
 }
