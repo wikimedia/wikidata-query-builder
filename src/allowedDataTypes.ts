@@ -6,6 +6,7 @@ const allowedDataTypes = [
 	'wikibase-lexeme',
 	'quantity',
 	'time',
+	'wikibase-sense',
 	/* other (non-string) typed datatypes - TODO: add support
 	'commonsMedia',
 	'geo-shape',
@@ -17,7 +18,6 @@ const allowedDataTypes = [
 	'monolingualtext',
     'wikibase-property',
 	'wikibase-form',
-    'wikibase-sense',
     */
 ];
 

@@ -15,6 +15,7 @@ function createActionsWithMockServices(
 			searchProperties: jest.fn(),
 			searchItemValues: jest.fn(),
 			searchLexemeValues: jest.fn(),
+			searchSenseValues: jest.fn(),
 		},
 		serviceOverrides.metricsCollector ?? {
 			increment: jest.fn(),
@@ -272,6 +273,7 @@ describe( 'actions', () => {
 						searchProperties,
 						searchItemValues: jest.fn(),
 						searchLexemeValues: jest.fn(),
+						searchSenseValues: jest.fn(),
 					},
 				},
 			);
@@ -303,6 +305,7 @@ describe( 'actions', () => {
 					searchProperties,
 					searchItemValues: jest.fn(),
 					searchLexemeValues: jest.fn(),
+					searchSenseValues: jest.fn(),
 				} },
 			);
 
@@ -325,6 +328,7 @@ describe( 'actions', () => {
 						searchProperties: jest.fn(),
 						searchItemValues,
 						searchLexemeValues: jest.fn(),
+						searchSenseValues: jest.fn(),
 					},
 				},
 			);
@@ -848,8 +852,9 @@ describe( 'actions', () => {
 			} ] );
 			const searchItemValues = jest.fn();
 			const searchLexemeValues = jest.fn();
+			const searchSenseValues = jest.fn();
 			const actions = createActionsWithMockServices( {
-				searchEntityRepository: { searchProperties, searchItemValues, searchLexemeValues },
+				searchEntityRepository: { searchProperties, searchItemValues, searchLexemeValues, searchSenseValues },
 			} );
 
 			const context = {
@@ -894,7 +899,12 @@ describe( 'actions', () => {
 				label: 'house cat',
 			} ] );
 			const actions = createActionsWithMockServices( {
-				searchEntityRepository: { searchProperties, searchItemValues, searchLexemeValues: jest.fn() },
+				searchEntityRepository: {
+					searchProperties,
+					searchItemValues,
+					searchLexemeValues: jest.fn(),
+					searchSenseValues: jest.fn(),
+				},
 			} );
 
 			const context = {
