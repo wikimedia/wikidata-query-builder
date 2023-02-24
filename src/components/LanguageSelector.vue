@@ -20,7 +20,8 @@
 <script lang="ts">
 import LanguageSelectorInput from '@/components/LanguageSelectorInput.vue';
 import LanguageSelectorOptionsMenu from '@/components/LanguageSelectorOptionsMenu.vue';
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
+import languagedata from '@wikimedia/language-data';
 
 export default Vue.extend( {
 	name: 'LanguageSelector',
@@ -28,16 +29,16 @@ export default Vue.extend( {
 		LanguageSelectorInput,
 		LanguageSelectorOptionsMenu,
 	},
-	props: {
-		languages: {
-			type: Array as PropType<string[]>,
-			default: (): [] => [],
-		},
-	},
 	data: () => ( {
 		searchInput: '',
 	} ),
 	computed: {
+		languages(): string[] {
+			const autonyms = languagedata.getAutonyms();
+			const languageCodes = Object.keys( autonyms );
+			languageCodes.sort( languagedata.sortByAutonym );
+			return languageCodes.map( ( code ) => autonyms[ code ] );
+		},
 		shownLanguages(): string[] {
 			return this.languages.filter( ( language ) =>
 				language.toLowerCase().includes( this.searchInput.toLowerCase() ),
