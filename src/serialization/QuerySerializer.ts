@@ -3,6 +3,7 @@ import RootState, {
 	ItemValue,
 	LexemeValue,
 	SenseValue,
+	FormValue,
 	QuantityValue,
 	DateValue,
 } from '@/store/RootState';
@@ -45,6 +46,9 @@ export default class QuerySerializer {
 		}
 		if ( condition.propertyData.datatype === 'wikibase-sense' ) {
 			return ( condition.valueData.value as SenseValue ).id;
+		}
+		if ( condition.propertyData.datatype === 'wikibase-form' ) {
+			return ( condition.valueData.value as FormValue ).id;
 		}
 		if ( condition.propertyData.datatype === 'quantity' ) {
 			const quantityValue: QuantityValue = condition.valueData.value as QuantityValue;

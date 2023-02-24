@@ -6,6 +6,7 @@ import RootState, {
 	ItemValue,
 	LexemeValue,
 	SenseValue,
+	FormValue,
 	QuantityValue,
 	StringValue,
 	Value,
@@ -29,6 +30,9 @@ function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): Con
 	}
 	if ( datatype === 'wikibase-sense' ) {
 		return ( storeValue as SenseValue ).id;
+	}
+	if ( datatype === 'wikibase-form' ) {
+		return ( storeValue as FormValue ).id;
 	}
 	if ( datatype === 'quantity' ) {
 		return {

@@ -16,6 +16,7 @@ function createActionsWithMockServices(
 			searchItemValues: jest.fn(),
 			searchLexemeValues: jest.fn(),
 			searchSenseValues: jest.fn(),
+			searchFormValues: jest.fn(),
 		},
 		serviceOverrides.metricsCollector ?? {
 			increment: jest.fn(),
@@ -274,6 +275,7 @@ describe( 'actions', () => {
 						searchItemValues: jest.fn(),
 						searchLexemeValues: jest.fn(),
 						searchSenseValues: jest.fn(),
+						searchFormValues: jest.fn(),
 					},
 				},
 			);
@@ -290,7 +292,7 @@ describe( 'actions', () => {
 		} );
 
 		it( 'adds message to properties with limited support', async () => {
-			const searchInput = [ { label: 'postal code', id: 'P123', datatype: 'wikibase-sense' } ];
+			const searchInput = [ { label: 'postal code', id: 'P123', datatype: 'math' } ];
 			const expectedResult = [
 				{
 					...searchInput[ 0 ],
@@ -306,6 +308,7 @@ describe( 'actions', () => {
 					searchItemValues: jest.fn(),
 					searchLexemeValues: jest.fn(),
 					searchSenseValues: jest.fn(),
+					searchFormValues: jest.fn(),
 				} },
 			);
 
@@ -329,6 +332,7 @@ describe( 'actions', () => {
 						searchItemValues,
 						searchLexemeValues: jest.fn(),
 						searchSenseValues: jest.fn(),
+						searchFormValues: jest.fn(),
 					},
 				},
 			);
@@ -850,12 +854,15 @@ describe( 'actions', () => {
 				id: 'P646',
 				label: 'Freebase ID',
 			} ] );
-			const searchItemValues = jest.fn();
-			const searchLexemeValues = jest.fn();
-			const searchSenseValues = jest.fn();
+
 			const actions = createActionsWithMockServices( {
-				searchEntityRepository: { searchProperties, searchItemValues, searchLexemeValues, searchSenseValues },
-			} );
+				searchEntityRepository: {
+					searchProperties,
+					searchItemValues: jest.fn(),
+					searchLexemeValues: jest.fn(),
+					searchSenseValues: jest.fn(),
+					searchFormValues: jest.fn(),
+				} } );
 
 			const context = {
 				rootState: { conditionRows: [
@@ -904,6 +911,7 @@ describe( 'actions', () => {
 					searchItemValues,
 					searchLexemeValues: jest.fn(),
 					searchSenseValues: jest.fn(),
+					searchFormValues: jest.fn(),
 				},
 			} );
 

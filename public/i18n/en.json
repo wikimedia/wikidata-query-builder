@@ -12,6 +12,7 @@
   "query-builder-item-value-lookup-no-match-found": "No match was found",
   "query-builder-lexeme-value-lookup-no-match-found": "No match was found",
   "query-builder-sense-value-lookup-no-match-found": "No match was found",
+  "query-builder-form-value-lookup-no-match-found": "No match was found",
   "query-builder-property-lookup-label": "Property",
   "query-builder-property-lookup-tooltip": "The <em>property</em> field in a condition, is the category or descriptor for the <em>value</em>. For example, \"color\" would be a <em>property</em> you'd likely use for the <em>value</em> \"blue\".",
   "query-builder-property-lookup-placeholder": "Enter a property",

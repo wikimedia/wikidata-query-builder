@@ -50,6 +50,7 @@ export default Vue.extend( {
 				case 'wikibase-item':
 				case 'wikibase-lexeme':
 				case 'wikibase-sense':
+				case 'wikibase-form':
 					// further distinguished via extraProps below
 					return 'EntityValueLookup';
 				case 'quantity':
@@ -70,6 +71,8 @@ export default Vue.extend( {
 					return { entityType: 'lexeme' };
 				case 'wikibase-sense':
 					return { entityType: 'sense' };
+				case 'wikibase-form':
+					return { entityType: 'form' };
 				default:
 					return {};
 			}

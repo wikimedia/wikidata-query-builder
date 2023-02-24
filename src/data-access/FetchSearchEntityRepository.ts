@@ -69,4 +69,8 @@ export default class FetchSearchEntityRepository implements SearchEntityReposito
 	public searchSenseValues( searchString: string, limit?: number, offset?: number ): Promise<SearchResult[]> {
 		return this.searchEntities( searchString, 'sense', limit, offset );
 	}
+
+	public searchFormValues( searchString: string, limit?: number, offset?: number ): Promise<SearchResult[]> {
+		return this.searchEntities( searchString, 'form', limit, offset );
+	}
 }

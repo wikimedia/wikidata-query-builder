@@ -23,6 +23,7 @@ const supportedEntityTypes = {
 	item: [ 'searchItemValues', 'query-builder-item-value-lookup-no-match-found' ],
 	lexeme: [ 'searchLexemeValues', 'query-builder-lexeme-value-lookup-no-match-found' ],
 	sense: [ 'searchSenseValues', 'query-builder-sense-value-lookup-no-match-found' ],
+	form: [ 'searchFormValues', 'query-builder-form-value-lookup-no-match-found' ],
 };
 
 export default Vue.extend( {
