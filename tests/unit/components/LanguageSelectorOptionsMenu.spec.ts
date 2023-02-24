@@ -14,7 +14,10 @@ describe( 'LanguageSelectorOptionsMenu.vue', () => {
 	it( 'renders options menu item from languages props', async () => {
 		const wrapper = shallowMount( LanguageSelectorOptionsMenu,
 			{ propsData: {
-				languages: [ 'English', 'French' ],
+				languages: [
+					{ code: 'en', autonym: 'English' },
+					{ code: 'fr', autonym: 'français' },
+				],
 			} },
 		);
 		const renderedMenuItems = wrapper.findAll( '.languageSelector__options-menu__languages-list__item' );
@@ -22,7 +25,7 @@ describe( 'LanguageSelectorOptionsMenu.vue', () => {
 		expect( renderedMenuItems.at( 0 ).find( '.languageSelector__options-menu__languages-list__item' ).text() )
 			.toBe( 'English' );
 		expect( renderedMenuItems.at( 1 ).find( '.languageSelector__options-menu__languages-list__item' ).text() )
-			.toBe( 'French' );
+			.toBe( 'français' );
 	} );
 
 	it( 'shows the "language not available" text if no matches found', () => {
@@ -42,11 +45,14 @@ describe( 'LanguageSelectorOptionsMenu.vue', () => {
 	it( 'emits a `select` event when a language is selected ', async () => {
 		const wrapper = shallowMount( LanguageSelectorOptionsMenu, {
 			propsData: {
-				languages: [ 'English', 'Deutsch' ],
+				languages: [
+					{ code: 'en', autonym: 'English' },
+					{ code: 'de', autonym: 'Deutsch' },
+				],
 			},
 		} );
 		const firstLanguageInList = await wrapper.find( '.languageSelector__options-menu__languages-list__item' );
 		await firstLanguageInList.trigger( 'click' );
-		expect( ( wrapper.emitted().select as any )[ 0 ][ 0 ] ).toEqual( firstLanguageInList.text() );
+		expect( ( wrapper.emitted().select as any )[ 0 ][ 0 ] ).toEqual( 'en' );
 	} );
 } );

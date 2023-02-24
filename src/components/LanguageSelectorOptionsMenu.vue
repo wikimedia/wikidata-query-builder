@@ -7,14 +7,14 @@
 		<div class="languageSelector__options-menu__languages-list">
 			<div
 				v-for="language in languages"
-				:key="language"
-				:aria-selected="language === selectedLanguage || null"
+				:key="language.code"
+				:aria-selected="language.code === selectedLanguageCode || null"
 				class="languageSelector__options-menu__languages-list__item"
-				:class="language === selectedLanguage ? 'language--selected' : ''"
+				:class="language.code === selectedLanguageCode ? 'language--selected' : ''"
 				role="option"
-				@click="onSelect( language )"
+				@click="onSelect( language.code )"
 			>
-				{{ language }}
+				{{ language.autonym }}
 			</div>
 		</div>
 		<div
@@ -27,22 +27,24 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Language from '@/data-model/Language';
+import Vue, { PropType } from 'vue';
+
 export default Vue.extend( {
 	name: 'LanguageSelectorOptionsMenu',
 	props: {
 		languages: {
-			type: Array,
+			type: Array as PropType<Language[]>,
 			default: (): [] => [],
 		},
 	},
 	data: () => ( {
-		selectedLanguage: '',
+		selectedLanguageCode: '',
 	} ),
 	methods: {
-		onSelect( selectedLanguage: string ): void {
-			this.selectedLanguage = selectedLanguage;
-			this.$emit( 'select', selectedLanguage );
+		onSelect( selectedLanguageCode: string ): void {
+			this.selectedLanguageCode = selectedLanguageCode;
+			this.$emit( 'select', selectedLanguageCode );
 		},
 	},
 } );

@@ -20,6 +20,7 @@
 <script lang="ts">
 import LanguageSelectorInput from '@/components/LanguageSelectorInput.vue';
 import LanguageSelectorOptionsMenu from '@/components/LanguageSelectorOptionsMenu.vue';
+import Language from '@/data-model/Language';
 import Vue from 'vue';
 import languagedata from '@wikimedia/language-data';
 
@@ -33,15 +34,19 @@ export default Vue.extend( {
 		searchInput: '',
 	} ),
 	computed: {
-		languages(): string[] {
+		languages(): Language[] {
 			const autonyms = languagedata.getAutonyms();
 			const languageCodes = Object.keys( autonyms );
 			languageCodes.sort( languagedata.sortByAutonym );
-			return languageCodes.map( ( code ) => autonyms[ code ] );
+			return languageCodes.map( ( code ) => ( {
+				code,
+				autonym: autonyms[ code ],
+			} ) );
 		},
-		shownLanguages(): string[] {
+		shownLanguages(): Language[] {
 			return this.languages.filter( ( language ) =>
-				language.toLowerCase().includes( this.searchInput.toLowerCase() ),
+				language.code.startsWith( this.searchInput.toLowerCase() ) ||
+				language.autonym.toLowerCase().includes( this.searchInput.toLowerCase() ),
 			);
 		},
 	},
@@ -49,8 +54,8 @@ export default Vue.extend( {
 		onInput( searchedLanguage: string ): void {
 			this.searchInput = searchedLanguage;
 		},
-		onSelect( language: string ): void {
-			this.$emit( 'select', language );
+		onSelect( languageCode: string ): void {
+			this.$emit( 'select', languageCode );
 		},
 		onClearInputValue(): void {
 			this.searchInput = '';
