@@ -1,5 +1,11 @@
 <template>
 	<div class="querybuilder__language-selector">
+		<div class="languageSelector__mobile-header">
+			<span>{{ $i18n( 'query-builder-language-selector-mobile-header' ) }}</span>
+			<button @click="onCloseMenu">
+				<img src="/img/close.svg" :alt="$i18n( 'query-builder-language-selector-close-button-label' )">
+			</button>
+		</div>
 		<LanguageSelectorInput
 			:value="searchInput"
 			:placeholder="$i18n( 'query-builder-language-selector-input-placeholder' )"
@@ -60,14 +66,43 @@ export default Vue.extend( {
 		onClearInputValue(): void {
 			this.searchInput = '';
 		},
+		onCloseMenu(): void {
+			this.$emit( 'close' );
+		},
 	},
 } );
 </script>
 
 <style lang="scss">
+$tinyViewportWidth: 38em;
+
 .querybuilder__language-selector {
 	position: absolute;
+	right: 0;
 	width: 384px;
 	z-index: 1;
+
+	@media (max-width: $tinyViewportWidth) {
+		width: 100%;
+	}
+
+	.languageSelector__mobile-header {
+		display: none;
+		padding-block: 12px;
+		padding-inline: 16px;
+		justify-content: space-between;
+		background-color: #fff;
+
+		span {
+			color: #202122;
+			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
+			font-size: 1em;
+			font-weight: bold;
+		}
+
+		@media (max-width: $tinyViewportWidth) {
+			display: flex;
+		}
+	}
 }
 </style>

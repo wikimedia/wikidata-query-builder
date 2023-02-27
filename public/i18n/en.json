@@ -83,5 +83,7 @@
   "query-builder-language-selector-input-placeholder": "Search languages",
   "query-builder-language-selector-no-results": "Language not available",
   "query-builder-language-selector-options-menu-aria-label": "Languages",
-  "query-builder-language-selector-clear-button-label": "Clear input field"
+  "query-builder-language-selector-clear-button-label": "Clear input field",
+  "query-builder-language-selector-mobile-header": "Select a language",
+  "query-builder-language-selector-close-button-label": "Close Language Selector"
 }

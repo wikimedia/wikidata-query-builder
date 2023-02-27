@@ -93,5 +93,7 @@
 	"query-builder-language-selector-input-placeholder": "Placeholder for the input of the Language Selector",
 	"query-builder-language-selector-no-results": "Text in Language Selector menu when search yields no results",
 	"query-builder-language-selector-options-menu-aria-label": "Descriptive label for the Language Selector's Options Menu for screen readers",
-	"query-builder-language-selector-clear-button-label": "Descriptive test for the Language Selector Input clear text button"
+	"query-builder-language-selector-clear-button-label": "Descriptive text for the Language Selector Input clear text button",
+	"query-builder-language-selector-mobile-header": "Text in Language Selector Header that shows in mobile version",
+	"query-builder-language-selector-close-button-label": "Descriptive text for the Language Selector Mobile Header close button"
 }
