@@ -14,15 +14,15 @@ Vue.use( i18n, {
 
 describe( 'LanguageSelector.vue', () => {
 	it( 'clear button clears text', async () => {
-		const wrapper = mount( LanguageSelector, { propsData: { languages: [ 'Cebuano', 'Javanese' ] } } );
+		const wrapper = mount( LanguageSelector );
 		await wrapper.find( 'input' ).setValue( 'whatever' );
 		await wrapper.find( '.languageSelector__input__clear-button' ).trigger( 'click' );
 		expect( wrapper.findComponent( LanguageSelectorInput ).props( 'value' ) ).toEqual( '' );
 	} );
 
 	it( 'LanguageSelectorOptionsMenu shows a filtered lowercase list after input is given', async () => {
-		const wrapper = mount( LanguageSelector, { propsData: { languages: [ 'Cebuano', 'Javanese' ] } } );
-		await wrapper.find( 'input' ).setValue( 'ceb' );
+		const wrapper = mount( LanguageSelector );
+		await wrapper.find( 'input' ).setValue( 'cebua' ); // Cebuano
 		expect( wrapper.findComponent( LanguageSelectorOptionsMenu ).props( 'languages' ).length ).toEqual( 1 );
 	} );
 } );
