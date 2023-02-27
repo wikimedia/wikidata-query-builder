@@ -96,6 +96,7 @@ describe( 'getters', () => {
 			'wikibase-lexeme',
 			'wikibase-sense',
 			'wikibase-form',
+			'wikibase-property',
 		] )( 'returns the QueryRepresentation of the RootState with an entity value (%s)', ( dataType ) => {
 			const state: RootState = getFreshRootState();
 			state.conditionRows[ 0 ].propertyData.datatype = dataType;

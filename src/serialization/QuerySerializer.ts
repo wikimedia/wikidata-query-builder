@@ -6,6 +6,7 @@ import RootState, {
 	FormValue,
 	QuantityValue,
 	DateValue,
+	PropertyValue,
 } from '@/store/RootState';
 import SerializedObject, { SerializedValue } from '@/data-model/SerializedObject';
 
@@ -49,6 +50,9 @@ export default class QuerySerializer {
 		}
 		if ( condition.propertyData.datatype === 'wikibase-form' ) {
 			return ( condition.valueData.value as FormValue ).id;
+		}
+		if ( condition.propertyData.datatype === 'wikibase-property' ) {
+			return ( condition.valueData.value as PropertyValue ).id;
 		}
 		if ( condition.propertyData.datatype === 'quantity' ) {
 			const quantityValue: QuantityValue = condition.valueData.value as QuantityValue;

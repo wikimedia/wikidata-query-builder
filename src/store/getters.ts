@@ -10,6 +10,7 @@ import RootState, {
 	QuantityValue,
 	StringValue,
 	Value,
+	PropertyValue,
 } from './RootState';
 import QueryRepresentation, { ConditionValue } from '@/sparql/QueryRepresentation';
 import Property from '@/data-model/Property';
@@ -33,6 +34,9 @@ function getQueryValueFromStoreValue( datatype: string, storeValue: Value ): Con
 	}
 	if ( datatype === 'wikibase-form' ) {
 		return ( storeValue as FormValue ).id;
+	}
+	if ( datatype === 'wikibase-property' ) {
+		return ( storeValue as PropertyValue ).id;
 	}
 	if ( datatype === 'quantity' ) {
 		return {

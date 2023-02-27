@@ -13,6 +13,7 @@ describe( 'ValueInput', () => {
 		[ 'wikibase-item', EntityValueLookup ],
 		[ 'wikibase-lexeme', EntityValueLookup ],
 		[ 'wikibase-sense', EntityValueLookup ],
+		[ 'wikibase-property', EntityValueLookup ],
 	] )( 'shows the correct Input component for datatype %s', ( datatype, component ) => {
 		const wrapper = shallowMount( ValueInput, { propsData: {
 			datatype,
@@ -25,6 +26,7 @@ describe( 'ValueInput', () => {
 		[ 'wikibase-item', 'item' ],
 		[ 'wikibase-lexeme', 'lexeme' ],
 		[ 'wikibase-sense', 'sense' ],
+		[ 'wikibase-property', 'property' ],
 	] )( 'sets the entity type prop for datatype %s', ( datatype, entityType ) => {
 		const wrapper = shallowMount( ValueInput, { propsData: {
 			datatype,

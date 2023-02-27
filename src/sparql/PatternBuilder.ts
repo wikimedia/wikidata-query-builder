@@ -34,6 +34,7 @@ export default class PatternBuilder implements ValuePatternBuilder {
 			case 'wikibase-lexeme':
 			case 'wikibase-sense':
 			case 'wikibase-form':
+			case 'wikibase-property':
 				return new EntityValueBuilder( datatype );
 			case 'quantity':
 				return new QuantityValuePatternBuilder();
