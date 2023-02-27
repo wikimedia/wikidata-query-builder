@@ -3,6 +3,7 @@
 		"authors": [
 			"Dr-Taher",
 			"FiberAhmed",
+			"Karim185.3",
 			"Mohanad Kh",
 			"NEHAOUA",
 			"أَحمد",
@@ -86,5 +87,6 @@
 	"query-builder-date-input-placeholder": "مثلًا 31-12-2020",
 	"query-builder-date-input-prompt-text": "رجاءً أدخل تاريخًا",
 	"query-builder-date-input-results-intro-text": "يُفسَّر على أنه:",
-	"query-builder-date-input-calendar-notice-text": "يُتعامل مع جميع التواريخ على أنها تواريخ ميلادية"
+	"query-builder-date-input-calendar-notice-text": "يُتعامل مع جميع التواريخ على أنها تواريخ ميلادية",
+	"query-builder-language-selector-options-menu-aria-label": "اللغات"
 }

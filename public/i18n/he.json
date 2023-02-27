@@ -17,6 +17,9 @@
 	"query-builder-input-value-tooltip": "השדה <em>ערך</em> מכיל את המידע המוחשי שמשמש לתיאור פריט. למשל, \"כחול\" הוא <em>ערך</em> אפשרי אחד ל<em>מאפיין</em> \"צבע\".",
 	"query-builder-input-value-placeholder": "נא למלא ערך",
 	"query-builder-item-value-lookup-no-match-found": "לא נמצאה התאמה",
+	"query-builder-lexeme-value-lookup-no-match-found": "לא נמצאו התאמות",
+	"query-builder-sense-value-lookup-no-match-found": "לא נמצאו התאמות",
+	"query-builder-form-value-lookup-no-match-found": "לא נמצאו התאמות",
 	"query-builder-property-lookup-label": "מאפיין",
 	"query-builder-property-lookup-tooltip": "השדה <em>מאפיין</em> בתנאי הוא קטגוריה או מתאר ל<em>ערך</em>. למשל, \"צבע\" הוא <em>מאפיין</em> שסביר שישמש אותך בשביל ה<em>ערך</em> \"כחול\".",
 	"query-builder-property-lookup-placeholder": "נא למלא מאפיין",
@@ -83,5 +86,9 @@
 	"query-builder-date-input-placeholder": "למשל 31-12-2020",
 	"query-builder-date-input-prompt-text": "נא למלא תאריך",
 	"query-builder-date-input-results-intro-text": "יפורש בתור:",
-	"query-builder-date-input-calendar-notice-text": "כל התאריכים מפורשים בתור תאריכים גרגוריאניים"
+	"query-builder-date-input-calendar-notice-text": "כל התאריכים מפורשים בתור תאריכים גרגוריאניים",
+	"query-builder-language-selector-input-placeholder": "חיפוש שפה",
+	"query-builder-language-selector-no-results": "השפה אינה זמינה",
+	"query-builder-language-selector-options-menu-aria-label": "שפות",
+	"query-builder-language-selector-clear-button-label": "ניקוי שדה קלט"
 }

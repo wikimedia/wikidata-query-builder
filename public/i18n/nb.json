@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Abuluntu",
+			"Desoda",
 			"EdoAug",
 			"Johshh",
 			"Jon Harald Søby"
@@ -18,6 +19,7 @@
 	"query-builder-input-value-tooltip": "<em>Verdi</em>-feltet inneholder informasjonen som beskriver et objekt. For eksempel kan «blå» være en mulig <em>verdi</em> hvis <em>egenskapen</em> er «farge».",
 	"query-builder-input-value-placeholder": "Angi en verdi",
 	"query-builder-item-value-lookup-no-match-found": "Ingen treff funnet",
+	"query-builder-lexeme-value-lookup-no-match-found": "Ingen treff funnet",
 	"query-builder-property-lookup-label": "Egenskap",
 	"query-builder-property-lookup-tooltip": "<em>egenskap</em>-feltet er for kategorien eller beskrivelsen som en <em>verdi</em> tilhører. For eksempel, «farge» er en <em>egenskap</em> som du kan forvente å bruke med <em>verdi</em>: «blå».",
 	"query-builder-property-lookup-placeholder": "Angi en egenskap",

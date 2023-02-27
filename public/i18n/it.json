@@ -49,5 +49,7 @@
 	"query-builder-footer-team": "Realizzato con ❤️ dal [$1 team Wikidata]",
 	"query-builder-footer-curious-facts": "Curiosità",
 	"query-builder-date-input-value-label": "Valore",
-	"query-builder-date-input-placeholder": "ad esempio 31-12-2020"
+	"query-builder-date-input-placeholder": "ad esempio 31-12-2020",
+	"query-builder-language-selector-no-results": "Lingua non disponibile",
+	"query-builder-language-selector-options-menu-aria-label": "Lingue"
 }

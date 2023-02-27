@@ -6,6 +6,7 @@
 			"Fitoschido",
 			"Lys534",
 			"MarcoAurelio",
+			"Nelthal",
 			"Rodney Araujo",
 			"SpikeShroom",
 			"ZealousBlaze"
@@ -82,5 +83,9 @@
 	"query-builder-date-input-placeholder": "por ejemplo 31-12-2020",
 	"query-builder-date-input-prompt-text": "Por favor, inserta una fecha",
 	"query-builder-date-input-results-intro-text": "Se interpretará como:",
-	"query-builder-date-input-calendar-notice-text": "Todas las fechas se interpretan como fechas gregorianas"
+	"query-builder-date-input-calendar-notice-text": "Todas las fechas se interpretan como fechas gregorianas",
+	"query-builder-language-selector-input-placeholder": "Buscar idiomas",
+	"query-builder-language-selector-no-results": "Idioma no disponible",
+	"query-builder-language-selector-options-menu-aria-label": "Idiomas",
+	"query-builder-language-selector-clear-button-label": "Borrar campo de entrada"
 }

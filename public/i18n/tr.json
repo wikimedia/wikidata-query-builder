@@ -20,6 +20,7 @@
 	"query-builder-input-value-tooltip": "<em>Değer</em> alanı bir ögeyi tanımlamak için somut bilgiyi içerir. Örneğin, \"renk\" <em>özelliği</em> için muhtemel bir <em>değer</em> \"mavi\"dir.",
 	"query-builder-input-value-placeholder": "Bir değer girin",
 	"query-builder-item-value-lookup-no-match-found": "Eşleşme bulunamadı",
+	"query-builder-lexeme-value-lookup-no-match-found": "Eşleşme bulunamadı",
 	"query-builder-property-lookup-label": "Özellik",
 	"query-builder-property-lookup-tooltip": "Bir koşuldaki <em>özellik</em> alanı, <em>değer</em> için kategori ya da açıklayıcıdır. Örneğin, \"mavi\" <em>değer</em>i için muhtemelen kullanacağınız bir <em>özellik</em> \"renk\"tir.",
 	"query-builder-property-lookup-placeholder": "Bir özellik girin",
@@ -86,5 +87,8 @@
 	"query-builder-date-input-placeholder": "örneğin 31-12-2020",
 	"query-builder-date-input-prompt-text": "Lütfen bir tarih girin",
 	"query-builder-date-input-results-intro-text": "Şu şekilde yorumlanacaktır:",
-	"query-builder-date-input-calendar-notice-text": "Tüm tarihler miladi olarak yorumlanmıştır"
+	"query-builder-date-input-calendar-notice-text": "Tüm tarihler miladi olarak yorumlanmıştır",
+	"query-builder-language-selector-input-placeholder": "Dil ara",
+	"query-builder-language-selector-no-results": "Dil mevcut değil",
+	"query-builder-language-selector-options-menu-aria-label": "Dil"
 }

@@ -26,5 +26,7 @@
 	"query-builder-quantity-value-number-input-placeholder": "Gitt eng Zuel an",
 	"query-builder-footer-about-us": "Iwwer eis",
 	"query-builder-date-input-value-label": "Wäert",
-	"query-builder-date-input-prompt-text": "Gitt wgl. en Datum an"
+	"query-builder-date-input-prompt-text": "Gitt wgl. en Datum an",
+	"query-builder-language-selector-no-results": "Sprooch net disponibel",
+	"query-builder-language-selector-options-menu-aria-label": "Sproochen"
 }

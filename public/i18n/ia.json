@@ -16,6 +16,8 @@
 	"query-builder-input-value-placeholder": "Entrar un valor",
 	"query-builder-item-value-lookup-no-match-found": "Nulle correspondentia ha essite trovate",
 	"query-builder-lexeme-value-lookup-no-match-found": "Nulle correspondentia ha essite trovate",
+	"query-builder-sense-value-lookup-no-match-found": "Nulle correspondentia ha essite trovate",
+	"query-builder-form-value-lookup-no-match-found": "Nulle correspondentia ha essite trovate",
 	"query-builder-property-lookup-label": "Proprietate",
 	"query-builder-property-lookup-tooltip": "Le campo <em>proprietate</em> in un condition es le categoria o descriptor pro le <em>valor</em>. Per exemplo, \"color\" es un <em>proprietate</em> que tu probabilemente usarea pro le <em>valor</em> \"blau\".",
 	"query-builder-property-lookup-placeholder": "Entra un proprietate",
@@ -82,5 +84,9 @@
 	"query-builder-date-input-placeholder": "per exemplo 31-12-2020",
 	"query-builder-date-input-prompt-text": "Per favor entra un data",
 	"query-builder-date-input-results-intro-text": "Essera interpretate como:",
-	"query-builder-date-input-calendar-notice-text": "Tote le datas es interpretate como datas gregorian"
+	"query-builder-date-input-calendar-notice-text": "Tote le datas es interpretate como datas gregorian",
+	"query-builder-language-selector-input-placeholder": "Cercar linguas",
+	"query-builder-language-selector-no-results": "Lingua indisponibile",
+	"query-builder-language-selector-options-menu-aria-label": "Linguas",
+	"query-builder-language-selector-clear-button-label": "Rader campo de entrata"
 }

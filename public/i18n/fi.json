@@ -70,5 +70,8 @@
 	"query-builder-date-input-placeholder": "esimerkiksi 31-12-2020",
 	"query-builder-date-input-prompt-text": "Syötä päivämäärä",
 	"query-builder-date-input-results-intro-text": "Tulkitaan seuraavasti:",
-	"query-builder-date-input-calendar-notice-text": "Kaikki päivämäärät tulkitaan gregoriaanisiksi päivämääriksi"
+	"query-builder-date-input-calendar-notice-text": "Kaikki päivämäärät tulkitaan gregoriaanisiksi päivämääriksi",
+	"query-builder-language-selector-input-placeholder": "Hae kieliä",
+	"query-builder-language-selector-no-results": "Kieli ei ole saatavilla",
+	"query-builder-language-selector-options-menu-aria-label": "Kielet"
 }

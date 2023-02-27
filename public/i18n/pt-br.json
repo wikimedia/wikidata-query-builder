@@ -5,7 +5,8 @@
 			"Eduardoaddad",
 			"EnaldoSS",
 			"Gustavo.moraes",
-			"Mariagarbin"
+			"Mariagarbin",
+			"Re demz"
 		]
 	},
 	"query-builder-heading": "Construtor de consulta do Wikidata",
@@ -19,6 +20,8 @@
 	"query-builder-input-value-tooltip": "O campo <em>valor</em> contém a informação concreta utilizada para descrever um item. Por exemplo, \"azul\" é um <em>valor</em> possível para a <em>propriedade</em> \"cor\".",
 	"query-builder-input-value-placeholder": "Insira um valor",
 	"query-builder-item-value-lookup-no-match-found": "Nenhuma combinação encontrada",
+	"query-builder-sense-value-lookup-no-match-found": "Nenhuma combinação encontrada",
+	"query-builder-form-value-lookup-no-match-found": "Nenhuma combinação encontrada",
 	"query-builder-property-lookup-label": "Propriedade",
 	"query-builder-property-lookup-tooltip": "O campo <em>propriedade</em> é uma condição, categoria ou descritor do <em>valor</em>. Por exemplo, \"cor\" seria uma <em>propriedade</em> que você provavelmente usaria para o <em>valor</em> \"azul\".",
 	"query-builder-property-lookup-placeholder": "Insira uma propriedade",
@@ -85,5 +88,9 @@
 	"query-builder-date-input-placeholder": "por exemplo 31-12-2020",
 	"query-builder-date-input-prompt-text": "Por favor insira uma data",
 	"query-builder-date-input-results-intro-text": "Será interpretado como:",
-	"query-builder-date-input-calendar-notice-text": "Todas as datas são interpretadas como datas gregorianas"
+	"query-builder-date-input-calendar-notice-text": "Todas as datas são interpretadas como datas gregorianas",
+	"query-builder-language-selector-input-placeholder": "Pesquisar idiomas",
+	"query-builder-language-selector-no-results": "Idioma não disponível",
+	"query-builder-language-selector-options-menu-aria-label": "Idiomas",
+	"query-builder-language-selector-clear-button-label": "Limpar campo de entrada"
 }

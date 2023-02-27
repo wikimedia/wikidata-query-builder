@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Eukarióta",
 			"GBAB",
 			"Hanna Tardos",
 			"Llz78",
@@ -17,6 +18,8 @@
 	"query-builder-input-value-tooltip": "Az <i>érték</i> mező tartalmazza az elemet leíró konkrét információt. Például a „kék” egy lehetséges <em>értéke</em> a „szín” <em>tulajdonságnak</em>.",
 	"query-builder-input-value-placeholder": "Írj be egy értéket",
 	"query-builder-item-value-lookup-no-match-found": "Nincs találat",
+	"query-builder-sense-value-lookup-no-match-found": "Nincs találat",
+	"query-builder-form-value-lookup-no-match-found": "Nincs egyezés",
 	"query-builder-property-lookup-label": "Tulajdonság",
 	"query-builder-property-lookup-tooltip": "Egy feltételben a <i>tulajdonság</i> mező az <i>érték</i> kategóriája vagy leírója. Például a „kék” <em>értékhez</em> valószínűleg a „szín” <em>tulajdonság</em> illik.",
 	"query-builder-property-lookup-placeholder": "Írj be egy tulajdonságot",

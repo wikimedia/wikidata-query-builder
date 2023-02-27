@@ -22,5 +22,6 @@
 	"query-builder-footer-privacy-policy": "Pulìtica supra la privacy",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Girmania",
 	"query-builder-date-input-value-label": "Valuri",
-	"query-builder-date-input-placeholder": "pi asempiu 31-12-2020"
+	"query-builder-date-input-placeholder": "pi asempiu 31-12-2020",
+	"query-builder-language-selector-options-menu-aria-label": "Lingui"
 }

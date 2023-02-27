@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"BadDog",
+			"Milicevic01"
+		]
+	},
+	"query-builder-intro-heading": "О алатки",
+	"query-builder-settings-heading": "Подешавања",
+	"query-builder-input-value-label": "Вредност",
+	"query-builder-item-value-lookup-no-match-found": "Нема подударања",
+	"query-builder-sense-value-lookup-no-match-found": "Нема подударања",
+	"query-builder-form-value-lookup-no-match-found": "Нема подударања",
+	"query-builder-property-lookup-label": "Својство",
+	"query-builder-result-header": "Резултати",
+	"query-builder-result-error-missing-property": "Изберете својство",
+	"query-builder-result-error-missing-value": "Унесите вредност",
+	"query-builder-add-condition": "Додај услов",
+	"query-builder-reference-relation-label": "Референце",
+	"query-builder-condition-relation-toggle-and": "и",
+	"query-builder-condition-relation-toggle-or": "или",
+	"query-builder-negation-option-label-with": "Са",
+	"query-builder-negation-option-label-without": "Без",
+	"query-builder-footer-about-us": "О нама",
+	"query-builder-footer-privacy-policy": "Политика приватности",
+	"query-builder-footer-wikimedia-deutchland": "Викимедија Немачка",
+	"query-builder-date-input-value-label": "Вредност",
+	"query-builder-date-input-prompt-text": "Унесите датум",
+	"query-builder-language-selector-input-placeholder": "Претражите језике",
+	"query-builder-language-selector-no-results": "Језик није доступан",
+	"query-builder-language-selector-options-menu-aria-label": "Језици"
+}

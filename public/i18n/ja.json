@@ -23,6 +23,8 @@
 	"query-builder-input-value-tooltip": "<em>値</em>の欄には項目を表現するための具体的な情報を入力します。例えば「青」は、「色」という<em>プロパティ</em>が取りうる<em>値</em>です。",
 	"query-builder-input-value-placeholder": "値を入力",
 	"query-builder-item-value-lookup-no-match-found": "該当するものはありません",
+	"query-builder-sense-value-lookup-no-match-found": "該当するものはありません",
+	"query-builder-form-value-lookup-no-match-found": "該当するものはありません",
 	"query-builder-property-lookup-label": "プロパティ",
 	"query-builder-property-lookup-tooltip": "条件となる<em>プロパティ</em>欄は、<em>値</em>に対するカテゴリまたは記述子です。例えば「青」という<em>値</em>に対しては、「色」という<em>プロパティ</em>を使うことになるでしょう。",
 	"query-builder-property-lookup-placeholder": "プロパティを入力",
@@ -89,5 +91,6 @@
 	"query-builder-date-input-placeholder": "例えば 31-12-2020",
 	"query-builder-date-input-prompt-text": "日付を入力してください",
 	"query-builder-date-input-results-intro-text": "次のように解釈されます：",
-	"query-builder-date-input-calendar-notice-text": "全ての日付はグレゴリオ暦と解釈されます"
+	"query-builder-date-input-calendar-notice-text": "全ての日付はグレゴリオ暦と解釈されます",
+	"query-builder-language-selector-options-menu-aria-label": "言語"
 }

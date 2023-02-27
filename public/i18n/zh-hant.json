@@ -19,6 +19,8 @@
 	"query-builder-input-value-placeholder": "請輸入一個值",
 	"query-builder-item-value-lookup-no-match-found": "找不到符合的內容",
 	"query-builder-lexeme-value-lookup-no-match-found": "找不到符合的內容",
+	"query-builder-sense-value-lookup-no-match-found": "找不到符合的內容",
+	"query-builder-form-value-lookup-no-match-found": "找不到符合的內容",
 	"query-builder-property-lookup-label": "屬性",
 	"query-builder-property-lookup-tooltip": "在條件中的 <em>property</em> （屬性）欄位是 <em>value</em> （值）的分類或描述。例如：「color」會是您用在 <em>value</em> 為「blue」的 <em>property</em>。",
 	"query-builder-property-lookup-placeholder": "請輸入一個屬性",
@@ -85,5 +87,9 @@
 	"query-builder-date-input-placeholder": "例如：31-12-2020",
 	"query-builder-date-input-prompt-text": "請輸入日期",
 	"query-builder-date-input-results-intro-text": "將會呈現成：",
-	"query-builder-date-input-calendar-notice-text": "所有日期以格里曆呈現"
+	"query-builder-date-input-calendar-notice-text": "所有日期以格里曆呈現",
+	"query-builder-language-selector-input-placeholder": "搜尋語言",
+	"query-builder-language-selector-no-results": "語言不可用",
+	"query-builder-language-selector-options-menu-aria-label": "語言",
+	"query-builder-language-selector-clear-button-label": "清除輸入欄位"
 }

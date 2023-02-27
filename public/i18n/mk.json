@@ -16,6 +16,8 @@
 	"query-builder-input-value-placeholder": "Внесете вредност",
 	"query-builder-item-value-lookup-no-match-found": "Нема совпаѓања",
 	"query-builder-lexeme-value-lookup-no-match-found": "Нема совпаѓања",
+	"query-builder-sense-value-lookup-no-match-found": "Нема совпаѓања",
+	"query-builder-form-value-lookup-no-match-found": "Нема совпаѓања",
 	"query-builder-property-lookup-label": "Својство",
 	"query-builder-property-lookup-tooltip": "Полето <em>својство</em> во услов е категоријата или описникот за <em>вредност</em>. На пример, „боја“ би била <em>својство</em> кое веројатно би го употребиле за <em>вредност</em> „сина“.",
 	"query-builder-property-lookup-placeholder": "Внесете својство",
@@ -82,5 +84,9 @@
 	"query-builder-date-input-placeholder": "на пример 31-12-2020",
 	"query-builder-date-input-prompt-text": "Внесете датум",
 	"query-builder-date-input-results-intro-text": "Ќе се протолкува како:",
-	"query-builder-date-input-calendar-notice-text": "Сите датуми ќе се толкуваат како грегоријански"
+	"query-builder-date-input-calendar-notice-text": "Сите датуми ќе се толкуваат како грегоријански",
+	"query-builder-language-selector-input-placeholder": "Пребарај јазици",
+	"query-builder-language-selector-no-results": "Јазикот не е достапен",
+	"query-builder-language-selector-options-menu-aria-label": "Јазици",
+	"query-builder-language-selector-clear-button-label": "Исчисти вносно поле"
 }

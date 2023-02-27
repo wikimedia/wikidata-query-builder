@@ -21,6 +21,9 @@
 	"query-builder-input-value-tooltip": "Het veld <em>waarde</em> bevat de informatie die wordt gebruikt om een item te beschrijven. \"Blauw\" is bijvoorbeeld een mogelijke <em>waarde</em> voor de <em>eigenschap</em> \"kleur\".",
 	"query-builder-input-value-placeholder": "Voer een waarde in",
 	"query-builder-item-value-lookup-no-match-found": "Geen resultaten gevonden",
+	"query-builder-lexeme-value-lookup-no-match-found": "Geen overeenkomsten gevonden",
+	"query-builder-sense-value-lookup-no-match-found": "Geen overeenkomsten gevonden",
+	"query-builder-form-value-lookup-no-match-found": "Geen overeenkomsten gevonden",
 	"query-builder-property-lookup-label": "Eigenschap",
 	"query-builder-property-lookup-tooltip": "Het veld <em>eigenschap</em> in een voorwaarde is de categorie of omschrijving voor de <em>waarde</em>. \"Kleur\" zou bijvoorbeeld een <em>eigenschap</em> zijn die u waarschijnlijk zou gebruiken voor de <em>waarde</em> \"blauw\".",
 	"query-builder-property-lookup-placeholder": "Voer een eigenschap in",
@@ -87,5 +90,9 @@
 	"query-builder-date-input-placeholder": "bijvoorbeeld 31-12-2020",
 	"query-builder-date-input-prompt-text": "Gelieve een datum in te voeren",
 	"query-builder-date-input-results-intro-text": "Word geïnterpreteerd als:",
-	"query-builder-date-input-calendar-notice-text": "Alle datums worden geïnterpreteerd volgens de Gregoriaanse kalender"
+	"query-builder-date-input-calendar-notice-text": "Alle datums worden geïnterpreteerd volgens de Gregoriaanse kalender",
+	"query-builder-language-selector-input-placeholder": "Talen zoeken",
+	"query-builder-language-selector-no-results": "Taal niet beschikbaar",
+	"query-builder-language-selector-options-menu-aria-label": "Talen",
+	"query-builder-language-selector-clear-button-label": "Invoerveld wissen"
 }
