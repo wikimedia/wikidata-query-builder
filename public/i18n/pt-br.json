@@ -4,6 +4,7 @@
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
 			"EnaldoSS",
+			"Fernando Leite De Oliveira",
 			"Gustavo.moraes",
 			"Mariagarbin",
 			"Re demz"
@@ -92,5 +93,7 @@
 	"query-builder-language-selector-input-placeholder": "Pesquisar idiomas",
 	"query-builder-language-selector-no-results": "Idioma não disponível",
 	"query-builder-language-selector-options-menu-aria-label": "Idiomas",
-	"query-builder-language-selector-clear-button-label": "Limpar campo de entrada"
+	"query-builder-language-selector-clear-button-label": "Limpar campo de entrada",
+	"query-builder-language-selector-mobile-header": "Selecione um idioma",
+	"query-builder-language-selector-close-button-label": "Fechar Seleção de Idioma"
 }

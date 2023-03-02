@@ -91,5 +91,7 @@
 	"query-builder-language-selector-input-placeholder": "搜尋語言",
 	"query-builder-language-selector-no-results": "語言不可用",
 	"query-builder-language-selector-options-menu-aria-label": "語言",
-	"query-builder-language-selector-clear-button-label": "清除輸入欄位"
+	"query-builder-language-selector-clear-button-label": "清除輸入欄位",
+	"query-builder-language-selector-mobile-header": "選擇一個語言",
+	"query-builder-language-selector-close-button-label": "關閉語言選擇器"
 }

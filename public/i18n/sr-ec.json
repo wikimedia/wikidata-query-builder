@@ -28,5 +28,6 @@
 	"query-builder-date-input-prompt-text": "Унесите датум",
 	"query-builder-language-selector-input-placeholder": "Претражите језике",
 	"query-builder-language-selector-no-results": "Језик није доступан",
-	"query-builder-language-selector-options-menu-aria-label": "Језици"
+	"query-builder-language-selector-options-menu-aria-label": "Језици",
+	"query-builder-language-selector-mobile-header": "Изаберите језик"
 }

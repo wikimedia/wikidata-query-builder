@@ -93,5 +93,7 @@
 	"query-builder-language-selector-input-placeholder": "Langues de recherche",
 	"query-builder-language-selector-no-results": "Langue non disponible",
 	"query-builder-language-selector-options-menu-aria-label": "Langues",
-	"query-builder-language-selector-clear-button-label": "Effacer le champ de saisie"
+	"query-builder-language-selector-clear-button-label": "Effacer le champ de saisie",
+	"query-builder-language-selector-mobile-header": "Sélectionner une langue",
+	"query-builder-language-selector-close-button-label": "Fermer le sélecteur de langue"
 }

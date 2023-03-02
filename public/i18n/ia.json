@@ -88,5 +88,7 @@
 	"query-builder-language-selector-input-placeholder": "Cercar linguas",
 	"query-builder-language-selector-no-results": "Lingua indisponibile",
 	"query-builder-language-selector-options-menu-aria-label": "Linguas",
-	"query-builder-language-selector-clear-button-label": "Rader campo de entrata"
+	"query-builder-language-selector-clear-button-label": "Rader campo de entrata",
+	"query-builder-language-selector-mobile-header": "Selige un lingua",
+	"query-builder-language-selector-close-button-label": "Clauder le selector de linguas"
 }

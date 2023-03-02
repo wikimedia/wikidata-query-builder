@@ -73,5 +73,7 @@
 	"query-builder-date-input-placeholder": "উদাহরণস্বরূপ ৩১-১২-২০২০",
 	"query-builder-date-input-prompt-text": "অনুগ্রহ করে একটি তারিখ লিখুন",
 	"query-builder-date-input-results-intro-text": "এইভাবে ব্যাখ্যায়িত হবে:",
-	"query-builder-date-input-calendar-notice-text": "সকল তারিখ গ্রেগরীয় বর্ষপঞ্জির তারিখ হিসেবে ধরা হবে"
+	"query-builder-date-input-calendar-notice-text": "সকল তারিখ গ্রেগরীয় বর্ষপঞ্জির তারিখ হিসেবে ধরা হবে",
+	"query-builder-language-selector-mobile-header": "একটি ভাষা নির্বাচন করুন",
+	"query-builder-language-selector-close-button-label": "ভাষা নির্বাচক বন্ধ করুন"
 }

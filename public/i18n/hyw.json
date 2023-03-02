@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kareyac",
 			"Շահէն"
 		]
 	},
@@ -37,5 +38,6 @@
 	"query-builder-footer-team": "Ուիքիտուեալներու խումբին կողմէ պատրաստուած",
 	"query-builder-date-input-value-label": "Արժէք",
 	"query-builder-date-input-placeholder": "օրինակ 31-12-2020",
-	"query-builder-date-input-prompt-text": "Մուտքագրէ թուական մը"
+	"query-builder-date-input-prompt-text": "Մուտքագրէ թուական մը",
+	"query-builder-language-selector-options-menu-aria-label": "Լեզուներ"
 }

@@ -15,6 +15,8 @@
 	"query-builder-input-value-label": "Valore",
 	"query-builder-input-value-placeholder": "Inserisci un valore",
 	"query-builder-item-value-lookup-no-match-found": "Nessun risultato trovato",
+	"query-builder-sense-value-lookup-no-match-found": "Nessun risultato trovato",
+	"query-builder-form-value-lookup-no-match-found": "Nessun risultato trovato",
 	"query-builder-property-lookup-label": "Proprietà",
 	"query-builder-property-lookup-placeholder": "Inserisci una proprietà",
 	"query-builder-property-lookup-no-match-found": "Nessun risultato trovato",
@@ -51,5 +53,7 @@
 	"query-builder-date-input-value-label": "Valore",
 	"query-builder-date-input-placeholder": "ad esempio 31-12-2020",
 	"query-builder-language-selector-no-results": "Lingua non disponibile",
-	"query-builder-language-selector-options-menu-aria-label": "Lingue"
+	"query-builder-language-selector-options-menu-aria-label": "Lingue",
+	"query-builder-language-selector-mobile-header": "Seleziona una lingua",
+	"query-builder-language-selector-close-button-label": "Chiudi il selettore della lingua"
 }

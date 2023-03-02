@@ -3,6 +3,8 @@
 		"authors": [
 			"AVVK Chaitanya",
 			"Chaduvari",
+			"Thirumalgoud",
+			"V Bhavya",
 			"Veeven"
 		]
 	},
@@ -15,6 +17,8 @@
 	"query-builder-input-value-tooltip": "<em>value</em> అనే చోట ఒక అంశాన్ని వివరించడానికి కావలసిన ఖచ్చితమైన సమాచారం ఉంటుంది. ఉదాహరణకు,బ్లూ అనేది <em>property</em> \"రంగు\" కు వచ్చే అవకాశం ఉన్న ఒక <em>value</em>.",
 	"query-builder-input-value-placeholder": "విలువ ఇవ్వండి",
 	"query-builder-item-value-lookup-no-match-found": "సరిపోలేవి ఏమీ కనబడలేదు",
+	"query-builder-sense-value-lookup-no-match-found": "సరిపోలేవి ఏమీ కనబడలేదు",
+	"query-builder-form-value-lookup-no-match-found": "సరిపోలేవి ఏమీ కనబడలేదు",
 	"query-builder-property-lookup-label": "లక్షణం",
 	"query-builder-property-lookup-placeholder": "ఓ లక్షణాన్ని ఇవ్వండి",
 	"query-builder-property-lookup-no-match-found": "సరిపోలేవి ఏమీ కనబడలేదు",
@@ -73,5 +77,8 @@
 	"query-builder-date-input-placeholder": "ఉదాహరణకు 31-12-2020",
 	"query-builder-date-input-prompt-text": "దయచేసి ఒక తేదీ ఇవ్వండి",
 	"query-builder-date-input-results-intro-text": "దాన్ని ఇలా అర్థం చేసుకుంటుంది:",
-	"query-builder-date-input-calendar-notice-text": "తేదీలన్నిటినీ గ్రెగోరియన్ తేదీలు గానే తీసుకుంటుంది"
+	"query-builder-date-input-calendar-notice-text": "తేదీలన్నిటినీ గ్రెగోరియన్ తేదీలు గానే తీసుకుంటుంది",
+	"query-builder-language-selector-input-placeholder": "భాషలను వెతకండి",
+	"query-builder-language-selector-options-menu-aria-label": "భాషలు",
+	"query-builder-language-selector-mobile-header": "ఒక భాషను ఎంచుకోండి"
 }
