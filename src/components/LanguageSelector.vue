@@ -13,9 +13,14 @@
 			@input="onInput"
 			@clear="onClearInputValue"
 			@blur="$emit( 'close' )"
+			@arrowDown="onArrowDown"
+			@arrowUp="onArrowUp"
+			@enter="onEnter"
+			@escape="onCloseMenu"
 		/>
 		<LanguageSelectorOptionsMenu
 			:languages="shownLanguages"
+			:highlighted-index="highlightedIndex"
 			@select="onSelect"
 		>
 			<template #no-results>
@@ -40,6 +45,7 @@ export default Vue.extend( {
 	},
 	data: () => ( {
 		searchInput: '',
+		highlightedIndex: -1,
 	} ),
 	computed: {
 		languages(): Language[] {
@@ -61,6 +67,7 @@ export default Vue.extend( {
 	methods: {
 		onInput( searchedLanguage: string ): void {
 			this.searchInput = searchedLanguage;
+			this.highlightedIndex = 0;
 		},
 		onSelect( languageCode: string ): void {
 			this.$emit( 'select', languageCode );
@@ -74,6 +81,16 @@ export default Vue.extend( {
 		// eslint-disable-next-line vue/no-unused-properties -- exported method
 		focus(): void {
 			( this.$refs.input as InstanceType<typeof LanguageSelectorInput> ).focus();
+		},
+		onArrowDown(): void {
+			this.highlightedIndex = ( this.highlightedIndex + 1 ) % this.shownLanguages.length;
+		},
+		onArrowUp(): void {
+			const length = this.shownLanguages.length;
+			this.highlightedIndex = ( this.highlightedIndex + length - 1 ) % length;
+		},
+		onEnter(): void {
+			this.onSelect( this.shownLanguages[ this.highlightedIndex ].code );
 		},
 	},
 } );

@@ -4,13 +4,16 @@
 		role="listbox"
 		:aria-label="$i18n( 'query-builder-language-selector-options-menu-aria-label' )"
 	>
-		<div class="languageSelector__options-menu__languages-list">
+		<div ref="languagesList" class="languageSelector__options-menu__languages-list">
 			<div
-				v-for="language in languages"
+				v-for="( language, index ) in languages"
 				:key="language.code"
 				:aria-selected="language.code === selectedLanguageCode || null"
 				class="languageSelector__options-menu__languages-list__item"
-				:class="language.code === selectedLanguageCode ? 'language--selected' : ''"
+				:class="{
+					'language--selected': language.code === selectedLanguageCode,
+					highlight: highlightedIndex === index
+				}"
 				role="option"
 				@click="onSelect( language.code )"
 			>
@@ -37,6 +40,10 @@ export default Vue.extend( {
 			type: Array as PropType<Language[]>,
 			default: (): [] => [],
 		},
+		highlightedIndex: {
+			type: Number,
+			default: -1,
+		},
 	},
 	data: () => ( {
 		selectedLanguageCode: '',
@@ -45,6 +52,30 @@ export default Vue.extend( {
 		onSelect( selectedLanguageCode: string ): void {
 			this.selectedLanguageCode = selectedLanguageCode;
 			this.$emit( 'select', selectedLanguageCode );
+		},
+		scrollTo( element: Element, childIdx: number ): void {
+			const child = element.children.item( childIdx );
+
+			if ( child === null ) {
+				return;
+			}
+
+			const container = element.getBoundingClientRect(),
+				item = child.getBoundingClientRect(),
+				above = Math.floor( item.top ) < container.top,
+				below = Math.ceil( item.bottom ) > container.bottom;
+
+			if ( !( above || below ) ) {
+				return;
+			}
+			child.scrollIntoView( { behavior: 'smooth', block: 'nearest', inline: 'start' } );
+		},
+	},
+	watch: {
+		highlightedIndex: function ( newIdx ) {
+			const languageList = this.$refs.languagesList;
+
+			this.scrollTo( languageList as Element, newIdx );
 		},
 	},
 } );
@@ -58,16 +89,14 @@ $base: '.languageSelector__options-menu';
 	border-radius: 1px;
 	border: 1px solid #a2a9b1;
 	box-shadow: $wikit-OptionsMenu-box-shadow;
-	overflow-y: auto;
 	box-sizing: border-box;
 	z-index: 1;
 	padding-block: 8px;
 	padding-inline: 12px;
-	max-height: 35vh;
-	overflow: scroll;
 
 	&__languages-list {
-
+		max-height: 15.25rem;
+		overflow-y: auto;
 		list-style-type: none;
 
 		&__item {
@@ -79,7 +108,7 @@ $base: '.languageSelector__options-menu';
 			transition-duration: 100ms;
 			transition-timing-function: ease;
 
-			&:hover, &:active{
+			&:hover, &:active, &.highlight {
 				background-color: #EAECF0;
 				cursor: pointer;
 			}

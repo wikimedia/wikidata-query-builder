@@ -12,6 +12,10 @@
 				:placeholder="placeholder"
 				@input="$emit( 'input', $event.target.value )"
 				@blur="$emit( 'blur' )"
+				@keydown.down.prevent="onArrowDown"
+				@keydown.up.prevent="onArrowUp"
+				@keydown.enter="onEnter"
+				@keydown.esc.prevent="onEscape"
 			>
 		</div>
 		<button
@@ -51,6 +55,18 @@ export default Vue.extend( {
 		// eslint-disable-next-line vue/no-unused-properties -- exported method
 		focus(): void {
 			( this.$refs.input as HTMLInputElement ).focus();
+		},
+		onArrowDown() {
+			this.$emit( 'arrowDown' );
+		},
+		onArrowUp() {
+			this.$emit( 'arrowUp' );
+		},
+		onEnter() {
+			this.$emit( 'enter' );
+		},
+		onEscape() {
+			this.$emit( 'escape' );
 		},
 	},
 } );
