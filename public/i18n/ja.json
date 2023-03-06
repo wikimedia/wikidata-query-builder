@@ -3,6 +3,7 @@
 		"authors": [
 			"A2y4",
 			"Afaz",
+			"Christmas Wreath",
 			"Higa4",
 			"Kkairri",
 			"Kokage si",
@@ -24,6 +25,7 @@
 	"query-builder-input-value-tooltip": "<em>値</em>の欄には項目を表現するための具体的な情報を入力します。例えば「青」は、「色」という<em>プロパティ</em>が取りうる<em>値</em>です。",
 	"query-builder-input-value-placeholder": "値を入力",
 	"query-builder-item-value-lookup-no-match-found": "該当するものはありません",
+	"query-builder-lexeme-value-lookup-no-match-found": "該当するものはありません",
 	"query-builder-sense-value-lookup-no-match-found": "該当するものはありません",
 	"query-builder-form-value-lookup-no-match-found": "該当するものはありません",
 	"query-builder-property-lookup-label": "プロパティ",
@@ -93,7 +95,10 @@
 	"query-builder-date-input-prompt-text": "日付を入力してください",
 	"query-builder-date-input-results-intro-text": "次のように解釈されます：",
 	"query-builder-date-input-calendar-notice-text": "全ての日付はグレゴリオ暦と解釈されます",
+	"query-builder-language-selector-input-placeholder": "言語を選択",
+	"query-builder-language-selector-no-results": "使用言語は未設定です",
 	"query-builder-language-selector-options-menu-aria-label": "言語",
+	"query-builder-language-selector-clear-button-label": "入力フィールドをクリア",
 	"query-builder-language-selector-mobile-header": "言語を選択",
 	"query-builder-language-selector-close-button-label": "言語設定を閉じる"
 }

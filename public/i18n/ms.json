@@ -71,5 +71,9 @@
 	"query-builder-date-input-placeholder": "contohnya 31-12-2020",
 	"query-builder-date-input-prompt-text": "Sila masukkan tarikh",
 	"query-builder-date-input-results-intro-text": "Akan ditafsirkan sebagai:",
-	"query-builder-date-input-calendar-notice-text": "Semua tarikh ditafsirkan sebagai tarikh Masihi"
+	"query-builder-date-input-calendar-notice-text": "Semua tarikh ditafsirkan sebagai tarikh Masihi",
+	"query-builder-language-selector-input-placeholder": "Cari bahasa",
+	"query-builder-language-selector-options-menu-aria-label": "Bahasa",
+	"query-builder-language-selector-mobile-header": "Pilih bahasa",
+	"query-builder-language-selector-close-button-label": "Tutup Pemilih Bahasa"
 }

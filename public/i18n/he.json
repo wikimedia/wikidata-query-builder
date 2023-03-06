@@ -90,5 +90,7 @@
 	"query-builder-language-selector-input-placeholder": "חיפוש שפה",
 	"query-builder-language-selector-no-results": "השפה אינה זמינה",
 	"query-builder-language-selector-options-menu-aria-label": "שפות",
-	"query-builder-language-selector-clear-button-label": "ניקוי שדה קלט"
+	"query-builder-language-selector-clear-button-label": "ניקוי שדה קלט",
+	"query-builder-language-selector-mobile-header": "בחירת שפה",
+	"query-builder-language-selector-close-button-label": "סגירת בורר השפות"
 }
