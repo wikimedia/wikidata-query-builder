@@ -14,6 +14,7 @@
 	"query-builder-input-value-label": "Nilai",
 	"query-builder-input-value-placeholder": "Masukkan nilai",
 	"query-builder-item-value-lookup-no-match-found": "Tiada padanan dijumpai",
+	"query-builder-form-value-lookup-no-match-found": "Tiada padanan dijumpai",
 	"query-builder-property-lookup-label": "Sifat",
 	"query-builder-property-lookup-placeholder": "Masukkan sifat",
 	"query-builder-property-lookup-no-match-found": "Tiada padanan dijumpai",
@@ -73,6 +74,7 @@
 	"query-builder-date-input-results-intro-text": "Akan ditafsirkan sebagai:",
 	"query-builder-date-input-calendar-notice-text": "Semua tarikh ditafsirkan sebagai tarikh Masihi",
 	"query-builder-language-selector-input-placeholder": "Cari bahasa",
+	"query-builder-language-selector-no-results": "Bahasa tidak tersedia",
 	"query-builder-language-selector-options-menu-aria-label": "Bahasa",
 	"query-builder-language-selector-mobile-header": "Pilih bahasa",
 	"query-builder-language-selector-close-button-label": "Tutup Pemilih Bahasa"
