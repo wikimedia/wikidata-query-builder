@@ -86,5 +86,6 @@
 	"query-builder-date-input-placeholder": "например, 31-12-2020",
 	"query-builder-date-input-prompt-text": "Пожалуйста, введите дату",
 	"query-builder-date-input-results-intro-text": "Будет интерпретироваться как:",
-	"query-builder-date-input-calendar-notice-text": "Все даты интерпретируются как даты по григорианскому календарю."
+	"query-builder-date-input-calendar-notice-text": "Все даты интерпретируются как даты по григорианскому календарю.",
+	"query-builder-language-selector-options-menu-aria-label": "Языки"
 }

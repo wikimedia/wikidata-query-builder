@@ -13,6 +13,7 @@
 	"query-builder-find-all-items": "Барлык элементларны табырга...",
 	"query-builder-run-query": "Сорау җибәрергә",
 	"query-builder-input-value-label": "Мәгънә",
+	"query-builder-input-value-tooltip": "<em>мәгънә</em> кырына элементы тасвирлау өчен куллана торган конкрет мәгълүмат туплана. Мәсьәлән, \"зәңгәр\" - \"төс\" <em>үзлеге</em> өчен күп <em>мәгънәләрдән</em> берсе.",
 	"query-builder-input-value-placeholder": "Мәгънә кертегез",
 	"query-builder-item-value-lookup-no-match-found": "Туры килгәне табылмады",
 	"query-builder-lexeme-value-lookup-no-match-found": "Туры килгәне табылмады",
