@@ -91,7 +91,7 @@ export default Vue.extend( {
 
 	&__search-icon {
 		display: flex;
-		padding-right: 8px;
+		padding-inline-end: 8px;
 		height: fit-content;
 	}
 
