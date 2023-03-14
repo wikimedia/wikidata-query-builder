@@ -153,16 +153,15 @@ export default Vue.extend( {
 		},
 		async addCondition(): Promise<void> {
 			await this.$store.dispatch( 'addCondition' );
-			setTimeout( () => {
-				document
-					.getElementsByClassName( 'querybuilder__condition-wrapper--last' )[ 0 ]
-					.scrollIntoView( { behavior: 'smooth' } );
+			await this.$nextTick();
+			document
+				.getElementsByClassName( 'querybuilder__condition-wrapper--last' )[ 0 ]
+				.scrollIntoView( { behavior: 'smooth' } );
 
-				const toggle = document
-					.querySelectorAll( '.querybuilder__condition-relation-toggle .wikit-ToggleButton' );
+			const toggle = document
+				.querySelectorAll( '.querybuilder__condition-relation-toggle .wikit-ToggleButton' );
 
-				( toggle[ toggle.length - 1 ] as HTMLElement ).focus();
-			} );
+			( toggle[ toggle.length - 1 ] as HTMLElement ).focus();
 		},
 		setConditionRelation( value: ConditionRelation, index: number ): void {
 			this.$store.dispatch( 'setConditionRelation', { value, conditionIndex: index + 1 } );
