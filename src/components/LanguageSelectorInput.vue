@@ -5,6 +5,7 @@
 				<img src="/img/search.svg" alt="">
 			</div>
 			<input
+				ref="input"
 				type="text"
 				class="languageSelector__input"
 				:value="value"
@@ -45,6 +46,10 @@ export default Vue.extend( {
 	methods: {
 		onClearInputValue(): void {
 			this.$emit( 'clear' );
+		},
+		// eslint-disable-next-line vue/no-unused-properties -- exported method
+		focus(): void {
+			( this.$refs.input as HTMLInputElement ).focus();
 		},
 	},
 } );

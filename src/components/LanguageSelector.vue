@@ -7,6 +7,7 @@
 			</button>
 		</div>
 		<LanguageSelectorInput
+			ref="input"
 			:value="searchInput"
 			:placeholder="$i18n( 'query-builder-language-selector-input-placeholder' )"
 			@input="onInput"
@@ -68,6 +69,10 @@ export default Vue.extend( {
 		},
 		onCloseMenu(): void {
 			this.$emit( 'close' );
+		},
+		// eslint-disable-next-line vue/no-unused-properties -- exported method
+		focus(): void {
+			( this.$refs.input as InstanceType<typeof LanguageSelectorInput> ).focus();
 		},
 	},
 } );
