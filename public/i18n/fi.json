@@ -5,6 +5,7 @@
 			"MITO",
 			"Maantietäjä",
 			"Nike",
+			"Pyscowicz",
 			"Yupik"
 		]
 	},
@@ -60,12 +61,12 @@
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Yksikkö (valinnainen)",
 	"query-builder-footer-about-query-builder": "Lisätietoja Query Builderista",
 	"query-builder-footer-licence": "Lisenssi [$1 BSD 3-Clause License]",
-	"query-builder-footer-view-source": "Näytä lähdekoodi",
+	"query-builder-footer-view-source": "Hanki lähdekoodi",
 	"query-builder-footer-report-link": "Ilmoita ongelmasta",
 	"query-builder-footer-about-us": "Tietoja meistä",
 	"query-builder-footer-privacy-policy": "Tietosuojakäytäntö",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
-	"query-builder-footer-team": "Valmistanut Wikidatan tiimi",
+	"query-builder-footer-team": "Tehnyt ❤️ [$1 Wikidata-tiimi]",
 	"query-builder-date-input-value-label": "Arvo",
 	"query-builder-date-input-placeholder": "esimerkiksi 31-12-2020",
 	"query-builder-date-input-prompt-text": "Syötä päivämäärä",
@@ -73,5 +74,7 @@
 	"query-builder-date-input-calendar-notice-text": "Kaikki päivämäärät tulkitaan gregoriaanisiksi päivämääriksi",
 	"query-builder-language-selector-input-placeholder": "Hae kieliä",
 	"query-builder-language-selector-no-results": "Kieli ei ole saatavilla",
-	"query-builder-language-selector-options-menu-aria-label": "Kielet"
+	"query-builder-language-selector-options-menu-aria-label": "Kielet",
+	"query-builder-language-selector-mobile-header": "Valitse kieli",
+	"query-builder-language-selector-close-button-label": "Sulje kielivalitsin"
 }

@@ -20,6 +20,7 @@
 	"query-builder-sense-value-lookup-no-match-found": "Туры килгәне табылмады",
 	"query-builder-form-value-lookup-no-match-found": "Туры килгәне табылмады",
 	"query-builder-property-lookup-label": "Үзлек",
+	"query-builder-property-lookup-tooltip": "Шарт эчендә <em>үзлек</em> кыры - ул <em>мәгънә</em> өчен төркем яисә дескриптор була. Мәсьәлән, \"төс\" <em>үзлегенә</em> \"зәңгәр\" <em>мәгънәсе</em> туры килә.",
 	"query-builder-property-lookup-placeholder": "Үзлекне билгеләгезче",
 	"query-builder-property-lookup-no-match-found": "Туры килгәне табылмады",
 	"query-builder-property-lookup-limited-support-tag": "эшләве чикләнгән",

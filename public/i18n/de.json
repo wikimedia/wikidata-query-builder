@@ -8,6 +8,7 @@
 			"Lucas Werkmeister",
 			"ManuelFranz",
 			"Pittigrilli",
+			"Wangombe",
 			"Wolfdietmann"
 		]
 	},
@@ -22,6 +23,7 @@
 	"query-builder-input-value-tooltip": "Das <em>Wert</em>-Feld enthält die konkreten Informationen, die verwendet werden, um einen Gegenstand zu beschreiben. Zum Beispiel ist \"blau ein möglicher <em>Wert</em> für die <em>Eigenschaft</em> \"Farbe\".",
 	"query-builder-input-value-placeholder": "Geben sie einen Wert ein",
 	"query-builder-item-value-lookup-no-match-found": "Kein Treffer gefunden",
+	"query-builder-lexeme-value-lookup-no-match-found": "Kein Treffer gefunden",
 	"query-builder-property-lookup-label": "Eigenschaft",
 	"query-builder-property-lookup-tooltip": "Das <em>property</em> Feld in einer Bedingung ist die Kategorie oder der Deskriptor für den <em>value</em>. Zum Beispiel wäre „Farbe“ eine <em>property</em>, die du wahrscheinlich für den <em>value</em> „blau“ verwenden würdest.",
 	"query-builder-property-lookup-placeholder": "Gib eine Eigenschaft ein",
@@ -88,5 +90,6 @@
 	"query-builder-date-input-placeholder": "zum Beispiel 31-12-2020",
 	"query-builder-date-input-prompt-text": "Bitte ein Datum angeben",
 	"query-builder-date-input-results-intro-text": "Wird interpretiert als:",
-	"query-builder-date-input-calendar-notice-text": "Alle Daten werden als gregorianische Daten interpretiert"
+	"query-builder-date-input-calendar-notice-text": "Alle Daten werden als gregorianische Daten interpretiert",
+	"query-builder-language-selector-options-menu-aria-label": "Sprachen"
 }
