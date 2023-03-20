@@ -8,6 +8,28 @@
 						<bdi id="directionSample" dir="auto">{{ $i18n( 'query-builder-heading' ) }}</bdi>
 					</h1>
 				</a>
+				<div class="querybuilder__languageSelector">
+					<Button
+						type="neutral"
+						:aria-label="$i18n( 'query-builder-toggle-language-selector-button' )"
+						@click.native="onToggleLanguageSelector"
+					>
+						<template #prefix>
+							<Icon type="language-selector" />
+						</template>
+						{{ lang }}
+					</Button>
+					<LanguageSelector
+						v-show="showLanguageSelector"
+						ref="languageSelector"
+						@close="onCloseLanguageSelector"
+						@select="onChangeLanguage"
+					>
+						<template #no-results>
+							{{ $i18n( 'query-builder-language-selector-no-results' ) }}
+						</template>
+					</LanguageSelector>
+				</div>
 			</div>
 			<h2
 				class="querybuilder__description-heading"
@@ -94,7 +116,7 @@ import Footer from '@/components/Footer.vue';
 import { ConditionRow } from '@/store/RootState';
 import Vue from 'vue';
 import { mapState } from 'vuex';
-import { Button } from '@wmde/wikit-vue-components';
+import { Button, Icon } from '@wmde/wikit-vue-components';
 
 import ConditionRelationToggle from '@/components/ConditionRelationToggle.vue';
 import QueryCondition from '@/components/QueryCondition.vue';
@@ -105,10 +127,12 @@ import Limit from '@/components/Limit.vue';
 import LabelOptout from '@/components/LabelOptout.vue';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import SharableLink from '@/components/SharableLink.vue';
+import LanguageSelector from '@/components/LanguageSelector.vue';
 
 export default Vue.extend( {
 	name: 'QueryBuilder',
 	components: {
+		Icon,
 		Button,
 		ConditionRelationToggle,
 		QueryResult,
@@ -118,11 +142,19 @@ export default Vue.extend( {
 		LabelOptout,
 		Footer,
 		SharableLink,
+		LanguageSelector,
+	},
+	props: {
+		lang: {
+			type: String,
+			default: '',
+		},
 	},
 	data() {
 		return {
 			encodedQuery: '',
 			iframeRenderKey: 0,
+			showLanguageSelector: false,
 		};
 	},
 	computed: {
@@ -172,6 +204,20 @@ export default Vue.extend( {
 		},
 		isBelowOr( index: number ): boolean {
 			return index !== 0 && this.conditionRows[ index ].conditionRelation === ConditionRelation.Or;
+		},
+		onCloseLanguageSelector(): void {
+			this.showLanguageSelector = false;
+		},
+		onToggleLanguageSelector(): void {
+			this.showLanguageSelector = !this.showLanguageSelector;
+			if ( this.showLanguageSelector === true ) {
+				this.$nextTick( () => {
+					this.$refs.languageSelector.focus();
+				} );
+			}
+		},
+		onChangeLanguage( newLanguage: string ): void {
+			this.$emit( 'update:lang', newLanguage );
 		},
 	},
 	created() {
@@ -281,6 +327,8 @@ $largeViewportWidth: 90em; //~1438px
 
 .querybuilder__heading {
 	padding-bottom: $dimension-layout-small;
+	display: flex;
+	justify-content: space-between;
 
 	.querybuilder__logo {
 		background-image: url( '/img/QB_Logo.svg' );
@@ -380,5 +428,11 @@ $largeViewportWidth: 90em; //~1438px
 
 .query-builder__footer {
 	background-color: $color-base-90;
+}
+
+.querybuilder__languageSelector {
+	@media (min-width: $tinyViewportWidth) {
+		position: relative;
+	}
 }
 </style>
