@@ -8,7 +8,7 @@ function wikibaseApiRequest( query ) {
 	};
 }
 
-describe( 'Test error handling of the Query Building', () => {
+describe( 'Test error handling of the Query Builder', () => {
 	it( 'Tests whether the Query builder handles user input error correctly.', () => {
 		cy.visit( '/' );
 		const runQueryButtonSelector = '.querybuilder__run .wikit-Button--progressive';
