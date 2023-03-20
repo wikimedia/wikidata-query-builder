@@ -20,6 +20,8 @@
 	"query-builder-input-value-placeholder": "Angi en verdi",
 	"query-builder-item-value-lookup-no-match-found": "Ingen treff funnet",
 	"query-builder-lexeme-value-lookup-no-match-found": "Ingen treff funnet",
+	"query-builder-sense-value-lookup-no-match-found": "Ingen treff funnet",
+	"query-builder-form-value-lookup-no-match-found": "Ingen treff funnet",
 	"query-builder-property-lookup-label": "Egenskap",
 	"query-builder-property-lookup-tooltip": "<em>egenskap</em>-feltet er for kategorien eller beskrivelsen som en <em>verdi</em> tilhører. For eksempel, «farge» er en <em>egenskap</em> som du kan forvente å bruke med <em>verdi</em>: «blå».",
 	"query-builder-property-lookup-placeholder": "Angi en egenskap",
@@ -78,9 +80,13 @@
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
 	"query-builder-footer-team": "Laget med ❤️ av [$1 Wikidata-teamet]",
 	"query-builder-footer-more-data-quality-tools": "Flere datakvalitetsverktøy",
+	"query-builder-footer-mismatch-finder": "Mismatch Finder",
 	"query-builder-date-input-value-label": "Verdi",
 	"query-builder-date-input-placeholder": "for eksempel 31-12-2020",
 	"query-builder-date-input-prompt-text": "Skriv inn en dato",
 	"query-builder-date-input-results-intro-text": "Vli tolkes som:",
-	"query-builder-date-input-calendar-notice-text": "Alle datoer tolkes som gregorianske datoer"
+	"query-builder-date-input-calendar-notice-text": "Alle datoer tolkes som gregorianske datoer",
+	"query-builder-language-selector-clear-button-label": "Tøm inndatafelt",
+	"query-builder-language-selector-mobile-header": "Velg språk",
+	"query-builder-language-selector-close-button-label": "Lukk språkvelger"
 }
