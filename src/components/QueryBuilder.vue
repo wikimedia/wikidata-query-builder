@@ -17,7 +17,7 @@
 						<template #prefix>
 							<Icon type="language-selector" />
 						</template>
-						{{ lang }}
+						{{ currentLanguageAutonym }}
 					</Button>
 					<LanguageSelector
 						v-show="showLanguageSelector"
@@ -128,6 +128,7 @@ import LabelOptout from '@/components/LabelOptout.vue';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import SharableLink from '@/components/SharableLink.vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
+import languagedata from '@wikimedia/language-data';
 
 export default Vue.extend( {
 	name: 'QueryBuilder',
@@ -160,6 +161,9 @@ export default Vue.extend( {
 	computed: {
 		conditionRows(): ConditionRow[] {
 			return this.$store.getters.conditionRows;
+		},
+		currentLanguageAutonym(): string {
+			return languagedata.getAutonym( this.lang );
 		},
 		...mapState( {
 			errors: 'errors',

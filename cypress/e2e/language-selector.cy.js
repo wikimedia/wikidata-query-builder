@@ -11,8 +11,7 @@ describe( 'Language selector component', () => {
 			.click();
 		cy.get( '.querybuilder__description-heading' ).should( 'have.text', 'À propos de cet outil' );
 	} );
-	it( 'Tests that text changes in language selector button', () => {
-		// TODO: replace language code with autonym
+	it( 'Tests that autonym changes in language selector button', () => {
 		cy.visit( '/' );
 		cy.get( '.querybuilder__languageSelector .wikit-Button' )
 			.click();
@@ -21,6 +20,11 @@ describe( 'Language selector component', () => {
 		cy.get( '.languageSelector__options-menu__languages-list__item' )
 			.first()
 			.click();
-		cy.get( '.querybuilder__languageSelector .wikit-Button' ).contains( 'ban' );
+		cy.get( '.querybuilder__languageSelector .wikit-Button' ).contains( 'Bali' );
+	} );
+	it( '?uselang query parameter changes Language Selector button autonym and page language', () => {
+		cy.visit( '/?uselang=de' );
+		cy.get( '.querybuilder__languageSelector .wikit-Button' ).contains( 'Deutsch' );
+		cy.get( '.querybuilder__description-heading' ).should( 'have.text', 'Über dieses Tool' );
 	} );
 } );
