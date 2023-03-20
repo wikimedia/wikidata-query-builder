@@ -85,5 +85,6 @@
   "query-builder-language-selector-options-menu-aria-label": "Languages",
   "query-builder-language-selector-clear-button-label": "Clear input field",
   "query-builder-language-selector-mobile-header": "Select a language",
-  "query-builder-language-selector-close-button-label": "Close Language Selector"
+  "query-builder-language-selector-close-button-label": "Close Language Selector",
+  "query-builder-toggle-language-selector-button": "Toggle Language Selector"
 }

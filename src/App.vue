@@ -1,9 +1,10 @@
 <template>
 	<div
 		id="app"
+		:key="refreshKey"
 		:lang="lang"
 		:dir="textDirection">
-		<QueryBuilder v-if="isi18nLoaded" />
+		<QueryBuilder v-if="isi18nLoaded" :lang.sync="lang" />
 	</div>
 </template>
 
@@ -32,6 +33,10 @@ export default Vue.extend( {
 			isi18nLoaded: false as boolean,
 			lang: languageService.getAppLanguageCode(),
 			textDirection: '',
+			i18nOptions: {
+				wikilinks: true,
+			} as Partial<{ locale: string; messages: Record<string, Record<string, string>>; wikilinks: true }>,
+			refreshKey: 0,
 		};
 	},
 	methods: {
@@ -44,11 +49,9 @@ export default Vue.extend( {
 				messages[ this.lang ] = await languageService.getMessagesForLangCode( this.lang );
 			}
 
-			Vue.use( i18n, {
-				locale: this.lang,
-				messages,
-				wikilinks: true,
-			} );
+			this.i18nOptions.locale = this.lang;
+			this.i18nOptions.messages = messages;
+			Vue.use( i18n, this.i18nOptions );
 			this.isi18nLoaded = true;
 			this.setDocumentTitle( messages );
 
@@ -63,6 +66,12 @@ export default Vue.extend( {
 		setDocumentTitle( messages: { [langCode: string]: { [msgKey: string]: string} } ): void {
 			// eslint-disable-next-line dot-notation, max-len
 			window.document.title = messages[ this.lang ][ 'query-builder-heading' ] || messages[ 'en' ][ 'query-builder-heading' ];
+		},
+	},
+	watch: {
+		lang: async function () {
+			await this.fetchi18n();
+			this.refreshKey += 1;
 		},
 	},
 	created(): void {
