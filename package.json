@@ -13,7 +13,7 @@
     "test:lint-cypress": "eslint --no-fix --max-warnings 0 cypress",
     "serve": "vite --config vite.config.js --port 8080",
     "build": "tsc --noEmit && vite build --out-dir dist",
-    "test:unit": "jest --no-cache",
+    "test:unit": "jest --no-cache tests/unit",
     "test:integration": "jest -c jest.config.integration.js",
     "test:lint": "eslint --no-fix --max-warnings 0 --ignore-path .gitignore .",
     "test": "npm-run-all test:* && vite build",
