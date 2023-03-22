@@ -8,7 +8,7 @@
   },
   "scripts": {
     "preview": "vite preview --port 8080",
-    "cypress": "unset DISPLAY && CYPRESS_API_URL=${VUE_APP_WIKIBASE_API_URL} CYPRESS_BASE_URL=${CYPRESS_BASE_URL:-http://localhost:8080} cypress run --browser chromium --headless",
+    "cypress": "unset DISPLAY && CYPRESS_API_URL=${VUE_APP_WIKIBASE_API_URL} CYPRESS_BASE_URL=${CYPRESS_BASE_URL:-http://localhost:8080} cypress run --browser \"$(./cypress/figureOutBrowser.sh)\" --headless",
     "cypress:interactive": "CYPRESS_API_URL=${VUE_APP_WIKIBASE_API_URL} CYPRESS_BASE_URL=${CYPRESS_BASE_URL:-http://localhost:8080} cypress open",
     "test:lint-cypress": "eslint --no-fix --max-warnings 0 cypress",
     "serve": "vite --config vite.config.js --port 8080",
