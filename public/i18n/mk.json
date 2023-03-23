@@ -90,5 +90,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Јазици",
 	"query-builder-language-selector-clear-button-label": "Исчисти вносно поле",
 	"query-builder-language-selector-mobile-header": "Изберте јазик",
-	"query-builder-language-selector-close-button-label": "Затвори го Избирачот на јазик"
+	"query-builder-language-selector-close-button-label": "Затвори го Избирачот на јазик",
+	"query-builder-toggle-language-selector-button": "Вкл/искл. Избирачот на јазик"
 }

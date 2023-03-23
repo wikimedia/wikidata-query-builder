@@ -95,5 +95,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Langues",
 	"query-builder-language-selector-clear-button-label": "Effacer le champ de saisie",
 	"query-builder-language-selector-mobile-header": "Sélectionner une langue",
-	"query-builder-language-selector-close-button-label": "Fermer le sélecteur de langue"
+	"query-builder-language-selector-close-button-label": "Fermer le sélecteur de langue",
+	"query-builder-toggle-language-selector-button": "Basculer le sélecteur de langue"
 }

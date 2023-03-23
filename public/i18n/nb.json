@@ -86,6 +86,9 @@
 	"query-builder-date-input-prompt-text": "Skriv inn en dato",
 	"query-builder-date-input-results-intro-text": "Vli tolkes som:",
 	"query-builder-date-input-calendar-notice-text": "Alle datoer tolkes som gregorianske datoer",
+	"query-builder-language-selector-input-placeholder": "Søk i språk",
+	"query-builder-language-selector-no-results": "Språket er ikke tilgjengelig",
+	"query-builder-language-selector-options-menu-aria-label": "Språk",
 	"query-builder-language-selector-clear-button-label": "Tøm inndatafelt",
 	"query-builder-language-selector-mobile-header": "Velg språk",
 	"query-builder-language-selector-close-button-label": "Lukk språkvelger"

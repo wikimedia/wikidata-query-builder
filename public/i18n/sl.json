@@ -92,5 +92,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Jeziki",
 	"query-builder-language-selector-clear-button-label": "Počisti vnosno polje",
 	"query-builder-language-selector-mobile-header": "Izberite jezik",
-	"query-builder-language-selector-close-button-label": "Zapri izbirnik jezika"
+	"query-builder-language-selector-close-button-label": "Zapri izbirnik jezika",
+	"query-builder-toggle-language-selector-button": "Preklop izbirnika jezika"
 }

@@ -92,5 +92,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "שפות",
 	"query-builder-language-selector-clear-button-label": "ניקוי שדה קלט",
 	"query-builder-language-selector-mobile-header": "בחירת שפה",
-	"query-builder-language-selector-close-button-label": "סגירת בורר השפות"
+	"query-builder-language-selector-close-button-label": "סגירת בורר השפות",
+	"query-builder-toggle-language-selector-button": "שינוי מצב בורר השפות"
 }

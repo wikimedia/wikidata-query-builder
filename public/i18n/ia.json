@@ -90,5 +90,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Linguas",
 	"query-builder-language-selector-clear-button-label": "Rader campo de entrata",
 	"query-builder-language-selector-mobile-header": "Selige un lingua",
-	"query-builder-language-selector-close-button-label": "Clauder le selector de linguas"
+	"query-builder-language-selector-close-button-label": "Clauder le selector de linguas",
+	"query-builder-toggle-language-selector-button": "Activar/disactivar le selector de linguas"
 }
