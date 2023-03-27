@@ -6,6 +6,7 @@
 			"Ice bulldog",
 			"Kareyac",
 			"Okras",
+			"Renat",
 			"Wileyfoxyx"
 		]
 	},
@@ -20,6 +21,9 @@
 	"query-builder-input-value-tooltip": "Поле <em> значение </em> содержит конкретную информацию, используемую для описания элемента. Например, «синий» - это одно из возможных <em> значений </em> для <em> свойства </em> «цвет».",
 	"query-builder-input-value-placeholder": "Введите значение",
 	"query-builder-item-value-lookup-no-match-found": "Совпадений не найдено",
+	"query-builder-lexeme-value-lookup-no-match-found": "Совпадений не найдено",
+	"query-builder-sense-value-lookup-no-match-found": "Совпадений не найдено",
+	"query-builder-form-value-lookup-no-match-found": "Совпадений не найдено",
 	"query-builder-property-lookup-label": "Свойство",
 	"query-builder-property-lookup-tooltip": "Поле <em> свойство </em> в условии - это категория или дескриптор для <em> значения </em>. Например, «цвет» будет <em> свойством </em>, которое вы, вероятно, будете использовать для <em> значения </em> «синий».",
 	"query-builder-property-lookup-placeholder": "Введите свойство",
@@ -87,5 +91,7 @@
 	"query-builder-date-input-prompt-text": "Пожалуйста, введите дату",
 	"query-builder-date-input-results-intro-text": "Будет интерпретироваться как:",
 	"query-builder-date-input-calendar-notice-text": "Все даты интерпретируются как даты по григорианскому календарю.",
-	"query-builder-language-selector-options-menu-aria-label": "Языки"
+	"query-builder-language-selector-no-results": "Язык недоступен",
+	"query-builder-language-selector-options-menu-aria-label": "Языки",
+	"query-builder-language-selector-clear-button-label": "Очистить поле ввода"
 }
