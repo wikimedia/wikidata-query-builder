@@ -84,7 +84,7 @@ $tinyViewportWidth: 38em;
 
 .querybuilder__language-selector {
 	position: absolute;
-	right: 0;
+	inset-inline-end: 0;
 	width: 384px;
 	z-index: 1;
 
