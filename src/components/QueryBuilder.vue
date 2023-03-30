@@ -435,6 +435,9 @@ $largeViewportWidth: 90em; //~1438px
 }
 
 .querybuilder__languageSelector {
+	button {
+		margin-bottom: 2px;
+	}
 	@media (min-width: $tinyViewportWidth) {
 		position: relative;
 	}
