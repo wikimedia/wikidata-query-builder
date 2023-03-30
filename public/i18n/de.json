@@ -24,6 +24,8 @@
 	"query-builder-input-value-placeholder": "Geben sie einen Wert ein",
 	"query-builder-item-value-lookup-no-match-found": "Kein Treffer gefunden",
 	"query-builder-lexeme-value-lookup-no-match-found": "Kein Treffer gefunden",
+	"query-builder-sense-value-lookup-no-match-found": "Es wurde keine Übereinstimmung gefunden",
+	"query-builder-form-value-lookup-no-match-found": "Es wurde keine Übereinstimmung gefunden",
 	"query-builder-property-lookup-label": "Eigenschaft",
 	"query-builder-property-lookup-tooltip": "Das <em>property</em> Feld in einer Bedingung ist die Kategorie oder der Deskriptor für den <em>value</em>. Zum Beispiel wäre „Farbe“ eine <em>property</em>, die du wahrscheinlich für den <em>value</em> „blau“ verwenden würdest.",
 	"query-builder-property-lookup-placeholder": "Gib eine Eigenschaft ein",
@@ -91,5 +93,11 @@
 	"query-builder-date-input-prompt-text": "Bitte ein Datum angeben",
 	"query-builder-date-input-results-intro-text": "Wird interpretiert als:",
 	"query-builder-date-input-calendar-notice-text": "Alle Daten werden als gregorianische Daten interpretiert",
-	"query-builder-language-selector-options-menu-aria-label": "Sprachen"
+	"query-builder-language-selector-input-placeholder": "Sprachen suchen",
+	"query-builder-language-selector-no-results": "Sprache nicht verfügbar",
+	"query-builder-language-selector-options-menu-aria-label": "Sprachen",
+	"query-builder-language-selector-clear-button-label": "Eingabefeld löschen",
+	"query-builder-language-selector-mobile-header": "Wähle eine Sprache",
+	"query-builder-language-selector-close-button-label": "Sprachauswahl schließen",
+	"query-builder-toggle-language-selector-button": "Sprachauswahl umschalten"
 }
