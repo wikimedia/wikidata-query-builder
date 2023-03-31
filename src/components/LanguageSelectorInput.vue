@@ -11,6 +11,7 @@
 				:value="value"
 				:placeholder="placeholder"
 				@input="$emit( 'input', $event.target.value )"
+				@blur="$emit( 'blur' )"
 			>
 		</div>
 		<button

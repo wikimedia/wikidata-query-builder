@@ -27,4 +27,12 @@ describe( 'Language selector component', () => {
 		cy.get( '.querybuilder__languageSelector .wikit-Button' ).contains( 'Deutsch' );
 		cy.get( '.querybuilder__description-heading' ).should( 'have.text', 'Über dieses Tool' );
 	} );
+	it( 'Language selector menu closes on blur', () => {
+		cy.visit( '/' );
+		cy.get( '.querybuilder__languageSelector .wikit-Button' )
+			.click();
+		cy.get( '.querybuilder__language-selector' ).should( 'be.visible' );
+		cy.get( 'body' ).click( 0, 0 );
+		cy.get( '.querybuilder__language-selector' ).should( 'not.be.visible' );
+	} );
 } );

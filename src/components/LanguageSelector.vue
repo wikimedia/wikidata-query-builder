@@ -12,6 +12,7 @@
 			:placeholder="$i18n( 'query-builder-language-selector-input-placeholder' )"
 			@input="onInput"
 			@clear="onClearInputValue"
+			@blur="$emit( 'close' )"
 		/>
 		<LanguageSelectorOptionsMenu
 			:languages="shownLanguages"
