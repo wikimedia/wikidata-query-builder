@@ -95,5 +95,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Dil",
 	"query-builder-language-selector-clear-button-label": "Giriş alanını temizle",
 	"query-builder-language-selector-mobile-header": "Bir dil seç",
-	"query-builder-language-selector-close-button-label": "Dil Seçiciyi Kapat"
+	"query-builder-language-selector-close-button-label": "Dil Seçiciyi Kapat",
+	"query-builder-toggle-language-selector-button": "Dil seçicisini aç/kapa"
 }
