@@ -91,7 +91,11 @@
 	"query-builder-date-input-prompt-text": "Пожалуйста, введите дату",
 	"query-builder-date-input-results-intro-text": "Будет интерпретироваться как:",
 	"query-builder-date-input-calendar-notice-text": "Все даты интерпретируются как даты по григорианскому календарю.",
+	"query-builder-language-selector-input-placeholder": "Поиск языков",
 	"query-builder-language-selector-no-results": "Язык недоступен",
 	"query-builder-language-selector-options-menu-aria-label": "Языки",
-	"query-builder-language-selector-clear-button-label": "Очистить поле ввода"
+	"query-builder-language-selector-clear-button-label": "Очистить поле ввода",
+	"query-builder-language-selector-mobile-header": "Выберите язык",
+	"query-builder-language-selector-close-button-label": "Закрыть выбор языка",
+	"query-builder-toggle-language-selector-button": "Переключить выбор языка"
 }

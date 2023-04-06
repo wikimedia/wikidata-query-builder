@@ -16,6 +16,9 @@
 	"query-builder-input-value-tooltip": "Fältet <em>värde</em> innehåller den konkreta information som används för att beskriva ett objekt. Till exempel \"blå\" är ett möjligt <em>värde</em> för en <em>egenskap</em> som heter \"färg\".",
 	"query-builder-input-value-placeholder": "Skriv in ett värde",
 	"query-builder-item-value-lookup-no-match-found": "Ingen träff hittades",
+	"query-builder-lexeme-value-lookup-no-match-found": "Ingen träff hittades",
+	"query-builder-sense-value-lookup-no-match-found": "Ingen träff hittades",
+	"query-builder-form-value-lookup-no-match-found": "Ingen träff hittades",
 	"query-builder-property-lookup-label": "Egenskap",
 	"query-builder-property-lookup-tooltip": "Fältet <em>egenskap</em> i ett villkor, är kategorin eller beskrivaren till <em>värde</em>. Vore exempelvis \"färg\" en <em>egenskap</em> skulle du förmodligen använda \"blå\" som <em>värde</em>.",
 	"query-builder-property-lookup-placeholder": "Skriv in en egenskap",
@@ -78,5 +81,12 @@
 	"query-builder-date-input-placeholder": "till exempel 31-12-2020",
 	"query-builder-date-input-prompt-text": "Ange ett datum",
 	"query-builder-date-input-results-intro-text": "Kommer att tolkas som:",
-	"query-builder-date-input-calendar-notice-text": "Alla datum tolkas som gregorianska datum"
+	"query-builder-date-input-calendar-notice-text": "Alla datum tolkas som gregorianska datum",
+	"query-builder-language-selector-input-placeholder": "Sök språk",
+	"query-builder-language-selector-no-results": "Språket är inte tillgängligt",
+	"query-builder-language-selector-options-menu-aria-label": "Språk",
+	"query-builder-language-selector-clear-button-label": "Rensa inmatningsfält",
+	"query-builder-language-selector-mobile-header": "Välj ett språk",
+	"query-builder-language-selector-close-button-label": "Stäng språkväljaren",
+	"query-builder-toggle-language-selector-button": "Visa/dölj språkväljaren"
 }
