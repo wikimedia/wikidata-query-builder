@@ -224,6 +224,15 @@ export default Vue.extend( {
 			this.$emit( 'update:lang', newLanguage );
 		},
 	},
+	watch: {
+		showLanguageSelector( newShowLanguageSelector: boolean ): void {
+			if ( newShowLanguageSelector === true ) {
+				document.body.classList.add( 'overflow-hidden-on-mobile' );
+			} else {
+				document.body.classList.remove( 'overflow-hidden-on-mobile' );
+			}
+		},
+	},
 	created() {
 		this.incrementMetric( 'main-page-loaded' );
 	},
@@ -234,6 +243,20 @@ export default Vue.extend( {
 @use '../styles/links' as *;
 
 @include links-without-underline;
+
+$tinyViewportWidth: 38em;
+
+/*
+ * This is a rough approximation. by using a screen size emulator,
+ * we can see the width where all items are aligned.
+ */
+$largeViewportWidth: 90em; //~1438px
+
+body.overflow-hidden-on-mobile {
+	@media (max-width: $tinyViewportWidth) {
+		overflow: hidden;
+	}
+}
 // TODO replace with link component once available
 a {
 	font-family: $wikit-Link-font-family;
@@ -251,14 +274,6 @@ a {
 		color: $wikit-Link-visited-font-color;
 	}
 }
-
-$tinyViewportWidth: 38em;
-
-/*
- * This is a rough approximation. by using a screen size emulator,
- * we can see the width where all items are aligned.
- */
-$largeViewportWidth: 90em; //~1438px
 
 .querybuilder main {
 	padding-block: $dimension-layout-small $dimension-layout-large;

@@ -107,6 +107,11 @@ $tinyViewportWidth: 38em;
 
 	@media (max-width: $tinyViewportWidth) {
 		width: 100%;
+		position: fixed;
+		top: 0;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
 	}
 
 	.languageSelector__mobile-header {

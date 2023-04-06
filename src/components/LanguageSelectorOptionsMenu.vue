@@ -83,6 +83,7 @@ export default Vue.extend( {
 
 <style lang="scss">
 $base: '.languageSelector__options-menu';
+$tinyViewportWidth: 38em;
 
 #{$base} {
 	background-color: #ffffff;
@@ -93,6 +94,12 @@ $base: '.languageSelector__options-menu';
 	z-index: 1;
 	padding-block: 8px;
 	padding-inline: 12px;
+	height: 35vh;
+	overflow: scroll;
+
+	@media (max-width: $tinyViewportWidth) {
+		flex-grow: 1;
+	}
 
 	&__languages-list {
 		max-height: 15.25rem;
