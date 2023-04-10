@@ -64,5 +64,11 @@
 	"query-builder-date-input-placeholder": "ߟߊߒߡߊ߫ ߘߐ߫ ߁߂߲-߃߁-߂߀߂߀ ߠߊ߫",
 	"query-builder-date-input-prompt-text": "ߕߎ߬ߡߊ߬ߘߊ ߘߏ߫ ߝߊ߬ߙߊ߫ ߖߊ߰ߣߌ߲߫",
 	"query-builder-date-input-results-intro-text": "ߘߌ߫ ߘߟߊߡߌ߬ߣߊ߬ ߦߏ߫:",
-	"query-builder-date-input-calendar-notice-text": "ߕߎ߬ߡߊ߬ߘߊ ߟߎ߬ ߓߍ߯ ߦߋ߫ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫ ߜ߭ߙߋߜ߭ߏߙߌߞߊ߫ ߕߎߡߘߊ ߟߋ߬ ߘߌ߫"
+	"query-builder-date-input-calendar-notice-text": "ߕߎ߬ߡߊ߬ߘߊ ߟߎ߬ ߓߍ߯ ߦߋ߫ ߘߟߊߡߌ߬ߘߊ߬ ߟߊ߫ ߜ߭ߙߋߜ߭ߏߙߌߞߊ߫ ߕߎߡߘߊ ߟߋ߬ ߘߌ߫",
+	"query-builder-language-selector-input-placeholder": "ߢߌߣߌ߲ߠߌ߲߫ ߞߊ߲",
+	"query-builder-language-selector-no-results": "ߞߊ߲ ߕߍ߫ ߦߋ߲߬",
+	"query-builder-language-selector-options-menu-aria-label": "ߞߊ߲ ߠߎ߬",
+	"query-builder-language-selector-clear-button-label": "ߛߓߍߟߌ߫ ߞߣߍ ߖߏ߲߫",
+	"query-builder-language-selector-mobile-header": "ߞߊ߲ ߛߎߥߊ߲ߘߌ߫",
+	"query-builder-language-selector-close-button-label": "ߞߊ߲ ߛߎߥߊ߲ߘߌߟߊ߲ ߘߊߕߎ߲߯"
 }
