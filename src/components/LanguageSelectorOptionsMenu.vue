@@ -87,7 +87,7 @@ $tinyViewportWidth: 38em;
 
 #{$base} {
 	background-color: #ffffff;
-	border-radius: 1px;
+	border-radius: 0px 0px 1px 1px;
 	border: 1px solid #a2a9b1;
 	box-shadow: $wikit-OptionsMenu-box-shadow;
 	box-sizing: border-box;
