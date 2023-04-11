@@ -11,7 +11,7 @@
 				:value="value"
 				:placeholder="placeholder"
 				@input="$emit( 'input', $event.target.value )"
-				@blur="$emit( 'blur' )"
+				@keydown.tab="onTab"
 				@keydown.down.prevent="onArrowDown"
 				@keydown.up.prevent="onArrowUp"
 				@keydown.enter="onEnter"
@@ -51,8 +51,9 @@ export default Vue.extend( {
 	methods: {
 		onClearInputValue(): void {
 			this.$emit( 'clear' );
+			this.focus();
 		},
-		// eslint-disable-next-line vue/no-unused-properties -- exported method
+
 		focus(): void {
 			( this.$refs.input as HTMLInputElement ).focus();
 		},
@@ -67,6 +68,9 @@ export default Vue.extend( {
 		},
 		onEscape() {
 			this.$emit( 'escape' );
+		},
+		onTab() {
+			this.$emit( 'tab' );
 		},
 	},
 } );

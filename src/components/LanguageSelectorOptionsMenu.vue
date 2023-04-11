@@ -4,7 +4,10 @@
 		role="listbox"
 		:aria-label="$i18n( 'query-builder-language-selector-options-menu-aria-label' )"
 	>
-		<div ref="languagesList" class="languageSelector__options-menu__languages-list">
+		<div
+			ref="languagesList"
+			class="languageSelector__options-menu__languages-list"
+			tabindex="-1">
 			<div
 				v-for="( language, index ) in languages"
 				:key="language.code"

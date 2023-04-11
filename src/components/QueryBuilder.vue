@@ -8,7 +8,7 @@
 						<bdi id="directionSample" dir="auto">{{ $i18n( 'query-builder-heading' ) }}</bdi>
 					</h1>
 				</a>
-				<div class="querybuilder__languageSelector">
+				<div v-detect-click-outside="onClickOutsideLanguageSelector" class="querybuilder__languageSelector">
 					<Button
 						type="neutral"
 						:aria-label="$i18n( 'query-builder-toggle-language-selector-button' )"
@@ -129,6 +129,9 @@ import ConditionRelation from '@/data-model/ConditionRelation';
 import SharableLink from '@/components/SharableLink.vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import languagedata from '@wikimedia/language-data';
+import { DirectiveBinding } from 'vue/types/options';
+
+let handleOutsideClick: ( event: MouseEvent | TouchEvent ) => void;
 
 export default Vue.extend( {
 	name: 'QueryBuilder',
@@ -144,6 +147,25 @@ export default Vue.extend( {
 		Footer,
 		SharableLink,
 		LanguageSelector,
+	},
+	directives: {
+		detectClickOutside: {
+			inserted( element: HTMLElement, binding: DirectiveBinding ): void {
+				handleOutsideClick = ( event: MouseEvent | TouchEvent ): void => {
+					const callback = binding.value;
+					if ( !element.contains( event.target as Node ) ) {
+						callback();
+					}
+				};
+
+				document.addEventListener( 'click', handleOutsideClick );
+				document.addEventListener( 'touchstart', handleOutsideClick );
+			},
+			unbind(): void {
+				document.removeEventListener( 'click', handleOutsideClick );
+				document.removeEventListener( 'touchstart', handleOutsideClick );
+			},
+		},
 	},
 	props: {
 		lang: {
@@ -222,6 +244,9 @@ export default Vue.extend( {
 		},
 		onChangeLanguage( newLanguage: string ): void {
 			this.$emit( 'update:lang', newLanguage );
+		},
+		onClickOutsideLanguageSelector(): void {
+			this.showLanguageSelector = false;
 		},
 	},
 	watch: {

@@ -12,13 +12,14 @@
 			:placeholder="$i18n( 'query-builder-language-selector-input-placeholder' )"
 			@input="onInput"
 			@clear="onClearInputValue"
-			@blur="$emit( 'close' )"
+			@tab="onCloseMenu"
 			@arrowDown="onArrowDown"
 			@arrowUp="onArrowUp"
 			@enter="onEnter"
 			@escape="onCloseMenu"
 		/>
 		<LanguageSelectorOptionsMenu
+			tabindex="-1"
 			:languages="shownLanguages"
 			:highlighted-index="highlightedIndex"
 			@select="onSelect"
