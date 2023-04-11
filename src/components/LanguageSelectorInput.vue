@@ -104,6 +104,7 @@ export default Vue.extend( {
 		justify-content: space-between;
 		box-shadow: 0 1px 2px #00000040, inset 0 0 0 1px #36c;
 		border-color: #3366cc;
+		align-items: center;
 	}
 
 	&-left-side {

@@ -450,7 +450,7 @@ a {
 }
 
 .querybuilder__languageSelector {
-	button {
+	> button {
 		margin-bottom: 2px;
 	}
 	@media (min-width: $tinyViewportWidth) {
