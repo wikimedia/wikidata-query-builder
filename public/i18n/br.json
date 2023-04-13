@@ -5,12 +5,14 @@
 			"Y-M D"
 		]
 	},
+	"query-builder-intro-heading": "A-zivout ar benveg-mañ",
 	"query-builder-query-heading": "Reked",
 	"query-builder-settings-heading": "Arventennoù",
 	"query-builder-input-value-label": "Talvoud",
 	"query-builder-item-value-lookup-no-match-found": "N'eus bet kavet netra o klotañ",
 	"query-builder-property-lookup-no-match-found": "N'eus bet kavet netra o klotañ",
 	"query-builder-result-header": "Disoc'hoù",
+	"query-builder-add-condition": "Ouzhpennañ un diviz",
 	"query-builder-value-type-relation-dropdown-without": "hep",
 	"query-builder-value-type-relation-dropdown-less-than-quantity": "nebeutoc'h eget",
 	"query-builder-value-type-relation-dropdown-more-than-quantity": "muioc'h eget",
@@ -24,5 +26,9 @@
 	"query-builder-negation-option-label-without": "Hep",
 	"query-builder-footer-about-us": "Piv omp?",
 	"query-builder-footer-privacy-policy": "Reolennoù prevezded",
-	"query-builder-date-input-value-label": "Talvoud"
+	"query-builder-date-input-value-label": "Talvoud",
+	"query-builder-language-selector-input-placeholder": "Klask yezhoù",
+	"query-builder-language-selector-no-results": "Ar yezh-mañ n'eo ket da gaout",
+	"query-builder-language-selector-options-menu-aria-label": "Yezhoù",
+	"query-builder-language-selector-mobile-header": "Dibab ur yezh"
 }
