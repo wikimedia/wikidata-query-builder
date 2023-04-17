@@ -103,8 +103,6 @@ $tinyViewportWidth: 38em;
 
 	&__languages-list {
 		max-height: 15.25rem;
-		overflow-y: auto;
-		list-style-type: none;
 
 		&__item {
 			position: relative;
