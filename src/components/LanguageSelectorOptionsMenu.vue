@@ -1,5 +1,6 @@
 <template>
 	<div
+		ref="container"
 		class="languageSelector__options-menu"
 		role="listbox"
 		:aria-label="$i18n( 'query-builder-language-selector-options-menu-aria-label' )"
@@ -63,7 +64,7 @@ export default Vue.extend( {
 				return;
 			}
 
-			const container = element.getBoundingClientRect(),
+			const container = ( this.$refs.container as Element ).getBoundingClientRect(),
 				item = child.getBoundingClientRect(),
 				above = Math.floor( item.top ) < container.top,
 				below = Math.ceil( item.bottom ) > container.bottom;
@@ -97,15 +98,14 @@ $tinyViewportWidth: 38em;
 	z-index: 1;
 	padding-block: 8px;
 	padding-inline: 12px;
-	height: 35vh;
-	overflow: scroll;
+	height: 15.25rem;
+	overflow-y: scroll;
 
 	@media (max-width: $tinyViewportWidth) {
 		flex-grow: 1;
 	}
 
 	&__languages-list {
-		max-height: 15.25rem;
 
 		&__item {
 			position: relative;
