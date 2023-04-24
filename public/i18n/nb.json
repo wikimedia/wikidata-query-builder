@@ -81,6 +81,8 @@
 	"query-builder-footer-team": "Laget med ❤️ av [$1 Wikidata-teamet]",
 	"query-builder-footer-more-data-quality-tools": "Flere datakvalitetsverktøy",
 	"query-builder-footer-mismatch-finder": "Mismatch Finder",
+	"query-builder-footer-item-quality-evaluator": "Elementkvalitetsevaluator",
+	"query-builder-footer-curious-facts": "Interessante fakta",
 	"query-builder-date-input-value-label": "Verdi",
 	"query-builder-date-input-placeholder": "for eksempel 31-12-2020",
 	"query-builder-date-input-prompt-text": "Skriv inn en dato",
@@ -91,5 +93,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Språk",
 	"query-builder-language-selector-clear-button-label": "Tøm inndatafelt",
 	"query-builder-language-selector-mobile-header": "Velg språk",
-	"query-builder-language-selector-close-button-label": "Lukk språkvelger"
+	"query-builder-language-selector-close-button-label": "Lukk språkvelger",
+	"query-builder-toggle-language-selector-button": "Åpne/lukke språkvelgeren"
 }
