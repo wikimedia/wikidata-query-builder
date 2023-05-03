@@ -376,7 +376,7 @@ a {
 
 	.querybuilder__logo {
 		background-image: url( '/img/QB_Logo.svg' );
-		width: 351px;
+		width: 360px;
 		height: 24px;
 
 		@media (max-width: $tinyViewportWidth) {
