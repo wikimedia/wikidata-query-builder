@@ -83,6 +83,7 @@
 	"query-builder-footer-mismatch-finder": "Mismatch Finder",
 	"query-builder-footer-item-quality-evaluator": "Elementkvalitetsevaluator",
 	"query-builder-footer-curious-facts": "Interessante fakta",
+	"query-builder-footer-constraints-violation-checker": "Sjekk for begrensningsbrudd",
 	"query-builder-date-input-value-label": "Verdi",
 	"query-builder-date-input-placeholder": "for eksempel 31-12-2020",
 	"query-builder-date-input-prompt-text": "Skriv inn en dato",
