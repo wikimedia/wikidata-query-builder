@@ -72,13 +72,13 @@ describe( 'Component interaction test', () => {
 		).as( 'hasLimitedSupportedRequest' );
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
-			.type( 'has pet' )
-			.wait( '@hasPetRequest' );
+			.type( 'has pet' );
+		cy.wait( '@hasPetRequest' );
 		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).click();
 
 		cy.get( '.query-condition__value-input .wikit-Input' )
-			.type( 'house cat' )
-			.wait( '@houseCatRequest' );
+			.type( 'house cat' );
+		cy.wait( '@houseCatRequest' );
 		cy.get( '.query-condition__value-input .wikit-OptionsMenu__item' )
 			.first()
 			.click();
@@ -92,14 +92,14 @@ describe( 'Component interaction test', () => {
 		cy.get( '.wikit-OptionsMenu__item.wikit-OptionsMenu__item' ).contains( 'without' ).click();
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
-			.type( 'instance of' )
-			.wait( '@hasInstanceRequest' );
+			.type( 'instance of' );
+		cy.wait( '@hasInstanceRequest' );
 
 		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).first().click();
 
 		cy.get( '.query-condition__value-input .wikit-Input' )
-			.type( 'house cat' )
-			.wait( '@houseCatRequest' );
+			.type( 'house cat' );
+		cy.wait( '@houseCatRequest' );
 
 		cy.get( '.query-condition__value-input .wikit-OptionsMenu__item' )
 			.first()
@@ -113,8 +113,8 @@ describe( 'Component interaction test', () => {
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
 			.eq( 1 )
-			.type( 'IMDb ID' )
-			.wait( '@hasImdbRequest' );
+			.type( 'IMDb ID' );
+		cy.wait( '@hasImdbRequest' );
 		cy.get( '.query-condition__property-lookup:nth(1) .wikit-OptionsMenu__item' ).click();
 
 		// set value to 'regardless of value on the second query_condition block'.
@@ -136,8 +136,8 @@ describe( 'Component interaction test', () => {
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
 			.eq( 1 )
-			.type( 'LilyPond notation' )
-			.wait( '@hasLimitedSupportedRequest' );
+			.type( 'LilyPond notation' );
+		cy.wait( '@hasLimitedSupportedRequest' );
 		cy.get( '.query-condition__property-lookup:nth(1) .wikit-OptionsMenu__item' ).click();
 
 		// Assert input value component is disabled when user selects 'regardless of value'
@@ -147,29 +147,29 @@ describe( 'Component interaction test', () => {
 		cy.get( '.querybuilder__add-condition button' ).click();
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
 			.eq( 2 )
-			.type( 'elevation above sea level' )
-			.wait( '@hasQuantityRequest' );
+			.type( 'elevation above sea level' );
+		cy.wait( '@hasQuantityRequest' );
 		cy.get( '.query-condition__property-lookup:nth(2) .wikit-OptionsMenu__item' ).click();
 
 		cy.get( '.wikit-QuantityInput__number-input' )
 			.type( 12 );
 		cy.get( '.wikit-QuantityInput__unit-lookup input' )
-			.type( 'metre' )
-			.wait( '@hasUnitRequest' );
+			.type( 'metre' );
+		cy.wait( '@hasUnitRequest' );
 		cy.get( '.wikit-QuantityInput__unit-lookup .wikit-OptionsMenu__item' ).eq( 0 ).click();
 
 		// click 'Add condition' button and expand to a third block
 		cy.get( '.querybuilder__add-condition button' ).click();
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
 			.eq( 3 )
-			.type( 'publication date' )
-			.wait( '@hasPublicationDateRequest' );
+			.type( 'publication date' );
+		cy.wait( '@hasPublicationDateRequest' );
 		cy.get( '.query-condition__property-lookup:nth(3) .wikit-OptionsMenu__item' ).click();
 
 		cy.get( '.wikit-InputWithExtender .wikit-Input' )
-			.type( '31-12-2020' )
-			.wait( '@hasParseValueRequest' )
-			.wait( '@hasFormatvalueRequest' );
+			.type( '31-12-2020' );
+		cy.wait( '@hasParseValueRequest' );
+		cy.wait( '@hasFormatvalueRequest' );
 		cy.get( '.wikit-InputWithExtender__extension' ).click();
 
 		// run query
