@@ -3,6 +3,7 @@
 		"authors": [
 			"KPX8",
 			"Matěj Suchánek",
+			"Mormegil",
 			"Want",
 			"YjM"
 		]
@@ -68,12 +69,12 @@
 	"query-builder-footer-about-query-builder": "O nástroji na tvorbu dotazů (Query Builder)",
 	"query-builder-footer-licence": "Licencováno pod [$1 BSD 3-Clause licencí]",
 	"query-builder-footer-build-time": "Poslední sestavení (verze) na [$1 $2]",
-	"query-builder-footer-view-source": "Zobrazit zdroj",
-	"query-builder-footer-report-link": "Nahlásit chybu",
+	"query-builder-footer-view-source": "Získat zdrojový kód",
+	"query-builder-footer-report-link": "Nahlásit problém",
 	"query-builder-footer-about-us": "O nás",
 	"query-builder-footer-privacy-policy": "Zásady ochrany osobních údajů",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
-	"query-builder-footer-team": "Vytvořeno týmem Wikidata",
+	"query-builder-footer-team": "Vytvořeno s ❤️ [$1 týmem Wikidata]",
 	"query-builder-date-input-value-label": "Hodnota",
 	"query-builder-date-input-placeholder": "například 31-12-2020",
 	"query-builder-date-input-prompt-text": "Zadejte prosím datum",
