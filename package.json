@@ -45,7 +45,7 @@
     "@babel/preset-env": "^7.20.2",
     "@types/jest": "^29.5.0",
     "@types/jest-axe": "^3.5.5",
-    "@types/lodash": "^4.14.191",
+    "@types/lodash": "^4.14.194",
     "@types/node": "^18.15.10",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
