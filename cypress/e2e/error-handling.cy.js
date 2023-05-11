@@ -32,8 +32,8 @@ describe( 'Test error handling of the Query Builder', () => {
 		).as( 'houseCatRequest' );
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
-			.type( 'has pet' )
-			.wait( '@hasPetRequest' );
+			.type( 'has pet' );
+		cy.wait( '@hasPetRequest' );
 		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).click();
 
 		/**
@@ -45,8 +45,8 @@ describe( 'Test error handling of the Query Builder', () => {
 
 		// Add some value to the value input component
 		cy.get( '.query-condition__value-input .wikit-Input' )
-			.type( 'house cat' )
-			.wait( '@houseCatRequest' );
+			.type( 'house cat' );
+		cy.wait( '@houseCatRequest' );
 
 		cy.get( '.query-condition__value-input .wikit-OptionsMenu__item' )
 			.first()
