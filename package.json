@@ -80,7 +80,7 @@
     "stylelint-scss": "^5.0.0",
     "stylelint-use-logical": "^2.1.0",
     "ts-jest": "^29.1.0",
-    "typescript": "^5.0.2",
+    "typescript": "^5.0.4",
     "vite": "~2.8.6",
     "vite-plugin-env-compatible": "^1.1.1",
     "vite-plugin-vue2": "^2.0.3",
