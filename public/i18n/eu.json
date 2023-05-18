@@ -1,0 +1,32 @@
+{
+	"@metadata": {
+		"authors": [
+			"An13sa",
+			"Theklan"
+		]
+	},
+	"query-builder-heading": "Wikidata Query Builder",
+	"query-builder-intro-heading": "Tresna honi buruz",
+	"query-builder-query-heading": "Kontsulta",
+	"query-builder-settings-heading": "Hobespenak",
+	"query-builder-find-all-items": "Bilatu elementu guztiak...",
+	"query-builder-run-query": "Eskaera abiarazi",
+	"query-builder-input-value-label": "Balioa",
+	"query-builder-input-value-tooltip": "<em>Balio</em> eremuak elementu bat deskribatzeko erabiltzen den informazio zehatza dauka. Adibidez, \"kolorea\" <em>propietatearen</em> <em>balio</em> posible bat \"urdina\"  da.",
+	"query-builder-input-value-placeholder": "Sartu balio bat",
+	"query-builder-item-value-lookup-no-match-found": "Ez da bat datorren emaitzarik aurkitu.",
+	"query-builder-lexeme-value-lookup-no-match-found": "Ez da bat datorren emaitzarik aurkitu.",
+	"query-builder-sense-value-lookup-no-match-found": "Ez da bat datorren emaitzarik aurkitu.",
+	"query-builder-form-value-lookup-no-match-found": "Ez da bat datorren emaitzarik aurkitu.",
+	"query-builder-property-lookup-label": "Propietatea",
+	"query-builder-result-header": "Emaitzak",
+	"query-builder-value-type-relation-dropdown-less-than-date": "lehenago",
+	"query-builder-value-type-relation-dropdown-more-than-date": "ondoren",
+	"query-builder-reference-relation-label": "Erreferentziak",
+	"query-builder-condition-relation-toggle-and": "eta",
+	"query-builder-condition-relation-toggle-or": "edo",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Unitatea (hautazkoa)",
+	"query-builder-footer-about-us": "Guri buruz",
+	"query-builder-footer-privacy-policy": "Pribatutasun politika",
+	"query-builder-footer-wikimedia-deutchland": "Wikimedia Alemania"
+}
