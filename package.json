@@ -71,7 +71,7 @@
     "postcss-dir-pseudo-class": "^7.0.2",
     "postcss-logical": "^5.0.4",
     "sass": "^1.62.1",
-    "sass-loader": "^13.2.2",
+    "sass-loader": "^13.3.0",
     "start-server-and-test": "^2.0.0",
     "style-loader": "^3.3.2",
     "stylelint": "^15.6.1",
