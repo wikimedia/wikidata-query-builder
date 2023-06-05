@@ -3,7 +3,7 @@
 		<div class="languageSelector__mobile-header">
 			<span>{{ $i18n( 'query-builder-language-selector-mobile-header' ) }}</span>
 			<button @click="onCloseMenu">
-				<img src="/img/close.svg" :alt="$i18n( 'query-builder-language-selector-close-button-label' )">
+				<img :src="closeUrl" :alt="$i18n( 'query-builder-language-selector-close-button-label' )">
 			</button>
 		</div>
 		<LanguageSelectorInput
@@ -37,6 +37,7 @@ import LanguageSelectorOptionsMenu from '@/components/LanguageSelectorOptionsMen
 import Language from '@/data-model/Language';
 import Vue from 'vue';
 import languagedata from '@wikimedia/language-data';
+import closeUrl from '/img/close.svg';
 
 export default Vue.extend( {
 	name: 'LanguageSelector',
@@ -47,6 +48,7 @@ export default Vue.extend( {
 	data: () => ( {
 		searchInput: '',
 		highlightedIndex: -1,
+		closeUrl,
 	} ),
 	computed: {
 		languages(): Language[] {

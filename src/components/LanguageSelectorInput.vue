@@ -2,7 +2,7 @@
 	<div class="languageSelector__input__wrapper">
 		<div class="languageSelector__input-left-side">
 			<div class="languageSelector__input__search-icon">
-				<img src="/img/search.svg" alt="">
+				<img :src="searchUrl" alt="">
 			</div>
 			<input
 				ref="input"
@@ -23,13 +23,15 @@
 			:class="clearBtnVisible ? 'languageSelector__input__clear-button--visible' : ''"
 			@click="onClearInputValue"
 		>
-			<img src="/img/clear.svg" :alt="$i18n( 'query-builder-language-selector-clear-button-label' )">
+			<img :src="clearUrl" :alt="$i18n( 'query-builder-language-selector-clear-button-label' )">
 		</button>
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import searchUrl from '/img/search.svg';
+import clearUrl from '/img/clear.svg';
 
 export default Vue.extend( {
 	name: 'LanguageSelectorInput',
@@ -42,6 +44,12 @@ export default Vue.extend( {
 			type: String,
 			default: '',
 		},
+	},
+	data() {
+		return {
+			searchUrl,
+			clearUrl,
+		};
 	},
 	computed: {
 		clearBtnVisible(): boolean {

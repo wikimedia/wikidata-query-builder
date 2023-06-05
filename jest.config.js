@@ -8,6 +8,7 @@ module.exports = {
 	collectCoverageFrom: [ 'src/**/*.{ts,vue}' ],
 	moduleNameMapper: {
 		'^@/(.*)$': '<rootDir>/src/$1',
+		'/img/(.*)$': '<rootDir>/tests/config/fileMock.js',
 	},
 	transform: {
 		'.*\\.(vue)$': '@vue/vue2-jest',
