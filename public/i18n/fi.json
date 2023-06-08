@@ -10,6 +10,7 @@
 		]
 	},
 	"query-builder-heading": "Wikidata-kyselyrakentaja",
+	"query-builder-intro-heading": "Tietoja tästä työkalusta",
 	"query-builder-intro-text": "Wikidata Query Builder tarjoaa visuaalisen käyttöliittymän yksinkertaisten Wikidata-kyselyiden luomiseen. Se on ihanteellinen sellaisille käyttäjille, joilla on vähän tai ei ollenkaan kokemusta [$1 SPARQL:ista], tehokkaasta kyselykielestä. Query Builder ei tarjoa kaikkia SPARQL-toimintoja, mutta voit avata kyselyn Query Servicessä, jossa voit tarkastella, muokata ja laajentaa sitä tulosten yläpuolella olevan linkin kautta. [$2 Palaute on tervetullutta tänne].",
 	"query-builder-query-heading": "Kysely",
 	"query-builder-settings-heading": "Asetukset",
