@@ -9,6 +9,7 @@
 			"Nelthal",
 			"Rodney Araujo",
 			"SpikeShroom",
+			"Whovian Biologist",
 			"ZealousBlaze"
 		]
 	},
@@ -90,5 +91,7 @@
 	"query-builder-language-selector-input-placeholder": "Buscar idiomas",
 	"query-builder-language-selector-no-results": "Idioma no disponible",
 	"query-builder-language-selector-options-menu-aria-label": "Idiomas",
-	"query-builder-language-selector-clear-button-label": "Borrar campo de entrada"
+	"query-builder-language-selector-clear-button-label": "Borrar campo de entrada",
+	"query-builder-language-selector-mobile-header": "Selecciona un idioma",
+	"query-builder-language-selector-close-button-label": "Cerrar selector de idioma"
 }
