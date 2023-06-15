@@ -4,7 +4,8 @@
 			"Agam Riyandana",
 			"Akmaie Ajam",
 			"Daud I.F. Argana",
-			"Naufal06"
+			"Naufal06",
+			"Veracious"
 		]
 	},
 	"query-builder-heading": "Pembangun Kueri Wikidata",
@@ -18,6 +19,9 @@
 	"query-builder-input-value-tooltip": "Isian <em>nilai</em> berisi informasi konkret yang digunakan untuk menggambarkan suatu butir. Contohnya, \"biru\" adalah salah satu <em>nilai</em> yang mungkin untuk <em>atribut</em> \"warna\".",
 	"query-builder-input-value-placeholder": "Masukkan sebuah nilai",
 	"query-builder-item-value-lookup-no-match-found": "Tidak ada yang cocok",
+	"query-builder-lexeme-value-lookup-no-match-found": "Tidak ditemukan yang cocok",
+	"query-builder-sense-value-lookup-no-match-found": "Tidak ditemukan yang cocok",
+	"query-builder-form-value-lookup-no-match-found": "Tidak ditemukan yang cocok",
 	"query-builder-property-lookup-label": "Atribut",
 	"query-builder-property-lookup-tooltip": "Isian <em>atribut</em> di dalam suatu kondisi, adalah kategori atau deskriptor untuk <em>nilai</em>. Contohnya, \"warna\" adalah <em>atribut</em> yang Anda kemungkinan akan gunakan untuk <em>nilai</em> \"biru\".",
 	"query-builder-property-lookup-placeholder": "Masukkan sebuah atribut",
@@ -84,5 +88,11 @@
 	"query-builder-date-input-placeholder": "misalnya 31-12-2020",
 	"query-builder-date-input-prompt-text": "Tolong masukkan sebuah tanggal",
 	"query-builder-date-input-results-intro-text": "Akan dianggap sebagai:",
-	"query-builder-date-input-calendar-notice-text": "Semua tanggal dianggap sebagai tanggal Gregorius"
+	"query-builder-date-input-calendar-notice-text": "Semua tanggal dianggap sebagai tanggal Gregorius",
+	"query-builder-language-selector-input-placeholder": "Cari bahasa",
+	"query-builder-language-selector-no-results": "Bahasa tak tersedia",
+	"query-builder-language-selector-options-menu-aria-label": "Bahasa",
+	"query-builder-language-selector-clear-button-label": "Kosongkan bidang masukan",
+	"query-builder-language-selector-mobile-header": "Pilih bahasa",
+	"query-builder-language-selector-close-button-label": "Tutup Pemilih Bahasa"
 }
