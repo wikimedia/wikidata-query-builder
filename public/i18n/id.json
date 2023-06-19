@@ -83,7 +83,7 @@
 	"query-builder-footer-mismatch-finder": "Pencari Ketidakcocokan",
 	"query-builder-footer-item-quality-evaluator": "Penilai Kualitas Barang",
 	"query-builder-footer-curious-facts": "Fakta Penasaran",
-	"query-builder-footer-constraints-violation-checker": "Pemeriksa Pelanggaran Kendala",
+	"query-builder-footer-constraints-violation-checker": "Pemeriksa Pelanggaran Pewatas",
 	"query-builder-date-input-value-label": "Nilai",
 	"query-builder-date-input-placeholder": "misalnya 31-12-2020",
 	"query-builder-date-input-prompt-text": "Tolong masukkan sebuah tanggal",
