@@ -5,6 +5,8 @@
 			"Yupik"
 		]
 	},
+	"query-builder-intro-heading": "Dán reaiddu birra",
+	"query-builder-query-heading": "Jearran",
 	"query-builder-settings-heading": "Ásahusat",
 	"query-builder-input-value-label": "Árvu",
 	"query-builder-input-value-placeholder": "Čális árvvu",
@@ -32,8 +34,12 @@
 	"query-builder-limit-number-screenreader-label": "Bohtosiid badjerádjemearri",
 	"query-builder-quantity-value-error-number": "Čális nummira",
 	"query-builder-footer-view-source": "Oza gáldokoda",
+	"query-builder-footer-privacy-policy": "Diehtosuodjalanvuohki",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Duiska",
 	"query-builder-date-input-value-label": "Árvu",
 	"query-builder-date-input-placeholder": "ovdamearkka dihte 31-12-2020",
-	"query-builder-date-input-prompt-text": "Čális beaivemeari"
+	"query-builder-date-input-prompt-text": "Čális beaivemeari",
+	"query-builder-language-selector-input-placeholder": "Oza gielaid",
+	"query-builder-language-selector-options-menu-aria-label": "Gielat",
+	"query-builder-language-selector-mobile-header": "Vállje giela"
 }

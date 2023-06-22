@@ -9,6 +9,9 @@
 	"query-builder-input-value-label": "Ärvv",
 	"query-builder-input-value-placeholder": "Ǩeeʹrjet äärv",
 	"query-builder-item-value-lookup-no-match-found": "Ni mâiʹd ij käunnʼjam",
+	"query-builder-lexeme-value-lookup-no-match-found": "Ni mâiʹd ij käunnʼjam",
+	"query-builder-sense-value-lookup-no-match-found": "Ni mâiʹd ij käunnʼjam",
+	"query-builder-form-value-lookup-no-match-found": "Ni mâiʹd ij käunnʼjam",
 	"query-builder-property-lookup-no-match-found": "Ni mâiʹd ij käunnʼjam",
 	"query-builder-result-placeholder": "Puåđõõzzid čuäʹjtet täʹst.",
 	"query-builder-result-header": "Puåđõõzz",
@@ -40,5 +43,8 @@
 	"query-builder-footer-team": "Wikidata-tiim raajjâm",
 	"query-builder-date-input-value-label": "Ärvv",
 	"query-builder-date-input-placeholder": "ouddmiârkkân 31-12-2020",
-	"query-builder-date-input-prompt-text": "Ǩeeʹrjet peiʹvvmeäʹr"
+	"query-builder-date-input-prompt-text": "Ǩeeʹrjet peiʹvvmeäʹr",
+	"query-builder-language-selector-input-placeholder": "Ooʒʒ ǩiõlid",
+	"query-builder-language-selector-options-menu-aria-label": "Ǩiõl",
+	"query-builder-language-selector-mobile-header": "Vaʹlljed ǩiõl"
 }

@@ -9,6 +9,9 @@
 	"query-builder-input-value-label": "Árvu",
 	"query-builder-input-value-placeholder": "Čääli áárvu",
 	"query-builder-item-value-lookup-no-match-found": "Táin ucâmáin ij kavnuu mihheen",
+	"query-builder-lexeme-value-lookup-no-match-found": "Táin ucâmáin ij kavnuu mihheen",
+	"query-builder-sense-value-lookup-no-match-found": "Táin ucâmáin ij kavnuu mihheen",
+	"query-builder-form-value-lookup-no-match-found": "Táin ucâmáin ij kavnuu mihheen",
 	"query-builder-property-lookup-label": "Jiešvuotâ",
 	"query-builder-property-lookup-placeholder": "Čääli jiešvuođâ",
 	"query-builder-property-lookup-no-match-found": "Táin ucâmáin ij kavnuu mihheen",
@@ -39,5 +42,8 @@
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Saksa",
 	"query-builder-date-input-value-label": "Árvu",
 	"query-builder-date-input-placeholder": "ovdâmerkkân 31-12-2020",
-	"query-builder-date-input-prompt-text": "Čääli peivimere"
+	"query-builder-date-input-prompt-text": "Čääli peivimere",
+	"query-builder-language-selector-input-placeholder": "Uusâ kielâid",
+	"query-builder-language-selector-options-menu-aria-label": "Kielah",
+	"query-builder-language-selector-mobile-header": "Valjii kielâ"
 }
