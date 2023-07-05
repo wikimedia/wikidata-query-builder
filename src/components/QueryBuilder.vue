@@ -250,12 +250,15 @@ export default Vue.extend( {
 		},
 	},
 	watch: {
-		showLanguageSelector( newShowLanguageSelector: boolean ): void {
-			if ( newShowLanguageSelector === true ) {
-				document.body.classList.add( 'overflow-hidden-on-mobile' );
-			} else {
-				document.body.classList.remove( 'overflow-hidden-on-mobile' );
-			}
+		showLanguageSelector: {
+			handler( newShowLanguageSelector: boolean ): void {
+				if ( newShowLanguageSelector === true ) {
+					document.body.classList.add( 'overflow-hidden-on-mobile' );
+				} else {
+					document.body.classList.remove( 'overflow-hidden-on-mobile' );
+				}
+			},
+			immediate: true,
 		},
 	},
 	created() {
