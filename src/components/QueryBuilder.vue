@@ -2,7 +2,7 @@
 	<div class="querybuilder">
 		<main>
 			<div class="querybuilder__heading">
-				<a href="/">
+				<a :href="queryBuilderBasePath">
 					<div class="querybuilder__logo" />
 					<h1 class="visually-hidden">
 						<bdi id="directionSample" dir="auto">{{ $i18n( 'query-builder-heading' ) }}</bdi>
@@ -181,6 +181,9 @@ export default Vue.extend( {
 		};
 	},
 	computed: {
+		queryBuilderBasePath(): string {
+			return window.location.pathname;
+		},
 		conditionRows(): ConditionRow[] {
 			return this.$store.getters.conditionRows;
 		},
