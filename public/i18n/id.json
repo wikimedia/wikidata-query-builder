@@ -94,5 +94,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Bahasa",
 	"query-builder-language-selector-clear-button-label": "Kosongkan bidang masukan",
 	"query-builder-language-selector-mobile-header": "Pilih bahasa",
-	"query-builder-language-selector-close-button-label": "Tutup Pemilih Bahasa"
+	"query-builder-language-selector-close-button-label": "Tutup Pemilih Bahasa",
+	"query-builder-toggle-language-selector-button": "Togol Pemilih Bahasa"
 }
