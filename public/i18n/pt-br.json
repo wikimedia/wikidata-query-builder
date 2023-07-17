@@ -7,7 +7,8 @@
 			"Fernando Leite De Oliveira",
 			"Gustavo.moraes",
 			"Mariagarbin",
-			"Re demz"
+			"Re demz",
+			"Stephanyb76"
 		]
 	},
 	"query-builder-heading": "Construtor de consulta do Wikidata",
@@ -21,6 +22,7 @@
 	"query-builder-input-value-tooltip": "O campo <em>valor</em> contém a informação concreta utilizada para descrever um item. Por exemplo, \"azul\" é um <em>valor</em> possível para a <em>propriedade</em> \"cor\".",
 	"query-builder-input-value-placeholder": "Insira um valor",
 	"query-builder-item-value-lookup-no-match-found": "Nenhuma combinação encontrada",
+	"query-builder-lexeme-value-lookup-no-match-found": "Nenhuma combinação encontrada",
 	"query-builder-sense-value-lookup-no-match-found": "Nenhuma combinação encontrada",
 	"query-builder-form-value-lookup-no-match-found": "Nenhuma combinação encontrada",
 	"query-builder-property-lookup-label": "Propriedade",
