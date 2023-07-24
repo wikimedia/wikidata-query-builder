@@ -88,5 +88,6 @@
 	"query-builder-date-input-prompt-text": "رجاءً أدخل تاريخًا",
 	"query-builder-date-input-results-intro-text": "يُفسَّر على أنه:",
 	"query-builder-date-input-calendar-notice-text": "يُتعامل مع جميع التواريخ على أنها تواريخ ميلادية",
-	"query-builder-language-selector-options-menu-aria-label": "اللغات"
+	"query-builder-language-selector-options-menu-aria-label": "اللغات",
+	"query-builder-language-selector-mobile-header": "اختر اللغة"
 }

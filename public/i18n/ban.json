@@ -15,6 +15,9 @@
 	"query-builder-input-value-tooltip": "<em>Nilai</em> madaging informasi konkrét sané kaanggén antuk ngagambarang satunggil item. Sekadi, \"béru\" inggih punika silih tunggil <em>nilai</em> sané prasida antuk <em>atribut</em> \"warna\".",
 	"query-builder-input-value-placeholder": "Dagingin satunggal aji",
 	"query-builder-item-value-lookup-no-match-found": "Nénten wénten sané pateh katemu",
+	"query-builder-lexeme-value-lookup-no-match-found": "Nénten wénten sané pateh katemu",
+	"query-builder-sense-value-lookup-no-match-found": "Nénten wénten sané pateh katemu",
+	"query-builder-form-value-lookup-no-match-found": "Nénten wénten sané pateh katemu",
 	"query-builder-property-lookup-label": "Atribut",
 	"query-builder-property-lookup-tooltip": "<em>Atribut</em> ring satunggil indik, punika kategori utawi deskriptor antuk <em>nilai</em>. Sekadi, \"warna\" punika <em>atribut</em> sané minab pacang kaanggén antuk <em>nilai</em> \"béru\".",
 	"query-builder-property-lookup-placeholder": "Dagingin satunggal atribut",
@@ -81,5 +84,12 @@
 	"query-builder-date-input-placeholder": "conto 31-12-2020",
 	"query-builder-date-input-prompt-text": "Durusang dagingin satunggal tanggal",
 	"query-builder-date-input-results-intro-text": "Pacang kaartosan dados:",
-	"query-builder-date-input-calendar-notice-text": "Samian tanggal kaartosang dados tanggal Grégorian"
+	"query-builder-date-input-calendar-notice-text": "Samian tanggal kaartosang dados tanggal Grégorian",
+	"query-builder-language-selector-input-placeholder": "Rereh basa",
+	"query-builder-language-selector-no-results": "Basa ten wénten",
+	"query-builder-language-selector-options-menu-aria-label": "Basa",
+	"query-builder-language-selector-clear-button-label": "Resikin widang manjingan",
+	"query-builder-language-selector-mobile-header": "Pilih basa",
+	"query-builder-language-selector-close-button-label": "Sineb Pamilih Basa",
+	"query-builder-toggle-language-selector-button": "Togol Pamilih Basa"
 }
