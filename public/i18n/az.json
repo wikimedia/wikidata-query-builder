@@ -2,10 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"1917 Ekim Devrimi",
+			"NMW03",
 			"Toghrul Rahimli",
 			"Şeyx Şamil"
 		]
 	},
+	"query-builder-heading": "Vikiverilənlər Sorğu Yaradıcısı",
+	"query-builder-intro-heading": "Bu alət haqqında",
 	"query-builder-query-heading": "Sorğu",
 	"query-builder-settings-heading": "Nizamlamalar",
 	"query-builder-run-query": "Sorğunu işlət",
