@@ -29,7 +29,7 @@
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@types/rdf-js": "^4.0.2",
-    "@wikimedia/language-data": "^1.1.3",
+    "@wikimedia/language-data": "^1.1.4",
     "@wmde/wikit-tokens": "^2.1.0-alpha.16",
     "@wmde/wikit-vue-components": "^2.1.0-alpha.16",
     "core-js": "^3.31.0",
