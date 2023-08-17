@@ -3,11 +3,13 @@
 		"authors": [
 			"Jordiventura96",
 			"Mguix",
+			"SMP",
 			"Vfc",
 			"Xavier Dengra"
 		]
 	},
 	"query-builder-heading": "Generador de consultes de Wikidata",
+	"query-builder-intro-heading": "Quant a aquesta utilitat",
 	"query-builder-intro-text": "El Generador de Consultes de Wikidata proporciona una interfície visual per crear una consulta de Wikidata senzilla. És ideal per a persones amb poca o cap experiència en [$1 SPARQL], un llenguatge per a fer consultes. El Generador de Consultes no ofereix la funcionalitat completa de SPARQL, però sempre podeu obrir la consulta al Servei de consultes, on hi podreu visualitzar-la, editar-la o ampliar-la mitjançant l'enllaç que apareix a sobre dels resultats. [$2 Els vostres comentaris són benvinguts!]",
 	"query-builder-query-heading": "Consulta",
 	"query-builder-settings-heading": "Paràmetres",
@@ -17,6 +19,9 @@
 	"query-builder-input-value-tooltip": "El camp <em>valor</em> conté la informació concreta utilitzada per descriure un element. Per exemple, «blau» és un <em>valor</em> possible per a la <em>propietat</em> «color».",
 	"query-builder-input-value-placeholder": "Introduïu un valor",
 	"query-builder-item-value-lookup-no-match-found": "No s'ha trobat cap coincidència",
+	"query-builder-lexeme-value-lookup-no-match-found": "No s'ha trobat cap coincidència",
+	"query-builder-sense-value-lookup-no-match-found": "No s'ha trobat cap coincidència",
+	"query-builder-form-value-lookup-no-match-found": "No s'ha trobat cap coincidència",
 	"query-builder-property-lookup-label": "Propietat",
 	"query-builder-property-lookup-tooltip": "El camp <em>propietat</em> és la categoria o descriptor del <em>valor</em>. Per exemple, «color» seria una <em>propietat</em> que probablement utilitzaríeu per al <em>valor</em> «blau».",
 	"query-builder-property-lookup-placeholder": "Introduïu una propietat",
@@ -69,14 +74,19 @@
 	"query-builder-footer-licence": "L'eina està disponible sota la [$1 Llicència de 3 clàusules BSD]",
 	"query-builder-footer-build-time": "Darrera versió: [ $1 $2 ]",
 	"query-builder-footer-view-source": "Mostra el codi font",
-	"query-builder-footer-report-link": "Informa d'un error",
+	"query-builder-footer-report-link": "Informa d'una incidència",
 	"query-builder-footer-about-us": "Sobre nosaltres",
 	"query-builder-footer-privacy-policy": "Política de privadesa",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Alemanya",
-	"query-builder-footer-team": "Fet per l'equip de Wikidata",
+	"query-builder-footer-team": "Fet amb ❤️ per l'[$1 equip de Wikidata]",
 	"query-builder-date-input-value-label": "Valor",
 	"query-builder-date-input-placeholder": "per exemple, 31-12-2020",
 	"query-builder-date-input-prompt-text": "Si us plau, introduïu una data",
 	"query-builder-date-input-results-intro-text": "Serà interpretat com a:",
-	"query-builder-date-input-calendar-notice-text": "Totes les dates són interpretades com a part del calendari gregorià"
+	"query-builder-date-input-calendar-notice-text": "Totes les dates són interpretades com a part del calendari gregorià",
+	"query-builder-language-selector-no-results": "Idioma no disponible",
+	"query-builder-language-selector-options-menu-aria-label": "Idiomes",
+	"query-builder-language-selector-clear-button-label": "Esborra el camp d'entrada",
+	"query-builder-language-selector-mobile-header": "Selecció d'un idioma",
+	"query-builder-language-selector-close-button-label": "Tanca el selector d'idiomes"
 }
