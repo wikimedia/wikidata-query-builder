@@ -9,6 +9,7 @@
 		]
 	},
 	"query-builder-heading": "উইকিউপাত্ত কোয়েরি নির্মাণকারী",
+	"query-builder-intro-heading": "এই সরঞ্জাম সম্পর্কে",
 	"query-builder-query-heading": "কোয়েরি",
 	"query-builder-settings-heading": "সেটিংস",
 	"query-builder-find-all-items": "সকল আইটেম খুঁজুন...",
@@ -17,6 +18,9 @@
 	"query-builder-input-value-tooltip": "কোনও আইটেমকে বর্ণনা করতে<em>মান</em> ক্ষেত্রটিতে সর্বসম্মত তথ্য ব্যবহৃত হয়েছে। উদাহরণস্বরূপ, \"নীল\" হচ্ছে \"রঙ\" নামক <em>বৈশিষ্ট্য</em>-এর একটি সম্ভাব্য <em>মান</em>।",
 	"query-builder-input-value-placeholder": "একটি মান লিখুন",
 	"query-builder-item-value-lookup-no-match-found": "কোন মিল খুঁজে পাওয়া যায়নি",
+	"query-builder-lexeme-value-lookup-no-match-found": "কোনও মিল খুঁজে পাওয়া যায়নি",
+	"query-builder-sense-value-lookup-no-match-found": "কোনও মিল খুঁজে পাওয়া যায়নি",
+	"query-builder-form-value-lookup-no-match-found": "কোনও মিল খুঁজে পাওয়া যায়নি",
 	"query-builder-property-lookup-label": "বৈশিষ্ট্য",
 	"query-builder-property-lookup-placeholder": "বৈশিষ্ট্য লিখুন",
 	"query-builder-property-lookup-no-match-found": "কোন মিল খুঁজে পাওয়া যায়নি",
@@ -74,6 +78,9 @@
 	"query-builder-date-input-prompt-text": "অনুগ্রহ করে একটি তারিখ লিখুন",
 	"query-builder-date-input-results-intro-text": "এইভাবে ব্যাখ্যায়িত হবে:",
 	"query-builder-date-input-calendar-notice-text": "সকল তারিখ গ্রেগরীয় বর্ষপঞ্জির তারিখ হিসেবে ধরা হবে",
+	"query-builder-language-selector-input-placeholder": "ভাষা অনুসন্ধান করুন",
+	"query-builder-language-selector-no-results": "ভাষা উপলব্ধ নয়",
+	"query-builder-language-selector-options-menu-aria-label": "ভাষা",
 	"query-builder-language-selector-mobile-header": "একটি ভাষা নির্বাচন করুন",
 	"query-builder-language-selector-close-button-label": "ভাষা নির্বাচক বন্ধ করুন"
 }
