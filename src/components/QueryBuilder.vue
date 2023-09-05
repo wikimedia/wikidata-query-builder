@@ -1,14 +1,17 @@
 <template>
 	<div class="querybuilder">
-		<main>
-			<div class="querybuilder__heading">
+		<main ref="contentWrap">
+			<div ref="header" class="querybuilder__heading">
 				<a :href="queryBuilderBasePath">
 					<div class="querybuilder__logo" />
 					<h1 class="visually-hidden">
 						<bdi id="directionSample" dir="auto">{{ $i18n( 'query-builder-heading' ) }}</bdi>
 					</h1>
 				</a>
-				<div v-detect-click-outside="onClickOutsideLanguageSelector" class="querybuilder__languageSelector">
+				<div
+					ref="languageSelectorSection"
+					v-detect-click-outside="onClickOutsideLanguageSelector"
+					class="querybuilder__languageSelector">
 					<Button
 						type="neutral"
 						:aria-label="$i18n( 'query-builder-toggle-language-selector-button' )"
@@ -178,6 +181,7 @@ export default Vue.extend( {
 			encodedQuery: '',
 			iframeRenderKey: 0,
 			showLanguageSelector: false,
+			resizeObserver: null as unknown as ResizeObserver,
 		};
 	},
 	computed: {
@@ -251,6 +255,24 @@ export default Vue.extend( {
 		onClickOutsideLanguageSelector(): void {
 			this.showLanguageSelector = false;
 		},
+		changeLanguageSelectorMenuDirection(): void {
+			if ( !( this.$refs.header && this.$refs.languageSelectorSection && this.$refs.languageSelector ) ) {
+				return;
+			}
+			const headerTop = ( this.$refs.header as HTMLElement ).getBoundingClientRect().top;
+			const languageSelectorSectionTop =
+			( this.$refs.languageSelectorSection as HTMLElement ).getBoundingClientRect().top;
+			if ( languageSelectorSectionTop > headerTop ) {
+				( ( this.$refs.languageSelector as Vue ).$el as HTMLElement ).style.insetInlineEnd = 'unset';
+				( ( this.$refs.languageSelector as Vue ).$el as HTMLElement ).style.insetInlineStart = '0';
+			} else {
+				( ( this.$refs.languageSelector as Vue ).$el as HTMLElement ).style.insetInlineEnd = '0';
+				( ( this.$refs.languageSelector as Vue ).$el as HTMLElement ).style.insetInlineStart = 'unset';
+			}
+		},
+		onWindowResize(): void {
+			this.changeLanguageSelectorMenuDirection();
+		},
 	},
 	watch: {
 		showLanguageSelector: {
@@ -266,6 +288,13 @@ export default Vue.extend( {
 	},
 	created() {
 		this.incrementMetric( 'main-page-loaded' );
+	},
+	mounted() {
+		this.resizeObserver = new ResizeObserver( this.onWindowResize );
+		this.resizeObserver.observe( this.$refs.contentWrap as Element );
+	},
+	beforeDestroy() {
+		this.resizeObserver.unobserve( this.$refs.contentWrap as Element );
 	},
 } );
 </script>
