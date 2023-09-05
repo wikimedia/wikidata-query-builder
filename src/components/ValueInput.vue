@@ -33,7 +33,7 @@ export default Vue.extend( {
 		},
 		value: {
 			default: null,
-			type: String,
+			type: [ String, Object ],
 		},
 		error: {
 			type: Object,

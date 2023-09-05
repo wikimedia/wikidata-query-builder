@@ -139,8 +139,8 @@ export default Vue.extend( {
 			};
 			this.updateMenuItems( searchOptions );
 		},
-		value( newValue: MenuItem ): void {
-			if ( newValue.id === this.value.id ) {
+		value( newValue: MenuItem | null ): void {
+			if ( newValue && newValue.id === this.value.id ) {
 				this.search = newValue.label;
 			}
 		},
