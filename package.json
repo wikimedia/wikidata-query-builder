@@ -32,7 +32,7 @@
     "@wikimedia/language-data": "^1.1.4",
     "@wmde/wikit-tokens": "^2.1.0-alpha.16",
     "@wmde/wikit-vue-components": "^2.1.0-alpha.16",
-    "core-js": "^3.31.0",
+    "core-js": "^3.32.2",
     "lodash.debounce": "^4.0.8",
     "ress": "^5.0.2",
     "sparqljs": "^3.7.0",
