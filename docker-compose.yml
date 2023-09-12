@@ -8,8 +8,10 @@ services:
     volumes:
       - "~/.npm:/.npm"
       - "./:/app"
-      - "~/.cache:/home/runuser/.cache"
     working_dir: /app
+    environment:
+      # Ensures cypress installs and looks for it's binary in a project local directory
+      - CYPRESS_CACHE_FOLDER=./.cache/cypress
 
   dev:
     extends:
