@@ -14,7 +14,11 @@ const messages = {
 		'query-builder-condition-placeholder': 'Placeholder text for testing',
 	},
 };
-
+global.ResizeObserver = jest.fn().mockImplementation( () => ( {
+	observe: jest.fn(),
+	unobserve: jest.fn(),
+	disconnect: jest.fn(),
+} ) );
 Vue.use( i18n, {
 	locale: 'en',
 	messages,

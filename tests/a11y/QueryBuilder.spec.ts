@@ -6,6 +6,12 @@ import Vue from 'vue';
 import i18n from 'vue-banana-i18n';
 import { newStore } from '../util/store';
 
+global.ResizeObserver = jest.fn().mockImplementation( () => ( {
+	observe: jest.fn(),
+	unobserve: jest.fn(),
+	disconnect: jest.fn(),
+} ) );
+
 const localVue = createLocalVue();
 localVue.use( Vuex );
 
