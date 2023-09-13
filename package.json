@@ -27,7 +27,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^15.2.1",
     "@types/rdf-js": "^4.0.2",
     "@wikimedia/language-data": "^1.1.4",
     "@wmde/wikit-tokens": "^2.1.0-alpha.16",
