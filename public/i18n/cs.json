@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Decamexd",
 			"KPX8",
 			"Matěj Suchánek",
 			"Mormegil",
@@ -19,6 +20,9 @@
 	"query-builder-input-value-tooltip": "Pole <em>hodnota</em> obsahuje konkrétní informaci popisující položku. Například „modrá“ je jednou z možných <em>hodnot</em> pro <em>vlastnost</em> „barva“.",
 	"query-builder-input-value-placeholder": "Zadejte hodnotu",
 	"query-builder-item-value-lookup-no-match-found": "Nenalezena žádná shoda",
+	"query-builder-lexeme-value-lookup-no-match-found": "Nebyla nalezena žádná shoda",
+	"query-builder-sense-value-lookup-no-match-found": "Nebyla nalezena žádná shoda",
+	"query-builder-form-value-lookup-no-match-found": "Nebyla nalezena žádná shoda",
 	"query-builder-property-lookup-label": "Vlastnost",
 	"query-builder-property-lookup-tooltip": "Pole <em>vlastnost</em> v podmínce je kategorií nebo deskriptorem pro <em>hodnotu</em>. Například „barva“ by byla <em>vlastností</em>, kterou byste pravděpodobně použili pro <em>hodnotu</em> „modrá“.",
 	"query-builder-property-lookup-placeholder": "Zadejte vlastnost",
@@ -77,6 +81,7 @@
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
 	"query-builder-footer-team": "Vytvořeno s ❤️ [$1 týmem Wikidata]",
 	"query-builder-footer-more-data-quality-tools": "Další nástroje pro kvalitu dat",
+	"query-builder-footer-curious-facts": "Zajímavá fakta",
 	"query-builder-date-input-value-label": "Hodnota",
 	"query-builder-date-input-placeholder": "například 31-12-2020",
 	"query-builder-date-input-prompt-text": "Zadejte prosím datum",
@@ -84,5 +89,6 @@
 	"query-builder-date-input-calendar-notice-text": "Všechna data se interpretují podle gregoriánského kalendáře",
 	"query-builder-language-selector-input-placeholder": "Hledání jazyků",
 	"query-builder-language-selector-no-results": "Jazyk není k dispozici",
-	"query-builder-language-selector-options-menu-aria-label": "Jazyky"
+	"query-builder-language-selector-options-menu-aria-label": "Jazyky",
+	"query-builder-language-selector-mobile-header": "Vyberte jazyk"
 }
