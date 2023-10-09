@@ -12,6 +12,7 @@
 			"Si109",
 			"StarrySky",
 			"Wuqianye",
+			"Xyb",
 			"Xzonn",
 			"Yfdyh000",
 			"Zhang8569",
@@ -63,7 +64,7 @@
 	"query-builder-condition-relation-toggle-and": "和",
 	"query-builder-condition-relation-toggle-or": "或",
 	"query-builder-limit-number-error-message": "限制必须是数字",
-	"query-builder-limit-number-results-description": "限制结果数至",
+	"query-builder-limit-number-results-description": "限制结果数为",
 	"query-builder-limit-number-placeholder": "输入数量",
 	"query-builder-limit-number-screenreader-label": "最大结果数量",
 	"query-builder-label-opt-out": "显示ID而非标签（可能避免超时）",
@@ -98,5 +99,12 @@
 	"query-builder-date-input-placeholder": "例如：31-12-2020",
 	"query-builder-date-input-prompt-text": "请输入日期",
 	"query-builder-date-input-results-intro-text": "将会被呈现为：",
-	"query-builder-date-input-calendar-notice-text": "所有日期都公历呈现"
+	"query-builder-date-input-calendar-notice-text": "所有日期都以公历呈现",
+	"query-builder-language-selector-input-placeholder": "搜索语言",
+	"query-builder-language-selector-no-results": "语言不可用",
+	"query-builder-language-selector-options-menu-aria-label": "语言",
+	"query-builder-language-selector-clear-button-label": "清除输入字段",
+	"query-builder-language-selector-mobile-header": "选择语言",
+	"query-builder-language-selector-close-button-label": "关闭语言选择器",
+	"query-builder-toggle-language-selector-button": "开关语言选择器"
 }
