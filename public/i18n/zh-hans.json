@@ -66,7 +66,7 @@
 	"query-builder-limit-number-error-message": "限制必须是数字",
 	"query-builder-limit-number-results-description": "限制结果数为",
 	"query-builder-limit-number-placeholder": "输入数量",
-	"query-builder-limit-number-screenreader-label": "最大结果数量",
+	"query-builder-limit-number-screenreader-label": "最大结果数",
 	"query-builder-label-opt-out": "显示ID而非标签（可能避免超时）",
 	"query-builder-include-subclasses": "在搜索中包含相关值（推荐）",
 	"query-builder-include-subclasses-tooltip": "包括来自所选值子集的值，例如，在过滤“学校 → 位于行政领土实体 → 希腊”时，结果中还包括“学校 → 位于... → 雅典”。选中此框可能会生成更完整的结果列表。如果您只需要查看所选值的完全匹配项，请取消选中。",
