@@ -57,7 +57,7 @@
 	"query-builder-limit-number-results-description": "Omezit počet výsledků na",
 	"query-builder-limit-number-placeholder": "Zadejte číslo",
 	"query-builder-limit-number-screenreader-label": "Maximální počet výsledků",
-	"query-builder-label-opt-out": "Zobrazit ID místo štítků (může zabránit vypršení času - timeoutu)",
+	"query-builder-label-opt-out": "Zobrazit ID místo štítků (může pomoci při překročení časového limitu)",
 	"query-builder-include-subclasses": "Zahrnout související hodnoty do vyhledávání (doporučeno)",
 	"query-builder-include-subclasses-tooltip": "Zahrnuje hodnoty z podmnožin vybrané hodnoty, např. při filtrování pro \"škola → nacházející se ve správním územním celku → Řecko\" zahrne také \"škola → nacházející se v... → Atény\" ve výsledcích. Zaškrtnutím tohoto políčka pravděpodobně získáte úplnější seznam výsledků. Zrušte zaškrtnutí, pokud potřebujete zobrazit pouze přesné shody pro vybranou hodnotu.",
 	"query-builder-negation-option-label-with": "S",
