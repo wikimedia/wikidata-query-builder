@@ -15,6 +15,9 @@
 	"query-builder-input-value-tooltip": "<em>Магъана</em> къыр элементни танытдырыр ючюн кескин билгини тутар. Юлгюге, \"бет\" <em>энчилиги</em> ючюн болургъа боллукъ <em>магъана</em> \"кёксюл\"дю.",
 	"query-builder-input-value-placeholder": "Магъананы киргиз",
 	"query-builder-item-value-lookup-no-match-found": "Келишиу табылмагъанды",
+	"query-builder-lexeme-value-lookup-no-match-found": "Келишиу табылмагъанды",
+	"query-builder-sense-value-lookup-no-match-found": "Келишиу табылмагъанды",
+	"query-builder-form-value-lookup-no-match-found": "Келишиу табылмагъанды",
 	"query-builder-property-lookup-label": "Энчилиги",
 	"query-builder-property-lookup-tooltip": "Бир шартдагъы <em>энчилик</em> къыр, <em>магъана</em> ючюн категорияды неда ачыкълаучуду. Юлгюге, \"кёксюл\" <em>магъана</em> ючюн хайырланныкъ <em>энчилик</em> \"бет\" боллукъду.",
 	"query-builder-property-lookup-placeholder": "Энчиликни киргизигиз",
@@ -81,5 +84,12 @@
 	"query-builder-date-input-placeholder": "юлгюге, 31-12-2020",
 	"query-builder-date-input-prompt-text": "Датаны киргизигиз",
 	"query-builder-date-input-results-intro-text": "Бу шекилде кёргюзюллюкдю:",
-	"query-builder-date-input-calendar-notice-text": "Бютеу датала григориан орузламада кёргюзюллюкдюле"
+	"query-builder-date-input-calendar-notice-text": "Бютеу датала григориан орузламада кёргюзюллюкдюле",
+	"query-builder-language-selector-input-placeholder": "Тил изле",
+	"query-builder-language-selector-no-results": "Тил джокъду",
+	"query-builder-language-selector-options-menu-aria-label": "Тилле",
+	"query-builder-language-selector-clear-button-label": "Кириш къырны тазала",
+	"query-builder-language-selector-mobile-header": "Тил сайла",
+	"query-builder-language-selector-close-button-label": "Тил Сайлауну Джаб",
+	"query-builder-toggle-language-selector-button": "Тил Сайлауну Ач/Джаб"
 }
