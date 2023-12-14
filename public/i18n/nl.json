@@ -96,5 +96,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Talen",
 	"query-builder-language-selector-clear-button-label": "Invoerveld wissen",
 	"query-builder-language-selector-mobile-header": "Kies een taal",
-	"query-builder-language-selector-close-button-label": "Taalkiezer sluiten"
+	"query-builder-language-selector-close-button-label": "Taalkiezer sluiten",
+	"query-builder-toggle-language-selector-button": "Taalkiezer omschakelen"
 }
