@@ -39,6 +39,7 @@
 	"query-builder-delete-condition": "Dilemel an diviz",
 	"query-builder-condition-relation-toggle-and": "ha(g)",
 	"query-builder-condition-relation-toggle-or": "pe",
+	"query-builder-limit-number-error-message": "Ret eo d'ar vevenn bezañ un niver",
 	"query-builder-limit-number-placeholder": "Skrivañ un niver",
 	"query-builder-limit-number-screenreader-label": "Niver brasañ a zisoc'hoù",
 	"query-builder-negation-option-label-with": "Gant",
