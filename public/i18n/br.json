@@ -55,6 +55,7 @@
 	"query-builder-footer-privacy-policy": "Reolennoù prevezded",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
 	"query-builder-footer-team": "Graet gant ❤️ gant [$1 skipailh Wikidata]",
+	"query-builder-footer-more-data-quality-tools": "Muioc'h a ostilhoù kalite ar roadennoù",
 	"query-builder-footer-curious-facts": "Fedoù kurius",
 	"query-builder-date-input-value-label": "Talvoud",
 	"query-builder-date-input-placeholder": "da skouer 31-12-2020",
@@ -62,5 +63,7 @@
 	"query-builder-language-selector-input-placeholder": "Klask yezhoù",
 	"query-builder-language-selector-no-results": "Ar yezh-mañ n'eo ket da gaout",
 	"query-builder-language-selector-options-menu-aria-label": "Yezhoù",
-	"query-builder-language-selector-mobile-header": "Dibab ur yezh"
+	"query-builder-language-selector-mobile-header": "Dibab ur yezh",
+	"query-builder-language-selector-close-button-label": "Serriñ an diuzer yezhoù",
+	"query-builder-toggle-language-selector-button": "Digeriñ an diuzer yezhoù"
 }
