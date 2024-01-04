@@ -94,5 +94,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "Idiomes",
 	"query-builder-language-selector-clear-button-label": "Esborra el camp d'entrada",
 	"query-builder-language-selector-mobile-header": "Selecció d'un idioma",
-	"query-builder-language-selector-close-button-label": "Tanca el selector d'idiomes"
+	"query-builder-language-selector-close-button-label": "Tanca el selector d'idiomes",
+	"query-builder-toggle-language-selector-button": "Commuta el selector d'idiomes"
 }
