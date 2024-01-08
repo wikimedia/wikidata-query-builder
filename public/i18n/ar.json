@@ -6,6 +6,7 @@
 			"Karim185.3",
 			"Mohanad Kh",
 			"NEHAOUA",
+			"Sandra Hanbo",
 			"أَحمد",
 			"محمد أحمد عبد الفتاح"
 		]
@@ -21,6 +22,9 @@
 	"query-builder-input-value-tooltip": "يحتوي حقل <em>القيمة</em> على المعلومات الملموسة المستخدمة لوصف العنصر. على سبيل المثال، \"الأزرق\" هي إحدى <em>القيم</em> المحتملة لـ <em>خاصية</em> \"اللون\".",
 	"query-builder-input-value-placeholder": "أدخل قيمة",
 	"query-builder-item-value-lookup-no-match-found": "لم يتم العثور على تطابق",
+	"query-builder-lexeme-value-lookup-no-match-found": "لم يُعثر على تطابق",
+	"query-builder-sense-value-lookup-no-match-found": "لم يُعثر على تطابق",
+	"query-builder-form-value-lookup-no-match-found": "لم يُعثر على تطابق",
 	"query-builder-property-lookup-label": "خاصية",
 	"query-builder-property-lookup-tooltip": "حقل <em>خاصية</em> في الشرط، هو فئة أو واصف لـ <em>القيمة</em>. على سبيل المثال، قد تكون \"color\" <em>خاصية</em> من المحتمل أن تستخدمها لـ <em>القيمة</em> \"أزرق\".",
 	"query-builder-property-lookup-placeholder": "أدخل خاصية",
@@ -88,6 +92,11 @@
 	"query-builder-date-input-prompt-text": "رجاءً أدخل تاريخًا",
 	"query-builder-date-input-results-intro-text": "يُفسَّر على أنه:",
 	"query-builder-date-input-calendar-notice-text": "يُتعامل مع جميع التواريخ على أنها تواريخ ميلادية",
+	"query-builder-language-selector-input-placeholder": "بحث في اللغات",
+	"query-builder-language-selector-no-results": "اللغات غير متوفرة",
 	"query-builder-language-selector-options-menu-aria-label": "اللغات",
-	"query-builder-language-selector-mobile-header": "اختر اللغة"
+	"query-builder-language-selector-clear-button-label": "مسح حقل الإدخال",
+	"query-builder-language-selector-mobile-header": "اختر اللغة",
+	"query-builder-language-selector-close-button-label": "إغلاق محدد اللغة",
+	"query-builder-toggle-language-selector-button": "تبديل محدد اللغة"
 }
