@@ -39,7 +39,7 @@
 	"query-builder-result-error-missing-value": "Inserisci un valore",
 	"query-builder-add-condition": "Aggiungi condizione",
 	"query-builder-value-type-relation-dropdown-matching": "con valore",
-	"query-builder-value-type-relation-dropdown-without": "senza il valore",
+	"query-builder-value-type-relation-dropdown-without": "senza",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "indipendentemente dal valore",
 	"query-builder-value-type-relation-dropdown-less-than-quantity": "meno di",
 	"query-builder-value-type-relation-dropdown-more-than-quantity": "più di",
