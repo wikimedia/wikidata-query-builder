@@ -49,12 +49,6 @@
 			</p>
 			<p>
 				<WikitLink
-					v-i18n="{ msg: 'query-builder-footer-curious-facts' }"
-					href="https://wikidata-analytics.wmcloud.org/app/CuriousFacts"
-				/>
-			</p>
-			<p>
-				<WikitLink
 					v-i18n="{ msg: 'query-builder-footer-constraints-violation-checker' }"
 					href="https://github.com/wmde/wikidata-constraints-violation-checker"
 				/>
