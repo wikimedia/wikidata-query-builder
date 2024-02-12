@@ -12,7 +12,8 @@
 			"Shirayuki",
 			"Tamaki Wakita",
 			"Tmv",
-			"もなー(偽物)"
+			"もなー(偽物)",
+			"バレロン"
 		]
 	},
 	"query-builder-heading": "ウィキデータクエリビルダー",
@@ -101,5 +102,6 @@
 	"query-builder-language-selector-options-menu-aria-label": "言語",
 	"query-builder-language-selector-clear-button-label": "入力フィールドをクリア",
 	"query-builder-language-selector-mobile-header": "言語を選択",
-	"query-builder-language-selector-close-button-label": "言語設定を閉じる"
+	"query-builder-language-selector-close-button-label": "言語設定を閉じる",
+	"query-builder-toggle-language-selector-button": "言語を選択"
 }
