@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Dj",
 			"Eukarióta",
 			"GBAB",
 			"Hanna Tardos",
@@ -9,6 +10,7 @@
 		]
 	},
 	"query-builder-heading": "Wikidata Query Builder",
+	"query-builder-intro-heading": "Erről az eszközről",
 	"query-builder-intro-text": "A Wikidata Query Builder lekérdezéskészítő vizuális felületet biztosít egyszerű Wikidata-lekérdezések létrehozásához. Ideális a [$1 SPARQL], a nagy teljesítményű lekérdezési nyelvben kevés vagy semmilyen tapasztalattal nem rendelkező felhasználók számára. A Query Builder ugyan nem biztosítja a SPARQL teljes funkcionalitását, de a lekérdezést bármikor megnyithatja a Query Service-ben, ahol az eredmények felett található linken keresztül megtekintheti, szerkesztheti vagy bővítheti azt. [$2 Visszajelzéseket itt várunk].",
 	"query-builder-query-heading": "Lekérdezés",
 	"query-builder-settings-heading": "Beállítások",
@@ -18,6 +20,7 @@
 	"query-builder-input-value-tooltip": "Az <i>érték</i> mező tartalmazza az elemet leíró konkrét információt. Például a „kék” egy lehetséges <em>értéke</em> a „szín” <em>tulajdonságnak</em>.",
 	"query-builder-input-value-placeholder": "Írj be egy értéket",
 	"query-builder-item-value-lookup-no-match-found": "Nincs találat",
+	"query-builder-lexeme-value-lookup-no-match-found": "Nincs találat",
 	"query-builder-sense-value-lookup-no-match-found": "Nincs találat",
 	"query-builder-form-value-lookup-no-match-found": "Nincs egyezés",
 	"query-builder-property-lookup-label": "Tulajdonság",
@@ -76,10 +79,22 @@
 	"query-builder-footer-about-us": "Rólunk",
 	"query-builder-footer-privacy-policy": "Adatvédelmi irányelv",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Németország",
-	"query-builder-footer-team": "Készítette a Wikidata-csapat",
+	"query-builder-footer-team": "Készítette a [$1 Wikidata-csapat]",
+	"query-builder-footer-more-data-quality-tools": "Több adatminőségi eszköz",
+	"query-builder-footer-mismatch-finder": "Eltérés kereső",
+	"query-builder-footer-item-quality-evaluator": "Item Quality Evaluator",
+	"query-builder-footer-curious-facts": "Érdekes tények",
+	"query-builder-footer-constraints-violation-checker": "Korlátozássértés-ellenőrző",
 	"query-builder-date-input-value-label": "Érték",
 	"query-builder-date-input-placeholder": "pl. 31-12-2020",
 	"query-builder-date-input-prompt-text": "Írj be egy dátumot",
 	"query-builder-date-input-results-intro-text": "Értelmezés a következőként:",
-	"query-builder-date-input-calendar-notice-text": "Minden dátum a Gergely-naptár szerint van értelmezve"
+	"query-builder-date-input-calendar-notice-text": "Minden dátum a Gergely-naptár szerint van értelmezve",
+	"query-builder-language-selector-input-placeholder": "Nyelvek keresése",
+	"query-builder-language-selector-no-results": "A nyelv nem elérhető",
+	"query-builder-language-selector-options-menu-aria-label": "Nyelvek",
+	"query-builder-language-selector-clear-button-label": "Beviteli mező törlése",
+	"query-builder-language-selector-mobile-header": "Nyelv kijelölése",
+	"query-builder-language-selector-close-button-label": "Nyelvválasztó bezárása",
+	"query-builder-toggle-language-selector-button": "Nyelvválasztó átváltása"
 }
