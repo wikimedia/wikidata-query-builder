@@ -1,0 +1,43 @@
+{
+	"@metadata": {
+		"authors": [
+			"Renessaince"
+		]
+	},
+	"query-builder-heading": "Канструктар запытаў Вікізьвестак",
+	"query-builder-intro-heading": "Пра гэты інструмэнт",
+	"query-builder-intro-text": "Канструктар запытаў Вікізьвестак прадастаўляе візуальны інтэрфэйс для пабудовы простых запытаў да Вікізьвестак. Ён ідэальны для карыстальнікаў з малым досьведам ці бяз досьведу работы ў [$1 SPARQL], магутнай мове запытаў. Канструктар запытаў не прапануе поўную функцыянальнасьць SPARQL, але вы заўсёды можаце адкрыць свой запыт у Службе запытаў, дзе можна праглядаць, рэдагаваць ці пашыраць яго па спасылцы над вынікам. [$2 Вітаюцца водгукі тут].",
+	"query-builder-query-heading": "Запыт",
+	"query-builder-settings-heading": "Налады",
+	"query-builder-find-all-items": "Знайсьці ўсе элемэнты…",
+	"query-builder-run-query": "Выканаць запыт",
+	"query-builder-input-value-label": "Значэньне",
+	"query-builder-input-value-tooltip": "Поле <em>значэньне</em> зьмяшчае канкрэтную інфармацыю, якая выкарыстоўваецца для апісаньня элемэнта. Напрыклад, „сіні“ — адно з магчымых <em>значэньняў</em> для <em>ўласьцівасьці</em> „колер“.",
+	"query-builder-input-value-placeholder": "Увядзіце значэньне",
+	"query-builder-item-value-lookup-no-match-found": "Супадзеньні ня знойдзеныя",
+	"query-builder-lexeme-value-lookup-no-match-found": "Супадзеньні ня знойдзеныя",
+	"query-builder-sense-value-lookup-no-match-found": "Супадзеньні ня знойдзеныя",
+	"query-builder-form-value-lookup-no-match-found": "Супадзеньні ня знойдзеныя",
+	"query-builder-property-lookup-label": "Уласьцівасьць",
+	"query-builder-property-lookup-no-match-found": "Супадзеньні ня знойдзеныя",
+	"query-builder-property-lookup-limited-support-tag": "абмежаваная падтрымка",
+	"query-builder-result-header": "Вынікі",
+	"query-builder-result-error-missing-property": "Абярыце ўласьцівасьць, калі ласка",
+	"query-builder-result-error-missing-value": "Увядзіце значэньне, калі ласка",
+	"query-builder-add-condition": "Дадаць умову",
+	"query-builder-value-type-relation-dropdown-matching": "супадае з",
+	"query-builder-value-type-relation-dropdown-without": "без",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "незалежна ад значэньня",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "меней за",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "болей за",
+	"query-builder-value-type-relation-dropdown-less-than-date": "раней",
+	"query-builder-value-type-relation-dropdown-more-than-date": "пасьля",
+	"query-builder-reference-relation-label": "Спасылкі",
+	"query-builder-date-input-placeholder": "напрыклад, 31-12-2020",
+	"query-builder-language-selector-no-results": "Мова недаступная",
+	"query-builder-language-selector-options-menu-aria-label": "Мовы",
+	"query-builder-language-selector-clear-button-label": "Ачысьціць поле ўводу",
+	"query-builder-language-selector-mobile-header": "Абярыце мову",
+	"query-builder-language-selector-close-button-label": "Зачыніць выбар мовы",
+	"query-builder-toggle-language-selector-button": "Пераключыць выбар мовы"
+}
