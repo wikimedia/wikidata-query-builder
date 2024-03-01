@@ -36,6 +36,8 @@ import LanguageSelectorInput from '@/components/LanguageSelectorInput.vue';
 import LanguageSelectorOptionsMenu from '@/components/LanguageSelectorOptionsMenu.vue';
 import Language from '@/data-model/Language';
 import Vue from 'vue';
+import axios from 'axios';
+import debounce from 'lodash.debounce';
 import languagedata from '@wikimedia/language-data';
 import closeUrl from '/img/close.svg';
 
@@ -49,6 +51,7 @@ export default Vue.extend( {
 		searchInput: '',
 		highlightedIndex: -1,
 		closeUrl,
+		apiLanguageCodes: [ '' ],
 	} ),
 	computed: {
 		languages(): Language[] {
@@ -63,13 +66,17 @@ export default Vue.extend( {
 		shownLanguages(): Language[] {
 			return this.languages.filter( ( language ) =>
 				language.code.startsWith( this.searchInput.toLowerCase() ) ||
-				language.autonym.toLowerCase().includes( this.searchInput.toLowerCase() ),
+				language.autonym.toLowerCase().includes( this.searchInput.toLowerCase() ) ||
+				this.apiLanguageCodes.includes( language.code ),
 			);
 		},
 	},
 	methods: {
-		onInput( searchedLanguage: string ): void {
+		async onInput( searchedLanguage: string ) {
 			this.searchInput = searchedLanguage;
+			if ( this.searchInput ) {
+				this.debouncedApiLanguageSearch( this.searchInput );
+			}
 			this.highlightedIndex = 0;
 		},
 		onSelect( languageCode: string ): void {
@@ -95,6 +102,19 @@ export default Vue.extend( {
 		onEnter(): void {
 			this.onSelect( this.shownLanguages[ this.highlightedIndex ].code );
 		},
+		debouncedApiLanguageSearch:
+			debounce( async function ( this: { apiLanguageCodes: string[] }, debouncedInputValue: string ) {
+				await axios.get(
+					'https://www.wikidata.org/w/api.php?action=languagesearch&format=json&formatversion=2',
+					{
+						params: {
+							search: debouncedInputValue,
+							origin: '*', // avoid CORS console errors
+						},
+					} ).then( ( response ) => {
+					this.apiLanguageCodes = Object.keys( response.data.languagesearch );
+				} );
+			}, 200 ),
 	},
 } );
 </script>
