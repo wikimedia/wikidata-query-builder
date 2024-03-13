@@ -8,13 +8,13 @@
 		</div>
 		<LanguageSelectorInput
 			ref="input"
-			:value="searchInput"
+			:model-value="searchInput"
 			:placeholder="$i18n( 'query-builder-language-selector-input-placeholder' )"
-			@input="onInput"
+			@update:model-value="onInput"
 			@clear="onClearInputValue"
 			@tab="onCloseMenu"
-			@arrowDown="onArrowDown"
-			@arrowUp="onArrowUp"
+			@arrow-down="onArrowDown"
+			@arrow-up="onArrowUp"
 			@enter="onEnter"
 			@escape="onCloseMenu"
 		/>
@@ -35,18 +35,19 @@
 import LanguageSelectorInput from '@/components/LanguageSelectorInput.vue';
 import LanguageSelectorOptionsMenu from '@/components/LanguageSelectorOptionsMenu.vue';
 import Language from '@/data-model/Language';
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import axios from 'axios';
 import debounce from 'lodash.debounce';
 import languagedata from '@wikimedia/language-data';
 import closeUrl from '/img/close.svg';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'LanguageSelector',
 	components: {
 		LanguageSelectorInput,
 		LanguageSelectorOptionsMenu,
 	},
+	emits: [ 'select', 'close' ],
 	data: () => ( {
 		searchInput: '',
 		highlightedIndex: -1,

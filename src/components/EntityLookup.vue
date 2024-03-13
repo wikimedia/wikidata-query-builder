@@ -1,13 +1,13 @@
 <template>
 	<Lookup
-		:value="value"
+		v-model:search-input="search"
+		:value="modelValue"
 		:error="error ? { message: $i18n( error.message ), type: error.type } : null"
 		:menu-items="searchResults"
-		:search-input.sync="search"
 		:placeholder="placeholder"
 		:label="label"
 		:disabled="disabled"
-		@input="$emit( 'input', $event )"
+		@input="$emit( 'update:modelValue', $event )"
 		@scroll="handleScroll"
 	>
 		<template
@@ -26,7 +26,8 @@
 
 <script lang="ts">
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
-import Vue, { PropType } from 'vue';
+import { PropType } from 'vue';
+import { defineComponent } from '@/compat';
 import debounce from 'lodash/debounce';
 
 import { Lookup } from '@wmde/wikit-vue-components';
@@ -36,7 +37,7 @@ import InfoTooltip from '@/components/InfoTooltip.vue';
 
 const NUMBER_OF_SEARCH_RESULTS = 12;
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'EntityLookup',
 	components: {
 		InfoTooltip,
@@ -47,7 +48,7 @@ export default Vue.extend( {
 			type: Function as PropType<( searchOptions: SearchOptions ) => Promise<SearchResult[]>>,
 			required: true,
 		},
-		value: {
+		modelValue: {
 			type: Object as PropType<MenuItem>,
 			default: null,
 		},
@@ -76,6 +77,7 @@ export default Vue.extend( {
 			default: '',
 		},
 	},
+	emits: [ 'update:modelValue' ],
 	data() {
 		return {
 			search: '',
@@ -139,15 +141,15 @@ export default Vue.extend( {
 			};
 			this.updateMenuItems( searchOptions );
 		},
-		value( newValue: MenuItem | null ): void {
-			if ( newValue && newValue.id === this.value.id ) {
+		modelValue( newValue: MenuItem | null ): void {
+			if ( newValue && newValue.id === this.modelValue.id ) {
 				this.search = newValue.label;
 			}
 		},
 	},
 	mounted() {
-		if ( this.value && this.value.label && !this.search ) {
-			this.search = this.value.label;
+		if ( this.modelValue && this.modelValue.label && !this.search ) {
+			this.search = this.modelValue.label;
 		}
 	},
 } );

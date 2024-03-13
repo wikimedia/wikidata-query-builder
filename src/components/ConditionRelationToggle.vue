@@ -1,6 +1,6 @@
 <template>
 	<ToggleButtonGroup
-		:value="value"
+		:value="modelValue"
 		class="conditionRelationToggle"
 		@input="$emit( 'set-relation-toggle', $event )"
 	>
@@ -21,16 +21,17 @@
 
 <script lang="ts">
 import { ToggleButton, ToggleButtonGroup } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'ConditionRelationToggle',
 	components: { ToggleButton, ToggleButtonGroup },
 	props: {
-		value: {
+		modelValue: {
 			type: String,
 			default: 'add',
 		},
 	},
+	emits: [ 'set-relation-toggle' ],
 } );
 </script>

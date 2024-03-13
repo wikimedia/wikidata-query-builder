@@ -1,11 +1,11 @@
 <template>
 	<TextInput
 		:label="$i18n( 'query-builder-input-value-label' )"
-		:value="value"
+		:value="modelValue"
 		:error="error ? { message: $i18n( error.message ), type: error.type } : null"
 		:placeholder="$i18n( 'query-builder-input-value-placeholder' )"
 		:disabled="disabled"
-		@input="$emit( 'input', $event )"
+		@update:model-value="$emit( 'update:modelValue', $event )"
 	>
 		<template #suffix>
 			<InfoTooltip
@@ -19,17 +19,17 @@
 <script lang="ts">
 
 import { TextInput } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import InfoTooltip from '@/components/InfoTooltip.vue';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'StringValueInput',
 	components: {
 		TextInput,
 		InfoTooltip,
 	},
 	props: {
-		value: {
+		modelValue: {
 			type: String,
 			default: null,
 		},
@@ -42,5 +42,6 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'update:modelValue' ],
 } );
 </script>

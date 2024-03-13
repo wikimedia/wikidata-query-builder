@@ -1,13 +1,13 @@
 <template>
 	<EntityLookup
-		:value="value"
+		:model-value="modelValue"
 		:error="error"
 		:search-for-menu-items="searchForProperties"
 		:tooltip="$i18n( 'query-builder-property-lookup-tooltip' )"
 		:label="$i18n( 'query-builder-property-lookup-label' )"
 		:placeholder="$i18n( 'query-builder-property-lookup-placeholder' )"
 		:no-match-found-message="$i18n( 'query-builder-property-lookup-no-match-found' )"
-		@input="$emit( 'input', $event )"
+		@update:model-value="$emit( 'update:modelValue', $event )"
 	/>
 </template>
 
@@ -16,15 +16,19 @@ import EntityLookup from '@/components/EntityLookup.vue';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
-import Vue, { PropType } from 'vue';
+import { PropType } from 'vue';
+import { defineComponent } from 'vue';
 
-export default Vue.extend( {
+export default defineComponent( {
+	compatConfig: {
+		MODE: 3,
+	},
 	name: 'PropertyLookup',
 	components: {
 		EntityLookup,
 	},
 	props: {
-		value: {
+		modelValue: {
 			type: Object as PropType<MenuItem>,
 			default: null,
 		},
@@ -33,6 +37,7 @@ export default Vue.extend( {
 			default: null,
 		},
 	},
+	emits: [ 'update:modelValue' ],
 	methods: {
 		setTagForSearchResults( searchResults: SearchResult[] ): SearchResult[] {
 			return searchResults.map(

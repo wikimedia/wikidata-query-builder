@@ -7,7 +7,7 @@
 		:results-intro-text="$i18n( 'query-builder-date-input-results-intro-text' )"
 		:calendar-notice="$i18n( 'query-builder-date-input-calendar-notice-text' )"
 		:error="error ? { message: $i18n( error.message ), type: error.type } : null"
-		:parsed-value="( value && value.formattedValue ) ? value.formattedValue : null"
+		:parsed-value="( modelValue && modelValue.formattedValue ) ? modelValue.formattedValue : null"
 		:disabled="disabled"
 		@input="onInput( $event )"
 	>
@@ -21,21 +21,21 @@
 </template>
 
 <script lang="ts">
-
 import { DateInput } from '@wmde/wikit-vue-components';
 import { DateValue } from '@/store/RootState';
-import Vue, { PropType } from 'vue';
+import { PropType } from 'vue';
+import { defineComponent } from '@/compat';
 import InfoTooltip from '@/components/InfoTooltip.vue';
 import debounce from 'lodash/debounce';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'DateValueInput',
 	components: {
 		DateInput,
 		InfoTooltip,
 	},
 	props: {
-		value: {
+		modelValue: {
 			type: Object as PropType<DateValue>,
 			default: null,
 		},
@@ -48,6 +48,7 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'update:modelValue' ],
 	data() {
 		return {
 			rawInput: '',
@@ -58,7 +59,7 @@ export default Vue.extend( {
 		onInput( event: string ): void {
 			if ( this.debouncedDateValue === null ) {
 				this.debouncedDateValue = debounce( async ( debouncedDateInput: string ) => {
-					this.$emit( 'input', debouncedDateInput );
+					this.$emit( 'update:modelValue', debouncedDateInput );
 				}, 150 );
 			}
 
@@ -73,8 +74,8 @@ export default Vue.extend( {
 		},
 	},
 	mounted() {
-		if ( this.value ) {
-			this.rawInput = this.value.formattedValue || '';
+		if ( this.modelValue ) {
+			this.rawInput = this.modelValue.formattedValue || '';
 		}
 	},
 } );

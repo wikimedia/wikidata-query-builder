@@ -1,6 +1,6 @@
 import InfoTooltip from '@/components/InfoTooltip.vue';
 import { mount } from '@vue/test-utils';
-import { Button } from '@wmde/wikit-vue-components';
+import { CdxButton } from '@wikimedia/codex';
 
 describe( 'InfoTooltip component', () => {
 	// There's not much we can test here
@@ -10,9 +10,10 @@ describe( 'InfoTooltip component', () => {
 			position: 'top',
 		};
 		const wrapper = mount( InfoTooltip, {
-			propsData: props,
+			props: props,
 		} );
-		expect( wrapper.findAllComponents( Button ) ).toHaveLength( 1 );
+
+		expect( wrapper.findAllComponents( CdxButton ) ).toHaveLength( 1 );
 		expect( wrapper.vm.$props ).toStrictEqual( props );
 	} );
 } );

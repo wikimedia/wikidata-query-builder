@@ -11,7 +11,7 @@
 					type="neutral"
 					icon-only
 					aria-label="Sharable link"
-					@click.native="copyTextToClipboard">
+					@click="copyTextToClipboard">
 					<Icon
 						type="link"
 						size="large"
@@ -26,12 +26,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import { Icon, Button, Popover } from '@wmde/wikit-vue-components';
 import QuerySerializer from '@/serialization/QuerySerializer';
 import services from '@/ServicesFactory';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'SharableLink',
 	components: {
 		Icon,

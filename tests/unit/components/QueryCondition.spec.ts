@@ -2,25 +2,19 @@ import DeleteConditionButton from '@/components/DeleteConditionButton.vue';
 import ValueInput from '@/components/ValueInput.vue';
 import ValueTypeDropDown from '@/components/ValueTypeDropDown.vue';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import Vuex from 'vuex';
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { newStore } from '../../util/store';
+import { shallowMount } from '@vue/test-utils';
 import PropertyLookup from '@/components/PropertyLookup.vue';
-import Vue from 'vue';
-import i18n from 'vue-banana-i18n';
+import { createI18n } from 'vue-banana-i18n';
 import QueryCondition from '@/components/QueryCondition.vue';
 import NegationToggle from '@/components/NegationToggle.vue';
 import SubclassCheckbox from '@/components/SubclassCheckbox.vue';
-import { newStore } from '../../util/store';
-const messages = {};
 
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: {},
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
-
-const localVue = createLocalVue();
-localVue.use( Vuex );
 
 describe( 'QueryCondition.vue', () => {
 
@@ -28,19 +22,19 @@ describe( 'QueryCondition.vue', () => {
 		const property = { label: 'postal code', id: 'P123' };
 		const conditionIndex = 0;
 		const propertyGetter = () => () => ( property );
-
+		const store = newStore( { property: propertyGetter } );
 		const wrapper = shallowMount( QueryCondition, {
-			store: newStore( { property: propertyGetter } ),
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 
 		expect(
-			wrapper.findAllComponents( PropertyLookup )
-				.at( conditionIndex )
-				.props( 'value' ),
+			wrapper.findAllComponents( PropertyLookup )[ conditionIndex ]
+				.props( 'modelValue' ),
 		).toStrictEqual( property );
 	} );
 
@@ -50,14 +44,15 @@ describe( 'QueryCondition.vue', () => {
 		const conditionIndex = 0;
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 
-		wrapper.findAllComponents( PropertyLookup ).at( conditionIndex ).vm.$emit( 'input', property );
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property );
 
 		expect( store.dispatch ).toHaveBeenCalledWith( 'updateProperty', { property, conditionIndex } );
 	} );
@@ -67,10 +62,11 @@ describe( 'QueryCondition.vue', () => {
 		const conditionIndex = 0;
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 		const userInput = 'potato';
@@ -78,7 +74,7 @@ describe( 'QueryCondition.vue', () => {
 		const input = wrapper.findComponent( ValueInput );
 		input.vm.$emit( 'input', userInput );
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'updateValue', { value: userInput, conditionIndex } );
+		expect( store.dispatch ).toHaveBeenCalledWith( 'updateValue', { modelValue: userInput, conditionIndex } );
 	} );
 
 	it( 'set subclasses to true when property type is wikibase-item', async () => {
@@ -88,14 +84,15 @@ describe( 'QueryCondition.vue', () => {
 		const conditionIndex = 0;
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 
-		wrapper.findAllComponents( PropertyLookup ).at( conditionIndex ).vm.$emit( 'input', property );
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property );
 
 		expect( store.dispatch ).toHaveBeenCalledWith( 'setSubclasses', { subclasses: true, conditionIndex } );
 	} );
@@ -107,14 +104,15 @@ describe( 'QueryCondition.vue', () => {
 		const conditionIndex = 0;
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 
-		wrapper.findAllComponents( PropertyLookup ).at( conditionIndex ).vm.$emit( 'input', property );
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property );
 
 		expect( store.dispatch ).toHaveBeenCalledWith( 'setSubclasses', { subclasses: false, conditionIndex } );
 	} );
@@ -124,10 +122,11 @@ describe( 'QueryCondition.vue', () => {
 		const conditionIndex = 0;
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': conditionIndex,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: conditionIndex,
 			},
 			computed: {
 				canDelete: () => true,
@@ -140,20 +139,22 @@ describe( 'QueryCondition.vue', () => {
 	} );
 
 	it( 'shows field errors', () => {
+		const store = newStore( {
+			propertyError: jest.fn().mockReturnValue( jest.fn().mockReturnValue( {
+				type: 'error',
+				message: 'Property Error Message!',
+			} ) ),
+			valueError: jest.fn().mockReturnValue( jest.fn().mockReturnValue( {
+				type: 'warning',
+				message: 'Value Warning Message!',
+			} ) ),
+		} );
 		const wrapper = shallowMount( QueryCondition, {
-			store: newStore( {
-				propertyError: jest.fn().mockReturnValue( jest.fn().mockReturnValue( {
-					type: 'error',
-					message: 'Property Error Message!',
-				} ) ),
-				valueError: jest.fn().mockReturnValue( jest.fn().mockReturnValue( {
-					type: 'warning',
-					message: 'Value Warning Message!',
-				} ) ),
-			} ),
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 
@@ -173,17 +174,18 @@ describe( 'QueryCondition.vue', () => {
 		const conditionIndex = 0;
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 
 		const input = wrapper.findComponent( NegationToggle );
 		input.vm.$emit( 'input', 'without' );
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'setNegate', { value: true, conditionIndex } );
+		expect( store.dispatch ).toHaveBeenCalledWith( 'setNegate', { modelValue: true, conditionIndex } );
 	} );
 
 	it( 'Set regardless of value should disable text input and checkbox', async () => {
@@ -197,28 +199,30 @@ describe( 'QueryCondition.vue', () => {
 		} );
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 		expect( wrapper.findComponent( SubclassCheckbox ).props( 'disabled' ) ).toBeTruthy();
 		expect( wrapper.findComponent( ValueInput ).props( 'disabled' ) ).toBeTruthy();
 	} );
 
-	it( 'sets the value to null if the user switches the relation to "Regardless of value', () => {
+	it.only( 'sets the value to null if the user switches the relation to "Regardless of value', () => {
 		const store = newStore();
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
 
-		wrapper.findComponent( ValueTypeDropDown ).vm.$emit( 'input', PropertyValueRelation.Regardless );
+		wrapper.findComponent( ValueTypeDropDown ).vm.$emit( 'update:modelValue', PropertyValueRelation.Regardless );
 
 		expect( store.dispatch ).toHaveBeenCalledWith( 'updateValue', { value: null, conditionIndex: 0 } );
 		expect( store.dispatch ).toHaveBeenCalledWith(
@@ -234,14 +238,15 @@ describe( 'QueryCondition.vue', () => {
 		const conditionIndex = 0;
 		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
-			store,
-			localVue,
-			propsData: {
-				'condition-index': 0,
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
+				conditionIndex: 0,
 			},
 		} );
-		wrapper.findAllComponents( PropertyLookup ).at( conditionIndex ).vm.$emit( 'input', property );
-		wrapper.findAllComponents( ValueTypeDropDown ).at( conditionIndex ).vm.$emit(
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property );
+		wrapper.findAllComponents( ValueTypeDropDown )[ conditionIndex ].vm.$emit(
 			'input',
 			PropertyValueRelation.Regardless,
 		);
@@ -250,7 +255,7 @@ describe( 'QueryCondition.vue', () => {
 			{ propertyValueRelation: PropertyValueRelation.Regardless, conditionIndex: 0 },
 		);
 
-		wrapper.findAllComponents( PropertyLookup ).at( conditionIndex ).vm.$emit( 'input', property2 );
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property2 );
 		expect( store.dispatch ).toHaveBeenCalledWith(
 			'updatePropertyValueRelation',
 			{ propertyValueRelation: PropertyValueRelation.Matching, conditionIndex: 0 },

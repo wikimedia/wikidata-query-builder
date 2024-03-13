@@ -1,7 +1,9 @@
 import App from '@/App.vue';
 import LanguageService from '@/data-access/LanguageService';
-import { createLocalVue, shallowMount } from '@vue/test-utils';
-import Vuex from 'vuex';
+import { shallowMount } from '@vue/test-utils';
+import { nextTick } from 'vue';
+import { createStore } from 'vuex';
+import { createI18n } from 'vue-banana-i18n';
 
 jest.mock( '@/ServicesFactory', () => {
 	return {
@@ -18,9 +20,6 @@ jest.mock( '@/ServicesFactory', () => {
 	};
 } );
 
-const localVue = createLocalVue();
-localVue.use( Vuex );
-
 describe( 'App.vue', () => {
 	const location = global.window.location;
 
@@ -32,6 +31,17 @@ describe( 'App.vue', () => {
 	} );
 
 	it( 'sets the window heading based on a localized string', async () => {
+		const store = createStore( {} );
+		const i18n = createI18n( {
+			messages: {
+				fr: {
+					'query-builder-heading': 'Assistant de requêtes Wikidata',
+				},
+			},
+			locale: 'fr',
+			wikilinks: true,
+		} );
+
 		Object.defineProperty( global.window, 'location', {
 			value: {
 				search: '?uselang=fr',
@@ -39,17 +49,25 @@ describe( 'App.vue', () => {
 			writable: true,
 		} );
 
-		shallowMount( App, { store: new Vuex.Store( {} ), localVue } );
+		shallowMount( App, {
+			global: {
+				plugins: [ store, i18n ],
+			},
+		} );
 
-		await localVue.nextTick();
+		await nextTick();
 
 		expect( global.window.document.title ).toBe( 'Assistant de requêtes Wikidata' );
 	} );
 
 	it( 'reconstructs QB state if URL has a query parameter', async () => {
-		const store = new Vuex.Store( {} );
+		const store = createStore( {} );
 		store.dispatch = jest.fn();
-
+		const i18n = createI18n( {
+			messages: {},
+			locale: 'en',
+			wikilinks: true,
+		} );
 		const unencodedQuery = JSON.stringify( {
 			foo: 'bar',
 		} );
@@ -61,15 +79,28 @@ describe( 'App.vue', () => {
 			writable: true,
 		} );
 
-		shallowMount( App, { store, localVue } );
+		shallowMount( App, {
+			global: {
+				plugins: [ store, i18n ],
+			},
+		} );
+
 		expect( store.dispatch ).toHaveBeenCalledWith( 'parseState', unencodedQuery );
 	} );
 
 	it( 'doesn\'t try to reconstruct state if there is no query parameter', () => {
-		const store = new Vuex.Store( {} );
+		const store = createStore( {} );
 		store.dispatch = jest.fn();
-
-		shallowMount( App, { store, localVue } );
+		const i18n = createI18n( {
+			messages: {},
+			locale: 'en',
+			wikilinks: true,
+		} );
+		shallowMount( App, {
+			global: {
+				plugins: [ store, i18n ],
+			},
+		} );
 
 		expect( store.dispatch ).not.toHaveBeenCalled();
 	} );

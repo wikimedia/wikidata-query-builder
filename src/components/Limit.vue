@@ -2,8 +2,8 @@
 	<div class="querybuilder-limit">
 		<Checkbox
 			id="limit"
+			v-model:checked="checked"
 			class="querybuilder-limit__checkbox"
-			:checked.sync="checked"
 			:label="$i18n( 'query-builder-limit-number-results-description' )"
 		/>
 		<TextInput
@@ -19,12 +19,12 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import { DEFAULT_LIMIT } from '@/store/RootState';
 import { Checkbox, TextInput } from '@wmde/wikit-vue-components';
 import QueryBuilderError from '@/data-model/QueryBuilderError';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'Limit',
 	components: {
 		Checkbox,

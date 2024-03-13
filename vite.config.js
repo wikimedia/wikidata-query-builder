@@ -1,7 +1,6 @@
 import * as childProcess from 'child_process';
 import * as path from 'path';
-
-import { createVuePlugin } from 'vite-plugin-vue2';
+import createVuePlugin from '@vitejs/plugin-vue';
 import envCompatible from 'vite-plugin-env-compatible';
 
 process.env.VUE_APP_BUILD_TIME = Date.now();
@@ -12,7 +11,18 @@ const base = ( process.env.NODE_ENV === 'production' ) ? '/querybuilder/' : '/';
 export default {
 	base,
 	plugins: [
-		createVuePlugin(),
+		createVuePlugin( {
+			template: {
+				compilerOptions: {
+					compatConfig: {
+						MODE: 3,
+						COMPILER_V_ON_NATIVE: true,
+						COMPILER_V_BIND_SYNC: true,
+						GLOBAL_MOUNT: false,
+					},
+				},
+			},
+		} ),
 		envCompatible(),
 	],
 	resolve: {
@@ -20,6 +30,22 @@ export default {
 			{
 				find: '@',
 				replacement: path.resolve( __dirname, './src' ),
+			},
+			{
+				find: 'vue',
+				replacement: '@vue/compat',
+			},
+			{
+				find: '@vue/composition-api',
+				replacement: '@vue/compat',
+			},
+			{
+				find: 'wikit-dist',
+				replacement: path.resolve( __dirname, './node_modules/@wmde/wikit-vue-components/dist' ),
+			},
+			{
+				find: '@wmde/wikit-vue-components',
+				replacement: '@wmde/wikit-vue-components/dist/wikit-vue-components-vue3compat.common.js',
 			},
 		],
 	},

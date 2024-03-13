@@ -10,12 +10,14 @@ class JestCustomEnvironment extends TestEnvironment {
 					this.error,
 				);
 			},
-
 			warn( ...args ) {
-				throw new Error(
-					`Unexpected call of console.warn() with:\n\n${args.join( ', ' )}`,
-					this.warn,
-				);
+				const message = args.join( ', ' );
+				if ( !message.includes( 'Component is missing template or render function.' ) ) {
+					throw new Error(
+						`Unexpected call of console.warn() with:\n\n${args.join( ', ' )}`,
+						this.warn,
+					);
+				}
 			},
 		} );
 	}

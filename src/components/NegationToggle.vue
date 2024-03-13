@@ -1,8 +1,8 @@
 <template>
 	<ToggleButtonGroup
-		:value="value"
+		:value="modelValue"
 		class="negationToggle"
-		@input="$emit( 'input', $event )"
+		@input="$emit( 'update:modelValue', $event )"
 	>
 		<template #default>
 			<ToggleButton
@@ -21,16 +21,17 @@
 
 <script lang="ts">
 import { ToggleButton, ToggleButtonGroup } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'NegationToggle',
 	components: { ToggleButton, ToggleButtonGroup },
 	props: {
-		value: {
+		modelValue: {
 			type: String,
 			default: 'with',
 		},
 	},
+	emits: [ 'update:modelValue' ],
 } );
 </script>

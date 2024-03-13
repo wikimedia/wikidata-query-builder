@@ -4,15 +4,15 @@
 		:key="refreshKey"
 		:lang="lang"
 		:dir="textDirection">
-		<QueryBuilder v-if="isi18nLoaded" :lang.sync="lang" />
+		<QueryBuilder v-if="isi18nLoaded" v-model:lang="lang" />
 	</div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import QueryBuilder from '@/components/QueryBuilder.vue';
-import i18n from 'vue-banana-i18n';
 import services from '@/ServicesFactory';
+import { defineComponent } from '@/compat';
 
 if ( process.env.NODE_ENV === 'production' ) {
 	// TODO: figure out how to disable the jest error that fails the unit tests if this is available during testing
@@ -23,11 +23,12 @@ if ( process.env.NODE_ENV === 'production' ) {
 
 const languageService = services.get( 'languageService' );
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'App',
 	components: {
 		QueryBuilder,
 	},
+	inject: [ 'setLocale' ],
 	data() {
 		return {
 			isi18nLoaded: false as boolean,
@@ -50,11 +51,11 @@ export default Vue.extend( {
 			}
 
 			this.i18nOptions.locale = this.lang;
-			this.i18nOptions.messages = messages;
-			Vue.use( i18n, this.i18nOptions );
-			this.isi18nLoaded = true;
-			this.setDocumentTitle( messages );
 
+			this.$i18n.messages = messages;
+			this.isi18nLoaded = true;
+			this.setLocale( this.lang );
+			this.setDocumentTitle( messages );
 		},
 		reconstructStateFromURL(): void {
 			const urlParams = new URLSearchParams( window.location.search );
@@ -70,8 +71,10 @@ export default Vue.extend( {
 	},
 	watch: {
 		lang: async function () {
-			await this.fetchi18n();
 			this.refreshKey += 1;
+			const url = new URL( document.URL );
+			url.searchParams.set( 'uselang', this.lang );
+			document.location.assign( url.toString() );
 		},
 	},
 	created(): void {
@@ -90,5 +93,6 @@ export default Vue.extend( {
 
 <style lang="scss">
 @use 'ress';
-@import '@wmde/wikit-vue-components/dist/wikit-vue-components.css';
+@import 'wikit-dist/wikit-vue-components-vue3compat.css';
+
 </style>

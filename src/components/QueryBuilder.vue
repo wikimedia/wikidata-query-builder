@@ -117,7 +117,8 @@
 <script lang="ts">
 import Footer from '@/components/Footer.vue';
 import { ConditionRow } from '@/store/RootState';
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
+import { DirectiveBinding } from 'vue';
 import { mapState } from 'vuex';
 import { Button, Icon } from '@wmde/wikit-vue-components';
 
@@ -132,11 +133,10 @@ import ConditionRelation from '@/data-model/ConditionRelation';
 import SharableLink from '@/components/SharableLink.vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import languagedata from '@wikimedia/language-data';
-import { DirectiveBinding } from 'vue/types/options';
 
 let handleOutsideClick: ( event: MouseEvent | TouchEvent ) => void;
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'QueryBuilder',
 	components: {
 		Icon,
@@ -153,7 +153,7 @@ export default Vue.extend( {
 	},
 	directives: {
 		detectClickOutside: {
-			inserted( element: HTMLElement, binding: DirectiveBinding ): void {
+			mounted( element: HTMLElement, binding: DirectiveBinding ): void {
 				handleOutsideClick = ( event: MouseEvent | TouchEvent ): void => {
 					const callback = binding.value;
 					if ( !element.contains( event.target as Node ) ) {
@@ -164,7 +164,7 @@ export default Vue.extend( {
 				document.addEventListener( 'click', handleOutsideClick );
 				document.addEventListener( 'touchstart', handleOutsideClick );
 			},
-			unbind(): void {
+			unmounted(): void {
 				document.removeEventListener( 'click', handleOutsideClick );
 				document.removeEventListener( 'touchstart', handleOutsideClick );
 			},
@@ -176,6 +176,7 @@ export default Vue.extend( {
 			default: '',
 		},
 	},
+	emits: [ 'update:lang' ],
 	data() {
 		return {
 			encodedQuery: '',
@@ -293,7 +294,7 @@ export default Vue.extend( {
 		this.resizeObserver = new ResizeObserver( this.onWindowResize );
 		this.resizeObserver.observe( this.$refs.contentWrap as Element );
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		this.resizeObserver.unobserve( this.$refs.contentWrap as Element );
 	},
 } );

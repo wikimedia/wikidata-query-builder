@@ -1,6 +1,6 @@
 <template>
 	<EntityLookup
-		:value="value"
+		:model-value="modelValue"
 		:error="error"
 		:search-for-menu-items="searchForMenuItems"
 		:label="$i18n( 'query-builder-input-value-label' )"
@@ -8,7 +8,7 @@
 		:placeholder="$i18n( 'query-builder-input-value-placeholder' )"
 		:no-match-found-message="$i18n( noMatchFoundMessageKey )"
 		:disabled="disabled"
-		@input="$emit( 'input', $event )"
+		@update:model-value="$emit( 'update:modelValue', $event )"
 	/>
 </template>
 
@@ -17,7 +17,8 @@ import EntityLookup from '@/components/EntityLookup.vue';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
-import Vue, { PropType } from 'vue';
+import { PropType } from 'vue';
+import { defineComponent } from '@/compat';
 
 const supportedEntityTypes = {
 	item: [ 'searchItemValues', 'query-builder-item-value-lookup-no-match-found' ],
@@ -27,7 +28,7 @@ const supportedEntityTypes = {
 	property: [ 'searchProperties', 'query-builder-property-lookup-no-match-found' ],
 };
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'EntityValueLookup',
 	components: {
 		EntityLookup,
@@ -38,7 +39,7 @@ export default Vue.extend( {
 			default: 'item',
 			validator: type => type in supportedEntityTypes,
 		},
-		value: {
+		modelValue: {
 			type: Object as PropType<MenuItem>,
 			default: null,
 		},
@@ -51,6 +52,7 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'update:modelValue' ],
 	computed: {
 		storeAction(): string {
 			return supportedEntityTypes[ this.entityType ][ 0 ];

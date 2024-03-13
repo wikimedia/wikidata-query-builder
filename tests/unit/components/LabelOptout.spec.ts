@@ -1,31 +1,27 @@
 import { Checkbox } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
 import LabelOptout from '@/components/LabelOptout.vue';
-import { createLocalVue, shallowMount } from '@vue/test-utils';
-import i18n from 'vue-banana-i18n';
-import Vuex from 'vuex';
+import { shallowMount } from '@vue/test-utils';
+import { createI18n } from 'vue-banana-i18n';
+import { createStore } from 'vuex';
 
-const messages = {};
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: {},
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
-
-const localVue = createLocalVue();
-localVue.use( Vuex );
 
 describe( 'LabelOptout.vue', () => {
 	it( 'updates the store when user checks label optout checkbox', async () => {
 		const omitLabels = true;
 		const omitLabelsGetter = (): boolean => false;
-		const store = new Vuex.Store( {
+		const store = createStore( {
 			getters: { omitLabels: omitLabelsGetter },
 		} );
 
 		const wrapper = shallowMount( LabelOptout, {
-			store,
-			localVue,
+			global: {
+				plugins: [ store, i18n ],
+			},
 		} );
 		store.dispatch = jest.fn();
 

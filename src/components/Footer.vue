@@ -65,10 +65,10 @@
 
 <script lang="ts">
 import QuerySerializer from '@/serialization/QuerySerializer';
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import { Link as WikitLink } from '@wmde/wikit-vue-components';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'Footer',
 	components: {
 		WikitLink,

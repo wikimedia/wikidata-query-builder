@@ -1,29 +1,28 @@
 import EntityValueLookup from '@/components/EntityValueLookup.vue';
 import EntityLookup from '@/components/EntityLookup.vue';
-import { createLocalVue, shallowMount } from '@vue/test-utils';
-import Vuex from 'vuex';
-import Vue from 'vue';
-import i18n from 'vue-banana-i18n';
+import { shallowMount } from '@vue/test-utils';
+import { createStore } from 'vuex';
+import { createI18n } from 'vue-banana-i18n';
 import SearchOptions from '@/data-access/SearchOptions';
 
-const localVue = createLocalVue();
-const messages = {};
-localVue.use( Vuex );
-
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: {},
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
 
 describe( 'EntityValueLookup.vue', () => {
 	it( 'bubbles input events from the Lookup up', () => {
-		const wrapper = shallowMount( EntityValueLookup );
+		const wrapper = shallowMount( EntityValueLookup, {
+			global: {
+				plugins: [ i18n ],
+			},
+		} );
 		const someEventContent = {};
 
-		wrapper.findComponent( EntityLookup ).vm.$emit( 'input', someEventContent );
+		wrapper.findComponent( EntityLookup ).vm.$emit( 'update:modelValue', someEventContent );
 
-		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toBe( someEventContent );
+		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toBe( someEventContent );
 	} );
 
 	it( 'pass value prop down to Lookup', () => {
@@ -33,23 +32,30 @@ describe( 'EntityValueLookup.vue', () => {
 		};
 
 		const wrapper = shallowMount( EntityValueLookup, {
-			propsData: {
-				value: item,
+			global: {
+				plugins: [ i18n ],
+			},
+			props: {
+				modelValue: item,
 			},
 		} );
 
-		expect( wrapper.findComponent( EntityLookup ).props( 'value' ) ).toBe( item );
+		expect( wrapper.findComponent( EntityLookup ).props( 'modelValue' ) ).toStrictEqual( item );
 	} );
 
 	it( 'passes search function down and dispatches action when it is called', async () => {
-		const store = new Vuex.Store( {} );
+		const store = createStore( {} );
 		const searchResults = [
 			{ label: 'abc', description: 'def', id: 'Q123' },
 			{ label: 'date of birth', description: '', id: 'Q345' },
 		];
 		store.dispatch = jest.fn().mockResolvedValue( searchResults );
 		const expectedSearchResults = JSON.parse( JSON.stringify( searchResults ) );
-		const wrapper = shallowMount( EntityValueLookup, { store, localVue } );
+		const wrapper = shallowMount( EntityValueLookup, {
+			global: {
+				plugins: [ store, i18n ],
+			},
+		} );
 
 		expect( wrapper.findComponent( EntityLookup ).props( 'searchForMenuItems' ) )
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -72,7 +78,10 @@ describe( 'EntityValueLookup.vue', () => {
 		};
 
 		const wrapper = shallowMount( EntityValueLookup, {
-			propsData: {
+			global: {
+				plugins: [ i18n ],
+			},
+			props: {
 				error,
 			},
 		} );

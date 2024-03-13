@@ -54,7 +54,7 @@
 
 <script lang="ts">
 import { Value } from '@/store/RootState';
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 
 import ValueInput from '@/components/ValueInput.vue';
 import DeleteConditionButton from '@/components/DeleteConditionButton.vue';
@@ -69,7 +69,7 @@ import { mapGetters } from 'vuex';
 import NegationToggle from '@/components/NegationToggle.vue';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'QueryCondition',
 	components: {
 		ValueInput,
@@ -146,8 +146,8 @@ export default Vue.extend( {
 			get(): Value {
 				return this.$store.getters.value( this.conditionIndex );
 			},
-			set( value: Value ): void {
-				this.$store.dispatch( 'updateValue', { value, conditionIndex: this.conditionIndex } );
+			set( modelValue: Value ): void {
+				this.$store.dispatch( 'updateValue', { value: modelValue, conditionIndex: this.conditionIndex } );
 			},
 		},
 		negateValue: {

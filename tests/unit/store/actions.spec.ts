@@ -399,10 +399,10 @@ describe( 'actions', () => {
 		const conditionIndex = 0;
 		const actions = createActionsWithMockServices();
 
-		actions.setConditionRelation( context as any, { value: conditionRelation, conditionIndex } );
+		actions.setConditionRelation( context as any, { modelValue: conditionRelation, conditionIndex } );
 
 		expect( context.commit ).toHaveBeenCalledWith( 'setConditionRelation',
-			{ value: conditionRelation, conditionIndex } );
+			{ modelValue: conditionRelation, conditionIndex } );
 	} );
 
 	it( 'setNegate', () => {
@@ -411,9 +411,9 @@ describe( 'actions', () => {
 		const conditionIndex = 0;
 		const actions = createActionsWithMockServices();
 
-		actions.setNegate( context as any, { value: negate, conditionIndex } );
+		actions.setNegate( context as any, { modelValue: negate, conditionIndex } );
 
-		expect( context.commit ).toHaveBeenCalledWith( 'setNegate', { value: negate, conditionIndex } );
+		expect( context.commit ).toHaveBeenCalledWith( 'setNegate', { modelValue: negate, conditionIndex } );
 	} );
 
 	it( 'setOmitLabels', () => {

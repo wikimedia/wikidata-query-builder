@@ -1,13 +1,28 @@
 declare module '*.vue' {
-	import Vue from 'vue';
-
-	declare module 'vue/types/vue' {
+	module 'vue/types/vue' {
 		interface Vue {
 			$i18n: ( msg: string, ...args: unknown[] ) => string;
 		}
 	}
-
-	export default Vue;
+	import { defineComponent } from 'vue';
+	const component: ReturnType<typeof defineComponent>;
+	export default component;
 }
 
 declare module 'vue-banana-i18n';
+
+declare module '@wikimedia/language-data';
+
+declare module '*.svg' {
+	const content: SVGElement;
+	export default content;
+}
+
+declare module 'vue' {
+	import { CompatVue } from '@vue/runtime-dom';
+	const Vue: CompatVue;
+	export default Vue;
+	export * from '@vue/runtime-dom';
+	const { configureCompat } = Vue;
+	export { configureCompat };
+}
