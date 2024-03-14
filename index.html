@@ -6,10 +6,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="/favicon.ico">
     <title>Wikidata Query Builder</title>
+    <link rel="stylesheet" href="@/styles/noscript.scss">
 </head>
 <body>
     <noscript>
-        <strong>We're sorry but Wikidata Query Builder doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        <main class="content-wrap no-script">
+            <header>
+                <a href="/" class="logo-link"><div class="query-builder-logo"></div></a>
+            </header>
+            <div class="message-wrapper">
+                <div class="cdx-message cdx-message--block cdx-message--warning" role="alert">
+                    <span class="cdx-message__icon"></span>
+                    <div class="cdx-message__content">
+                        <p><strong>Your browser doesn’t support Wikidata’s Query Builder.</strong></p>
+                        <p>In order to view and use this tool, you must switch to another browser or enable JavaScript. Learn how to do that in <a href="https://support.google.com/adsense/answer/12654">Chrome</a>, <a href="https://support.mozilla.org/en-US/kb/javascript-settings-for-interactive-web-pages#w_websites-ask-you-to-enable-javascript">Firefox</a>, <a href="https://support.apple.com/lt-lt/guide/safari/ibrw1074/mac">Safari</a>, <a href="https://www.enablejavascript.io/en/how-to-enable-javascript-on-microsoft-edge">Edge</a> or <a href="https://help.opera.com/en/latest/web-preferences/">Opera</a>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="description">
+                <h2 class="h5">About Query Builder</h2>
+                <p>The Wikidata Query Builder allows creating Wikidata queries using interacting elements on an interface. It is ideal for users with little or no experience in SPARQL. <br><a href="https://www.wikidata.org/wiki/Wikidata:Query_Builder">More information</a></p>
+            </div>
+        </main>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
