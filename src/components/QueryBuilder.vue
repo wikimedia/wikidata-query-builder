@@ -301,7 +301,6 @@ export default Vue.extend( {
 
 <style lang="scss">
 @use '../styles/links' as *;
-
 @include links-without-underline;
 
 $tinyViewportWidth: 38em;
@@ -310,13 +309,14 @@ $tinyViewportWidth: 38em;
  * This is a rough approximation. by using a screen size emulator,
  * we can see the width where all items are aligned.
  */
-$largeViewportWidth: 90em; //~1438px
+$largeViewportWidth: 90em; // ~1438px
 
 body.overflow-hidden-on-mobile {
 	@media (max-width: $tinyViewportWidth) {
 		overflow: hidden;
 	}
 }
+
 // TODO replace with link component once available
 a {
 	font-family: $wikit-Link-font-family;
@@ -345,7 +345,7 @@ a {
 
 	@media (min-width: $largeViewportWidth) {
 		// set maximum width of the page
-		max-width: $largeViewportWidth;
+		max-inline-size: $largeViewportWidth;
 		margin-inline: auto;
 	}
 }
@@ -405,7 +405,7 @@ a {
 }
 
 .querybuilder__heading {
-	padding-bottom: $dimension-layout-small;
+	padding-block-end: $dimension-layout-small;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1.5rem 1.5rem;
@@ -413,34 +413,34 @@ a {
 
 	.querybuilder__logo {
 		background-image: url( '/img/QB_Logo.svg' );
-		width: 360px;
-		height: 24px;
+		inline-size: 360px;
+		block-size: 24px;
 
 		@media (max-width: $tinyViewportWidth) {
 			background-image: url( '/img/QB_Logo_Mobile.svg' );
-			width: 239px;
-			height: 24px;
+			inline-size: 239px;
+			block-size: 24px;
 		}
 	}
 }
 
-.visually-hidden:not(:focus):not(:active) {
+.visually-hidden:not(:focus, :active) {
 	clip: rect(0 0 0 0);
 	clip-path: inset(100%);
-	height: 1px;
+	block-size: 1px;
 	overflow: hidden;
 	position: absolute;
 	white-space: nowrap;
-	width: 1px;
+	inline-size: 1px;
 }
 
 .querybuilder__description-heading {
-  font-family: $font-family-style-heading-sans;
-  font-size: $font-size-style-h4;
-  font-weight: $font-weight-style-h4;
-  line-height: $font-line-height-style-heading;
-  color: $font-color-emphasized;
-  margin: $dimension-layout-xsmall 0;
+	font-family: $font-family-style-heading-sans;
+	font-size: $font-size-style-h4;
+	font-weight: $font-weight-style-h4;
+	line-height: $font-line-height-style-heading;
+	color: $font-color-emphasized;
+	margin: $dimension-layout-xsmall 0;
 }
 
 .querybuilder__description {
@@ -449,10 +449,10 @@ a {
 	font-size: $font-size-style-body;
 	line-height: $font-line-height-style-body;
 	color: $font-color-base;
-	max-width: 672px; // TODO: replace with token
+	max-inline-size: 672px; // TODO: replace with token
 
-	@media (max-width: 671px) {
-		width: 100%;
+	@media (width <= 671px) {
+		inline-size: 100%;
 	}
 }
 
@@ -471,8 +471,7 @@ a {
 	font-size: $font-size-style-description;
 	line-height: $font-line-height-style-description;
 	color: $font-color-base;
-	margin-block-start: $dimension-layout-xsmall;
-	margin-block-end: $dimension-layout-xxsmall;
+	margin-block: $dimension-layout-xsmall $dimension-layout-xxsmall;
 }
 
 .querybuilder__setting-header {
@@ -502,7 +501,7 @@ a {
 
 	& button {
 		@media (max-width: $tinyViewportWidth) {
-			width: 100%;
+			inline-size: 100%;
 		}
 	}
 }
@@ -513,8 +512,9 @@ a {
 
 .querybuilder__languageSelector {
 	> button {
-		margin-bottom: 2px;
+		margin-block-end: 2px;
 	}
+
 	@media (min-width: $tinyViewportWidth) {
 		position: relative;
 	}

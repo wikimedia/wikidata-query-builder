@@ -92,7 +92,7 @@ export default Vue.extend( {
 		color: $font-color-subtle;
 		font-weight: $font-weight-style-description;
 		line-height: $font-line-height-style-description;
-		width: $dimension-width-full;
+		inline-size: $dimension-width-full;
 		border: $border-width-thin $border-style-base $border-color-base-subtle;
 		border-radius: 0 0 $border-radius-base $border-radius-base;
 		text-align: center;
@@ -106,8 +106,9 @@ export default Vue.extend( {
 		border-radius: $border-radius-base $border-radius-base 0 0;
 		box-sizing: border-box;
 		padding-inline-start: $dimension-spacing-xlarge;
+
 		// TODO: Remove this once we have the share button and use padding instead
-		height: 3em;
+		block-size: 3em;
 		border-block-end: none;
 
 		& h2 {
@@ -120,9 +121,9 @@ export default Vue.extend( {
 	}
 
 	.querybuilder-result__iframe {
-		width: $dimension-width-full;
+		inline-size: $dimension-width-full;
 		border: $border-width-thin $border-style-base $border-color-base-subtle;
 		border-radius: 0 0 $border-radius-base $border-radius-base;
-		height: 95vh;
+		block-size: 95vh;
 	}
 </style>

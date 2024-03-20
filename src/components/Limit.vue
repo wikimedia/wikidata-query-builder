@@ -105,17 +105,16 @@ export default Vue.extend( {
 	&__input {
 		// TODO: change to real ones
 		margin-inline-start: $dimension-layout-small;
-		width: 16em;
+		inline-size: 16em;
 
-		//hides the label of the TextInput while still allowing to be used by screen readers
+		// hides the label of the TextInput while still allowing to be used by screen readers
 		.wikit-TextInput__label {
 			position: absolute;
-			width: 1px;
-			height: 1px;
+			inline-size: 1px;
+			block-size: 1px;
 			overflow: hidden;
 			clip: rect(0, 0, 0, 0);
 			white-space: nowrap;
-			-webkit-clip-path: inset(50%);
 			clip-path: inset(50%);
 			border: 0;
 		}

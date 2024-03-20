@@ -112,16 +112,18 @@ export default Vue.extend( {
 </script>
 
 <style lang="scss">
+	@import '@wikimedia/codex/dist/codex.style.css';
+
 	// will be removed once dropdown component is implemented in the DS
 	.querybuilder-dropdown__select {
 		.wikit-Dropdown__label {
 			position: absolute;
-			width: 1px;
-			height: 1px;
+			padding-inline-start: 2em;
+			inline-size: 1px;
+			block-size: 1px;
 			overflow: hidden;
 			clip: rect(0, 0, 0, 0);
 			white-space: nowrap;
-			-webkit-clip-path: inset(50%);
 			clip-path: inset(50%);
 			border: 0;
 		}

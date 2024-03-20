@@ -213,7 +213,7 @@ $tinyViewportWidth: 38em; // Set so that inputs show all below each other in the
 	&__remove {
 		margin-inline-start: $dimension-layout-small;
 		float: inline-end;
-		height: max-content;
+		block-size: max-content;
 
 		@media (max-width: $tinyViewportWidth) {
 			position: absolute;
@@ -236,6 +236,7 @@ $tinyViewportWidth: 38em; // Set so that inputs show all below each other in the
 	&__input-container {
 		display: grid;
 		flex: 1;
+
 		// 16em == 256px minimum-width as defined by UX
 		grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
 		grid-gap: $dimension-layout-xsmall;

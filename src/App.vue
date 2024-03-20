@@ -90,6 +90,5 @@ export default Vue.extend( {
 
 <style lang="scss">
 @use 'ress';
-
 @import '@wmde/wikit-vue-components/dist/wikit-vue-components.css';
 </style>

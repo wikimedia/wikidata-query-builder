@@ -130,7 +130,7 @@ $largeViewportWidth: 90em;
 
 	@media (min-width: $largeViewportWidth) {
 		// set maximum width of the page
-		max-width: $largeViewportWidth;
+		max-inline-size: $largeViewportWidth;
 		margin-block: auto;
 		margin-inline: auto;
 	}

@@ -125,16 +125,16 @@ $tinyViewportWidth: 38em;
 .querybuilder__language-selector {
 	position: absolute;
 	inset-inline-end: 0;
-	width: 384px;
+	inline-size: 384px;
 	z-index: 1;
 
 	@media (max-width: $tinyViewportWidth) {
-		width: 100%;
+		inline-size: 100%;
 		position: fixed;
-		top: 0;
+		inset-block-start: 0;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
+		block-size: 100%;
 	}
 
 	.languageSelector__mobile-header {

@@ -90,15 +90,15 @@ $base: '.languageSelector__options-menu';
 $tinyViewportWidth: 38em;
 
 #{$base} {
-	background-color: #ffffff;
-	border-radius: 0px 0px 1px 1px;
+	background-color: #fff;
+	border-radius: 0 0 1px 1px;
 	border: 1px solid #a2a9b1;
 	box-shadow: $wikit-OptionsMenu-box-shadow;
 	box-sizing: border-box;
 	z-index: 1;
 	padding-block: 8px;
 	padding-inline: 12px;
-	height: 15.25rem;
+	block-size: 15.25rem;
 	overflow-y: scroll;
 
 	@media (max-width: $tinyViewportWidth) {
@@ -106,7 +106,6 @@ $tinyViewportWidth: 38em;
 	}
 
 	&__languages-list {
-
 		&__item {
 			position: relative;
 			padding-block: 8px;
