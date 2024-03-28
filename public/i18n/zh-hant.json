@@ -68,7 +68,7 @@
 	"query-builder-quantity-value-label": "值與單位（可選）",
 	"query-builder-quantity-value-number-input-placeholder": "輸入數量",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "輸入單位",
-	"query-builder-quantity-value-unit-lookup-screenreader-label": "單位（可選）",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "單位（非必填）",
 	"query-builder-footer-about-query-builder": "關於查詢建置器",
 	"query-builder-footer-licence": "基於 [$1 BSD 3-Clause License] 許可",
 	"query-builder-footer-build-time": "上一次建置於 [$1 $2]",
