@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"B3rnas",
 			"GoEThe",
 			"Hamilton Abreu"
 		]
@@ -16,6 +17,7 @@
 	"query-builder-input-value-tooltip": "O campo <em>valor</em> contém a informação concreta utilizada para descrever um item. Por exemplo, «azul» é um <em>valor</em> possível para a <em>propriedade</em> «cor».",
 	"query-builder-input-value-placeholder": "Insira um valor",
 	"query-builder-item-value-lookup-no-match-found": "Nenhuma correspondência encontrada",
+	"query-builder-lexeme-value-lookup-no-match-found": "Nenhuma correspondência encontrada",
 	"query-builder-property-lookup-label": "Propriedade",
 	"query-builder-property-lookup-tooltip": "O campo <em>propriedade</em> numa condição é a categoria ou descritor do <em>valor</em>. Por exemplo, «cor» seria uma <em>propriedade</em> que provavelmente usaria para o <em>valor</em> «azul».",
 	"query-builder-property-lookup-placeholder": "Insira uma propriedade",
