@@ -5,13 +5,13 @@
 			:position="position"
 		>
 			<template #target>
-				<Button
+				<CdxButton
+					class="btn-11"
 					variant="quiet"
 					type="neutral"
-					icon-only
 					aria-label="open tooltip with more information">
-					<Icon type="info-outlined" size="small" />
-				</Button>
+					<CdxIcon :icon="cdxIconInfo" size="small" />
+				</CdxButton>
 			</template>
 			<div v-html="message" />
 		</Popover>
@@ -19,14 +19,16 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { Icon, Button, Popover } from '@wmde/wikit-vue-components';
+import { defineComponent } from '@/compat';
+import { Popover } from '@wmde/wikit-vue-components';
+import { CdxButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconInfo } from '@wikimedia/codex-icons';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'InfoTooltip',
 	components: {
-		Icon,
-		Button,
+		CdxIcon,
+		CdxButton,
 		Popover,
 	},
 	props: {
@@ -38,6 +40,11 @@ export default Vue.extend( {
 			type: String,
 			required: true,
 		},
+	},
+	data() {
+		return {
+			cdxIconInfo,
+		};
 	},
 } );
 </script>
@@ -57,5 +64,12 @@ export default Vue.extend( {
 	& .wikit-Popover__content-wrapper {
 		z-index: 5;
 	}
+}
+
+.btn-11 {
+	max-inline-size: 1em !important;
+	max-block-size: 1em !important;
+	min-inline-size: 1em !important;
+	min-block-size: 1em !important;
 }
 </style>

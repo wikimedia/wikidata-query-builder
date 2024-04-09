@@ -1,30 +1,26 @@
 import { Checkbox } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
 import SubclassCheckbox from '@/components/SubclassCheckbox.vue';
-import { createLocalVue, shallowMount } from '@vue/test-utils';
-import i18n from 'vue-banana-i18n';
-import Vuex from 'vuex';
+import { shallowMount } from '@vue/test-utils';
+import { createI18n } from 'vue-banana-i18n';
+import { createStore } from 'vuex';
 
-const messages = {};
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: {},
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
-
-const localVue = createLocalVue();
-localVue.use( Vuex );
 
 describe( 'SubclassCheckbox.vue', () => {
 	it( 'updates the store when user checks include subclasses checkbox', async () => {
 		const subclasses = true;
 		const subclassesGetter = () => () => ( subclasses );
-		const store = new Vuex.Store( { getters: { subclassesGetter } } );
+		const store = createStore( { getters: { subclassesGetter } } );
 
 		const wrapper = shallowMount( SubclassCheckbox, {
-			store,
-			localVue,
-			propsData: {
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
 				'condition-index': 0,
 				isChecked: false,
 			},

@@ -2,10 +2,10 @@
 	<component
 		:is="dispatchComponent"
 		v-bind="extraProps"
-		:value="value"
+		:model-value="modelValue"
 		:disabled="disabled"
 		:error="error"
-		@input="$emit( 'input', $event )"
+		@update:model-value="$emit( 'update:modelValue', $event )"
 	/>
 </template>
 
@@ -15,9 +15,9 @@ import StringValueInput from '@/components/StringValueInput.vue';
 import QuantityValueInput from '@/components/QuantityValueInput.vue';
 import DateValueInput from '@/components/DateValueInput.vue';
 
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'ValueInput',
 	components: {
 		StringValueInput,
@@ -31,7 +31,7 @@ export default Vue.extend( {
 			default: null,
 			validator: prop => typeof prop === 'string' || prop === null,
 		},
-		value: {
+		modelValue: {
 			default: null,
 			type: [ String, Object ],
 		},
@@ -44,6 +44,7 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'update:modelValue' ],
 	computed: {
 		dispatchComponent(): string {
 			switch ( this.datatype ) {

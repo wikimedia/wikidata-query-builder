@@ -1,21 +1,23 @@
-import Vue from 'vue';
 import AddCondition from '@/components/AddCondition.vue';
-import { Button } from '@wmde/wikit-vue-components';
+import { CdxButton } from '@wikimedia/codex';
 import { shallowMount } from '@vue/test-utils';
-import i18n from 'vue-banana-i18n';
+import { createI18n } from 'vue-banana-i18n';
 
-const messages = {};
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: {},
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
 
 describe( 'AddCondition.vue', () => {
 	it( 'emits an `add-condition` event when Add Condition button is clicked', async () => {
-		const wrapper = shallowMount( AddCondition );
+		const wrapper = shallowMount( AddCondition, {
+			global: {
+				plugins: [ i18n ],
+			},
+		} );
 
-		await wrapper.findComponent( Button ).trigger( 'click' );
+		await wrapper.findComponent( CdxButton ).trigger( 'click' );
 
 		expect( wrapper.emitted( 'add-condition' ) ).toBeTruthy();
 	} );

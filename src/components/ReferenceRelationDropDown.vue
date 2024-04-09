@@ -19,7 +19,8 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import { PropType } from 'vue';
+import { defineComponent } from '@/compat';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { Dropdown } from '@wmde/wikit-vue-components';
@@ -29,14 +30,14 @@ interface ReferenceRelationMenuItem extends MenuItem {
 	value: ReferenceRelation;
 }
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'ReferenceRelationDropDown',
 	components: {
 		Dropdown,
 		InfoTooltip,
 	},
 	props: {
-		value: {
+		modelValue: {
 			type: String as PropType<ReferenceRelation>,
 			required: true,
 		},
@@ -45,6 +46,7 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'update:modelValue' ],
 	computed: {
 		optionItems(): ReferenceRelationMenuItem[] {
 			return Object.values( ReferenceRelation ).map( ( value: ReferenceRelation ) => {
@@ -63,13 +65,13 @@ export default Vue.extend( {
 		},
 		selected(): ReferenceRelationMenuItem | null {
 			return this.optionItems.find(
-				( option: ReferenceRelationMenuItem ) => option.value === this.value,
+				( option: ReferenceRelationMenuItem ) => option.value === this.modelValue,
 			) || null;
 		},
 	},
 	methods: {
 		onInput( event: ReferenceRelationMenuItem ): void {
-			this.$emit( 'input', event.value );
+			this.$emit( 'update:modelValue', event.value );
 		},
 	},
 } );

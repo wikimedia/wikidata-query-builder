@@ -1,6 +1,6 @@
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import RootState from '@/store/RootState';
-import Vuex, { Store } from 'vuex';
+import { createStore, Store } from 'vuex';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 
 export function getFreshRootState(): RootState {
@@ -29,7 +29,7 @@ export function getFreshRootState(): RootState {
 }
 
 export function newStore( getters: Record<string, () => unknown> = {} ): Store<any> {
-	return new Vuex.Store( {
+	return createStore( {
 		state: getFreshRootState(),
 		getters: {
 			conditionRows: jest.fn().mockReturnValue( jest.fn().mockReturnValue( [] ) ),

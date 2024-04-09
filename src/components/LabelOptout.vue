@@ -2,17 +2,17 @@
 	<div class="querybuilder-label-optout">
 		<Checkbox
 			id="label-optout"
-			:checked.sync="checked"
+			v-model:checked="checked"
 			:label="$i18n( 'query-builder-label-opt-out' )"
 		/>
 	</div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import { Checkbox } from '@wmde/wikit-vue-components';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'LabelOptout',
 	components: {
 		Checkbox,

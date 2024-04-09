@@ -1,36 +1,39 @@
 import { Dropdown } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
 import ReferenceRelationDropDown from '@/components/ReferenceRelationDropDown.vue';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
-import { mount } from '@vue/test-utils';
-import i18n from 'vue-banana-i18n';
+import { shallowMount } from '@vue/test-utils';
+import { createI18n } from 'vue-banana-i18n';
 
-const messages = {};
-
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: {},
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
 
 describe( 'ReferenceRelationDropDown.vue', () => {
 	it( 'emits an `input` event containing the selected option item upon selection', async () => {
 		const optionItems = ReferenceRelation;
-		const wrapper = mount( ReferenceRelationDropDown, {
-			propsData: {
-				value: ReferenceRelation.With,
+		const wrapper = shallowMount( ReferenceRelationDropDown, {
+			global: {
+				plugins: [ i18n ],
+			},
+			props: {
+				modelValue: ReferenceRelation.With,
 			},
 		} );
 
 		await wrapper.findComponent( Dropdown ).vm.$emit( 'input', { value: optionItems.Without } );
 
-		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toEqual( optionItems.Without );
+		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toEqual( optionItems.Without );
 	} );
 
 	it( 'passes the disabled prop down to the Dropdown', () => {
-		const wrapper = mount( ReferenceRelationDropDown, {
-			propsData: {
-				value: ReferenceRelation.With,
+		const wrapper = shallowMount( ReferenceRelationDropDown, {
+			global: {
+				plugins: [ i18n ],
+			},
+			props: {
+				modelValue: ReferenceRelation.With,
 				disabled: true,
 			},
 		} );

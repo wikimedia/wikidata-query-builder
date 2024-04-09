@@ -1,30 +1,24 @@
-import Vue from 'vue';
 import Limit from '@/components/Limit.vue';
 import { Checkbox, TextInput } from '@wmde/wikit-vue-components';
-import Vuex from 'vuex';
-import { shallowMount, createLocalVue, mount } from '@vue/test-utils';
-import i18n from 'vue-banana-i18n';
+import { shallowMount, mount } from '@vue/test-utils';
+import { createI18n } from 'vue-banana-i18n';
 import { newStore } from '../../util/store';
 
-const messages = {};
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: {},
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
-
-const localVue = createLocalVue();
-localVue.use( Vuex );
 
 describe( 'Limit.vue', () => {
 	it( 'updates the store when user checks useLimit checkbox', async () => {
 		const useLimit = true;
 		const useLimitGetter = (): boolean => false;
 		const store = newStore( { useLimit: useLimitGetter, limit: () => 100 } );
-
-		const wrapper = mount( Limit, {
-			store,
-			localVue,
+		const wrapper = shallowMount( Limit, {
+			global: {
+				plugins: [ store, i18n ],
+			},
 		} );
 
 		store.dispatch = jest.fn();
@@ -39,10 +33,10 @@ describe( 'Limit.vue', () => {
 		const limit = 20;
 		const limitGetter = (): number => 10;
 		const store = newStore( { useLimit: () => true, limit: limitGetter } );
-
 		const wrapper = shallowMount( Limit, {
-			store,
-			localVue,
+			global: {
+				plugins: [ store, i18n ],
+			},
 		} );
 
 		store.dispatch = jest.fn();
@@ -58,10 +52,10 @@ describe( 'Limit.vue', () => {
 		const limit = 'Not a Number';
 		const limitGetter = (): number => 10;
 		const store = newStore( { useLimit: () => true, limit: limitGetter } );
-
 		const wrapper = mount( Limit, {
-			store,
-			localVue,
+			global: {
+				plugins: [ store, i18n ],
+			},
 		} );
 		store.dispatch = jest.fn();
 
@@ -75,10 +69,10 @@ describe( 'Limit.vue', () => {
 		const limit = 0;
 		const limitGetter = (): number => 10;
 		const store = newStore( { useLimit: () => true, limit: limitGetter } );
-
 		const wrapper = mount( Limit, {
-			store,
-			localVue,
+			global: {
+				plugins: [ store, i18n ],
+			},
 		} );
 		store.dispatch = jest.fn();
 
@@ -92,11 +86,12 @@ describe( 'Limit.vue', () => {
 		const limit = '';
 		const limitGetter = (): number => 10;
 		const store = newStore( { useLimit: () => true, limit: limitGetter } );
-
 		const wrapper = mount( Limit, {
-			store,
-			localVue,
+			global: {
+				plugins: [ store, i18n ],
+			},
 		} );
+
 		store.dispatch = jest.fn();
 
 		await wrapper.findComponent( TextInput ).vm.$emit( 'input', limit.toString() );

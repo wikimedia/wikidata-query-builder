@@ -1,18 +1,18 @@
 <template>
 	<QuantityInput
+		v-model:number-input-value="numberInputValue"
+		v-model:unit-lookup-value="unitLookupValue"
+		v-model:unit-lookup-search-input="search"
 		:label="$i18n( 'query-builder-quantity-value-label' )"
 		:error="quantityError ? { message: $i18n( quantityError.message ), type: quantityError.type } : null"
 		:error-cause="quantityError ? quantityError.subproperty : null"
-		:number-input-value.sync="numberInputValue"
 		:number-input-placeholder="$i18n( 'query-builder-quantity-value-number-input-placeholder' )"
-		:unit-lookup-value.sync="unitLookupValue"
 		:unit-lookup-placeholder="$i18n( 'query-builder-quantity-value-unit-lookup-input-placeholder' )"
 		:unit-lookup-label="$i18n( 'query-builder-quantity-value-unit-lookup-label' )"
 		:unit-lookup-menu-items="searchResults"
-		:unit-lookup-search-input.sync="search"
 		:disabled="disabled"
-		@update:numberInputValue="onValueChange"
-		@update:unitLookupValue="onValueChange"
+		@update:number-input-value="onValueChange"
+		@update:unit-lookup-value="onValueChange"
 		@scroll="handleScroll"
 	>
 		<template
@@ -32,7 +32,8 @@
 <script lang="ts">
 
 import { QuantityInput } from '@wmde/wikit-vue-components';
-import Vue, { PropType } from 'vue';
+import { PropType } from 'vue';
+import { defineComponent } from '@/compat';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';
@@ -44,14 +45,14 @@ import debounce from 'lodash/debounce';
 
 const NUMBER_OF_SEARCH_RESULTS = 12;
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'QuantityValueInput',
 	components: {
 		QuantityInput,
 		InfoTooltip,
 	},
 	props: {
-		value: {
+		modelValue: {
 			type: Object as PropType<QuantityValue | null>,
 			default: null,
 		},
@@ -64,13 +65,14 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'update:modelValue' ],
 	data() {
 		return {
 			search: '',
 			searchResults: [] as MenuItem[],
 			topItemIndex: 1,
-			numberInputValue: this.value === null ? null : this.value.value.toString(),
-			unitLookupValue: this.value === null ? null : this.value.unit,
+			numberInputValue: this.modelValue === null ? null : this.modelValue.value.toString(),
+			unitLookupValue: this.modelValue === null ? null : this.modelValue.unit,
 			debouncedUpdateMenuItems: null as ( ( arg0: SearchOptions ) => void ) | null,
 			quantityError: this.error,
 		};
@@ -93,7 +95,7 @@ export default Vue.extend( {
 				rawUnitInput: this.search,
 			};
 
-			this.$emit( 'input', value );
+			this.$emit( 'update:modelValue', value );
 		},
 		async handleScroll( event: number ): Promise<void> {
 			if ( this.topItemIndex <= event ) {
@@ -159,8 +161,8 @@ export default Vue.extend( {
 		},
 	},
 	mounted() {
-		if ( this.value?.unit?.id && !this.search ) {
-			this.search = this.value.unit.id;
+		if ( this.modelValue?.unit?.id && !this.search ) {
+			this.search = this.modelValue.unit.id;
 		}
 	},
 } );

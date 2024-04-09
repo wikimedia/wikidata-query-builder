@@ -1,11 +1,8 @@
-import Vuex from 'vuex';
-import { shallowMount, createLocalVue, mount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import QueryResult from '@/components/QueryResult.vue';
-import Vue from 'vue';
-import i18n from 'vue-banana-i18n';
+import { createI18n } from 'vue-banana-i18n';
 import { newStore } from '../../util/store';
 
-const localVue = createLocalVue();
 const messages = {
 	en: {
 		'query-builder-result-link-text': 'Link to query service',
@@ -13,19 +10,20 @@ const messages = {
 	},
 };
 
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: messages,
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
-localVue.use( Vuex );
 
 describe( 'QueryResult.vue', () => {
 	it( 'Show an empty page without input', () => {
+		const store = newStore();
 		const wrapper = shallowMount( QueryResult, {
-			store: newStore(),
-			localVue,
-			propsData: {
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
 				encodedQuery: '',
 				iframeRenderKey: 0,
 			},
@@ -35,20 +33,19 @@ describe( 'QueryResult.vue', () => {
 	} );
 
 	it( 'Show errors', () => {
-		const store = newStore(
-			{
-				getErrors: () => [
-					{
-						message: 'Something happened',
-						type: 'notice',
-					},
-				],
-			},
-		);
+		const store = newStore( {
+			getErrors: () => [
+				{
+					message: 'Something happened',
+					type: 'notice',
+				},
+			],
+		} );
 		const wrapper = mount( QueryResult, {
-			store: store,
-			localVue,
-			propsData: {
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
 				encodedQuery: '',
 				iframeRenderKey: 0,
 			},
@@ -58,10 +55,12 @@ describe( 'QueryResult.vue', () => {
 	} );
 
 	it( 'Show link to result', () => {
+		const store = newStore();
 		const wrapper = shallowMount( QueryResult, {
-			store: newStore(),
-			localVue,
-			propsData: {
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
 				encodedQuery: 'foo-query-result',
 				iframeRenderKey: 0,
 				errors: [],

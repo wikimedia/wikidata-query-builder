@@ -1,12 +1,11 @@
-import { createLocalVue, mount } from '@vue/test-utils';
-import Vue from 'vue';
-import i18n from 'vue-banana-i18n';
-import Vuex from 'vuex';
-import { newStore } from '../../util/store';
+import { mount } from '@vue/test-utils';
+import { createI18n } from 'vue-banana-i18n';
+import { nextTick } from 'vue';
 import { Button } from '@wmde/wikit-vue-components';
 import SharableLink from '@/components/SharableLink.vue';
 import UrlShortenerRepository from '@/data-access/UrlShortenerRepository';
 import TechnicalProblem from '@/data-access/errors/TechnicalProblem';
+import { newStore } from '../../util/store';
 
 jest.mock( '@/ServicesFactory', () => {
 	return {
@@ -25,20 +24,20 @@ jest.mock( '@/ServicesFactory', () => {
 	};
 } );
 
-Vue.use( i18n, {
-	locale: 'en',
+const i18n = createI18n( {
 	messages: {},
+	locale: 'en',
 	wikilinks: true,
 } );
 
-const localVue = createLocalVue();
-localVue.use( Vuex );
-
 describe( 'SharableLink component', () => {
 	it( 'shows the copy button', async () => {
+		const store = newStore();
 		const wrapper = mount( SharableLink, {
-			store: newStore(),
-			localVue,
+			global: {
+				plugins: [ store, i18n ],
+			},
+
 		} );
 
 		expect( wrapper.findAllComponents( Button ) ).toHaveLength( 1 );
@@ -48,8 +47,9 @@ describe( 'SharableLink component', () => {
 		const store = newStore();
 		store.state.conditionRows[ 0 ].propertyData.id = 'P123';
 		const wrapper = mount( SharableLink, {
-			store,
-			localVue,
+			global: {
+				plugins: [ store, i18n ],
+			},
 		} );
 
 		await wrapper.findComponent( Button ).trigger( 'click' );
@@ -66,12 +66,13 @@ describe( 'SharableLink component', () => {
 		const store = newStore();
 		store.state.conditionRows[ 0 ].propertyData.id = 'P456';
 		const wrapper = mount( SharableLink, {
-			store,
-			localVue,
+			global: {
+				plugins: [ store, i18n ],
+			},
 		} );
 
 		await wrapper.findComponent( Button ).trigger( 'click' );
-		await localVue.nextTick();
+		await nextTick();
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore

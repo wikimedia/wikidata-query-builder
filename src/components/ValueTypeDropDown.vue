@@ -12,7 +12,8 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import { PropType } from 'vue';
+import { defineComponent } from '@/compat';
 import PropertyValueRelation, {
 	BasePropertyValueRelation,
 	RangePropertyValueRelation,
@@ -24,13 +25,13 @@ interface PropertyValueRelationMenuItem extends MenuItem {
 	value: PropertyValueRelation;
 }
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'ValueTypeDropDown',
 	components: {
 		Dropdown,
 	},
 	props: {
-		value: {
+		modelValue: {
 			type: String as PropType<PropertyValueRelation>,
 			required: true,
 		},
@@ -43,6 +44,7 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'update:modelValue' ],
 	computed: {
 		optionItems(): PropertyValueRelationMenuItem[] {
 			const relationOptions: PropertyValueRelationMenuItem[] = Object.values( BasePropertyValueRelation ).map(
@@ -99,13 +101,13 @@ export default Vue.extend( {
 		},
 		selected(): PropertyValueRelationMenuItem | null {
 			return this.optionItems.find(
-				( option: PropertyValueRelationMenuItem ) => option.value === this.value,
+				( option: PropertyValueRelationMenuItem ) => option.value === this.modelValue,
 			) || null;
 		},
 	},
 	methods: {
 		onInput( event: PropertyValueRelationMenuItem ): void {
-			this.$emit( 'input', event.value );
+			this.$emit( 'update:modelValue', event.value );
 		},
 	},
 } );

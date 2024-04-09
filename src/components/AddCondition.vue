@@ -1,22 +1,22 @@
 <template>
 	<div class="querybuilder__add-condition">
-		<Button
+		<CdxButton
 			v-i18n="{ msg: 'query-builder-add-condition' }"
-			type="neutral"
-			@click.native="$emit( 'add-condition', $event )"
+			@click="$emit( 'add-condition', $event )"
 		/>
 	</div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
-import { Button } from '@wmde/wikit-vue-components';
+import { defineComponent } from '@/compat';
+import { CdxButton } from '@wikimedia/codex';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'AddCondition',
 	components: {
-		Button,
+		CdxButton,
 	},
+	emits: [ 'add-condition' ],
 } );
 </script>
 

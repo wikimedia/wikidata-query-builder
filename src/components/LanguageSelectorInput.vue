@@ -8,9 +8,9 @@
 				ref="input"
 				type="text"
 				class="languageSelector__input"
-				:value="value"
+				:value="modelValue"
 				:placeholder="placeholder"
-				@input="$emit( 'input', $event.target.value )"
+				@input="$emit( 'update:modelValue', $event.target.value )"
 				@keydown.tab="onTab"
 				@keydown.down.prevent="onArrowDown"
 				@keydown.up.prevent="onArrowUp"
@@ -29,14 +29,14 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import searchUrl from '/img/search.svg';
 import clearUrl from '/img/clear.svg';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'LanguageSelectorInput',
 	props: {
-		value: {
+		modelValue: {
 			type: String,
 			default: '',
 		},
@@ -45,6 +45,7 @@ export default Vue.extend( {
 			default: '',
 		},
 	},
+	emits: [ 'update:modelValue', 'clear', 'arrowDown', 'arrowUp', 'enter', 'escape', 'tab' ],
 	data() {
 		return {
 			searchUrl,
@@ -53,7 +54,7 @@ export default Vue.extend( {
 	},
 	computed: {
 		clearBtnVisible(): boolean {
-			return this.value.length > 0;
+			return this.modelValue.length > 0;
 		},
 	},
 	methods: {

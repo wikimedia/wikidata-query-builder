@@ -18,8 +18,8 @@
 
 <script lang="ts">
 import { Button, Icon } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
-export default Vue.extend( {
+import { defineComponent } from '@/compat';
+export default defineComponent( {
 	name: 'DeleteConditionButton',
 	components: {
 		Button,
@@ -31,6 +31,7 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'click' ],
 } );
 </script>
 

@@ -1,20 +1,19 @@
 import EntityLookup from '@/components/EntityLookup.vue';
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import { Lookup } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
-import i18n from 'vue-banana-i18n';
+import { createI18n } from 'vue-banana-i18n';
 import SearchOptions from '@/data-access/SearchOptions';
+import { nextTick } from 'vue';
 
 jest.mock( 'lodash/debounce', () => jest.fn( ( fn ) => fn ) );
 
-const localVue = createLocalVue();
 const messages = { en: {
 	'some-error-message-key': 'some-error-copy',
 } };
 
-Vue.use( i18n, {
+const i18n = createI18n( {
+	messages: messages,
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
 
@@ -27,13 +26,16 @@ const defaultProps = {
 describe( 'EntityLookup.vue', () => {
 	it( 'bubbles input events from the Lookup up', () => {
 		const wrapper = shallowMount( EntityLookup, {
-			propsData: defaultProps,
+			global: {
+				plugins: [ i18n ],
+			},
+			props: defaultProps,
 		} );
 		const someEventContent = {};
 
 		wrapper.findComponent( Lookup ).vm.$emit( 'input', someEventContent );
 
-		expect( wrapper.emitted( 'input' )![ 0 ][ 0 ] ).toBe( someEventContent );
+		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toBe( someEventContent );
 	} );
 
 	it( 'pass value prop down to Lookup', () => {
@@ -44,22 +46,27 @@ describe( 'EntityLookup.vue', () => {
 
 		const searchForMenuItems = jest.fn().mockResolvedValue( [] );
 		const wrapper = shallowMount( EntityLookup, {
-			propsData: {
+			global: {
+				plugins: [ i18n ],
+			},
+			props: {
 				...defaultProps,
-				value: property,
+				modelValue: property,
 				searchForMenuItems,
 			},
 		} );
 
-		expect( wrapper.findComponent( Lookup ).props( 'value' ) ).toBe( property );
+		expect( wrapper.findComponent( Lookup ).props( 'value' ) ).toStrictEqual( property );
 	} );
 
 	it( 'uses prop method to search for Entities on new search string', async () => {
 		const searchResults = [ { label: 'abc', description: 'def', id: 'P123' } ];
 		const searchForMenuItems = jest.fn().mockResolvedValue( searchResults );
 		const wrapper = shallowMount( EntityLookup, {
-			localVue,
-			propsData: {
+			global: {
+				plugins: [ i18n ],
+			},
+			props: {
 				...defaultProps,
 				searchForMenuItems,
 			},
@@ -73,16 +80,18 @@ describe( 'EntityLookup.vue', () => {
 		expect( wrapper.findComponent( Lookup ).props( 'searchInput' ) ).toBe( searchOptions.search );
 
 		// it really needs two ticks ¯\_(ツ)_/¯
-		await localVue.nextTick();
-		await localVue.nextTick();
+		await nextTick();
+		await nextTick();
 		expect( wrapper.findComponent( Lookup ).props( 'menuItems' ) ).toStrictEqual( searchResults );
 	} );
 
 	it( 'clears the search results on the search string being emptied', async () => {
 		const searchForMenuItems = jest.fn();
 		const wrapper = shallowMount( EntityLookup, {
-			localVue,
-			propsData: {
+			global: {
+				plugins: [ i18n ],
+			},
+			props: {
 				...defaultProps,
 				searchForMenuItems,
 			},
@@ -111,7 +120,10 @@ describe( 'EntityLookup.vue', () => {
 		};
 
 		const wrapper = shallowMount( EntityLookup, {
-			propsData: {
+			global: {
+				plugins: [ i18n ],
+			},
+			props: {
 				...defaultProps,
 				error,
 			},

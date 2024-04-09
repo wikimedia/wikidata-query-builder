@@ -1,6 +1,4 @@
-import Vue from 'vue';
-import Vuex, { Store } from 'vuex';
-
+import { Store } from 'vuex';
 import createActions from './actions';
 import mutations from './mutations';
 import getters from './getters';
@@ -10,8 +8,6 @@ import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import QueryBuilderError from '@/data-model/QueryBuilderError';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
-
-Vue.use( Vuex );
 
 export function newEmptyPropertyData( propertyError: QueryBuilderError | null = null ): PropertyData {
 	return {

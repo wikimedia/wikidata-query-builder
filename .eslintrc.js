@@ -7,7 +7,7 @@ module.exports = {
 		'eslint:recommended',
 		'@vue/typescript/recommended',
 		'wikimedia/client-common',
-		'wikimedia/vue2-common',
+		'wikimedia/vue3-common',
 		'@wmde/wikimedia-typescript',
 		'plugin:jsonc/base',
 		// this plugin is installed already as a dependency of eslint-config-wikimedia.
@@ -40,6 +40,9 @@ module.exports = {
 
 		// temporarily disabled for update
 		'no-shadow': 'off',
+		// TODO: temporarily disabled for vue2 to compatBuild migration
+		// remove this rule once compatBuild is removed
+		'vue/no-deprecated-v-on-native-modifier': 'off',
 	},
 	overrides: [
 		{

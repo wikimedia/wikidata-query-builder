@@ -43,13 +43,13 @@ describe( 'ValueInput', () => {
 
 		const wrapper = shallowMount( ValueInput, { propsData: {
 			datatype: 'string',
-			value,
+			modelValue: value,
 			error,
 			disabled,
 		} } );
 
 		expect( wrapper.findComponent( StringValueInput ).props() ).toStrictEqual( {
-			value,
+			modelValue: value,
 			error,
 			disabled,
 		} );
@@ -61,8 +61,8 @@ describe( 'ValueInput', () => {
 			datatype: 'string',
 		} } );
 
-		wrapper.findComponent( StringValueInput ).vm.$emit( 'input', value );
+		wrapper.findComponent( StringValueInput ).vm.$emit( 'update:modelValue', value );
 
-		expect( wrapper.emitted( 'input' ) ).toEqual( [ [ value ] ] );
+		expect( wrapper.emitted( 'update:modelValue' ) ).toEqual( [ [ value ] ] );
 	} );
 } );

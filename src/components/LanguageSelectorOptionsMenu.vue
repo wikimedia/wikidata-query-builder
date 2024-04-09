@@ -35,9 +35,10 @@
 
 <script lang="ts">
 import Language from '@/data-model/Language';
-import Vue, { PropType } from 'vue';
+import { PropType } from 'vue';
+import { defineComponent } from '@/compat';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'LanguageSelectorOptionsMenu',
 	props: {
 		languages: {
@@ -49,6 +50,7 @@ export default Vue.extend( {
 			default: -1,
 		},
 	},
+	emits: [ 'select' ],
 	data: () => ( {
 		selectedLanguageCode: '',
 	} ),

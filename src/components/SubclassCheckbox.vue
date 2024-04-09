@@ -19,10 +19,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import { Checkbox } from '@wmde/wikit-vue-components';
 import InfoTooltip from '@/components/InfoTooltip.vue';
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'SubclassCheckbox',
 	components: {
 		Checkbox,
@@ -38,6 +38,7 @@ export default Vue.extend( {
 			default: false,
 		},
 	},
+	emits: [ 'subclass-check' ],
 	data() {
 		return {
 			id: `include-subclasses-${Math.random()}`,

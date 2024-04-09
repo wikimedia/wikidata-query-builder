@@ -1,9 +1,7 @@
-import { createLocalVue, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import QueryBuilder from '@/components/QueryBuilder.vue';
 import { axe, toHaveNoViolations } from 'jest-axe';
-import Vuex from 'vuex';
-import Vue from 'vue';
-import i18n from 'vue-banana-i18n';
+import { createI18n } from 'vue-banana-i18n';
 import { newStore } from '../util/store';
 
 global.ResizeObserver = jest.fn().mockImplementation( () => ( {
@@ -12,26 +10,26 @@ global.ResizeObserver = jest.fn().mockImplementation( () => ( {
 	disconnect: jest.fn(),
 } ) );
 
-const localVue = createLocalVue();
-localVue.use( Vuex );
-
 const messages = {
 	en: {
 		'query-builder-heading': 'Very fancy query builder title',
 	},
 };
-Vue.use( i18n, {
+
+const i18n = createI18n( {
+	messages: messages,
 	locale: 'en',
-	messages,
 	wikilinks: true,
 } );
 
 describe( 'QueryBuilder.vue', () => {
 	it( 'should not have obvious accessibility issues', async () => {
+		const store = newStore();
 		const wrapper = mount( QueryBuilder, {
-			store: newStore(),
-			localVue,
-			propsData: {
+			global: {
+				plugins: [ store, i18n ],
+			},
+			props: {
 				encodedQuery: '',
 				iframeRenderKey: 0,
 				fieldErrors: {

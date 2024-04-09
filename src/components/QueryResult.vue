@@ -36,10 +36,10 @@
 
 <script lang="ts">
 import { Message } from '@wmde/wikit-vue-components';
-import Vue from 'vue';
+import { defineComponent } from '@/compat';
 import { mapGetters } from 'vuex';
 
-export default Vue.extend( {
+export default defineComponent( {
 	name: 'QueryResult',
 	components: {
 		Message,
