@@ -79,7 +79,7 @@ export default {
 			omitLabels: rootState.omitLabels,
 		};
 	},
-	conditionRows( rootState: RootState ): ConditionRow[] {
+	getConditionRows( rootState: RootState ): ConditionRow[] {
 		return rootState.conditionRows;
 	},
 	property( rootState: RootState ) {
@@ -134,15 +134,6 @@ export default {
 			return rootState.conditionRows[ conditionIndex ].negate;
 		};
 	},
-	limit( rootState: RootState ): number | null | undefined {
-		return rootState.limit;
-	},
-	useLimit( rootState: RootState ): boolean {
-		return rootState.useLimit;
-	},
-	omitLabels( rootState: RootState ): boolean {
-		return rootState.omitLabels;
-	},
 	subclasses( rootState: RootState ) {
 		return ( conditionIndex: number ): boolean => {
 			return rootState.conditionRows[ conditionIndex ].subclasses;
@@ -152,8 +143,5 @@ export default {
 		return ( conditionIndex: number ): ConditionRelation | null => {
 			return rootState.conditionRows[ conditionIndex ].conditionRelation;
 		};
-	},
-	getErrors( rootState: RootState ): QueryBuilderError[] {
-		return rootState.errors;
 	},
 };

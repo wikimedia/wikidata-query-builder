@@ -11,7 +11,7 @@
 					type="neutral"
 					icon-only
 					aria-label="Sharable link"
-					@click="copyTextToClipboard">
+					@click.native="copyTextToClipboard">
 					<Icon
 						type="link"
 						size="large"
@@ -30,6 +30,7 @@ import { defineComponent } from '@/compat';
 import { Icon, Button, Popover } from '@wmde/wikit-vue-components';
 import QuerySerializer from '@/serialization/QuerySerializer';
 import services from '@/ServicesFactory';
+import { useStore } from '@/store/index';
 
 export default defineComponent( {
 	name: 'SharableLink',
@@ -46,7 +47,8 @@ export default defineComponent( {
 	methods: {
 		async copyTextToClipboard(): Promise<void> {
 			const querySerializer = new QuerySerializer();
-			const serializedQuery = querySerializer.serialize( this.$store.state );
+			const store = useStore();
+			const serializedQuery = querySerializer.serialize( store.$state );
 			const current = new URL( window.location.href );
 			current.searchParams.set( 'query', serializedQuery );
 			this.href = current.href;

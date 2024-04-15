@@ -1,7 +1,7 @@
 import { shallowMount, mount } from '@vue/test-utils';
 import QueryResult from '@/components/QueryResult.vue';
 import { createI18n } from 'vue-banana-i18n';
-import { newStore } from '../../util/store';
+import { createTestingPinia } from '@pinia/testing';
 
 const messages = {
 	en: {
@@ -18,10 +18,9 @@ const i18n = createI18n( {
 
 describe( 'QueryResult.vue', () => {
 	it( 'Show an empty page without input', () => {
-		const store = newStore();
 		const wrapper = shallowMount( QueryResult, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				encodedQuery: '',
@@ -33,17 +32,22 @@ describe( 'QueryResult.vue', () => {
 	} );
 
 	it( 'Show errors', () => {
-		const store = newStore( {
-			getErrors: () => [
-				{
-					message: 'Something happened',
-					type: 'notice',
+		// TODO: Pinia check again mocking getters
+		const pinia = createTestingPinia( {
+			initialState: {
+				store: {
+					errors: [
+						{
+							message: 'Something happened',
+							type: 'notice',
+						},
+					],
 				},
-			],
+			},
 		} );
 		const wrapper = mount( QueryResult, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ pinia, i18n ],
 			},
 			props: {
 				encodedQuery: '',
@@ -55,10 +59,9 @@ describe( 'QueryResult.vue', () => {
 	} );
 
 	it( 'Show link to result', () => {
-		const store = newStore();
 		const wrapper = shallowMount( QueryResult, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				encodedQuery: 'foo-query-result',

@@ -1,7 +1,7 @@
 import Footer from '@/components/Footer.vue';
 import { mount, shallowMount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
-import { newStore } from '../../util/store';
+import { createTestingPinia } from '@pinia/testing';
 
 const i18n = createI18n( {
 	locale: 'en',
@@ -17,14 +17,13 @@ const i18n = createI18n( {
 
 describe( 'Footer component', () => {
 	it( 'shows build time and link to commit', () => {
-		const store = newStore();
 		process.env = Object.assign( process.env, {
 			VUE_APP_BUILD_TIME: '1612189962937',
 			VUE_APP_GIT_COMMIT: 'c6bc093',
 		} );
 		const wrapper = shallowMount( Footer, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		expect( wrapper.find( '.querybuilder-footer__build-info' ).text() ).toBe(
@@ -36,41 +35,38 @@ describe( 'Footer component', () => {
 	} );
 
 	it( 'shows no build info if no built time is available', () => {
-		const store = newStore();
 		process.env = Object.assign( process.env, {
 			VUE_APP_BUILD_TIME: '',
 			VUE_APP_GIT_COMMIT: 'c6bc093',
 		} );
 		const wrapper = shallowMount( Footer, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		expect( wrapper.find( '.querybuilder-footer__build-info' ).exists() ).toBe( false );
 	} );
 
 	it( 'shows no build info if commit is available', () => {
-		const store = newStore();
 		process.env = Object.assign( process.env, {
 			VUE_APP_BUILD_TIME: '1612189962937',
 			VUE_APP_GIT_COMMIT: '',
 		} );
 		const wrapper = shallowMount( Footer, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		expect( wrapper.find( '.querybuilder-footer__build-info' ).exists() ).toBe( false );
 	} );
 
 	it( 'adds link to privacy policy', () => {
-		const store = newStore();
 		process.env = Object.assign( process.env, {
 			VUE_APP_PRIVACY_POLICY_URL: 'https://very-important-privacy-policy.com',
 		} );
 		const wrapper = mount( Footer, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		expect( wrapper.find( '.querybuilder-footer__privacy-policy' ).text() ).toBe( 'Important privacy policy' );
@@ -79,10 +75,9 @@ describe( 'Footer component', () => {
 		);
 	} );
 	it( 'adds link to phabricator', () => {
-		const store = newStore();
 		const wrapper = mount( Footer, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		expect( wrapper.find( '.querybuilder-footer__report-link' ).text() ).toBe( 'Report important bugs' );

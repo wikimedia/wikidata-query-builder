@@ -3,6 +3,8 @@ import EntityLookup from '@/components/EntityLookup.vue';
 import { shallowMount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
 import SearchOptions from '@/data-access/SearchOptions';
+import { useStore } from '@/store/index';
+import { createTestingPinia } from '@pinia/testing';
 
 const i18n = createI18n( {
 	messages: { en: {
@@ -45,26 +47,21 @@ describe( 'PropertyLookup.vue', () => {
 	} );
 
 	it( 'passes search function down and dispatches action when it is called', async () => {
-
 		const searchResults = [
 			{ label: 'abc', description: 'def', id: 'P123' },
 			{ label: 'date of birth', description: '', id: 'P345', tag: 'some-tag-message-key' },
 		];
 
-		const $store = {
-			dispatch: jest.fn().mockResolvedValue( searchResults ),
-		};
-
 		const expectedSearchResults = JSON.parse( JSON.stringify( searchResults ) );
 		expectedSearchResults[ 1 ].tag = 'some-tag-copy';
 		const wrapper = shallowMount( PropertyLookup, {
 			global: {
-				plugins: [ i18n ],
-				mocks: {
-					$store,
-				},
+				plugins: [ i18n, createTestingPinia() ],
 			},
 		} );
+
+		const store = useStore();
+		jest.spyOn( store, 'searchProperties' ).mockResolvedValue( searchResults as any );
 
 		expect( wrapper.findComponent( EntityLookup ).props( 'searchForMenuItems' ) )
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -76,7 +73,7 @@ describe( 'PropertyLookup.vue', () => {
 		// @ts-ignore
 		const actualSearchOptions = await wrapper.vm.searchForProperties( searchOptions );
 
-		expect( $store.dispatch ).toHaveBeenCalledWith( 'searchProperties', searchOptions );
+		expect( store.searchProperties ).toHaveBeenCalledWith( searchOptions );
 		expect( actualSearchOptions ).toStrictEqual( expectedSearchResults );
 	} );
 

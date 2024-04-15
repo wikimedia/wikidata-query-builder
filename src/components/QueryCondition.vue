@@ -12,14 +12,14 @@
 				<PropertyLookup
 					v-model="selectedProperty"
 					class="query-condition__property-lookup"
-					:error="propertyError( conditionIndex )"
+					:error="store.propertyError( conditionIndex )"
 				/>
 			</div>
 			<div>
 				<ValueTypeDropDown
 					v-model="selectedPropertyValueRelation"
 					class="query-condition__value-type-dropdown"
-					:disabled="limitedSupport( conditionIndex )"
+					:disabled="store.limitedSupport( conditionIndex )"
 					:datatype="datatype"
 				/>
 			</div>
@@ -34,7 +34,7 @@
 				<SubclassCheckbox
 					v-if="isSubclassCheckboxVisible"
 					:disabled="isValueInputDisabled()"
-					:is-checked="subclasses( conditionIndex )"
+					:is-checked="store.subclasses( conditionIndex )"
 					@subclass-check="setSubclasses" />
 			</div>
 			<!-- eslint-enable -->
@@ -65,9 +65,10 @@ import SearchResult from '@/data-access/SearchResult';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ReferenceRelationDropDown from '@/components/ReferenceRelationDropDown.vue';
 import QueryBuilderError from '@/data-model/QueryBuilderError';
-import { mapGetters } from 'vuex';
 import NegationToggle from '@/components/NegationToggle.vue';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
+import { useStore } from '@/store/index';
+import Property from '@/data-model/Property';
 
 export default defineComponent( {
 	name: 'QueryCondition',
@@ -86,73 +87,86 @@ export default defineComponent( {
 			required: true,
 		},
 	},
+	setup() {
+		const store = useStore();
+		return { store };
+	},
 	computed: {
 		datatype(): string | null {
-			return this.$store.getters.datatype( this.conditionIndex );
+			const store = useStore();
+			return store.datatype( this.conditionIndex );
 		},
 		selectedProperty: {
-			get(): SearchResult | null {
-				return this.$store.getters.property( this.conditionIndex );
+			get(): SearchResult | Property | null {
+				const store = useStore();
+				return store.property( this.conditionIndex );
 			},
 			set( selectedProperty: SearchResult | null ): void {
+				const store = useStore();
 				if ( selectedProperty === null ) {
-					this.$store.dispatch( 'unsetProperty', this.conditionIndex );
+					store.unsetProperty( this.conditionIndex );
 					return;
 				}
 				if ( selectedProperty.datatype === 'wikibase-item' ) {
-					this.$store.dispatch( 'setSubclasses', { conditionIndex: this.conditionIndex, subclasses: true } );
+					store.setSubclasses( { conditionIndex: this.conditionIndex, subclasses: true } );
 				} else {
-					this.$store.dispatch( 'setSubclasses', { conditionIndex: this.conditionIndex, subclasses: false } );
+					store.setSubclasses( { conditionIndex: this.conditionIndex, subclasses: false } );
 				}
-				if ( selectedProperty.datatype !== this.$store.getters.datatype( this.conditionIndex )
+				if ( selectedProperty.datatype !== store.datatype( this.conditionIndex )
 				) {
 					this.selectedPropertyValueRelation = PropertyValueRelation.Matching;
 				}
-				this.$store.dispatch( 'updateProperty',
+				store.updateProperty(
 					{ property: selectedProperty, conditionIndex: this.conditionIndex },
 				);
 			},
 		},
 		isSubclassCheckboxVisible(): boolean {
-			return this.$store.getters.datatype( this.conditionIndex ) === 'wikibase-item';
+			const store = useStore();
+			return store.datatype( this.conditionIndex ) === 'wikibase-item';
 		},
 		selectedPropertyValueRelation: {
 			get(): PropertyValueRelation {
-				return this.$store.getters.propertyValueRelation( this.conditionIndex );
+				const store = useStore();
+				return store.propertyValueRelation( this.conditionIndex );
 			},
 			set( selectedPropertyValueRelation: PropertyValueRelation ): void {
 				if ( selectedPropertyValueRelation === PropertyValueRelation.Regardless ) {
 					this.conditionValue = null;
 				}
-
-				this.$store.dispatch(
-					'updatePropertyValueRelation',
+				const store = useStore();
+				store.updatePropertyValueRelation(
 					{ propertyValueRelation: selectedPropertyValueRelation, conditionIndex: this.conditionIndex },
 				);
 			},
 		},
 		selectedReferenceRelation: {
 			get(): ReferenceRelation {
-				return this.$store.getters.referenceRelation( this.conditionIndex );
+				const store = useStore();
+				return store.referenceRelation( this.conditionIndex );
 			},
 			set( selectedReferenceRelation: ReferenceRelation ): void {
-				this.$store.dispatch(
-					'setReferenceRelation',
-					{ referenceRelation: selectedReferenceRelation, conditionIndex: this.conditionIndex },
-				);
+				const store = useStore();
+				store.setReferenceRelation( {
+					referenceRelation: selectedReferenceRelation,
+					conditionIndex: this.conditionIndex,
+				} );
 			},
 		},
 		conditionValue: {
 			get(): Value {
-				return this.$store.getters.value( this.conditionIndex );
+				const store = useStore();
+				return store.value( this.conditionIndex );
 			},
 			set( modelValue: Value ): void {
-				this.$store.dispatch( 'updateValue', { value: modelValue, conditionIndex: this.conditionIndex } );
+				const store = useStore();
+				store.updateValue( { value: modelValue, conditionIndex: this.conditionIndex } );
 			},
 		},
 		negateValue: {
 			get(): string {
-				const negate = this.$store.getters.negate( this.conditionIndex );
+				const store = useStore();
+				const negate = store.negate( this.conditionIndex );
 				return negate === true ? 'without' : 'with';
 			},
 			set( value: string ): void {
@@ -160,11 +174,13 @@ export default defineComponent( {
 					throw new Error( 'Unknown negate value: ' + value );
 				}
 				const valueBoolean = value === 'without';
-				this.$store.dispatch( 'setNegate', { value: valueBoolean, conditionIndex: this.conditionIndex } );
+				const store = useStore();
+				store.setNegate( { value: valueBoolean, conditionIndex: this.conditionIndex } );
 			},
 		},
 		valueError(): QueryBuilderError | null {
-			const valueError = this.$store.getters.valueError( this.conditionIndex );
+			const store = useStore();
+			const valueError = store.valueError( this.conditionIndex );
 			if ( valueError === null ) {
 				return null;
 			}
@@ -173,21 +189,18 @@ export default defineComponent( {
 				message: this.$i18n( valueError.message ),
 			};
 		},
-		...mapGetters( [
-			'propertyError',
-			'limitedSupport',
-			'subclasses',
-		] ),
 	},
 	methods: {
 		isValueInputDisabled(): boolean {
 			return this.selectedPropertyValueRelation === PropertyValueRelation.Regardless;
 		},
 		removeCondition(): void {
-			this.$store.dispatch( 'removeCondition', this.conditionIndex );
+			const store = useStore();
+			store.removeCondition( this.conditionIndex );
 		},
 		setSubclasses( subclasses: boolean ): void {
-			this.$store.dispatch( 'setSubclasses', { subclasses, conditionIndex: this.conditionIndex } );
+			const store = useStore();
+			store.setSubclasses( { subclasses, conditionIndex: this.conditionIndex } );
 		},
 	},
 } );

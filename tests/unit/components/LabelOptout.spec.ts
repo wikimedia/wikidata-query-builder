@@ -2,7 +2,8 @@ import { Checkbox } from '@wmde/wikit-vue-components';
 import LabelOptout from '@/components/LabelOptout.vue';
 import { shallowMount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
-import { createStore } from 'vuex';
+import { createTestingPinia } from '@pinia/testing';
+import { useStore } from '@/store';
 
 const i18n = createI18n( {
 	messages: {},
@@ -14,20 +15,23 @@ describe( 'LabelOptout.vue', () => {
 	it( 'updates the store when user checks label optout checkbox', async () => {
 		const omitLabels = true;
 		const omitLabelsGetter = (): boolean => false;
-		const store = createStore( {
-			getters: { omitLabels: omitLabelsGetter },
-		} );
 
 		const wrapper = shallowMount( LabelOptout, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia( {
+					initialState: {
+						omitLabels: omitLabelsGetter,
+					},
+				} ), i18n ],
 			},
 		} );
-		store.dispatch = jest.fn();
+
+		const store = useStore();
+		store.omitLabels = true;
 
 		wrapper.findComponent( Checkbox ).vm.$emit( 'update:checked', omitLabels );
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'setOmitLabels', omitLabels );
+		expect( store.setOmitLabels ).toHaveBeenCalledWith( omitLabels );
 
 	} );
 } );

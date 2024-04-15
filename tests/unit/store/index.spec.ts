@@ -1,12 +1,22 @@
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
-import { createStore } from '@/store';
 import RootState from '@/store/RootState';
-import newMockServiceContainer from '../../util/newMockServiceContainer';
+// import newMockServiceContainer from '../../util/newMockServiceContainer';
+
+import { setActivePinia, createPinia } from 'pinia';
+import { useStore } from '@/store';
 
 describe( 'createStore', () => {
+
+	beforeEach( () => {
+		// creates a fresh pinia and makes it active
+		// so it's automatically picked up by any useStore() call
+		// without having to pass it to it: `useStore(pinia)`
+		setActivePinia( createPinia() );
+	} );
+
 	it( 'creates the initial state', () => {
-		const store = createStore( newMockServiceContainer( {} ) );
+		const store = useStore();
 
 		const expectedInitialState: RootState = {
 			conditionRows: [ {
@@ -28,7 +38,7 @@ describe( 'createStore', () => {
 				referenceRelation: ReferenceRelation.Regardless,
 				conditionRelation: null,
 				subclasses: false,
-				conditionId: store.state.conditionRows[ 0 ].conditionId, // this is auto-generated and random
+				conditionId: store.conditionRows[ 0 ].conditionId, // this is auto-generated and random
 			} ],
 			errors: [],
 			limit: 100,
@@ -36,6 +46,6 @@ describe( 'createStore', () => {
 			useLimit: true,
 		};
 		expect( store ).toBeDefined();
-		expect( store.state ).toStrictEqual( expectedInitialState );
+		expect( store.$state ).toStrictEqual( expectedInitialState );
 	} );
 } );

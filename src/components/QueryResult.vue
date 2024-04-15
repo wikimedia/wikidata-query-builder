@@ -10,9 +10,9 @@
 		</div>
 		<!-- this is needed because vue2-common is not recognizing the errors property from mapGetters -->
 		<!-- eslint-disable-next-line vue/no-undef-properties -->
-		<div v-if="errors.length !== 0" class="querybuilder-result__errors">
+		<div v-if="store.errors.length !== 0" class="querybuilder-result__errors">
 			<Message
-				v-for="( error, index ) in errors"
+				v-for="( error, index ) in store.errors"
 				:key="index"
 				:type="error.type">
 				<span>{{ $i18n( error.message ) }}</span>
@@ -37,7 +37,7 @@
 <script lang="ts">
 import { Message } from '@wmde/wikit-vue-components';
 import { defineComponent } from '@/compat';
-import { mapGetters } from 'vuex';
+import { useStore } from '@/store/index';
 
 export default defineComponent( {
 	name: 'QueryResult',
@@ -54,16 +54,15 @@ export default defineComponent( {
 			default: 0,
 		},
 	},
+	setup() {
+		const store = useStore();
+		return { store };
+	},
 	data() {
 		return {
 			queryServiceEmbedUrl: process.env.VUE_APP_QUERY_SERVICE_EMBED_URL,
 			queryServiceUrl: process.env.VUE_APP_QUERY_SERVICE_URL,
 		};
-	},
-	computed: {
-		...mapGetters( {
-			errors: 'getErrors',
-		} ),
 	},
 } );
 </script>

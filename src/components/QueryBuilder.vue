@@ -119,7 +119,6 @@ import Footer from '@/components/Footer.vue';
 import { ConditionRow } from '@/store/RootState';
 import { defineComponent } from '@/compat';
 import { DirectiveBinding } from 'vue';
-import { mapState } from 'vuex';
 import { Button, Icon } from '@wmde/wikit-vue-components';
 
 import ConditionRelationToggle from '@/components/ConditionRelationToggle.vue';
@@ -133,6 +132,7 @@ import ConditionRelation from '@/data-model/ConditionRelation';
 import SharableLink from '@/components/SharableLink.vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import languagedata from '@wikimedia/language-data';
+import { useStore } from '@/store/index';
 
 let handleOutsideClick: ( event: MouseEvent | TouchEvent ) => void;
 
@@ -178,7 +178,9 @@ export default defineComponent( {
 	},
 	emits: [ 'update:lang' ],
 	data() {
+		const store = useStore();
 		return {
+			store,
 			encodedQuery: '',
 			iframeRenderKey: 0,
 			showLanguageSelector: false,
@@ -190,35 +192,36 @@ export default defineComponent( {
 			return window.location.pathname;
 		},
 		conditionRows(): ConditionRow[] {
-			return this.$store.getters.conditionRows;
+			const store = useStore();
+			return store.getConditionRows;
 		},
 		currentLanguageAutonym(): string {
 			return languagedata.getAutonym( this.lang );
 		},
-		...mapState( {
-			errors: 'errors',
-		} ),
 	},
 	methods: {
 		incrementMetric( metric: string ): void {
-			this.$store.dispatch( 'incrementMetric', metric );
+			const store = useStore();
+			store.incrementMetric( metric );
 		},
 		async runQuery(): Promise<void> {
-			await this.$store.dispatch( 'validateForm' );
+			const store = useStore();
+			await store.validateForm();
 			this.incrementMetric( 'run-query-button' );
 			// This rule is needed because the vue2-common config is not
 			// recognizing the error property defined in computed: mapState
-			// eslint-disable-next-line vue/no-undef-properties
-			if ( this.errors.length ) {
+
+			if ( store.errors.length ) {
 				return;
 			}
-			this.encodedQuery = encodeURI( buildQuery( this.$store.getters.query ) );
+			this.encodedQuery = encodeURI( buildQuery( store.query ) );
 
 			// force the iframe to rerender https://stackoverflow.com/a/48755228
 			this.iframeRenderKey = Math.random();
 		},
 		async addCondition(): Promise<void> {
-			await this.$store.dispatch( 'addCondition' );
+			// const store = useStore();
+			await this.store.addCondition();
 			await this.$nextTick();
 			document
 				.getElementsByClassName( 'querybuilder__condition-wrapper--last' )[ 0 ]
@@ -230,7 +233,8 @@ export default defineComponent( {
 			( toggle[ toggle.length - 1 ] as HTMLElement ).focus();
 		},
 		setConditionRelation( value: ConditionRelation, index: number ): void {
-			this.$store.dispatch( 'setConditionRelation', { value, conditionIndex: index + 1 } );
+			// const store = useStore();
+			this.store.setConditionRelation( { value, conditionIndex: index + 1 } );
 		},
 		isAboveOr( index: number ): boolean {
 			return ( index + 1 ) !== this.conditionRows.length &&

@@ -2,13 +2,14 @@ import DeleteConditionButton from '@/components/DeleteConditionButton.vue';
 import ValueInput from '@/components/ValueInput.vue';
 import ValueTypeDropDown from '@/components/ValueTypeDropDown.vue';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import { newStore } from '../../util/store';
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, mount } from '@vue/test-utils';
 import PropertyLookup from '@/components/PropertyLookup.vue';
 import { createI18n } from 'vue-banana-i18n';
 import QueryCondition from '@/components/QueryCondition.vue';
 import NegationToggle from '@/components/NegationToggle.vue';
 import SubclassCheckbox from '@/components/SubclassCheckbox.vue';
+import { createTestingPinia } from '@pinia/testing';
+import { useStore } from '@/store/index';
 
 const i18n = createI18n( {
 	messages: {},
@@ -21,11 +22,14 @@ describe( 'QueryCondition.vue', () => {
 	it( 'passes the selected property back to the PropertyLookup', async () => {
 		const property = { label: 'postal code', id: 'P123' };
 		const conditionIndex = 0;
-		const propertyGetter = () => () => ( property );
-		const store = newStore( { property: propertyGetter } );
-		const wrapper = shallowMount( QueryCondition, {
+		const pinia = createTestingPinia();
+		const store = useStore( pinia );
+
+		// @ts-expect-error: getters are assignable in Pinia tests but TS is not recognizing it.
+		store.property = () => ( property );
+		const wrapper = mount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ pinia, i18n ],
 			},
 			props: {
 				conditionIndex: 0,
@@ -40,30 +44,28 @@ describe( 'QueryCondition.vue', () => {
 
 	it( 'updates the store property when the user changes it in the lookup', async () => {
 		const property = { label: 'postal code', id: 'P123' };
-		const store = newStore();
 		const conditionIndex = 0;
-		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				conditionIndex: 0,
 			},
 		} );
 
-		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property );
+		const store = useStore();
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'updateProperty', { property, conditionIndex } );
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'update:modelValue', property );
+
+		expect( store.updateProperty ).toHaveBeenCalledWith( { property, conditionIndex } );
 	} );
 
 	it( 'updates the store value when the user fills in the value textfield', () => {
-		const store = newStore();
 		const conditionIndex = 0;
-		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				conditionIndex: 0,
@@ -71,90 +73,115 @@ describe( 'QueryCondition.vue', () => {
 		} );
 		const userInput = 'potato';
 
-		const input = wrapper.findComponent( ValueInput );
-		input.vm.$emit( 'input', userInput );
+		const store = useStore();
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'updateValue', { modelValue: userInput, conditionIndex } );
+		const input = wrapper.findComponent( ValueInput );
+		input.vm.$emit( 'update:modelValue', userInput );
+
+		expect( store.updateValue ).toHaveBeenCalledWith( { value: userInput, conditionIndex } );
 	} );
 
 	it( 'set subclasses to true when property type is wikibase-item', async () => {
 
 		const property = { label: 'postal code', id: 'P31', datatype: 'wikibase-item' };
-		const store = newStore();
 		const conditionIndex = 0;
-		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				conditionIndex: 0,
 			},
 		} );
 
-		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property );
+		const store = useStore();
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'setSubclasses', { subclasses: true, conditionIndex } );
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'update:modelValue', property );
+
+		expect( store.setSubclasses ).toHaveBeenCalledWith( { subclasses: true, conditionIndex } );
 	} );
 
 	it( 'set subclasses to false when property type is string', async () => {
 
 		const property = { label: 'postal code', id: 'P123', datatype: 'string' };
-		const store = newStore();
 		const conditionIndex = 0;
-		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				conditionIndex: 0,
 			},
 		} );
 
-		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property );
+		const store = useStore();
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'setSubclasses', { subclasses: false, conditionIndex } );
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'update:modelValue', property );
+
+		expect( store.setSubclasses ).toHaveBeenCalledWith( { subclasses: false, conditionIndex } );
 	} );
 
 	it( 'removes current row when the removeCondition button is clicked', async () => {
-		const store = newStore();
 		const conditionIndex = 0;
-		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				conditionIndex: conditionIndex,
 			},
 			computed: {
-				canDelete: () => true,
+				negateValue: () => 'with',
+				selectedProperty: () => ( {} ),
+				selectedPropertyValueRelation: () => 'matching',
+				datatype: () => '',
+				conditionValue: () => '',
+				valueError: () => ( {} ),
+				isSubclassCheckboxVisible: () => false,
+				selectedReferenceRelation: () => '',
 			},
 		} );
+
+		const store = useStore();
 
 		await wrapper.findComponent( DeleteConditionButton ).vm.$emit( 'click' );
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'removeCondition', conditionIndex );
+		expect( store.removeCondition ).toHaveBeenCalledWith( conditionIndex );
 	} );
 
 	it( 'shows field errors', () => {
-		const store = newStore( {
-			propertyError: jest.fn().mockReturnValue( jest.fn().mockReturnValue( {
-				type: 'error',
-				message: 'Property Error Message!',
-			} ) ),
-			valueError: jest.fn().mockReturnValue( jest.fn().mockReturnValue( {
-				type: 'warning',
-				message: 'Value Warning Message!',
-			} ) ),
+
+		const property = { label: 'postal code', id: 'P123' };
+		const pinia = createTestingPinia();
+		const store = useStore( pinia );
+		// @ts-expect-error: getters are assignable in Pinia tests but TS is not recognizing it.
+		store.property = () => ( property );
+
+		// @ts-expect-error: getters are assignable in Pinia tests but TS is not recognizing it.
+		store.propertyError = () => ( {
+			type: 'error',
+			message: 'Property Error Message!',
 		} );
-		const wrapper = shallowMount( QueryCondition, {
+
+		const wrapper = mount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ pinia, i18n ],
 			},
 			props: {
 				conditionIndex: 0,
+			},
+			computed: {
+				valueError: () => ( {
+					type: 'warning',
+					message: 'Value Warning Message!',
+				} ),
+				negateValue: () => 'with',
+				selectedProperty: () => ( {} ),
+				selectedPropertyValueRelation: () => 'matching',
+				datatype: () => '',
+				conditionValue: () => '',
+				isSubclassCheckboxVisible: () => false,
+				selectedReferenceRelation: () => '',
 			},
 		} );
 
@@ -170,63 +197,58 @@ describe( 'QueryCondition.vue', () => {
 	} );
 
 	it( 'Set negate to without when store sets', () => {
-		const store = newStore();
+
 		const conditionIndex = 0;
-		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				conditionIndex: 0,
 			},
 		} );
-
+		const store = useStore();
 		const input = wrapper.findComponent( NegationToggle );
-		input.vm.$emit( 'input', 'without' );
+		input.vm.$emit( 'update:modelValue', 'without' );
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'setNegate', { modelValue: true, conditionIndex } );
+		expect( store.setNegate ).toHaveBeenCalledWith( { value: true, conditionIndex } );
 	} );
 
 	it( 'Set regardless of value should disable text input and checkbox', async () => {
-		const store = newStore( {
-			propertyValueRelation: jest.fn().mockReturnValue(
-				jest.fn().mockReturnValue( PropertyValueRelation.Regardless ),
-			),
-			datatype: jest.fn().mockReturnValue(
-				jest.fn().mockReturnValue( 'wikibase-item' ),
-			),
-		} );
-		store.dispatch = jest.fn();
-		const wrapper = shallowMount( QueryCondition, {
+		const pinia = createTestingPinia();
+		const store = useStore( pinia );
+		// @ts-expect-error: getters are assignable in Pinia tests but TS is not recognizing it.
+		store.datatype = () => 'wikibase-item';
+		// @ts-expect-error: getters are assignable in Pinia tests but TS is not recognizing it.
+		store.propertyValueRelation = () => PropertyValueRelation.Regardless;
+		const wrapper = mount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ pinia, i18n ],
 			},
 			props: {
 				conditionIndex: 0,
 			},
 		} );
+
 		expect( wrapper.findComponent( SubclassCheckbox ).props( 'disabled' ) ).toBeTruthy();
 		expect( wrapper.findComponent( ValueInput ).props( 'disabled' ) ).toBeTruthy();
 	} );
 
-	it.only( 'sets the value to null if the user switches the relation to "Regardless of value', () => {
-		const store = newStore();
-		store.dispatch = jest.fn();
+	it( 'sets the value to null if the user switches the relation to "Regardless of value', () => {
 		const wrapper = shallowMount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				conditionIndex: 0,
 			},
 		} );
 
+		const store = useStore();
 		wrapper.findComponent( ValueTypeDropDown ).vm.$emit( 'update:modelValue', PropertyValueRelation.Regardless );
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'updateValue', { value: null, conditionIndex: 0 } );
-		expect( store.dispatch ).toHaveBeenCalledWith(
-			'updatePropertyValueRelation',
+		expect( store.updateValue ).toHaveBeenCalledWith( { value: null, conditionIndex: 0 } );
+		expect( store.updatePropertyValueRelation ).toHaveBeenCalledWith(
 			{ propertyValueRelation: PropertyValueRelation.Regardless, conditionIndex: 0 },
 		);
 	} );
@@ -234,30 +256,28 @@ describe( 'QueryCondition.vue', () => {
 	it( 'resets property relation type when datatype of property has changed', async () => {
 		const property = { label: 'postal code', id: 'P31', datatype: 'wikibase-item' };
 		const property2 = { label: 'postal code', id: 'P123', datatype: 'string' };
-		const store = newStore();
 		const conditionIndex = 0;
-		store.dispatch = jest.fn();
 		const wrapper = shallowMount( QueryCondition, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 			props: {
 				conditionIndex: 0,
 			},
 		} );
-		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property );
+
+		const store = useStore();
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'update:modelValue', property );
 		wrapper.findAllComponents( ValueTypeDropDown )[ conditionIndex ].vm.$emit(
-			'input',
+			'update:modelValue',
 			PropertyValueRelation.Regardless,
 		);
-		expect( store.dispatch ).toHaveBeenCalledWith(
-			'updatePropertyValueRelation',
+		expect( store.updatePropertyValueRelation ).toHaveBeenCalledWith(
 			{ propertyValueRelation: PropertyValueRelation.Regardless, conditionIndex: 0 },
 		);
 
-		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'input', property2 );
-		expect( store.dispatch ).toHaveBeenCalledWith(
-			'updatePropertyValueRelation',
+		wrapper.findAllComponents( PropertyLookup )[ conditionIndex ].vm.$emit( 'update:modelValue', property2 );
+		expect( store.updatePropertyValueRelation ).toHaveBeenCalledWith(
 			{ propertyValueRelation: PropertyValueRelation.Matching, conditionIndex: 0 },
 		);
 	} );
