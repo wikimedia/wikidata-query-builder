@@ -65,7 +65,7 @@
 	"query-builder-quantity-value-label": "Магъана эмда Бирим (зорлу тюлдю)",
 	"query-builder-quantity-value-number-input-placeholder": "Санны киргиз",
 	"query-builder-quantity-value-unit-lookup-input-placeholder": "Биримни киргиз",
-	"query-builder-quantity-value-unit-lookup-screenreader-label": "Бирим (зорлу тюлдю)",
+	"query-builder-quantity-value-unit-lookup-screenreader-label": "Бирим (амалсыз тюлдю)",
 	"query-builder-footer-about-query-builder": "Излем къурулушчуну юсюнден",
 	"query-builder-footer-licence": "[$1 BSD 3-статья лицензия] бла лицензияланнганды",
 	"query-builder-footer-build-time": "Ахыр къурулуш дата [$1 $2]",

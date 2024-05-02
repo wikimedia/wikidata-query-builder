@@ -5,6 +5,7 @@
 			"Mguix",
 			"SMP",
 			"Vfc",
+			"Woytecr",
 			"Xavier Dengra"
 		]
 	},
@@ -72,7 +73,7 @@
 	"query-builder-quantity-value-unit-lookup-screenreader-label": "Unitat (opcional):",
 	"query-builder-footer-about-query-builder": "Quant al Generador de Consultes",
 	"query-builder-footer-licence": "L'eina està disponible sota la [$1 Llicència de 3 clàusules BSD]",
-	"query-builder-footer-build-time": "Darrera versió: [ $1 $2 ]",
+	"query-builder-footer-build-time": "Darrera versió: [$1 $2]",
 	"query-builder-footer-view-source": "Mostra el codi font",
 	"query-builder-footer-report-link": "Informa d'una incidència",
 	"query-builder-footer-about-us": "Sobre nosaltres",
