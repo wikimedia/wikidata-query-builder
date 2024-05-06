@@ -18,7 +18,7 @@
 	"query-builder-lexeme-value-lookup-no-match-found": "Келишиу табылмагъанды",
 	"query-builder-sense-value-lookup-no-match-found": "Келишиу табылмагъанды",
 	"query-builder-form-value-lookup-no-match-found": "Келишиу табылмагъанды",
-	"query-builder-property-lookup-label": "Энчилиги",
+	"query-builder-property-lookup-label": "Энчилик",
 	"query-builder-property-lookup-tooltip": "Бир шартдагъы <em>энчилик</em> къыр, <em>магъана</em> ючюн категорияды неда ачыкълаучуду. Юлгюге, \"кёксюл\" <em>магъана</em> ючюн хайырланныкъ <em>энчилик</em> \"бет\" боллукъду.",
 	"query-builder-property-lookup-placeholder": "Энчиликни киргизигиз",
 	"query-builder-property-lookup-no-match-found": "Келишиу табылмагъанды",
