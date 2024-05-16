@@ -41,6 +41,7 @@ import InfoTooltip from '@/components/InfoTooltip.vue';
 import { QuantityError } from '@/data-model/QueryBuilderError';
 import QuantityValidator from '@/form/QuantityValidator';
 import { QuantityValue } from '@/store/RootState';
+import { useStore } from '@/store';
 import debounce from 'lodash/debounce';
 
 const NUMBER_OF_SEARCH_RESULTS = 12;
@@ -122,7 +123,8 @@ export default defineComponent( {
 			);
 		},
 		searchForItems( options: SearchOptions ): Promise<SearchResult[]> {
-			return this.$store.dispatch( 'searchItemValues', options );
+			const store = useStore();
+			return store.searchItemValues( options );
 		},
 		updateMenuItems( searchOptions: SearchOptions ): void {
 			if ( this.debouncedUpdateMenuItems === null ) {

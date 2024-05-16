@@ -11,6 +11,7 @@
 <script lang="ts">
 import { defineComponent } from '@/compat';
 import { Checkbox } from '@wmde/wikit-vue-components';
+import { useStore } from '@/store';
 
 export default defineComponent( {
 	name: 'LabelOptout',
@@ -20,10 +21,12 @@ export default defineComponent( {
 	computed: {
 		checked: {
 			get(): boolean {
-				return this.$store.getters.omitLabels;
+				const store = useStore();
+				return store.omitLabels;
 			},
 			set( value: boolean ): void {
-				this.$store.dispatch( 'setOmitLabels', value );
+				const store = useStore();
+				store.setOmitLabels( value );
 			},
 		},
 	},

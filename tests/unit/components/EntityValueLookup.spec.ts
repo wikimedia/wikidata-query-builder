@@ -1,9 +1,10 @@
 import EntityValueLookup from '@/components/EntityValueLookup.vue';
 import EntityLookup from '@/components/EntityLookup.vue';
 import { shallowMount } from '@vue/test-utils';
-import { createStore } from 'vuex';
 import { createI18n } from 'vue-banana-i18n';
 import SearchOptions from '@/data-access/SearchOptions';
+import { createTestingPinia } from '@pinia/testing';
+import { useStore } from '@/store/index';
 
 const i18n = createI18n( {
 	messages: {},
@@ -44,18 +45,19 @@ describe( 'EntityValueLookup.vue', () => {
 	} );
 
 	it( 'passes search function down and dispatches action when it is called', async () => {
-		const store = createStore( {} );
 		const searchResults = [
 			{ label: 'abc', description: 'def', id: 'Q123' },
 			{ label: 'date of birth', description: '', id: 'Q345' },
 		];
-		store.dispatch = jest.fn().mockResolvedValue( searchResults );
 		const expectedSearchResults = JSON.parse( JSON.stringify( searchResults ) );
 		const wrapper = shallowMount( EntityValueLookup, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
+
+		const store = useStore();
+		jest.spyOn( store, 'searchItemValues' ).mockResolvedValue( searchResults as any );
 
 		expect( wrapper.findComponent( EntityLookup ).props( 'searchForMenuItems' ) )
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -67,7 +69,7 @@ describe( 'EntityValueLookup.vue', () => {
 		// @ts-ignore
 		const actualSearchOptions = await wrapper.vm.searchForMenuItems( searchOptions );
 
-		expect( store.dispatch ).toHaveBeenCalledWith( 'searchItemValues', searchOptions );
+		expect( store.searchItemValues ).toHaveBeenCalledWith( searchOptions );
 		expect( actualSearchOptions ).toStrictEqual( expectedSearchResults );
 	} );
 

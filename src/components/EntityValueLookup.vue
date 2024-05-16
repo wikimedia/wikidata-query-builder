@@ -19,6 +19,7 @@ import SearchResult from '@/data-access/SearchResult';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { PropType } from 'vue';
 import { defineComponent } from '@/compat';
+import { useStore } from '@/store';
 
 const supportedEntityTypes = {
 	item: [ 'searchItemValues', 'query-builder-item-value-lookup-no-match-found' ],
@@ -63,7 +64,8 @@ export default defineComponent( {
 	},
 	methods: {
 		searchForMenuItems( options: SearchOptions ): Promise<SearchResult[]> {
-			return this.$store.dispatch( this.storeAction, options );
+			const store = useStore();
+			return store[ this.storeAction ]( options );
 		},
 	},
 } );

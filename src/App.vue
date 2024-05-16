@@ -13,6 +13,7 @@ import Vue from 'vue';
 import QueryBuilder from '@/components/QueryBuilder.vue';
 import services from '@/ServicesFactory';
 import { defineComponent } from '@/compat';
+import { useStore } from '@/store/index';
 
 if ( process.env.NODE_ENV === 'production' ) {
 	// TODO: figure out how to disable the jest error that fails the unit tests if this is available during testing
@@ -62,7 +63,8 @@ export default defineComponent( {
 			if ( !urlParams.has( 'query' ) ) {
 				return;
 			}
-			this.$store.dispatch( 'parseState', urlParams.get( 'query' ) );
+			const store = useStore();
+			store.parseState( urlParams.get( 'query' ) as string );
 		},
 		setDocumentTitle( messages: { [langCode: string]: { [msgKey: string]: string} } ): void {
 			// eslint-disable-next-line dot-notation, max-len
@@ -94,5 +96,11 @@ export default defineComponent( {
 <style lang="scss">
 @use 'ress';
 @import 'wikit-dist/wikit-vue-components-vue3compat.css';
+@import './styles/typography';
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+
+body {
+	@include body-m;
+}
 
 </style>

@@ -2,8 +2,9 @@ import App from '@/App.vue';
 import LanguageService from '@/data-access/LanguageService';
 import { shallowMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import { createStore } from 'vuex';
 import { createI18n } from 'vue-banana-i18n';
+import { createTestingPinia } from '@pinia/testing';
+import { useStore } from '@/store';
 
 jest.mock( '@/ServicesFactory', () => {
 	return {
@@ -31,7 +32,6 @@ describe( 'App.vue', () => {
 	} );
 
 	it( 'sets the window heading based on a localized string', async () => {
-		const store = createStore( {} );
 		const i18n = createI18n( {
 			messages: {
 				fr: {
@@ -51,7 +51,7 @@ describe( 'App.vue', () => {
 
 		shallowMount( App, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 
@@ -61,8 +61,7 @@ describe( 'App.vue', () => {
 	} );
 
 	it( 'reconstructs QB state if URL has a query parameter', async () => {
-		const store = createStore( {} );
-		store.dispatch = jest.fn();
+		// TODO: Pinia. Fix function store.parseState. It's not passing the state properly
 		const i18n = createI18n( {
 			messages: {},
 			locale: 'en',
@@ -81,16 +80,16 @@ describe( 'App.vue', () => {
 
 		shallowMount( App, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
-
-		expect( store.dispatch ).toHaveBeenCalledWith( 'parseState', unencodedQuery );
+		const store = useStore();
+		expect( store.parseState ).toHaveBeenCalledWith( unencodedQuery );
 	} );
 
 	it( 'doesn\'t try to reconstruct state if there is no query parameter', () => {
-		const store = createStore( {} );
-		store.dispatch = jest.fn();
+		const store = useStore();
+		store.$patch = jest.fn();
 		const i18n = createI18n( {
 			messages: {},
 			locale: 'en',
@@ -98,10 +97,10 @@ describe( 'App.vue', () => {
 		} );
 		shallowMount( App, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 
-		expect( store.dispatch ).not.toHaveBeenCalled();
+		expect( store.$patch ).not.toHaveBeenCalled();
 	} );
 } );

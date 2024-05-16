@@ -18,6 +18,7 @@ import SearchResult from '@/data-access/SearchResult';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
 import { PropType } from 'vue';
 import { defineComponent } from 'vue';
+import { useStore } from '@/store/index';
 
 export default defineComponent( {
 	compatConfig: {
@@ -50,8 +51,9 @@ export default defineComponent( {
 			);
 		},
 		async searchForProperties( options: SearchOptions ): Promise<SearchResult[]> {
+			const store = useStore();
 			return this.setTagForSearchResults(
-				await this.$store.dispatch( 'searchProperties', options ),
+				await store.searchProperties( options ),
 			);
 		},
 	},

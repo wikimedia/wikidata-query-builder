@@ -5,7 +5,8 @@ import { Button } from '@wmde/wikit-vue-components';
 import SharableLink from '@/components/SharableLink.vue';
 import UrlShortenerRepository from '@/data-access/UrlShortenerRepository';
 import TechnicalProblem from '@/data-access/errors/TechnicalProblem';
-import { newStore } from '../../util/store';
+import { createTestingPinia } from '@pinia/testing';
+import { useStore } from '@/store/index';
 
 jest.mock( '@/ServicesFactory', () => {
 	return {
@@ -32,23 +33,45 @@ const i18n = createI18n( {
 
 describe( 'SharableLink component', () => {
 	it( 'shows the copy button', async () => {
-		const store = newStore();
 		const wrapper = mount( SharableLink, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
-
 		} );
 
 		expect( wrapper.findAllComponents( Button ) ).toHaveLength( 1 );
 	} );
 
 	it( 'shouldn\'t error out on click but still copy the long url', async () => {
-		const store = newStore();
-		store.state.conditionRows[ 0 ].propertyData.id = 'P123';
+		const conditions = [
+			{
+				propertyData: {
+					label: '',
+					id: 'P123',
+					datatype: null,
+					isPropertySet: true,
+					propertyError: null,
+				},
+				valueData: { value: null, valueError: null },
+				propertyValueRelationData: { value: 'matching' },
+				referenceRelation: 'regardless',
+				subclasses: false,
+				negate: false,
+				conditionRelation: null,
+				conditionId: 'condition-id-0.22964934794563008',
+			},
+		];
+
 		const wrapper = mount( SharableLink, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia( {
+					initialState: {
+						store: {
+							conditionRows: conditions,
+							limit: 1234,
+						},
+					},
+				} ), i18n ],
 			},
 		} );
 
@@ -63,13 +86,14 @@ describe( 'SharableLink component', () => {
 	} );
 
 	it( 'shortens a long url', async () => {
-		const store = newStore();
-		store.state.conditionRows[ 0 ].propertyData.id = 'P456';
 		const wrapper = mount( SharableLink, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
+
+		const store = useStore();
+		store.conditionRows[ 0 ].propertyData.id = 'P456';
 
 		await wrapper.findComponent( Button ).trigger( 'click' );
 		await nextTick();

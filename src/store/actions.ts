@@ -5,12 +5,12 @@ import ParseValueRepository from '@/data-access/ParseValueRepository';
 import Validator from '@/form/Validator';
 import QueryDeserializer from '@/serialization/QueryDeserializer';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
-import { ActionContext, ActionTree } from 'vuex';
-import RootState, {
+import {
 	ConditionRow,
 	DateValue,
 	DEFAULT_LIMIT,
 	ItemValue,
+	QuantityValue,
 } from './RootState';
 import SearchResult from '@/data-access/SearchResult';
 import QueryBuilderError from '@/data-model/QueryBuilderError';
@@ -20,15 +20,20 @@ import SearchEntityRepository from '@/data-access/SearchEntityRepository';
 import SearchOptions from '@/data-access/SearchOptions';
 import ConditionRelation from '@/data-model/ConditionRelation';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
+import Property from '@/data-model/Property';
+import { useStore } from '@/store/index';
+import { getFreshConditionRow } from './index';
 
 export default (
 	searchEntityRepository: SearchEntityRepository,
 	metricsCollector: MetricsCollector,
 	parseValueRepository: ParseValueRepository,
 	formatValueRepository: FormatValueRepository,
-): ActionTree<RootState, RootState> => ( {
+// TODO: Specify return type, it's not supported natively right now https://github.com/vuejs/pinia/discussions/1324
+// eslint-disable-next-line max-len
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
+) => ( {
 	async searchProperties(
-		_context: ActionContext<RootState, RootState>,
 		options: SearchOptions ): Promise<SearchResult[]> {
 		const searchResults = await searchEntityRepository.searchProperties(
 			options.search,
@@ -43,7 +48,6 @@ export default (
 		} );
 	},
 	async searchItemValues(
-		_context: ActionContext<RootState, RootState>,
 		options: SearchOptions ): Promise<SearchResult[]> {
 		return await searchEntityRepository.searchItemValues(
 			options.search,
@@ -52,7 +56,6 @@ export default (
 		);
 	},
 	async searchLexemeValues(
-		_context: ActionContext<RootState, RootState>,
 		options: SearchOptions ): Promise<SearchResult[]> {
 		return await searchEntityRepository.searchLexemeValues(
 			options.search,
@@ -61,7 +64,6 @@ export default (
 		);
 	},
 	async searchSenseValues(
-		_context: ActionContext<RootState, RootState>,
 		options: SearchOptions ): Promise<SearchResult[]> {
 		return await searchEntityRepository.searchSenseValues(
 			options.search,
@@ -70,7 +72,6 @@ export default (
 		);
 	},
 	async searchFormValues(
-		_context: ActionContext<RootState, RootState>,
 		options: SearchOptions ): Promise<SearchResult[]> {
 		return await searchEntityRepository.searchFormValues(
 			options.search,
@@ -79,16 +80,14 @@ export default (
 		);
 	},
 	async updateDateValue(
-		context: ActionContext<RootState, RootState>,
 		payload: { rawInput: string; conditionIndex: number },
 	): Promise<void> {
-		context.commit( 'clearValue', payload.conditionIndex );
-		context.commit(
-			'clearFieldErrors',
-			{
-				conditionIndex: payload.conditionIndex,
-				errorsToClear: 'value',
-			},
+		const store = useStore();
+		store.clearValue( payload.conditionIndex );
+		store.clearFieldErrors( {
+			conditionIndex: payload.conditionIndex,
+			errorsToClear: 'value',
+		},
 		);
 
 		let parsedValue;
@@ -100,9 +99,8 @@ export default (
 				formattedValue: ( e as Error ).message,
 			};
 
-			context.commit( 'setValue', { value: errorDateValue, conditionIndex: payload.conditionIndex } );
-			context.commit(
-				'setFieldErrors',
+			store.setValue( { value: errorDateValue, conditionIndex: payload.conditionIndex } );
+			store.setFieldErrors(
 				{
 					index: payload.conditionIndex,
 					errors: {
@@ -113,59 +111,59 @@ export default (
 			return;
 		}
 
-		const propertyId = context.getters.property( payload.conditionIndex ).id;
-		const formattedValue = await formatValueRepository.formatValue( parsedValue, propertyId );
+		const propertyId = store.property( payload.conditionIndex )?.id;
+		const formattedValue = await formatValueRepository.formatValue( parsedValue, propertyId as string );
 
 		const validDateValue: DateValue = {
 			parseResult: parsedValue,
 			formattedValue,
 		};
-		context.commit( 'setValue', {
+		store.setValue( {
 			value: validDateValue,
 			conditionIndex: payload.conditionIndex,
 		} );
 	},
 	updateValue(
-		context: ActionContext<RootState, RootState>,
-		payload: { value: string; conditionIndex: number } ): void {
-		context.commit(
-			'clearFieldErrors',
+		payload: { value: string | null | SearchResult | DateValue | QuantityValue | ItemValue | SearchResult;
+			conditionIndex: number; } ): void {
+		const store = useStore();
+		store.clearFieldErrors(
 			{
 				conditionIndex: payload.conditionIndex,
 				errorsToClear: 'value',
 			},
 		);
-		const datatype = context.getters.datatype( payload.conditionIndex );
+		const datatype = store.datatype( payload.conditionIndex );
 		if ( datatype === 'time' && payload.value ) {
-			context.dispatch( 'updateDateValue', { rawInput: payload.value, conditionIndex: payload.conditionIndex } );
+			store.updateDateValue( { rawInput: payload.value as string, conditionIndex: payload.conditionIndex } );
 			return;
 		}
-		context.commit( 'setValue', payload );
+		store.setValue( payload );
 	},
-	unsetProperty( context: ActionContext<RootState, RootState>, conditionIndex: number ): void {
-		context.commit( 'unsetProperty', conditionIndex );
-		context.commit(
-			'clearFieldErrors',
+	unsetProperty( conditionIndex: number ): void {
+		const store = useStore();
+		store.conditionRows[ conditionIndex ].propertyData.isPropertySet = false;
+		this.clearFieldErrors(
 			{
 				conditionIndex,
 				errorsToClear: 'property',
 			},
 		);
 	},
-	updateProperty( context: ActionContext<RootState, RootState>,
+	updateProperty(
 		payload: { property: { label: string; id: string; datatype: string }; conditionIndex: number } ): void {
 
-		const oldDatatype = context.getters.datatype( payload.conditionIndex );
+		const store = useStore();
+		const oldDatatype = store.datatype( payload.conditionIndex );
 		if ( oldDatatype && oldDatatype !== payload.property.datatype ) {
-			context.commit( 'clearValue', payload.conditionIndex );
+			store.clearValue( payload.conditionIndex );
 		}
 
-		context.commit( 'setProperty', payload );
+		store.setProperty( payload );
 		if ( !allowedDatatypes.includes( payload.property.datatype ) ) {
-			context.dispatch( 'setConditionAsLimitedSupport', payload.conditionIndex );
+			store.setConditionAsLimitedSupport( payload.conditionIndex );
 		} else {
-			context.commit(
-				'clearFieldErrors',
+			store.clearFieldErrors(
 				{
 					conditionIndex: payload.conditionIndex,
 					errorsToClear: 'property',
@@ -173,57 +171,74 @@ export default (
 			);
 		}
 	},
-	updatePropertyValueRelation( context: ActionContext<RootState, RootState>,
+	updatePropertyValueRelation(
 		payload: { propertyValueRelation: PropertyValueRelation; conditionIndex: number } ): void {
-		context.commit( 'setPropertyValueRelation', payload );
+		const store = useStore();
+		store.conditionRows[ payload.conditionIndex ].propertyValueRelationData.value = payload.propertyValueRelation;
 	},
-	setReferenceRelation( context: ActionContext<RootState, RootState>,
+	setReferenceRelation(
 		payload: { referenceRelation: ReferenceRelation; conditionIndex: number } ): void {
-		context.commit( 'setReferenceRelation', payload );
+		const store = useStore();
+		store.conditionRows[ payload.conditionIndex ].referenceRelation = payload.referenceRelation;
 	},
 	setNegate(
-		context: ActionContext<RootState, RootState>,
 		payload: { value: boolean; conditionIndex: number } ): void {
-		context.commit( 'setNegate', payload );
+		const store = useStore();
+		// context.commit( 'setNegate', payload );
+		store.conditionRows[ payload.conditionIndex ].negate = payload.value;
 	},
-	setLimit( context: ActionContext<RootState, RootState>, limit: number ): void {
-		context.commit( 'setLimit', limit );
+	setLimit( limit: number ): void {
+		// context.commit( 'setLimit', limit );
+		const store = useStore();
+		store.limit = limit;
 	},
-	setUseLimit( context: ActionContext<RootState, RootState>, useLimit: boolean ): void {
-		context.commit( 'setUseLimit', useLimit );
+	setUseLimit( useLimit: boolean ): void {
+		// context.commit( 'setUseLimit', useLimit );
+		const store = useStore();
+		store.useLimit = useLimit;
 	},
-	setOmitLabels( context: ActionContext<RootState, RootState>, omitLabels: boolean ): void {
-		context.commit( 'setOmitLabels', omitLabels );
+	setOmitLabels( omitLabels: boolean ): void {
+		// context.commit( 'setOmitLabels', omitLabels );
+		const store = useStore();
+		store.omitLabels = omitLabels;
 	},
-	setSubclasses( context: ActionContext<RootState, RootState>,
+	setSubclasses(
 		payload: { subclasses: boolean; conditionIndex: number } ): void {
-		context.commit( 'setSubclasses', payload );
+		// context.commit( 'setSubclasses', payload );
+		const store = useStore();
+		store.conditionRows[ payload.conditionIndex ].subclasses = payload.subclasses;
 	},
 	setConditionRelation(
-		context: ActionContext<RootState, RootState>,
 		payload: { value: ConditionRelation | null; conditionIndex: number } ): void {
-		context.commit( 'setConditionRelation', payload );
+		const store = useStore();
+		store.conditionRows[ payload.conditionIndex ].conditionRelation = payload.value;
 	},
-	setErrors( context: ActionContext<RootState, RootState>, errors: QueryBuilderError[] ): void {
-		context.commit( 'setErrors', errors );
+	setErrors( errors: QueryBuilderError[] ): void {
+		const store = useStore();
+		store.errors = errors;
 	},
-	incrementMetric( context: ActionContext<RootState, RootState>, metric: string ): void {
+	incrementMetric( metric: string ): void {
 		metricsCollector.increment( metric );
 	},
-	addCondition( context: ActionContext<RootState, RootState> ): void {
-		context.commit( 'addCondition' );
+	addCondition(): void {
+		const store = useStore();
+		store.conditionRows.push( getFreshConditionRow( store.conditionRows.length === 0 ) );
 	},
-	removeCondition( context: ActionContext<RootState, RootState>, conditionIndex: number ): void {
-		context.commit( 'removeCondition', conditionIndex );
+	removeCondition( conditionIndex: number ): void {
+		// context.commit( 'removeCondition', conditionIndex );
+		const store = useStore();
+		store.conditionRows.splice( conditionIndex, 1 );
+		if ( store.conditionRows.length === 1 ) {
+			store.conditionRows[ 0 ].conditionRelation = null;
+		}
 	},
-	setConditionAsLimitedSupport( context: ActionContext<RootState, RootState>, conditionIndex: number ): void {
-		context.dispatch(
-			'updatePropertyValueRelation',
+	setConditionAsLimitedSupport( conditionIndex: number ): void {
+		const store = useStore();
+		store.updatePropertyValueRelation(
 			{ propertyValueRelation: PropertyValueRelation.Regardless, conditionIndex },
 		);
-		context.dispatch( 'updateValue', { value: null, conditionIndex } );
-		context.commit(
-			'setFieldErrors',
+		store.updateValue( { value: null, conditionIndex } );
+		store.setFieldErrors(
 			{
 				index: conditionIndex,
 				errors: {
@@ -235,10 +250,10 @@ export default (
 			},
 		);
 	},
-	validateForm( context: ActionContext<RootState, RootState> ): void {
-
+	validateForm(): void {
+		const store = useStore();
 		const validator = new Validator(
-			context.rootState.conditionRows.map( ( condition: ConditionRow ): ConditionValues => {
+			store.conditionRows.map( ( condition: ConditionRow ): ConditionValues => {
 				// TODO: refactor ConditionValues to match ConditionRow and remove this mapping
 				return {
 					property: condition.propertyData.isPropertySet ? condition.propertyData : null,
@@ -248,12 +263,11 @@ export default (
 			} ),
 		);
 		const validationResult = validator.validate();
-		context.commit( 'setErrors', validationResult.formErrors );
+		store.setErrors( validationResult.formErrors );
 
 		// set field errors for each row
 		validationResult.fieldErrors.forEach( ( errors, conditionIndex ) => {
-			context.commit(
-				'setFieldErrors',
+			store.setFieldErrors(
 				{
 					index: conditionIndex,
 					errors: {
@@ -265,57 +279,60 @@ export default (
 		} );
 
 		// re-set limited support warning again where applicable
-		context.rootState.conditionRows.forEach( ( conditionRow, index ) => {
+		store.conditionRows.forEach( ( conditionRow, index ) => {
 			const datatype = conditionRow.propertyData?.datatype;
 			if ( datatype && !allowedDatatypes.includes( datatype ) ) {
-				context.dispatch( 'setConditionAsLimitedSupport', index );
+				store.setConditionAsLimitedSupport( index );
 			}
 		} );
 
-		context.dispatch( 'validateLimit' );
+		store.validateLimit();
 	},
-	validateLimit( context: ActionContext<RootState, RootState> ): void {
-		if ( context.rootState.limit === undefined ) {
-			context.commit( 'setLimit', DEFAULT_LIMIT );
+	validateLimit(): void {
+		const store = useStore();
+		if ( store.limit === undefined ) {
+			store.setLimit( DEFAULT_LIMIT );
 			return;
 		}
-		if ( context.rootState.useLimit && context.rootState.limit === null ) {
-			context.commit( 'setErrors', [
+		if ( store.useLimit && store.limit === null ) {
+			store.setErrors( [
 				{ type: 'error', message: 'query-builder-result-error-incomplete-form' },
 			] );
 			return;
 		}
 	},
-	parseState( context: ActionContext<RootState, RootState>, payload: string ): Promise<unknown> {
+	parseState( payload: string ): Promise<unknown> {
 		const deserializer = new QueryDeserializer();
+		const store = useStore();
 		try {
 			const rootState = deserializer.deserialize( payload );
-			context.commit( 'setState', rootState );
+			store.$patch( rootState );
 		} catch ( e ) {
 			// do nothing if parameter is invalid
 			return Promise.resolve();
 		}
 
-		return context.dispatch( 'searchForEntities' );
+		return store.searchForEntities();
 	},
-	searchForEntities( context: ActionContext<RootState, RootState> ): Promise<unknown> {
+	searchForEntities(): Promise<unknown> {
 		// search for all the entity IDs in the state, so that they can be shown with their labels
 		const promises: Promise<unknown>[] = [];
 
-		context.rootState.conditionRows.forEach( ( conditionRow, conditionIndex ) => {
+		const store = useStore();
+		store.conditionRows.forEach( ( conditionRow, conditionIndex ) => {
 			const propertyId = conditionRow.propertyData.id;
 			promises.push(
 				searchEntityRepository.searchProperties( propertyId, 1, 0 )
 					.then( ( searchResults ) => {
 						const searchResult = searchResults[ 0 ];
-						const currentConditionRow = context.rootState.conditionRows[ conditionIndex ];
+						const currentConditionRow = store.conditionRows[ conditionIndex ];
 						if (
 							!searchResult || searchResult.id !== propertyId ||
 							!currentConditionRow || currentConditionRow.propertyData.id !== propertyId
 						) {
 							return;
 						}
-						return context.dispatch( 'updateProperty', {
+						return store.updateProperty( {
 							property: searchResult,
 							conditionIndex,
 						} );
@@ -328,14 +345,14 @@ export default (
 					searchEntityRepository.searchItemValues( itemId, 1, 0 )
 						.then( ( searchResults ) => {
 							const searchResult = searchResults[ 0 ];
-							const currentConditionRow = context.rootState.conditionRows[ conditionIndex ];
+							const currentConditionRow = store.conditionRows[ conditionIndex ];
 							if (
 								!searchResult || searchResult.id !== itemId || !currentConditionRow ||
 								( currentConditionRow.valueData.value as ItemValue )?.id !== itemId
 							) {
 								return;
 							}
-							return context.dispatch( 'updateValue', {
+							return store.updateValue( {
 								value: searchResult,
 								conditionIndex,
 							} );
@@ -345,5 +362,53 @@ export default (
 		} );
 
 		return Promise.all( promises );
+	},
+	clearValue( conditionIndex: number ): void {
+		const store = useStore();
+		store.conditionRows[ conditionIndex ].valueData.value = null;
+	},
+	setProperty( payload: { property: Property | null; conditionIndex: number } ): void {
+		const store = useStore();
+		store.conditionRows[ payload.conditionIndex ].propertyData = {
+			...store.conditionRows[ payload.conditionIndex ].propertyData,
+			...payload.property,
+		};
+		store.conditionRows[ payload.conditionIndex ].propertyData.isPropertySet = true;
+	},
+	clearFieldErrors(
+		payload: {
+			conditionIndex: number;
+			errorsToClear: 'property'|'value'|'both';
+		},
+	): void {
+		const store = useStore();
+		if ( payload.errorsToClear === 'property' || payload.errorsToClear === 'both' ) {
+			store.conditionRows[ payload.conditionIndex ].propertyData.propertyError = null;
+		}
+		if ( payload.errorsToClear === 'value' || payload.errorsToClear === 'both' ) {
+			store.conditionRows[ payload.conditionIndex ].valueData.valueError = null;
+		}
+	},
+	setValue( payload: { value: string | DateValue | null | SearchResult | QuantityValue | ItemValue;
+		conditionIndex: number; } ): void {
+		const store = useStore();
+		store.conditionRows[ payload.conditionIndex ].valueData.value = payload.value;
+	},
+	setFieldErrors(
+		payload: {
+			index: number;
+			errors: {
+				propertyError?: QueryBuilderError|null;
+				valueError?: QueryBuilderError|null;
+			};
+		},
+	): void {
+		const store = useStore();
+		if ( payload.errors.propertyError !== undefined ) {
+			store.conditionRows[ payload.index ].propertyData.propertyError = payload.errors.propertyError;
+		}
+		if ( payload.errors.valueError !== undefined ) {
+			store.conditionRows[ payload.index ].valueData.valueError = payload.errors.valueError;
+		}
 	},
 } );

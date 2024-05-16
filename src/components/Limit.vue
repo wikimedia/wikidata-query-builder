@@ -23,6 +23,7 @@ import { defineComponent } from '@/compat';
 import { DEFAULT_LIMIT } from '@/store/RootState';
 import { Checkbox, TextInput } from '@wmde/wikit-vue-components';
 import QueryBuilderError from '@/data-model/QueryBuilderError';
+import { useStore } from '@/store/index';
 
 export default defineComponent( {
 	name: 'Limit',
@@ -38,21 +39,25 @@ export default defineComponent( {
 	},
 	computed: {
 		storeLimit(): number | null | undefined {
-			return this.$store.getters.limit;
+			const store = useStore();
+			return store.limit;
 		},
 		checked: {
 			get(): boolean {
-				return this.$store.getters.useLimit;
+				const store = useStore();
+				return store.useLimit;
 			},
 			set( value: boolean ): void {
-				this.$store.dispatch( 'setUseLimit', value );
+				const store = useStore();
+				store.setUseLimit( value );
 			},
 		},
 	},
 	methods: {
 		onLimitChange( value: string ): void {
 			if ( value === '' ) {
-				this.$store.dispatch( 'setLimit', undefined );
+				const store = useStore();
+				store.setLimit( undefined );
 				this.error = {
 					type: 'error',
 					message: 'query-builder-limit-number-error-message',
@@ -60,8 +65,9 @@ export default defineComponent( {
 				return;
 			}
 			const limit = Number( value );
+			const store = useStore();
 			if ( isNaN( limit ) || limit < 1 ) {
-				this.$store.dispatch( 'setLimit', null );
+				store.setLimit( null );
 				this.error = {
 					type: 'error',
 					message: 'query-builder-limit-number-error-message',
@@ -69,7 +75,7 @@ export default defineComponent( {
 				return;
 			}
 			this.error = null;
-			this.$store.dispatch( 'setLimit', limit );
+			store.setLimit( limit );
 		},
 	},
 	watch: {
@@ -81,7 +87,8 @@ export default defineComponent( {
 		},
 	},
 	mounted(): void {
-		this.limit = this.$store.getters.limit?.toString() || String( DEFAULT_LIMIT );
+		const store = useStore();
+		this.limit = store.limit?.toString() || String( DEFAULT_LIMIT );
 	},
 } );
 </script>

@@ -2,10 +2,11 @@ import QuantityValueInput from '@/components/QuantityValueInput.vue';
 import { ItemValue } from '@/store/RootState';
 import { QuantityInput } from '@wmde/wikit-vue-components';
 import { shallowMount, mount } from '@vue/test-utils';
-import { createStore } from 'vuex';
 import { nextTick } from 'vue';
 import { createI18n } from 'vue-banana-i18n';
 import SearchOptions from '@/data-access/SearchOptions';
+import { useStore } from '@/store/index';
+import { createTestingPinia } from '@pinia/testing';
 
 jest.mock( 'lodash/debounce', () => jest.fn( ( fn ) => fn ) );
 
@@ -109,22 +110,24 @@ describe( 'QuantityValueInput.vue', () => {
 	} );
 
 	it( 'pass unit part of value prop down to QuantityInput', async () => {
-		const store = createStore( {} );
-		store.dispatch = jest.fn().mockResolvedValue( [] );
 		const unitValue: ItemValue = { label: 'Stars', id: 'lil stars' };
 
 		const wrapper = shallowMount( QuantityValueInput, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia( { stubActions: false } ), i18n ],
 			},
 			props: {
 				...defaultProps,
 				modelValue: {
 					value: 10,
-					unit: unitValue,
+					// TODO: Pinia fix
+					unit: unitValue, // There is an issue with the unit that is making the test fails
 				},
 			},
 		} );
+
+		const store = useStore();
+		store.searchItemValues = jest.fn().mockResolvedValue( [] );
 
 		await nextTick();
 
@@ -156,17 +159,21 @@ describe( 'QuantityValueInput.vue', () => {
 	} );
 
 	it( 'unit input: unitLookupSearchInput prop for unit item changes on update search string', async () => {
-		const store = createStore( {} );
-		store.dispatch = jest.fn().mockResolvedValue( [] );
+		// const store = createStore( {} );
+		// store.dispatch = jest.fn().mockResolvedValue( [] );
+		// TODO: Pinia. how to mock resolvedValue from action
 		const wrapper = shallowMount( QuantityValueInput, {
 			global: {
-				plugins: [ store, i18n ],
+				plugins: [ createTestingPinia( { stubActions: false } ), i18n ],
 			},
 			props: {
 				...defaultProps,
 				modelValue: { value: 10, unit: null },
 			},
 		} );
+
+		const store = useStore();
+		store.searchItemValues = jest.fn().mockResolvedValue( [] );
 
 		const searchOptions: SearchOptions = { search: 'meters', limit: 12 };
 

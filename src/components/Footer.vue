@@ -67,6 +67,7 @@
 import QuerySerializer from '@/serialization/QuerySerializer';
 import { defineComponent } from '@/compat';
 import { Link as WikitLink } from '@wmde/wikit-vue-components';
+import { useStore } from '@/store';
 
 export default defineComponent( {
 	name: 'Footer',
@@ -97,8 +98,9 @@ export default defineComponent( {
 			return `https://gerrit.wikimedia.org/g/wikidata/query-builder/+/${commitHash}`;
 		},
 		bugLink(): string {
+			const store = useStore();
 			const querySerializer = new QuerySerializer();
-			const serializedQuery = querySerializer.serialize( this.$store.state );
+			const serializedQuery = querySerializer.serialize( store );
 			const current = new URL( window.location.href );
 			current.searchParams.set( 'query', serializedQuery );
 			const title = 'Wikidata%20Query%20Builder+Ticket+Template';

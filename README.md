@@ -50,7 +50,7 @@ You can see which dependencies have new releases by first making sure your local
 The query builder uses the latest full release of Wikit which works on Vue 2.6. For this reason we do not update any of the following packages till further notice:
 
 - vue
-- vuex
+- pinia
 - vue-banana-i18n
 - vite
 - @vue/test-utils

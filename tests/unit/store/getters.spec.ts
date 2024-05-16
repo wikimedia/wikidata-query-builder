@@ -1,27 +1,53 @@
-import RootState from '@/store/RootState';
 import getters from '@/store/getters';
 import QueryRepresentation from '@/sparql/QueryRepresentation';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import { getFreshRootState } from '../../util/store';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
+import { setActivePinia, createPinia } from 'pinia';
+import { useStore } from '@/store/index';
+import { createTestingPinia } from '@pinia/testing';
+import { getFreshRootState } from '../../util/store';
+
+beforeEach( () => {
+	setActivePinia( createPinia() );
+} );
 
 describe( 'getters', () => {
 
 	describe( 'limitedSupport', () => {
 		it( 'returns false if the datatype is supported', () => {
-			const state: RootState = getFreshRootState();
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+			const store = useStore( pinia );
+			const state = store.$state;
 
 			expect( getters.limitedSupport( state )( 0 ) ).toBe( false );
 		} );
 
 		it( 'returns false the property is empty', () => {
-			const state: RootState = getFreshRootState();
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+			const store = useStore( pinia );
+			const state = store.$state;
 
 			expect( getters.limitedSupport( state )( 0 ) ).toBe( false );
 		} );
 
 		it( 'returns true the datatype is unsupported', () => {
-			const state: RootState = getFreshRootState();
+
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
 			state.conditionRows[ 0 ].propertyData.datatype = 'I am not supported';
 
 			expect( getters.limitedSupport( state )( 0 ) ).toBe( true );
@@ -30,7 +56,14 @@ describe( 'getters', () => {
 
 	describe( 'conditionRelation', () => {
 		it( 'returns conditionRelation null if conditionRows.length === 1', () => {
-			const state: RootState = getFreshRootState(); // has one element by default
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
 
 			expect( getters.conditionRelation( state )( 0 ) ).toBe( null );
 		} );
@@ -38,7 +71,14 @@ describe( 'getters', () => {
 
 	describe( 'referenceRelation', () => {
 		it( 'returns referenceRelation "regardless" by default', () => {
-			const state: RootState = getFreshRootState(); // has one element by default
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
 
 			expect( getters.referenceRelation( state )( 0 ) ).toBe( ReferenceRelation.Regardless );
 		} );
@@ -46,7 +86,6 @@ describe( 'getters', () => {
 
 	describe( 'query', () => {
 		it( 'returns the QueryRepresentation of the RootState', () => {
-			const state: RootState = getFreshRootState();
 
 			const expectedValue: QueryRepresentation = {
 				conditions: [
@@ -64,11 +103,29 @@ describe( 'getters', () => {
 				omitLabels: true,
 			};
 
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
+
 			expect( getters.query( state ) ).toStrictEqual( expectedValue );
 		} );
 
 		it( 'returns the QueryRepresentation of the RootState with a unit value', () => {
-			const state: RootState = getFreshRootState();
+
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
+
 			state.conditionRows[ 0 ].propertyData.datatype = 'quantity';
 			state.conditionRows[ 0 ].valueData.value = { value: 10, unit: { id: 'mts', label: 'Meters ' } };
 
@@ -98,7 +155,14 @@ describe( 'getters', () => {
 			'wikibase-form',
 			'wikibase-property',
 		] )( 'returns the QueryRepresentation of the RootState with an entity value (%s)', ( dataType ) => {
-			const state: RootState = getFreshRootState();
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
 			state.conditionRows[ 0 ].propertyData.datatype = dataType;
 			state.conditionRows[ 0 ].valueData.value = { id: 'X0', label: 'fake entity' };
 
@@ -122,7 +186,14 @@ describe( 'getters', () => {
 		} );
 
 		it( 'returns the QueryRepresentation of the RootState with a limit', () => {
-			const state: RootState = getFreshRootState();
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
 			state.limit = 20;
 			state.useLimit = true;
 
@@ -147,7 +218,15 @@ describe( 'getters', () => {
 		} );
 
 		it( 'returns the QueryRepresentation of the RootState with subclasses', () => {
-			const state: RootState = getFreshRootState();
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
+
 			state.conditionRows[ 0 ].subclasses = true;
 
 			const expectedValue: QueryRepresentation = {
@@ -170,8 +249,17 @@ describe( 'getters', () => {
 		} );
 
 		it( 'returns the QueryRepresentation of the RootState with negate = true', () => {
-			const state: RootState = getFreshRootState();
+			const pinia = createTestingPinia( {
+				initialState: {
+					store: getFreshRootState(),
+				},
+			} );
+
+			const store = useStore( pinia );
+			const state = store.$state;
 			state.conditionRows[ 0 ].negate = true;
+
+			state.conditionRows[ 0 ].subclasses = false;
 
 			const expectedValue: QueryRepresentation = {
 				conditions: [
