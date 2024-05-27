@@ -117,6 +117,9 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+@import '../styles/typography';
+
 $tinyViewportWidth: 38em;
 $largeViewportWidth: 90em;
 
@@ -149,15 +152,11 @@ $largeViewportWidth: 90em;
 
 	// More selective css to override the browser's default.
 	h2 {
-		font-size: $font-size-style-body;
+		font-size: $font-size-medium;
 	}
 
 	&__column {
-		font-family: $font-family-style-description;
-		font-weight: $font-weight-style-description;
-		font-size: $font-size-style-description;
-		line-height: $font-line-height-style-description;
-		color: $font-color-base;
+		@include body-s;
 	}
 
 	&__column:not(:last-of-type) {

@@ -68,6 +68,9 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
+	@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+	@import '../styles/typography';
+
 	.querybuilder-result {
 		margin-block-start: $dimension-layout-medium;
 	}
@@ -85,12 +88,10 @@ export default defineComponent( {
 	}
 
 	.querybuilder-result__description {
+		@include body-s;
+
+		color: $color-subtle;
 		padding-block: $dimension-spacing-xxlarge;
-		font-size: $font-size-style-description;
-		font-family: $font-family-style-description;
-		color: $font-color-subtle;
-		font-weight: $font-weight-style-description;
-		line-height: $font-line-height-style-description;
 		inline-size: $dimension-width-full;
 		border: $border-width-thin $border-style-base $border-color-base-subtle;
 		border-radius: 0 0 $border-radius-base $border-radius-base;
@@ -111,11 +112,7 @@ export default defineComponent( {
 		border-block-end: none;
 
 		& h2 {
-			font-family: $font-family-style-heading-sans;
-			font-style: normal;
-			font-weight: $font-weight-style-h4;
-			font-size: $font-size-style-h4;
-			color: $font-color-base;
+			@include heading-2;
 		}
 	}
 

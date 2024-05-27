@@ -2,7 +2,7 @@
 	font-family: $font-family-system-sans;
 	font-size: $font-size-medium;
 	font-weight: $font-weight-normal;
-	line-height: $line-height-medium;
+	line-height: $line-height-small;
 	color: $color-base;
 }
 
@@ -30,12 +30,21 @@
 	color: $color-emphasized;
 }
 
+@mixin heading-2 {
+	font-family: $font-family-system-sans;
+	font-size: $font-size-large;
+	font-weight: $font-weight-bold;
+	line-height: $line-height-medium;
+	color: $color-base;
+	font-style: normal;
+}
+
 @mixin heading-4 {
 	font-family: $font-family-system-sans;
 	font-size: $font-size-large;
 	font-weight: $font-weight-bold;
 	line-height: $line-height-xxx-small;
-	color: $color-emphasized;
+	color: $color-base;
 }
 
 @mixin heading-5 {
@@ -43,5 +52,5 @@
 	font-size: $font-size-medium;
 	font-weight: $font-weight-bold;
 	line-height: $line-height-xxx-small;
-	color: $color-emphasized;
+	color: $color-base;
 }

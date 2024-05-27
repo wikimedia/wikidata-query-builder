@@ -306,6 +306,8 @@ export default defineComponent( {
 
 <style lang="scss">
 @use '../styles/links' as *;
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+@import '../styles/typography';
 @include links-without-underline;
 
 $tinyViewportWidth: 38em;
@@ -324,19 +326,19 @@ body.overflow-hidden-on-mobile {
 
 // TODO replace with link component once available
 a {
-	font-family: $wikit-Link-font-family;
-	font-weight: $wikit-Link-font-weight;
-	font-size: $wikit-Link-font-size;
-	line-height: $wikit-Link-line-height;
-	color: $wikit-Link-font-color;
-	transition: $transition-interaction-link-property $transition-interaction-link-duration;
+	font-family: $font-family-system-sans;
+	font-weight: $font-weight-normal;
+	font-size: $font-size-medium;
+	line-height: $line-height-small;
+	color: $color-progressive;
+	transition: $transition-property-base $transition-duration-base;
 
 	&:active {
-		color: $font-color-progressive-active;
+		color: $color-progressive--active;
 	}
 
 	&:visited {
-		color: $wikit-Link-visited-font-color;
+		color: $color-visited;
 	}
 }
 
@@ -398,15 +400,13 @@ a {
 }
 
 .querybuilder__condition-placeholder {
+	@include body-s;
+
 	background-color: $background-color-neutral-default;
 	margin-block: $dimension-layout-xsmall;
 	padding-block: $dimension-layout-xsmall;
 	text-align: center;
 	border-radius: $border-radius-base;
-	font-family: $font-family-style-description;
-	font-weight: $font-weight-style-description;
-	font-size: $font-size-style-description;
-	line-height: $font-line-height-style-description;
 }
 
 .querybuilder__heading {
@@ -440,20 +440,15 @@ a {
 }
 
 .querybuilder__description-heading {
-	font-family: $font-family-style-heading-sans;
-	font-size: $font-size-style-h4;
-	font-weight: $font-weight-style-h4;
-	line-height: $font-line-height-style-heading;
-	color: $font-color-emphasized;
+	@include heading-4;
+
+	color: $color-emphasized;
 	margin: $dimension-layout-xsmall 0;
 }
 
 .querybuilder__description {
-	font-family: $font-family-style-body;
-	font-weight: $font-weight-style-body;
-	font-size: $font-size-style-body;
-	line-height: $font-line-height-style-body;
-	color: $font-color-base;
+	@include body-m;
+
 	max-inline-size: 672px; // TODO: replace with token
 
 	@media (width <= 671px) {
@@ -462,29 +457,20 @@ a {
 }
 
 .querybuilder__query-title {
-	font-family: $font-family-style-heading-sans;
-	font-weight: $font-weight-style-h4;
-	font-size: $font-size-style-h4;
-	line-height: $font-line-height-style-heading;
-	color: $font-color-base;
+	@include heading-4;
+
 	margin-block-start: $dimension-layout-large;
 }
 
 .querybuilder__query-subtitle {
-	font-family: $font-family-style-description;
-	font-weight: $font-weight-style-description;
-	font-size: $font-size-style-description;
-	line-height: $font-line-height-style-description;
-	color: $font-color-base;
+	@include body-s;
+
 	margin-block: $dimension-layout-xsmall $dimension-layout-xxsmall;
 }
 
 .querybuilder__setting-header {
-	font-family: $font-family-style-heading-sans;
-	font-weight: $font-weight-style-h4;
-	font-size: $font-size-style-h4;
-	line-height: $font-line-height-style-heading;
-	color: $font-color-base;
+	@include heading-4;
+
 	margin-block-start: $dimension-layout-medium;
 }
 
@@ -498,10 +484,8 @@ a {
 }
 
 .querybuilder__run {
-	font-family: $font-family-style-heading-sans;
-	font-weight: $font-weight-style-h4;
-	line-height: $font-line-height-style-heading;
-	color: $font-color-base;
+	@include heading-5;
+
 	margin-block-start: $dimension-layout-medium;
 
 	& button {
