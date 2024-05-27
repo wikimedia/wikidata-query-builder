@@ -94,7 +94,6 @@ describe( 'QueryBuilder.vue', () => {
 	} );
 
 	it( 'shows the "or" in toggle when there are two conditions', () => {
-		// TODO: Fix Pinia
 		const condition1 = {
 			propertyId: 'P1',
 			value: 'foo',

@@ -184,27 +184,22 @@ export default (
 	setNegate(
 		payload: { value: boolean; conditionIndex: number } ): void {
 		const store = useStore();
-		// context.commit( 'setNegate', payload );
 		store.conditionRows[ payload.conditionIndex ].negate = payload.value;
 	},
 	setLimit( limit: number ): void {
-		// context.commit( 'setLimit', limit );
 		const store = useStore();
 		store.limit = limit;
 	},
 	setUseLimit( useLimit: boolean ): void {
-		// context.commit( 'setUseLimit', useLimit );
 		const store = useStore();
 		store.useLimit = useLimit;
 	},
 	setOmitLabels( omitLabels: boolean ): void {
-		// context.commit( 'setOmitLabels', omitLabels );
 		const store = useStore();
 		store.omitLabels = omitLabels;
 	},
 	setSubclasses(
 		payload: { subclasses: boolean; conditionIndex: number } ): void {
-		// context.commit( 'setSubclasses', payload );
 		const store = useStore();
 		store.conditionRows[ payload.conditionIndex ].subclasses = payload.subclasses;
 	},
@@ -225,7 +220,6 @@ export default (
 		store.conditionRows.push( getFreshConditionRow( store.conditionRows.length === 0 ) );
 	},
 	removeCondition( conditionIndex: number ): void {
-		// context.commit( 'removeCondition', conditionIndex );
 		const store = useStore();
 		store.conditionRows.splice( conditionIndex, 1 );
 		if ( store.conditionRows.length === 1 ) {

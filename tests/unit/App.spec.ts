@@ -61,7 +61,6 @@ describe( 'App.vue', () => {
 	} );
 
 	it( 'reconstructs QB state if URL has a query parameter', async () => {
-		// TODO: Pinia. Fix function store.parseState. It's not passing the state properly
 		const i18n = createI18n( {
 			messages: {},
 			locale: 'en',
