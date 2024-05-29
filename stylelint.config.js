@@ -2,10 +2,13 @@ module.exports = {
 	extends: [
 		'stylelint-config-standard-vue/scss',
 		'stylelint-config-recommended-vue/scss',
+		'@stylistic/stylelint-config',
+
 	],
 	plugins: [
 		'stylelint-use-logical',
 		'stylelint-scss',
+		'@stylistic/stylelint-plugin',
 	],
 	rules: {
 		indentation: 'tab',
