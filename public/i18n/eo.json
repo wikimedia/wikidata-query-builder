@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Fitik",
 			"Javiero",
 			"Robin van der Vliet",
 			"Spenĉjo",
@@ -46,5 +47,6 @@
 	"query-builder-date-input-value-label": "Valoro",
 	"query-builder-date-input-placeholder": "ekzemple 31-12-2020",
 	"query-builder-date-input-prompt-text": "Entajpu daton",
-	"query-builder-date-input-results-intro-text": "Estos interpretita kiel:"
+	"query-builder-date-input-results-intro-text": "Estos interpretita kiel:",
+	"query-builder-language-selector-options-menu-aria-label": "Lingvoj"
 }
