@@ -305,8 +305,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-@use '../styles/links' as *;
-@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+@import '../styles/links';
 @import '../styles/typography';
 @include links-without-underline;
 
@@ -343,11 +342,11 @@ a {
 }
 
 .querybuilder main {
-	padding-block: $dimension-layout-small $dimension-layout-large;
-	padding-inline: $dimension-layout-small;
+	padding-block: var(--dimension-layout-small) var(--dimension-layout-large);
+	padding-inline: var(--dimension-layout-small);
 
 	@media (max-width: $tinyViewportWidth) {
-		padding-inline: $dimension-layout-xsmall;
+		padding-inline: var(--dimension-layout-xsmall);
 	}
 
 	@media (min-width: $largeViewportWidth) {
@@ -358,16 +357,16 @@ a {
 }
 
 .querybuilder__condition-wrapper {
-	margin-block: $dimension-layout-xsmall;
-	padding-block: $dimension-layout-xsmall;
-	padding-inline: $dimension-layout-xsmall;
+	margin-block: var(--dimension-layout-xsmall);
+	padding-block: var(--dimension-layout-xsmall);
+	padding-inline: var(--dimension-layout-xsmall);
 	background-color: $background-color-interactive-subtle;
 	border: $border-width-base $border-style-base $border-color-subtle;
 	border-radius: $border-radius-base;
 
 	@media (max-width: $tinyViewportWidth) {
-		padding-block: $dimension-layout-xxsmall;
-		padding-inline: $dimension-layout-xxsmall;
+		padding-block: var(--dimension-layout-xxsmall);
+		padding-inline: var(--dimension-layout-xxsmall);
 	}
 
 	&.querybuilder__condition-wrapper--first {
@@ -392,25 +391,25 @@ a {
 }
 
 .querybuilder__condition-relation-toggle-or {
-	padding-inline-start: $dimension-layout-xsmall;
+	padding-inline-start: var(--dimension-layout-xsmall);
 }
 
 .querybuilder__condition-relation-toggle {
-	padding-block: $dimension-layout-xsmall;
+	padding-block: var(--dimension-layout-xsmall);
 }
 
 .querybuilder__condition-placeholder {
 	@include body-s;
 
 	background-color: $background-color-interactive-subtle;
-	margin-block: $dimension-layout-xsmall;
-	padding-block: $dimension-layout-xsmall;
+	margin-block: var(--dimension-layout-xsmall);
+	padding-block: var(--dimension-layout-xsmall);
 	text-align: center;
 	border-radius: $border-radius-base;
 }
 
 .querybuilder__heading {
-	padding-block-end: $dimension-layout-small;
+	padding-block-end: var(--dimension-layout-small);
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1.5rem 1.5rem;
@@ -443,7 +442,7 @@ a {
 	@include heading-4;
 
 	color: $color-emphasized;
-	margin: $dimension-layout-xsmall 0;
+	margin: var(--dimension-layout-xsmall) 0;
 }
 
 .querybuilder__description {
@@ -459,34 +458,34 @@ a {
 .querybuilder__query-title {
 	@include heading-4;
 
-	margin-block-start: $dimension-layout-large;
+	margin-block-start: var(--dimension-layout-large);
 }
 
 .querybuilder__query-subtitle {
 	@include body-s;
 
-	margin-block: $dimension-layout-xsmall $dimension-layout-xxsmall;
+	margin-block: var(--dimension-layout-xsmall) var(--dimension-layout-xxsmall);
 }
 
 .querybuilder__setting-header {
 	@include heading-4;
 
-	margin-block-start: $dimension-layout-medium;
+	margin-block-start: var(--dimension-layout-medium);
 }
 
 .querybuilder__settings {
 	background-color: $background-color-interactive-subtle;
 	border-radius: $border-radius-base;
 	border-color: $border-color-transparent;
-	margin-block-start: $dimension-layout-xxsmall;
-	padding-block: $dimension-layout-xsmall;
-	padding-inline: $dimension-layout-xsmall;
+	margin-block-start: var(--dimension-layout-xxsmall);
+	padding-block: var(--dimension-layout-xsmall);
+	padding-inline: var(--dimension-layout-xsmall);
 }
 
 .querybuilder__run {
 	@include heading-5;
 
-	margin-block-start: $dimension-layout-medium;
+	margin-block-start: var(--dimension-layout-medium);
 
 	& button {
 		@media (max-width: $tinyViewportWidth) {

@@ -102,7 +102,7 @@ export default defineComponent( {
 	// extra specificity needed to overcome .wikit style resets *sigh* -> T277885
 	&__checkbox {
 		// TODO: change to real ones
-		margin-inline-end: $dimension-layout-xxsmall;
+		margin-inline-end: var(--dimension-layout-xxsmall);
 
 		// We need to manually align the Checkbox with the TextInput,
 		// because the Validation error causes misalignment with align-items: center
@@ -111,7 +111,7 @@ export default defineComponent( {
 
 	&__input {
 		// TODO: change to real ones
-		margin-inline-start: $dimension-layout-small;
+		margin-inline-start: var(--dimension-layout-small);
 		inline-size: 16em;
 
 		// hides the label of the TextInput while still allowing to be used by screen readers

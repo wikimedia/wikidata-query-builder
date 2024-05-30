@@ -60,7 +60,10 @@ export default {
 	css: {
 		preprocessorOptions: {
 			scss: {
-				additionalData: '@use "./node_modules/@wmde/wikit-tokens/dist/variables" as *;',
+				additionalData: `
+				@import "@wmde/wikit-tokens/dist/variables";
+				@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
+				`,
 			},
 		},
 		postcss: {

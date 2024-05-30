@@ -124,13 +124,13 @@ $tinyViewportWidth: 38em;
 $largeViewportWidth: 90em;
 
 .querybuilder-footer {
-	padding-block: $dimension-layout-small;
-	padding-inline: $dimension-layout-small;
+	padding-block: var(--dimension-layout-small);
+	padding-inline: var(--dimension-layout-small);
 	margin-inline: 0;
 
 	@media (max-width: $tinyViewportWidth) {
-		padding-block: $dimension-layout-xsmall;
-		padding-inline: $dimension-layout-xsmall;
+		padding-block: var(--dimension-layout-xsmall);
+		padding-inline: var(--dimension-layout-xsmall);
 	}
 
 	@media (min-width: $largeViewportWidth) {
@@ -147,7 +147,7 @@ $largeViewportWidth: 90em;
 	}
 
 	p {
-		padding-block-end: $dimension-layout-xxsmall;
+		padding-block-end: var(--dimension-layout-xxsmall);
 	}
 
 	// More selective css to override the browser's default.
@@ -163,14 +163,14 @@ $largeViewportWidth: 90em;
 		padding-inline-end: 120px;
 
 		@media (max-width: $tinyViewportWidth) {
-			padding-block-end: $dimension-layout-medium;
+			padding-block-end: var(--dimension-layout-medium);
 			padding-inline-end: 0;
 		}
 	}
 
 	&__title {
 		font-weight: $font-weight-bold;
-		padding-block-end: $dimension-layout-xsmall;
+		padding-block-end: var(--dimension-layout-xsmall);
 	}
 }
 </style>

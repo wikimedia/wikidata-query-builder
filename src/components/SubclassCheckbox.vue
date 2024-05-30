@@ -51,11 +51,11 @@ export default defineComponent( {
 .querybuilder-include-subclasses {
 	display: flex;
 	align-items: flex-start;
-	margin-block-start: $dimension-layout-xxsmall;
+	margin-block-start: var(--dimension-layout-xxsmall);
 
 	&__checkbox {
 		// TODO: change to real ones
-		margin-inline-end: $dimension-layout-xxsmall;
+		margin-inline-end: var(--dimension-layout-xxsmall);
 	}
 }
 </style>

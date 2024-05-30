@@ -213,34 +213,34 @@ $tinyViewportWidth: 38em; // Set so that inputs show all below each other in the
 
 .query-condition {
 	display: flex;
-	padding-block: $dimension-layout-xsmall;
-	padding-inline: $dimension-layout-xsmall;
+	padding-block: var(--dimension-layout-xsmall);
+	padding-inline: var(--dimension-layout-xsmall);
 	border: $border-width-base $border-style-base $border-color-subtle;
 	border-radius: $border-radius-base;
 	background-color: $background-color-base;
 
 	@media (max-width: $tinyViewportWidth) {
 		display: grid;
-		padding-block: $dimension-layout-xxsmall;
-		padding-inline: $dimension-layout-xxsmall;
+		padding-block: var(--dimension-layout-xxsmall);
+		padding-inline: var(--dimension-layout-xxsmall);
 	}
 
 	&__remove {
-		margin-inline-start: $dimension-layout-small;
+		margin-inline-start: var(--dimension-layout-small);
 		float: inline-end;
 		block-size: max-content;
 
 		@media (max-width: $tinyViewportWidth) {
 			position: absolute;
-			inset-inline-end: $dimension-layout-xsmall * 2;
+			inset-inline-end: calc(var(--dimension-layout-xsmall) * 2);
 		}
 	}
 
 	&__toggle-button-group {
 		white-space: nowrap;
 		float: inline-start;
-		margin-block-start: $dimension-layout-small;
-		margin-inline-end: $dimension-layout-large;
+		margin-block-start: var(--dimension-layout-small);
+		margin-inline-end: var(--dimension-layout-large);
 
 		@media (max-width: $tinyViewportWidth) {
 			margin-block-start: 0;
@@ -254,17 +254,17 @@ $tinyViewportWidth: 38em; // Set so that inputs show all below each other in the
 
 		// 16em == 256px minimum-width as defined by UX
 		grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
-		grid-gap: $dimension-layout-xsmall;
+		grid-gap: var(--dimension-layout-xsmall);
 
 		@media (max-width: $tinyViewportWidth) {
-			padding-block-start: $dimension-layout-small;
+			padding-block-start: var(--dimension-layout-small);
 			clear: both;
 		}
 	}
 }
 
 .query-condition__value-type-dropdown {
-	margin-block-start: $dimension-layout-small;
+	margin-block-start: var(--dimension-layout-small);
 }
 
 </style>

@@ -78,7 +78,7 @@ $tinyViewportWidth: 36em;
 .querybuilder__sharable-link {
 	@include body-s;
 
-	margin-inline-start: $dimension-layout-xsmall;
+	margin-inline-start: var(--dimension-layout-xsmall);
 
 	& .wikit-Icon {
 		vertical-align: top;
@@ -88,7 +88,7 @@ $tinyViewportWidth: 36em;
 		margin-inline-start: 0;
 
 		& button {
-			margin-block-start: $dimension-layout-xxsmall;
+			margin-block-start: var(--dimension-layout-xxsmall);
 		}
 	}
 }
