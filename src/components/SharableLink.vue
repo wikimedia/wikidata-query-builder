@@ -70,13 +70,14 @@ export default defineComponent( {
 </script>
 
 <style scoped lang="scss">
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+@import '../styles/typography';
+
 $tinyViewportWidth: 36em;
 
 .querybuilder__sharable-link {
-	font-family: $font-family-style-description;
-	font-weight: $font-weight-style-description;
-	font-size: $font-size-style-description;
-	line-height: $font-line-height-style-description;
+	@include body-s;
+
 	margin-inline-start: $dimension-layout-xsmall;
 
 	& .wikit-Icon {
