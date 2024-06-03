@@ -120,7 +120,6 @@ describe( 'QuantityValueInput.vue', () => {
 				...defaultProps,
 				modelValue: {
 					value: 10,
-					// TODO: Pinia fix
 					unit: unitValue, // There is an issue with the unit that is making the test fails
 				},
 			},
@@ -159,9 +158,6 @@ describe( 'QuantityValueInput.vue', () => {
 	} );
 
 	it( 'unit input: unitLookupSearchInput prop for unit item changes on update search string', async () => {
-		// const store = createStore( {} );
-		// store.dispatch = jest.fn().mockResolvedValue( [] );
-		// TODO: Pinia. how to mock resolvedValue from action
 		const wrapper = shallowMount( QuantityValueInput, {
 			global: {
 				plugins: [ createTestingPinia( { stubActions: false } ), i18n ],

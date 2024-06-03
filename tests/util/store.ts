@@ -56,7 +56,6 @@ function createActionsWithMockServices(
 }
 
 export const getMockedGetters = {
-	// return {
 	getConditionRows: jest.fn().mockReturnValue( jest.fn().mockReturnValue( [] ) ),
 	property: jest.fn().mockReturnValue( jest.fn() ),
 	propertyError: jest.fn().mockReturnValue( jest.fn().mockReturnValue( null ) ),
@@ -74,7 +73,6 @@ export const getMockedGetters = {
 	),
 	conditionRelation: jest.fn().mockReturnValue( jest.fn().mockReturnValue( null ) ),
 	getErrors: jest.fn().mockReturnValue( [] ),
-	// };
 };
 
 // TODO: Specify return type for `defineMockStore`
