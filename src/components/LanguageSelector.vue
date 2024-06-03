@@ -121,6 +121,8 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+
 $tinyViewportWidth: 38em;
 
 .querybuilder__language-selector {
@@ -143,10 +145,10 @@ $tinyViewportWidth: 38em;
 		padding-block: 12px;
 		padding-inline: 16px;
 		justify-content: space-between;
-		background-color: #fff;
+		background-color: $background-color-base;
 
 		span {
-			color: #202122;
+			color: $color-base;
 			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
 			font-size: 1em;
 			font-weight: bold;

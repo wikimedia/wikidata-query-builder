@@ -36,7 +36,9 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-	.delete-condition__icon {
-		vertical-align: top;
-	}
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+
+.delete-condition__icon {
+	vertical-align: top;
+}
 </style>

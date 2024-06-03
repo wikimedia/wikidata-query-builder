@@ -83,7 +83,7 @@ export default defineComponent( {
 	.querybuilder-result__errors {
 		padding-block: $dimension-layout-medium;
 		padding-inline: $dimension-layout-medium;
-		border: $border-width-thin $border-style-base $border-color-base-subtle;
+		border: $border-width-base $border-style-base $border-color-subtle;
 		border-radius: 0 0 $border-radius-base $border-radius-base;
 	}
 
@@ -93,7 +93,7 @@ export default defineComponent( {
 		color: $color-subtle;
 		padding-block: $dimension-spacing-xxlarge;
 		inline-size: $dimension-width-full;
-		border: $border-width-thin $border-style-base $border-color-base-subtle;
+		border: $border-width-base $border-style-base $border-color-subtle;
 		border-radius: 0 0 $border-radius-base $border-radius-base;
 		text-align: center;
 	}
@@ -101,8 +101,8 @@ export default defineComponent( {
 	.querybuilder-result__header {
 		display: flex;
 		align-items: center;
-		background: $color-base-90;
-		border: $border-width-thin $border-style-base $border-color-base-subtle;
+		background: $background-color-interactive-subtle;
+		border: $border-width-base $border-style-base $border-color-subtle;
 		border-radius: $border-radius-base $border-radius-base 0 0;
 		box-sizing: border-box;
 		padding-inline-start: $dimension-spacing-xlarge;
@@ -118,7 +118,7 @@ export default defineComponent( {
 
 	.querybuilder-result__iframe {
 		inline-size: $dimension-width-full;
-		border: $border-width-thin $border-style-base $border-color-base-subtle;
+		border: $border-width-base $border-style-base $border-color-subtle;
 		border-radius: 0 0 $border-radius-base $border-radius-base;
 		block-size: 95vh;
 	}

@@ -361,8 +361,8 @@ a {
 	margin-block: $dimension-layout-xsmall;
 	padding-block: $dimension-layout-xsmall;
 	padding-inline: $dimension-layout-xsmall;
-	background-color: $background-color-neutral-default;
-	border: $border-width-thin $border-style-base $border-color-base-subtle;
+	background-color: $background-color-interactive-subtle;
+	border: $border-width-base $border-style-base $border-color-subtle;
 	border-radius: $border-radius-base;
 
 	@media (max-width: $tinyViewportWidth) {
@@ -387,8 +387,8 @@ a {
 }
 
 .querybuilder__condition-group--above {
-	border-inline: $border-width-thin $border-style-base $border-color-base-subtle;
-	background-color: $background-color-neutral-default;
+	border-inline: $border-width-base $border-style-base $border-color-subtle;
+	background-color: $background-color-interactive-subtle;
 }
 
 .querybuilder__condition-relation-toggle-or {
@@ -402,7 +402,7 @@ a {
 .querybuilder__condition-placeholder {
 	@include body-s;
 
-	background-color: $background-color-neutral-default;
+	background-color: $background-color-interactive-subtle;
 	margin-block: $dimension-layout-xsmall;
 	padding-block: $dimension-layout-xsmall;
 	text-align: center;
@@ -475,9 +475,9 @@ a {
 }
 
 .querybuilder__settings {
-	background-color: $background-color-neutral-default;
+	background-color: $background-color-interactive-subtle;
 	border-radius: $border-radius-base;
-	border-color: $border-color-base-transparent;
+	border-color: $border-color-transparent;
 	margin-block-start: $dimension-layout-xxsmall;
 	padding-block: $dimension-layout-xsmall;
 	padding-inline: $dimension-layout-xsmall;
@@ -496,7 +496,7 @@ a {
 }
 
 .query-builder__footer {
-	background-color: $color-base-90;
+	background-color: $background-color-interactive-subtle;
 }
 
 .querybuilder__languageSelector {

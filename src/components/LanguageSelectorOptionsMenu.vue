@@ -88,14 +88,16 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+
 $base: '.languageSelector__options-menu';
 $tinyViewportWidth: 38em;
 
 #{$base} {
-	background-color: #fff;
+	background-color: $background-color-base;
 	border-radius: 0 0 1px 1px;
-	border: 1px solid #a2a9b1;
-	box-shadow: $wikit-OptionsMenu-box-shadow;
+	border: $border-base;
+	box-shadow: $box-shadow-drop-medium;
 	box-sizing: border-box;
 	z-index: 1;
 	padding-block: 8px;
@@ -118,12 +120,12 @@ $tinyViewportWidth: 38em;
 			transition-timing-function: ease;
 
 			&:hover, &:active, &.highlight {
-				background-color: #EAECF0;
+				background-color: $background-color-interactive;
 				cursor: pointer;
 			}
 
 			&--selected, &--selected:hover {
-				background-color: #EAECF0;
+				background-color: $background-color-interactive;
 			}
 		}
 	}
@@ -132,7 +134,7 @@ $tinyViewportWidth: 38em;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
 		font-size: 1em;
 		font-weight: normal;
-		color: #202122;
+		color: $color-base;
 		line-height: 1.25;
 		padding-block: 8px;
 		padding-inline: 8px;

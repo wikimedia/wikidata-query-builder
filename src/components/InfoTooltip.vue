@@ -50,6 +50,8 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+
 .querybuilder-tooltip {
 	& .wikit-Popover__target .wikit.wikit-Button--iconOnly.wikit-Button--neutral {
 		padding-block: 0;
@@ -57,7 +59,7 @@ export default defineComponent( {
 		line-height: 0.7;
 
 		&:active {
-			background-color: $wikit-Button-quiet-background-color;
+			background-color: $background-color-transparent;
 		}
 	}
 

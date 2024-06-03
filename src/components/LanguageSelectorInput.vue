@@ -86,14 +86,16 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+
 .languageSelector__input {
-	color: #202122;
+	color: $color-base;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	font-weight: 400;
 	box-sizing: border-box;
 	flex-grow: 1;
-	border-color: #36c;
+	border-color: $border-color-progressive;
 	block-size: 20px;
 
 	&:focus {
@@ -101,11 +103,11 @@ export default defineComponent( {
 	}
 
 	&::placeholder {
-		color: #72777d;
+		color: $color-placeholder;
 	}
 
 	&__wrapper {
-		background-color: #fff;
+		background-color: $background-color-base;
 		border-style: solid;
 		border-width: 1px;
 		border-radius: 2px 2px 0 0;
@@ -114,8 +116,8 @@ export default defineComponent( {
 		inline-size: 100%;
 		display: flex;
 		justify-content: space-between;
-		box-shadow: 0 1px 2px #00000040, inset 0 0 0 1px #36c;
-		border-color: #36c;
+		box-shadow: 0 1px 2px #00000040, $box-shadow-inset-small $border-color-progressive--focus;
+		border-color: $border-color-progressive--focus;
 		align-items: center;
 	}
 

@@ -207,15 +207,17 @@ export default defineComponent( {
 </script>
 
 <style scoped lang="scss">
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+
 $tinyViewportWidth: 38em; // Set so that inputs show all below each other in the smallest layout
 
 .query-condition {
 	display: flex;
 	padding-block: $dimension-layout-xsmall;
 	padding-inline: $dimension-layout-xsmall;
-	border: $border-width-thin $border-style-base $border-color-base-subtle;
+	border: $border-width-base $border-style-base $border-color-subtle;
 	border-radius: $border-radius-base;
-	background-color: $background-color-base-default;
+	background-color: $background-color-base;
 
 	@media (max-width: $tinyViewportWidth) {
 		display: grid;
