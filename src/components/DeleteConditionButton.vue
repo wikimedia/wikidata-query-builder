@@ -1,29 +1,28 @@
 <template>
-	<Button
-		icon-only
+	<CdxButton
 		class="delete-condition"
-		type="neutral"
-		variant="quiet"
+		weight="quiet"
 		:aria-label="$i18n( 'query-builder-delete-condition' )"
 		:disabled="disabled"
+		size="large"
 		@click.native="$emit( 'click' )"
 	>
-		<Icon
-			type="trash"
-			size="large"
-			color="inherit"
+		<CdxIcon
+			:icon="cdxIconTrash"
+			size="medium"
 			class="delete-condition__icon" />
-	</Button>
+	</CdxButton>
 </template>
 
 <script lang="ts">
-import { Button, Icon } from '@wmde/wikit-vue-components';
+import { CdxButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconTrash } from '@wikimedia/codex-icons';
 import { defineComponent } from '@/compat';
 export default defineComponent( {
 	name: 'DeleteConditionButton',
 	components: {
-		Button,
-		Icon,
+		CdxButton,
+		CdxIcon,
 	},
 	props: {
 		disabled: {
@@ -32,13 +31,10 @@ export default defineComponent( {
 		},
 	},
 	emits: [ 'click' ],
+	setup() {
+		return {
+			cdxIconTrash,
+		};
+	},
 } );
 </script>
-
-<style lang="scss">
-@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
-
-.delete-condition__icon {
-	vertical-align: top;
-}
-</style>

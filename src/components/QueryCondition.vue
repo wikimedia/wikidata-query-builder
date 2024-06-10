@@ -266,5 +266,13 @@ $tinyViewportWidth: 38em; // Set so that inputs show all below each other in the
 .query-condition__value-type-dropdown {
 	margin-block-start: $dimension-layout-small;
 }
+</style>
 
+<style lang="scss">
+// TODO: remove after replacing Wikit Textfield for Codex equivalent
+.wikit-Lookup__label-wrapper,
+.wikit-TextInput__label-wrapper,
+.wikit-Dropdown__label-wrapper {
+	align-items: baseline !important;
+}
 </style>

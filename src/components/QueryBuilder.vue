@@ -12,16 +12,15 @@
 					ref="languageSelectorSection"
 					v-detect-click-outside="onClickOutsideLanguageSelector"
 					class="querybuilder__languageSelector">
-					<Button
-						type="neutral"
+					<CdxButton
 						:aria-label="$i18n( 'query-builder-toggle-language-selector-button' )"
 						@click.native="onToggleLanguageSelector"
 					>
-						<template #prefix>
-							<Icon type="language-selector" />
-						</template>
+						<CdxIcon
+							class="languageSelector-button__icon"
+							:icon="cdxIconLanguage" />
 						{{ currentLanguageAutonym }}
-					</Button>
+					</CdxButton>
 					<LanguageSelector
 						v-show="showLanguageSelector"
 						ref="languageSelector"
@@ -95,10 +94,10 @@
 					<LabelOptout />
 				</div>
 				<div class="querybuilder__run">
-					<Button
+					<CdxButton
 						v-i18n="{ msg: 'query-builder-run-query' }"
-						type="progressive"
-						variant="primary"
+						action="progressive"
+						weight="primary"
 						@click.native="runQuery" />
 					<SharableLink />
 				</div>
@@ -119,7 +118,8 @@ import Footer from '@/components/Footer.vue';
 import { ConditionRow } from '@/store/RootState';
 import { defineComponent } from '@/compat';
 import { DirectiveBinding } from 'vue';
-import { Button, Icon } from '@wmde/wikit-vue-components';
+import { CdxButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconLanguage } from '@wikimedia/codex-icons';
 
 import ConditionRelationToggle from '@/components/ConditionRelationToggle.vue';
 import QueryCondition from '@/components/QueryCondition.vue';
@@ -139,8 +139,8 @@ let handleOutsideClick: ( event: MouseEvent | TouchEvent ) => void;
 export default defineComponent( {
 	name: 'QueryBuilder',
 	components: {
-		Icon,
-		Button,
+		CdxIcon,
+		CdxButton,
 		ConditionRelationToggle,
 		QueryResult,
 		QueryCondition,
@@ -177,6 +177,11 @@ export default defineComponent( {
 		},
 	},
 	emits: [ 'update:lang' ],
+	setup() {
+		return {
+			cdxIconLanguage,
+		};
+	},
 	data() {
 		const store = useStore();
 		return {
@@ -426,6 +431,10 @@ a {
 			inline-size: 239px;
 			block-size: 24px;
 		}
+	}
+
+	.languageSelector-button__icon {
+		vertical-align: top;
 	}
 }
 

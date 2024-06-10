@@ -7,8 +7,7 @@
 			<template #target>
 				<CdxButton
 					class="btn-11"
-					variant="quiet"
-					type="neutral"
+					weight="quiet"
 					aria-label="open tooltip with more information">
 					<CdxIcon :icon="cdxIconInfo" size="small" />
 				</CdxButton>
@@ -53,7 +52,7 @@ export default defineComponent( {
 @import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
 
 .querybuilder-tooltip {
-	& .wikit-Popover__target .wikit.wikit-Button--iconOnly.wikit-Button--neutral {
+	& .wikit-Popover__target .cdx-button.cdx-button--action-default {
 		padding-block: 0;
 		padding-inline: 0;
 		line-height: 0.7;

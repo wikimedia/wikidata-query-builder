@@ -11,7 +11,7 @@ function wikibaseApiRequest( query ) {
 describe( 'Test error handling of the Query Builder', () => {
 	it( 'Tests whether the Query builder handles user input error correctly.', () => {
 		cy.visit( '/' );
-		const runQueryButtonSelector = '.querybuilder__run .wikit-Button--progressive';
+		const runQueryButtonSelector = '.querybuilder__run .cdx-button--action-progressive';
 
 		// Run query without any input and assert if any error message is displayed
 		cy.get( runQueryButtonSelector ).click();

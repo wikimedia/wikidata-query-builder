@@ -6,17 +6,15 @@
 			position="end"
 		>
 			<template #target>
-				<Button
-					variant="normal"
-					type="neutral"
-					icon-only
+				<CdxButton
+					weight="normal"
 					aria-label="Sharable link"
 					@click.native="copyTextToClipboard">
-					<Icon
-						type="link"
-						size="large"
+					<CdxIcon
+						:icon="cdxIconLink"
+						size="medium"
 					/>
-				</Button>
+				</CdxButton>
 			</template>
 			<template #default>
 				{{ $i18n( 'query-builder-sharable-link-message' ) }}
@@ -27,7 +25,9 @@
 
 <script lang="ts">
 import { defineComponent } from '@/compat';
-import { Icon, Button, Popover } from '@wmde/wikit-vue-components';
+import { CdxButton, CdxIcon } from '@wikimedia/codex';
+import { cdxIconLink } from '@wikimedia/codex-icons';
+import { Popover } from '@wmde/wikit-vue-components';
 import QuerySerializer from '@/serialization/QuerySerializer';
 import services from '@/ServicesFactory';
 import { useStore } from '@/store/index';
@@ -35,9 +35,14 @@ import { useStore } from '@/store/index';
 export default defineComponent( {
 	name: 'SharableLink',
 	components: {
-		Icon,
-		Button,
+		CdxIcon,
+		CdxButton,
 		Popover,
+	},
+	setup() {
+		return {
+			cdxIconLink,
+		};
 	},
 	data: function () {
 		return {
@@ -80,10 +85,6 @@ $tinyViewportWidth: 36em;
 
 	margin-inline-start: $dimension-layout-xsmall;
 
-	& .wikit-Icon {
-		vertical-align: top;
-	}
-
 	@media (max-width: $tinyViewportWidth) {
 		margin-inline-start: 0;
 
@@ -91,5 +92,14 @@ $tinyViewportWidth: 36em;
 			margin-block-start: $dimension-layout-xxsmall;
 		}
 	}
+}
+</style>
+
+<style lang="scss">
+// TODO: remove when replacing wikit Popover component with Codex equivalent
+// Remember to make style tag scoped again
+
+.wikit-Popover__target button {
+	border-style: solid !important;
 }
 </style>
