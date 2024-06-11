@@ -37,6 +37,6 @@ export default defineComponent( {
 .querybuilder-label-optout {
 	display: flex;
 	align-items: flex-end;
-	margin-block-start: $dimension-layout-xsmall;
+	margin-block-start: var(--dimension-layout-xsmall);
 }
 </style>

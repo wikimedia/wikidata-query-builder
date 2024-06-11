@@ -68,58 +68,57 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-	@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
-	@import '../styles/typography';
+@import '../styles/typography';
 
-	.querybuilder-result {
-		margin-block-start: $dimension-layout-medium;
+.querybuilder-result {
+	margin-block-start: var(--dimension-layout-medium);
+}
+
+.querybuilder-result__link {
+	margin-block-end: var(--dimension-layout-xxsmall);
+	text-align: end;
+}
+
+.querybuilder-result__errors {
+	padding-block: var(--dimension-layout-medium);
+	padding-inline: var(--dimension-layout-medium);
+	border: $border-width-base $border-style-base $border-color-subtle;
+	border-radius: 0 0 $border-radius-base $border-radius-base;
+}
+
+.querybuilder-result__description {
+	@include body-s;
+
+	color: $color-subtle;
+	padding-block: var(--dimension-spacing-xxlarge);
+	inline-size: $size-full;
+	border: $border-width-base $border-style-base $border-color-subtle;
+	border-radius: 0 0 $border-radius-base $border-radius-base;
+	text-align: center;
+}
+
+.querybuilder-result__header {
+	display: flex;
+	align-items: center;
+	background: $background-color-interactive-subtle;
+	border: $border-width-base $border-style-base $border-color-subtle;
+	border-radius: $border-radius-base $border-radius-base 0 0;
+	box-sizing: border-box;
+	padding-inline-start: var(--dimension-spacing-xlarge);
+
+	// TODO: Remove this once we have the share button and use padding instead
+	block-size: 3em;
+	border-block-end: none;
+
+	& h2 {
+		@include heading-2;
 	}
+}
 
-	.querybuilder-result__link {
-		margin-block-end: $dimension-layout-xxsmall;
-		text-align: end;
-	}
-
-	.querybuilder-result__errors {
-		padding-block: $dimension-layout-medium;
-		padding-inline: $dimension-layout-medium;
-		border: $border-width-base $border-style-base $border-color-subtle;
-		border-radius: 0 0 $border-radius-base $border-radius-base;
-	}
-
-	.querybuilder-result__description {
-		@include body-s;
-
-		color: $color-subtle;
-		padding-block: $dimension-spacing-xxlarge;
-		inline-size: $dimension-width-full;
-		border: $border-width-base $border-style-base $border-color-subtle;
-		border-radius: 0 0 $border-radius-base $border-radius-base;
-		text-align: center;
-	}
-
-	.querybuilder-result__header {
-		display: flex;
-		align-items: center;
-		background: $background-color-interactive-subtle;
-		border: $border-width-base $border-style-base $border-color-subtle;
-		border-radius: $border-radius-base $border-radius-base 0 0;
-		box-sizing: border-box;
-		padding-inline-start: $dimension-spacing-xlarge;
-
-		// TODO: Remove this once we have the share button and use padding instead
-		block-size: 3em;
-		border-block-end: none;
-
-		& h2 {
-			@include heading-2;
-		}
-	}
-
-	.querybuilder-result__iframe {
-		inline-size: $dimension-width-full;
-		border: $border-width-base $border-style-base $border-color-subtle;
-		border-radius: 0 0 $border-radius-base $border-radius-base;
-		block-size: 95vh;
-	}
+.querybuilder-result__iframe {
+	inline-size: $size-full;
+	border: $border-width-base $border-style-base $border-color-subtle;
+	border-radius: 0 0 $border-radius-base $border-radius-base;
+	block-size: 95vh;
+}
 </style>

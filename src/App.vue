@@ -94,10 +94,10 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-@use 'ress';
+@import "ress";
+@import './styles/custom-variables.css';
 @import 'wikit-dist/wikit-vue-components-vue3compat.css';
 @import './styles/typography';
-@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
 
 body {
 	@include body-m;
