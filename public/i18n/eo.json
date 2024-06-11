@@ -8,10 +8,12 @@
 			"Wierzbowski"
 		]
 	},
+	"query-builder-query-heading": "Informpeto",
 	"query-builder-settings-heading": "Agordoj",
 	"query-builder-find-all-items": "Trovi ĉiujn erojn...",
 	"query-builder-input-value-label": "Valoro",
 	"query-builder-input-value-placeholder": "Entajpu valoron",
+	"query-builder-item-value-lookup-no-match-found": "Neniu matĉo estis trovita",
 	"query-builder-property-lookup-label": "Atributo",
 	"query-builder-property-lookup-placeholder": "Entajpu econ",
 	"query-builder-property-lookup-no-match-found": "Neniu matĉo estis trovita",
