@@ -186,7 +186,7 @@ export default (
 		const store = useStore();
 		store.conditionRows[ payload.conditionIndex ].negate = payload.value;
 	},
-	setLimit( limit: number ): void {
+	setLimit( limit: number | undefined | null ): void {
 		const store = useStore();
 		store.limit = limit;
 	},

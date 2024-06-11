@@ -1,6 +1,6 @@
-import { Checkbox } from '@wmde/wikit-vue-components';
+import { CdxCheckbox } from '@wikimedia/codex';
 import LabelOptout from '@/components/LabelOptout.vue';
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
 import { createTestingPinia } from '@pinia/testing';
 import { useStore } from '@/store';
@@ -16,7 +16,7 @@ describe( 'LabelOptout.vue', () => {
 		const omitLabels = true;
 		const omitLabelsGetter = (): boolean => false;
 
-		const wrapper = shallowMount( LabelOptout, {
+		const wrapper = mount( LabelOptout, {
 			global: {
 				plugins: [ createTestingPinia( {
 					initialState: {
@@ -29,7 +29,7 @@ describe( 'LabelOptout.vue', () => {
 		const store = useStore();
 		store.omitLabels = true;
 
-		wrapper.findComponent( Checkbox ).vm.$emit( 'update:checked', omitLabels );
+		wrapper.findComponent( CdxCheckbox ).vm.$emit( 'update:modelValue', omitLabels );
 
 		expect( store.setOmitLabels ).toHaveBeenCalledWith( omitLabels );
 

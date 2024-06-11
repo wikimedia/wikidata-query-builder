@@ -1,32 +1,39 @@
 <template>
 	<div class="querybuilder-label-optout">
-		<Checkbox
+		<CdxCheckbox
 			id="label-optout"
-			v-model:checked="checked"
-			:label="$i18n( 'query-builder-label-opt-out' )"
-		/>
+			:model-value="checked"
+			@update:model-value="onUpdate"
+		>
+			{{ $i18n( 'query-builder-label-opt-out' ) }}
+		</CdxCheckbox>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@/compat';
-import { Checkbox } from '@wmde/wikit-vue-components';
+import { CdxCheckbox } from '@wikimedia/codex';
 import { useStore } from '@/store';
 
 export default defineComponent( {
 	name: 'LabelOptout',
 	components: {
-		Checkbox,
+		CdxCheckbox,
+	},
+	setup() {
+		function onUpdate( value: boolean ): void {
+			const store = useStore();
+			store.setOmitLabels( value );
+		}
+		return {
+			onUpdate,
+		};
 	},
 	computed: {
 		checked: {
 			get(): boolean {
 				const store = useStore();
 				return store.omitLabels;
-			},
-			set( value: boolean ): void {
-				const store = useStore();
-				store.setOmitLabels( value );
 			},
 		},
 	},
