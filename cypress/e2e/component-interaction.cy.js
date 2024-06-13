@@ -173,7 +173,7 @@ describe( 'Component interaction test', () => {
 		cy.get( '.wikit-InputWithExtender__extension' ).click();
 
 		// run query
-		cy.get( '.querybuilder__run .wikit-Button--progressive' ).click();
+		cy.get( '.querybuilder__run .cdx-button--action-progressive' ).click();
 
 		// assert the resulting sparql query
 		cy.get( '.querybuilder-result__iframe' ).then( ( element ) => {

@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
 import { nextTick } from 'vue';
-import { Button } from '@wmde/wikit-vue-components';
+import { CdxButton } from '@wikimedia/codex';
 import SharableLink from '@/components/SharableLink.vue';
 import UrlShortenerRepository from '@/data-access/UrlShortenerRepository';
 import TechnicalProblem from '@/data-access/errors/TechnicalProblem';
@@ -39,7 +39,7 @@ describe( 'SharableLink component', () => {
 			},
 		} );
 
-		expect( wrapper.findAllComponents( Button ) ).toHaveLength( 1 );
+		expect( wrapper.findAllComponents( CdxButton ) ).toHaveLength( 1 );
 	} );
 
 	it( 'shouldn\'t error out on click but still copy the long url', async () => {
@@ -75,7 +75,7 @@ describe( 'SharableLink component', () => {
 			},
 		} );
 
-		await wrapper.findComponent( Button ).trigger( 'click' );
+		await wrapper.findComponent( CdxButton ).trigger( 'click' );
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
@@ -95,7 +95,7 @@ describe( 'SharableLink component', () => {
 		const store = useStore();
 		store.conditionRows[ 0 ].propertyData.id = 'P456';
 
-		await wrapper.findComponent( Button ).trigger( 'click' );
+		await wrapper.findComponent( CdxButton ).trigger( 'click' );
 		await nextTick();
 
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
