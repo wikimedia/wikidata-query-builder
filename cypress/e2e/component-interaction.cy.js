@@ -11,7 +11,6 @@ function wikibaseApiRequest( query ) {
 describe( 'Component interaction test', () => {
 	it( 'Tests whether components behave as they should when values change', () => {
 		cy.visit( '/' );
-
 		/**
 		 * The defined routes are evaluated last to first, to allow overriding.
 		 * However, that makes it necessary to specify more generic routes first.
@@ -88,8 +87,8 @@ describe( 'Component interaction test', () => {
 		cy.get( '.query-condition__value-input .wikit-Input' ).clear();
 
 		// set value to 'not matching' from dropdown. NotMatching => 'without',
-		cy.get( '.querybuilder-dropdown__select.wikit.wikit-Dropdown' ).first().click();
-		cy.get( '.wikit-OptionsMenu__item.wikit-OptionsMenu__item' ).contains( 'without' ).click();
+		cy.get( '.querybuilder-dropdown .cdx-select-vue' ).first().click();
+		cy.get( '.cdx-menu-item' ).contains( 'without' ).click();
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
 			.type( 'instance of' );
@@ -118,11 +117,11 @@ describe( 'Component interaction test', () => {
 		cy.get( '.query-condition__property-lookup:nth(1) .wikit-OptionsMenu__item' ).click();
 
 		// set value to 'regardless of value on the second query_condition block'.
-		cy.get( '.querybuilder-dropdown__select.wikit.wikit-Dropdown' )
+		cy.get( '.querybuilder-dropdown .cdx-select-vue' )
 			.eq( 1 )
 			.first()
 			.click();
-		cy.get( '.querybuilder-dropdown__select.wikit.wikit-Dropdown:nth(1) .wikit-OptionsMenu__item' )
+		cy.get( '.querybuilder-dropdown .cdx-select-vue:nth(1) .cdx-menu-item' )
 			.contains( 'regardless of value' )
 			.click();
 

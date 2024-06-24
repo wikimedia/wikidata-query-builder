@@ -1,7 +1,7 @@
-import { Dropdown } from '@wmde/wikit-vue-components';
+import { CdxSelect } from '@wikimedia/codex';
 import ValueTypeDropDown from '@/components/ValueTypeDropDown.vue';
 import PropertyValueRelation from '@/data-model/PropertyValueRelation';
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
 
 const i18n = createI18n( {
@@ -11,9 +11,9 @@ const i18n = createI18n( {
 } );
 
 describe( 'ValueTypeDropDown.vue', () => {
-	it( 'emits an `input` event containing the selected option item upon selection', async () => {
+	it( 'emits an `update:modelValue` event containing the selected option item upon selection', async () => {
 		const optionItems = PropertyValueRelation;
-		const wrapper = shallowMount( ValueTypeDropDown, {
+		const wrapper = mount( ValueTypeDropDown, {
 			global: {
 				plugins: [ i18n ],
 			},
@@ -22,13 +22,13 @@ describe( 'ValueTypeDropDown.vue', () => {
 			},
 		} );
 
-		await wrapper.findComponent( Dropdown ).vm.$emit( 'input', { value: optionItems.Regardless } );
+		await wrapper.findComponent( CdxSelect ).vm.$emit( 'update:selected', optionItems.Regardless );
 
 		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toEqual( optionItems.Regardless );
 	} );
 
 	it( 'passes the disabled prop down to the Dropdown', () => {
-		const wrapper = shallowMount( ValueTypeDropDown, {
+		const wrapper = mount( ValueTypeDropDown, {
 			global: {
 				plugins: [ i18n ],
 			},
@@ -38,11 +38,11 @@ describe( 'ValueTypeDropDown.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( Dropdown ).props( 'disabled' ) ).toBe( true );
+		expect( wrapper.findComponent( CdxSelect ).props( 'disabled' ) ).toBe( true );
 	} );
 
 	it( 'contains the base three options for datatype string', () => {
-		const wrapper = shallowMount( ValueTypeDropDown, {
+		const wrapper = mount( ValueTypeDropDown, {
 			global: {
 				plugins: [ i18n ],
 			},
@@ -53,15 +53,15 @@ describe( 'ValueTypeDropDown.vue', () => {
 			},
 		} );
 
-		const optionValues = wrapper.findComponent( Dropdown ).props( 'menuItems' ).map(
-			( option: { value: string } ) => option.value,
+		const optionValues = wrapper.findComponent( CdxSelect ).props( 'menuItems' ).map(
+			( value: { value: string | number } ) => value.value,
 		);
 
 		expect( optionValues ).toStrictEqual( [ 'matching', 'without', 'regardless-of-value' ] );
 	} );
 
 	it( 'contains the base three and two range options for datatype quantity', () => {
-		const wrapper = shallowMount( ValueTypeDropDown, {
+		const wrapper = mount( ValueTypeDropDown, {
 			global: {
 				plugins: [ i18n ],
 			},
@@ -72,8 +72,8 @@ describe( 'ValueTypeDropDown.vue', () => {
 			},
 		} );
 
-		const optionValues = wrapper.findComponent( Dropdown ).props( 'menuItems' ).map(
-			( option: { value: string } ) => option.value,
+		const optionValues = wrapper.findComponent( CdxSelect ).props( 'menuItems' ).map(
+			( value: { value: string | number } ) => value.value,
 		);
 
 		expect( optionValues ).toStrictEqual( [
@@ -86,7 +86,7 @@ describe( 'ValueTypeDropDown.vue', () => {
 	} );
 
 	it( 'contains the base three and two range options for datatype time', () => {
-		const wrapper = shallowMount( ValueTypeDropDown, {
+		const wrapper = mount( ValueTypeDropDown, {
 			global: {
 				plugins: [ i18n ],
 			},
@@ -97,8 +97,8 @@ describe( 'ValueTypeDropDown.vue', () => {
 			},
 		} );
 
-		const optionValues = wrapper.findComponent( Dropdown ).props( 'menuItems' ).map(
-			( option: { value: string } ) => option.value,
+		const optionValues = wrapper.findComponent( CdxSelect ).props( 'menuItems' ).map(
+			( value: { value: string | number } ) => value.value,
 		);
 
 		expect( optionValues ).toStrictEqual( [

@@ -1,7 +1,7 @@
-import { Dropdown } from '@wmde/wikit-vue-components';
+import { CdxSelect } from '@wikimedia/codex';
 import ReferenceRelationDropDown from '@/components/ReferenceRelationDropDown.vue';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
 
 const i18n = createI18n( {
@@ -11,9 +11,9 @@ const i18n = createI18n( {
 } );
 
 describe( 'ReferenceRelationDropDown.vue', () => {
-	it( 'emits an `input` event containing the selected option item upon selection', async () => {
+	it( 'emits an `update:modelValue` event containing the selected option item upon selection', async () => {
 		const optionItems = ReferenceRelation;
-		const wrapper = shallowMount( ReferenceRelationDropDown, {
+		const wrapper = mount( ReferenceRelationDropDown, {
 			global: {
 				plugins: [ i18n ],
 			},
@@ -22,13 +22,13 @@ describe( 'ReferenceRelationDropDown.vue', () => {
 			},
 		} );
 
-		await wrapper.findComponent( Dropdown ).vm.$emit( 'input', { value: optionItems.Without } );
+		await wrapper.findComponent( CdxSelect ).vm.$emit( 'update:selected', optionItems.Without );
 
 		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toEqual( optionItems.Without );
 	} );
 
 	it( 'passes the disabled prop down to the Dropdown', () => {
-		const wrapper = shallowMount( ReferenceRelationDropDown, {
+		const wrapper = mount( ReferenceRelationDropDown, {
 			global: {
 				plugins: [ i18n ],
 			},
@@ -38,6 +38,6 @@ describe( 'ReferenceRelationDropDown.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( Dropdown ).props( 'disabled' ) ).toBe( true );
+		expect( wrapper.findComponent( CdxSelect ).props( 'disabled' ) ).toBe( true );
 	} );
 } );

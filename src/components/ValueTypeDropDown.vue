@@ -1,13 +1,17 @@
 <template>
 	<div class="querybuilder-dropdown">
-		<Dropdown
-			class="querybuilder-dropdown__select"
-			:value="selected"
-			label="Value Type"
-			:menu-items="optionItems"
-			:disabled="disabled"
-			@input="onInput"
-		/>
+		<CdxField :hide-label="true">
+			<CdxSelect
+				ref="select"
+				v-model:selected="selected"
+				:menu-items="optionItems"
+				:disabled="disabled"
+				aria-label="Value Type"
+			/>
+			<template #label>
+				Value Type
+			</template>
+		</CdxField>
 	</div>
 </template>
 
@@ -18,8 +22,13 @@ import PropertyValueRelation, {
 	BasePropertyValueRelation,
 	RangePropertyValueRelation,
 } from '@/data-model/PropertyValueRelation';
-import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
-import { Dropdown } from '@wmde/wikit-vue-components';
+import { CdxField, CdxSelect } from '@wikimedia/codex';
+
+export declare type MenuItem = {
+	label: string;
+	description: string;
+	tag?: string;
+};
 
 interface PropertyValueRelationMenuItem extends MenuItem {
 	value: PropertyValueRelation;
@@ -28,7 +37,8 @@ interface PropertyValueRelationMenuItem extends MenuItem {
 export default defineComponent( {
 	name: 'ValueTypeDropDown',
 	components: {
-		Dropdown,
+		CdxField,
+		CdxSelect,
 	},
 	props: {
 		modelValue: {
@@ -99,35 +109,33 @@ export default defineComponent( {
 
 			return relationOptions;
 		},
-		selected(): PropertyValueRelationMenuItem | null {
-			return this.optionItems.find(
-				( option: PropertyValueRelationMenuItem ) => option.value === this.modelValue,
-			) || null;
+		selected: {
+			get(): PropertyValueRelationMenuItem | null {
+				return ( this.optionItems.find(
+					( option: PropertyValueRelationMenuItem ) => option.value === this.modelValue,
+				) ).value || null;
+			},
+			set( value: PropertyValueRelationMenuItem ) {
+				this.$emit( 'update:modelValue', value );
+			},
 		},
 	},
-	methods: {
-		onInput( event: PropertyValueRelationMenuItem ): void {
-			this.$emit( 'update:modelValue', event.value );
-		},
+	mounted() {
+		// TODO: Workaround for comp. build, remove this after fully migrated to vue 3
+		this.$refs.select.$refs.handle.setAttribute( 'aria-expanded', 'false' );
 	},
 } );
 </script>
 
 <style lang="scss">
+	// TODO: this import only works in dev, in production the styles are
+	// taken from the bundled css. Remove this when it's clear what's
+	// happening
 	@import '@wikimedia/codex/dist/codex.style.css';
 
-	// will be removed once dropdown component is implemented in the DS
-	.querybuilder-dropdown__select {
-		.wikit-Dropdown__label {
-			position: absolute;
-			padding-inline-start: 2em;
-			inline-size: 1px;
-			block-size: 1px;
-			overflow: hidden;
-			clip: rect(0, 0, 0, 0);
-			white-space: nowrap;
-			clip-path: inset(50%);
-			border: 0;
-		}
+	// override codex style that is making the icon appear on the left
+	.cdx-select-vue__indicator {
+		inset-inline-end: 12px;
+		inset-inline-start: unset;
 	}
 </style>
