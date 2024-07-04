@@ -209,7 +209,7 @@ export default defineComponent( {
 <style scoped lang="scss">
 @import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
 
-$tinyViewportWidth: 38em; // Set so that inputs show all below each other in the smallest layout
+$tinyViewportWidth: $max-width-breakpoint-mobile; // Set so that inputs show all below each other in the smallest layout
 
 .query-condition {
 	display: flex;

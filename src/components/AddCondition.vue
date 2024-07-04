@@ -21,7 +21,7 @@ export default defineComponent( {
 </script>
 
 <style scoped lang="scss">
-$tiny-viewport-width: 38em;
+$tiny-viewport-width: $max-width-breakpoint-mobile;
 
 .querybuilder__add-condition {
 	display: flex;
