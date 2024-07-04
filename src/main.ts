@@ -20,6 +20,7 @@ Vue.config.productionTip = false;
 	const i18nPlugin = createI18n( {
 		locale: locale,
 		messages: messages,
+		wikilinks: true,
 	} );
 
 	const pinia = createPinia();
