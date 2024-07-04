@@ -171,6 +171,7 @@ $largeViewportWidth: 90em;
 	&__title {
 		font-weight: $font-weight-bold;
 		padding-block-end: var(--dimension-layout-xsmall);
+		color: $color-emphasized;
 	}
 }
 </style>

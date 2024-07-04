@@ -111,7 +111,7 @@ export default defineComponent( {
 	border-block-end: none;
 
 	& h2 {
-		@include heading-2;
+		@include heading-4;
 	}
 }
 
