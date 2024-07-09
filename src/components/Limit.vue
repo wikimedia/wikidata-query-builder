@@ -94,7 +94,6 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-
 .querybuilder-limit {
 	display: flex;
 	align-items: flex-start;

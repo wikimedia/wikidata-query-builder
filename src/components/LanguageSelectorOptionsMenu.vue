@@ -88,7 +88,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 
 $base: '.languageSelector__options-menu';
 $tinyViewportWidth: 38em;
@@ -119,12 +119,15 @@ $tinyViewportWidth: 38em;
 			transition-duration: 100ms;
 			transition-timing-function: ease;
 
-			&:hover, &:active, &.highlight {
+			&:hover,
+			&:active,
+			&.highlight {
 				background-color: $background-color-interactive;
 				cursor: pointer;
 			}
 
-			&--selected, &--selected:hover {
+			&--selected,
+			&--selected:hover {
 				background-color: $background-color-interactive;
 			}
 		}

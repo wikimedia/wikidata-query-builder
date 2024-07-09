@@ -17,7 +17,7 @@
     "test:integration": "jest -c jest.config.integration.js",
     "test:lint": "eslint --no-fix --max-warnings 0 --ignore-path .gitignore .",
     "test": "npm-run-all test:* && vite build",
-    "disabled:test:lintcss": "stylelint '**/*.{vue,scss}'",
+    "test:lintcss": "stylelint '**/*.{vue,scss}'",
     "test:a11y": "jest --testMatch=\"**/tests/a11y/**\"",
     "test:cy": "env $(grep -v '^#' .env.example | xargs) start-server-and-test serve http-get://localhost:8080 cypress",
     "fix:css": "stylelint '**/*.{vue,scss}' --fix",
