@@ -1,5 +1,4 @@
-FROM node:18.17.0
-
+FROM node:20.15.0
 RUN apt-get update && \
 	apt-get install -y \
 		ca-certificates \
