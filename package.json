@@ -91,7 +91,7 @@
     "stylelint-scss": "^6.3.0",
     "stylelint-use-logical": "^2.1.2",
     "ts-jest": "^29.1.2",
-    "typescript": "^5.3.3",
+    "typescript": "^5.5.3",
     "vite": "~2.8.6",
     "vite-plugin-env-compatible": "^2.0.1"
   },
