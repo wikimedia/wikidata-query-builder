@@ -1,31 +1,29 @@
 <template>
 	<div class="querybuilder-include-subclasses">
-		<Checkbox
+		<CdxCheckbox
 			:id="id"
 			class="querybuilder-include-subclasses__checkbox"
-			:checked="isChecked"
+			:model-value="isChecked"
 			:disabled="disabled"
-			:label="$i18n( 'query-builder-include-subclasses' )"
-			@update:checked="$emit( 'subclass-check', $event )"
+			@update:model-value="$emit( 'subclass-check', $event )"
 		>
-			<template #suffix>
-				<InfoTooltip
-					position="end"
-					:message="$i18n( 'query-builder-include-subclasses-tooltip' )"
-				/>
-			</template>
-		</Checkbox>
+			{{ $i18n( 'query-builder-include-subclasses' ) }}
+		</CdxCheckbox>
+		<InfoTooltip
+			position="end"
+			:message="$i18n( 'query-builder-include-subclasses-tooltip' )"
+		/>
 	</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@/compat';
-import { Checkbox } from '@wmde/wikit-vue-components';
+import { CdxCheckbox } from '@wikimedia/codex';
 import InfoTooltip from '@/components/InfoTooltip.vue';
 export default defineComponent( {
 	name: 'SubclassCheckbox',
 	components: {
-		Checkbox,
+		CdxCheckbox,
 		InfoTooltip,
 	},
 	props: {

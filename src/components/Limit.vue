@@ -1,11 +1,12 @@
 <template>
 	<div class="querybuilder-limit">
-		<Checkbox
+		<CdxCheckbox
 			id="limit"
-			v-model:checked="checked"
+			v-model:model-value="checked"
 			class="querybuilder-limit__checkbox"
-			:label="$i18n( 'query-builder-limit-number-results-description' )"
-		/>
+		>
+			{{ $i18n( 'query-builder-limit-number-results-description' ) }}
+		</CdxCheckbox>
 		<TextInput
 			v-model="limit"
 			class="querybuilder-limit__input"
@@ -21,15 +22,23 @@
 <script lang="ts">
 import { defineComponent } from '@/compat';
 import { DEFAULT_LIMIT } from '@/store/RootState';
-import { Checkbox, TextInput } from '@wmde/wikit-vue-components';
+import { TextInput } from '@wmde/wikit-vue-components';
+import { CdxCheckbox } from '@wikimedia/codex';
 import QueryBuilderError from '@/data-model/QueryBuilderError';
 import { useStore } from '@/store/index';
 
 export default defineComponent( {
 	name: 'Limit',
 	components: {
-		Checkbox,
+		CdxCheckbox,
 		TextInput,
+	},
+	setup() {
+		const store = useStore();
+
+		return {
+			store,
+		};
 	},
 	data() {
 		return {
@@ -39,25 +48,21 @@ export default defineComponent( {
 	},
 	computed: {
 		storeLimit(): number | null | undefined {
-			const store = useStore();
-			return store.limit;
+			return this.store.limit;
 		},
 		checked: {
 			get(): boolean {
-				const store = useStore();
-				return store.useLimit;
+				return this.store.useLimit;
 			},
 			set( value: boolean ): void {
-				const store = useStore();
-				store.setUseLimit( value );
+				this.store.setUseLimit( value );
 			},
 		},
 	},
 	methods: {
 		onLimitChange( value: string ): void {
 			if ( value === '' ) {
-				const store = useStore();
-				store.setLimit( undefined );
+				this.store.setLimit( undefined );
 				this.error = {
 					type: 'error',
 					message: 'query-builder-limit-number-error-message',
@@ -65,9 +70,8 @@ export default defineComponent( {
 				return;
 			}
 			const limit = Number( value );
-			const store = useStore();
 			if ( isNaN( limit ) || limit < 1 ) {
-				store.setLimit( null );
+				this.store.setLimit( null );
 				this.error = {
 					type: 'error',
 					message: 'query-builder-limit-number-error-message',
@@ -75,7 +79,7 @@ export default defineComponent( {
 				return;
 			}
 			this.error = null;
-			store.setLimit( limit );
+			this.store.setLimit( limit );
 		},
 	},
 	watch: {
@@ -87,8 +91,7 @@ export default defineComponent( {
 		},
 	},
 	mounted(): void {
-		const store = useStore();
-		this.limit = store.limit?.toString() || String( DEFAULT_LIMIT );
+		this.limit = this.store.limit?.toString() || String( DEFAULT_LIMIT );
 	},
 } );
 </script>

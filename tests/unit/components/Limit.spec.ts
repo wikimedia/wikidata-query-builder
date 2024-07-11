@@ -1,6 +1,7 @@
 import Limit from '@/components/Limit.vue';
-import { Checkbox, TextInput } from '@wmde/wikit-vue-components';
-import { shallowMount, mount } from '@vue/test-utils';
+import { TextInput } from '@wmde/wikit-vue-components';
+import { CdxCheckbox } from '@wikimedia/codex';
+import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
 import { createTestingPinia } from '@pinia/testing';
 import { useStore } from '@/store';
@@ -15,7 +16,7 @@ describe( 'Limit.vue', () => {
 	it( 'updates the store when user checks useLimit checkbox', async () => {
 		const useLimit = true;
 		const useLimitGetter = (): boolean => false;
-		const wrapper = shallowMount( Limit, {
+		const wrapper = mount( Limit, {
 			global: {
 				plugins: [ createTestingPinia( {
 					initialState: {
@@ -27,7 +28,7 @@ describe( 'Limit.vue', () => {
 		} );
 		const store = useStore();
 
-		wrapper.findComponent( Checkbox ).vm.$emit( 'update:checked', useLimit );
+		wrapper.findComponent( CdxCheckbox ).vm.$emit( 'update:modelValue', useLimit );
 		expect( store.setUseLimit ).toHaveBeenCalledWith( useLimit );
 
 	} );
@@ -35,7 +36,7 @@ describe( 'Limit.vue', () => {
 	it( 'updates the store when user changed value in limit field', async () => {
 		const limit = 20;
 		const limitGetter = (): number => 10;
-		const wrapper = shallowMount( Limit, {
+		const wrapper = mount( Limit, {
 			global: {
 				plugins: [ createTestingPinia( {
 					initialState: {
