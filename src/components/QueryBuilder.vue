@@ -314,7 +314,7 @@ export default defineComponent( {
 @import '../styles/typography';
 @include links-without-underline;
 
-$tinyViewportWidth: 38em;
+$tinyViewportWidth: $max-width-breakpoint-mobile;
 
 /*
  * This is a rough approximation. by using a screen size emulator,
@@ -356,8 +356,9 @@ a {
 
 	@media (min-width: $largeViewportWidth) {
 		// set maximum width of the page
-		max-inline-size: $largeViewportWidth;
+		max-inline-size: 90em;
 		margin-inline: auto;
+		padding-inline: var(--dimension-layout-medium);
 	}
 }
 
@@ -457,9 +458,9 @@ a {
 .querybuilder__description {
 	@include body-m;
 
-	max-inline-size: 672px; // TODO: replace with token
+	max-inline-size: 676px; // TODO: replace with token
 
-	@media (width <= 671px) {
+	@media (width < 676px) {
 		inline-size: 100%;
 	}
 }

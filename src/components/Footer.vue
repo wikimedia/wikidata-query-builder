@@ -120,8 +120,8 @@ export default defineComponent( {
 @import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
 @import '../styles/typography';
 
-$tinyViewportWidth: 38em;
-$largeViewportWidth: 90em;
+$tinyViewportWidth: $max-width-breakpoint-mobile;
+$largeViewportWidth: $min-width-breakpoint-desktop;
 
 .querybuilder-footer {
 	padding-block: var(--dimension-layout-small);
@@ -135,9 +135,10 @@ $largeViewportWidth: 90em;
 
 	@media (min-width: $largeViewportWidth) {
 		// set maximum width of the page
-		max-inline-size: $largeViewportWidth;
+		max-inline-size: 90em;
 		margin-block: auto;
 		margin-inline: auto;
+		padding-inline: var(--dimension-layout-medium);
 	}
 
 	display: flex;

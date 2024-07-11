@@ -102,6 +102,11 @@ export default defineComponent( {
 	display: flex;
 	align-items: flex-start;
 
+	@media (max-width: $max-width-breakpoint-mobile) {
+		flex-direction: column;
+		gap: var(--dimension-layout-xsmall);
+	}
+
 	// extra specificity needed to overcome .wikit style resets *sigh* -> T277885
 	&__checkbox {
 		// TODO: change to real ones
