@@ -28,7 +28,7 @@
   "main": "index.js",
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.1",
-    "@types/rdf-js": "^4.0.2",
+    "@rdfjs/types": "^4.0.2",
     "@vue/compat": "3.3.8",
     "@wikimedia/codex": "^1.0.1",
     "@wikimedia/codex-design-tokens": "^1.0.1",
