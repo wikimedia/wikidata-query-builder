@@ -11,7 +11,8 @@ module.exports = {
 		'@stylistic/stylelint-plugin',
 	],
 	rules: {
-		indentation: 'tab',
+		'@stylistic/indentation': 'tab',
+		'@stylistic/string-quotes': 'single',
 		'csstools/use-logical': 'always',
 		// CSS Logical Properties do not support the shorthand 'margin' and 'padding' yet
 		// TODO: Re-enable property-disallowed-list

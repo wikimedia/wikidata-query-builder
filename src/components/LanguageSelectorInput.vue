@@ -86,7 +86,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 
 .languageSelector__input {
 	color: $color-base;
@@ -122,8 +122,8 @@ export default defineComponent( {
 	}
 
 	&-left-side {
-		display:flex;
-		flex-grow:1;
+		display: flex;
+		flex-grow: 1;
 	}
 
 	&__search-icon {
@@ -140,6 +140,5 @@ export default defineComponent( {
 			visibility: visible;
 		}
 	}
-
 }
 </style>

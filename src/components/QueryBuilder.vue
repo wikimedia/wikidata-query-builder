@@ -422,12 +422,12 @@ a {
 	justify-content: space-between;
 
 	.querybuilder__logo {
-		background-image: url( '/img/QB_Logo.svg' );
+		background-image: url('/img/QB_Logo.svg');
 		inline-size: 360px;
 		block-size: 24px;
 
 		@media (max-width: $tinyViewportWidth) {
-			background-image: url( '/img/QB_Logo_Mobile.svg' );
+			background-image: url('/img/QB_Logo_Mobile.svg');
 			inline-size: 239px;
 			block-size: 24px;
 		}

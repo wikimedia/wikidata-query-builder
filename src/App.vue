@@ -94,7 +94,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-@import "ress";
+@import 'ress';
 @import './styles/custom-variables.css';
 @import 'wikit-dist/wikit-vue-components-vue3compat.css';
 @import './styles/typography';

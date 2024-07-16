@@ -207,7 +207,7 @@ export default defineComponent( {
 </script>
 
 <style scoped lang="scss">
-@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 
 $tinyViewportWidth: $max-width-breakpoint-mobile; // Set so that inputs show all below each other in the smallest layout
 

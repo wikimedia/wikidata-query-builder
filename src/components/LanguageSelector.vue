@@ -121,7 +121,7 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui";
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 
 $tinyViewportWidth: 38em;
 
