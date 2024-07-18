@@ -418,7 +418,7 @@ a {
 	padding-block-end: var(--dimension-layout-small);
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1.5rem 1.5rem;
+	gap: 1.5rem;
 	justify-content: space-between;
 
 	.querybuilder__logo {
