@@ -139,6 +139,7 @@ $largeViewportWidth: $min-width-breakpoint-desktop;
 		margin-block: auto;
 		margin-inline: auto;
 		padding-inline: var(--dimension-layout-medium);
+		padding-block: var(--dimension-layout-medium);
 	}
 
 	display: flex;
