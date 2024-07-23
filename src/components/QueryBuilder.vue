@@ -366,7 +366,7 @@ a {
 	margin-block: var(--dimension-layout-xsmall);
 	padding-block: var(--dimension-layout-xsmall);
 	padding-inline: var(--dimension-layout-xsmall);
-	background-color: $background-color-interactive-subtle;
+	background-color: $background-color-neutral-subtle;
 	border: $border-width-base $border-style-base $border-color-subtle;
 	border-radius: $border-radius-base;
 
@@ -393,7 +393,7 @@ a {
 
 .querybuilder__condition-group--above {
 	border-inline: $border-width-base $border-style-base $border-color-subtle;
-	background-color: $background-color-interactive-subtle;
+	background-color: $background-color-neutral-subtle;
 }
 
 .querybuilder__condition-relation-toggle-or {
@@ -407,7 +407,7 @@ a {
 .querybuilder__condition-placeholder {
 	@include body-s;
 
-	background-color: $background-color-interactive-subtle;
+	background-color: $background-color-neutral-subtle;
 	margin-block: var(--dimension-layout-xsmall);
 	padding-block: var(--dimension-layout-xsmall);
 	text-align: center;
@@ -484,7 +484,7 @@ a {
 }
 
 .querybuilder__settings {
-	background-color: $background-color-interactive-subtle;
+	background-color: $background-color-neutral-subtle;
 	border-radius: $border-radius-base;
 	border-color: $border-color-transparent;
 	margin-block-start: var(--dimension-layout-xxsmall);
@@ -505,7 +505,7 @@ a {
 }
 
 .query-builder__footer {
-	background-color: $background-color-interactive-subtle;
+	background-color: $background-color-neutral-subtle;
 }
 
 .querybuilder__languageSelector {
