@@ -80,7 +80,7 @@
     "postcss-logical": "^7.0.1",
     "sass": "^1.77.8",
     "sass-loader": "^14.2.1",
-    "start-server-and-test": "^2.0.4",
+    "start-server-and-test": "^2.0.5",
     "style-loader": "^4.0.0",
     "stylelint": "^16.7.0",
     "stylelint-config-recommended-scss": "^14.1.0",
