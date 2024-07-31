@@ -320,7 +320,7 @@ $tinyViewportWidth: $max-width-breakpoint-mobile;
  * This is a rough approximation. by using a screen size emulator,
  * we can see the width where all items are aligned.
  */
-$largeViewportWidth: 90em; // ~1438px
+$largeViewportWidth: $min-width-breakpoint-desktop; // ~1438px
 
 body.overflow-hidden-on-mobile {
 	@media (max-width: $tinyViewportWidth) {
@@ -359,6 +359,7 @@ a {
 		max-inline-size: 90em;
 		margin-inline: auto;
 		padding-inline: var(--dimension-layout-medium);
+		padding-block: var(--dimension-layout-medium);
 	}
 }
 
