@@ -4,7 +4,7 @@
 		weight="quiet"
 		:aria-label="$i18n( 'query-builder-delete-condition' )"
 		:disabled="disabled"
-		size="large"
+		size="medium"
 		@click.native="$emit( 'click' )"
 	>
 		<CdxIcon

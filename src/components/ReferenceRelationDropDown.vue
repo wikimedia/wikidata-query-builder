@@ -1,20 +1,22 @@
 <template>
 	<div class="query-condition-references">
-		<Dropdown
-			class="query-condition-references__select"
-			:value="selected"
-			:label="$i18n( 'query-builder-reference-relation-label' )"
-			:menu-items="optionItems"
-			:disabled="disabled"
-			@input="onInput"
-		>
-			<template #suffix>
+		<CdxField>
+			<CdxSelect
+				ref="select"
+				v-model:selected="selected"
+				class="query-condition-references__select"
+				:menu-items="optionItems"
+				:disabled="disabled"
+				:aria-label="$i18n( 'query-builder-reference-relation-label' )"
+			/>
+			<template #label>
+				{{ $i18n( 'query-builder-reference-relation-label' ) }}
 				<InfoTooltip
 					position="top"
 					:message="$i18n( 'query-builder-reference-relation-tooltip' )"
 				/>
 			</template>
-		</Dropdown>
+		</CdxField>
 	</div>
 </template>
 
@@ -23,7 +25,7 @@ import { PropType } from 'vue';
 import { defineComponent } from '@/compat';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
-import { Dropdown } from '@wmde/wikit-vue-components';
+import { CdxSelect, CdxField } from '@wikimedia/codex';
 import InfoTooltip from '@/components/InfoTooltip.vue';
 
 interface ReferenceRelationMenuItem extends MenuItem {
@@ -33,7 +35,8 @@ interface ReferenceRelationMenuItem extends MenuItem {
 export default defineComponent( {
 	name: 'ReferenceRelationDropDown',
 	components: {
-		Dropdown,
+		CdxField,
+		CdxSelect,
 		InfoTooltip,
 	},
 	props: {
@@ -63,16 +66,26 @@ export default defineComponent( {
 				};
 			} );
 		},
-		selected(): ReferenceRelationMenuItem | null {
-			return this.optionItems.find(
-				( option: ReferenceRelationMenuItem ) => option.value === this.modelValue,
-			) || null;
+		selected: {
+			get(): ReferenceRelationMenuItem | null {
+				return ( this.optionItems.find(
+					( option: ReferenceRelationMenuItem ) => option.value === this.modelValue,
+				) ).value || null;
+			},
+			set( value: ReferenceRelationMenuItem ) {
+				this.$emit( 'update:modelValue', value );
+			},
 		},
 	},
-	methods: {
-		onInput( event: ReferenceRelationMenuItem ): void {
-			this.$emit( 'update:modelValue', event.value );
-		},
+	mounted() {
+		// TODO: Workaround for comp. build, remove this after fully migrated to vue 3
+		this.$refs.select.$refs.handle.setAttribute( 'aria-expanded', 'false' );
 	},
 } );
 </script>
+
+<style lang="scss">
+.cdx-select-vue {
+	inline-size: 100%;
+}
+</style>

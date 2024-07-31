@@ -127,27 +127,25 @@ export default defineComponent( {
 		},
 		selectedPropertyValueRelation: {
 			get(): PropertyValueRelation {
-				const store = useStore();
-				return store.propertyValueRelation( this.conditionIndex );
+				return this.store.propertyValueRelation( this.conditionIndex );
 			},
 			set( selectedPropertyValueRelation: PropertyValueRelation ): void {
+
 				if ( selectedPropertyValueRelation === PropertyValueRelation.Regardless ) {
 					this.conditionValue = null;
 				}
-				const store = useStore();
-				store.updatePropertyValueRelation(
+
+				this.store.updatePropertyValueRelation(
 					{ propertyValueRelation: selectedPropertyValueRelation, conditionIndex: this.conditionIndex },
 				);
 			},
 		},
 		selectedReferenceRelation: {
 			get(): ReferenceRelation {
-				const store = useStore();
-				return store.referenceRelation( this.conditionIndex );
+				return this.store.referenceRelation( this.conditionIndex );
 			},
 			set( selectedReferenceRelation: ReferenceRelation ): void {
-				const store = useStore();
-				store.setReferenceRelation( {
+				this.store.setReferenceRelation( {
 					referenceRelation: selectedReferenceRelation,
 					conditionIndex: this.conditionIndex,
 				} );

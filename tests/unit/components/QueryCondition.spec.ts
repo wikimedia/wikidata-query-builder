@@ -163,7 +163,7 @@ describe( 'QueryCondition.vue', () => {
 			message: 'Property Error Message!',
 		} );
 
-		const wrapper = mount( QueryCondition, {
+		const wrapper = shallowMount( QueryCondition, {
 			global: {
 				plugins: [ pinia, i18n ],
 			},
