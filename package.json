@@ -38,7 +38,7 @@
     "@wmde/wikit-vue-components": "^2.1.0-alpha.16",
     "core-js": "^3.37.1",
     "lodash.debounce": "^4.0.8",
-    "pinia": "^2.1.7",
+    "pinia": "^2.2.0",
     "ress": "^5.0.2",
     "sparqljs": "^3.7.1",
     "vite-plugin-importer": "^0.2.5",
