@@ -153,7 +153,10 @@ $largeViewportWidth: $min-width-breakpoint-desktop;
 
 	// More selective css to override the browser's default.
 	h2 {
-		font-size: $font-size-medium;
+		@include body-s;
+
+		color: $color-emphasized;
+		font-weight: $font-weight-bold;
 	}
 
 	&__column {
