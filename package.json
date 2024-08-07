@@ -48,7 +48,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.25.3",
     "@pinia/testing": "^0.1.4",
-    "@stylistic/stylelint-config": "^1.0.1",
+    "@stylistic/stylelint-config": "^2.0.0",
     "@stylistic/stylelint-plugin": "^2.1.2",
     "@types/jest": "^29.5.12",
     "@types/jest-axe": "^3.5.9",
