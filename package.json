@@ -46,7 +46,7 @@
     "vue-banana-i18n": "2.3.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.24.8",
+    "@babel/preset-env": "^7.25.3",
     "@pinia/testing": "^0.1.4",
     "@stylistic/stylelint-config": "^1.0.1",
     "@stylistic/stylelint-plugin": "^2.1.2",
