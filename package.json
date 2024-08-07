@@ -29,7 +29,7 @@
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/rdf-js": "^4.0.2",
-    "@vue/compat": "3.3.8",
+    "@vue/compat": "3.3.13",
     "@wikimedia/codex": "^1.9.0",
     "@wikimedia/codex-design-tokens": "^1.9.0",
     "@wikimedia/codex-icons": "^1.0.1",
@@ -42,7 +42,7 @@
     "ress": "^5.0.2",
     "sparqljs": "^3.7.1",
     "vite-plugin-importer": "^0.2.5",
-    "vue": "3.3.8",
+    "vue": "3.3.13",
     "vue-banana-i18n": "2.3.0"
   },
   "devDependencies": {
