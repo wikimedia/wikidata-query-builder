@@ -45,7 +45,7 @@
 	"query-builder-footer-about-us": "Om os",
 	"query-builder-footer-privacy-policy": "Privatlivspolitik",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Tyskland",
-	"query-builder-footer-team": "Lavet af Wikidata-teamet",
+	"query-builder-footer-team": "Lavet med ❤️ af [$1 Wikidata team]",
 	"query-builder-date-input-value-label": "Værdi",
 	"query-builder-date-input-placeholder": "for eksempel 31-12-2020",
 	"query-builder-date-input-prompt-text": "Indtast venligst en dato"
