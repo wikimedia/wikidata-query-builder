@@ -56,7 +56,6 @@ The query builder uses the latest full release of Wikit which works on Vue 2.6. 
 - @vue/test-utils
 - @vitejs/plugin-vue
 - vue-template-compiler
-- postcss-logical (see [T334466](https://phabricator.wikimedia.org/T334466))
 
 All other dependencies should generally be updated to the latest version. If you discover that a dependency should not be updated for some reason, please add it to the above list. If a dependency can only be updated with substantial manual work, you can create a new task for it and skip it in the context of the current chore.
 
