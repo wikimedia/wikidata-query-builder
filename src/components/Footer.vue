@@ -9,22 +9,22 @@
 				v-html="$i18n( 'query-builder-footer-build-time', commitLink, buildTime )"
 			/>
 			<p>
-				<WikitLink
+				<a
 					v-i18n="{ msg: 'query-builder-footer-view-source' }"
 					href="https://gerrit.wikimedia.org/g/wikidata/query-builder"
 				/>
 			</p>
 			<p class="querybuilder-footer__report-link">
-				<WikitLink v-i18n="{ msg: 'query-builder-footer-report-link' }" :href="bugLink" />
+				<a v-i18n="{ msg: 'query-builder-footer-report-link' }" :href="bugLink" />
 			</p>
 		</div>
 		<div class="querybuilder-footer__column">
 			<h2 v-i18n="{ msg: 'query-builder-footer-about-us' }" class="querybuilder-footer__title" />
 			<p v-if="privacyPolicy" class="querybuilder-footer__privacy-policy">
-				<WikitLink v-i18n="{ msg: 'query-builder-footer-privacy-policy' }" :href="privacyPolicy" />
+				<a v-i18n="{ msg: 'query-builder-footer-privacy-policy' }" :href="privacyPolicy" />
 			</p>
 			<p>
-				<WikitLink
+				<a
 					v-i18n="{ msg: 'query-builder-footer-wikimedia-deutchland' }"
 					href="https://www.wikimedia.de/"
 				/>
@@ -36,25 +36,25 @@
 		<div class="querybuilder-footer__column">
 			<h2 v-i18n="{ msg: 'query-builder-footer-more-data-quality-tools' }" class="querybuilder-footer__title" />
 			<p>
-				<WikitLink
+				<a
 					v-i18n="{ msg: 'query-builder-footer-mismatch-finder' }"
 					href="https://mismatch-finder.toolforge.org/"
 				/>
 			</p>
 			<p>
-				<WikitLink
+				<a
 					v-i18n="{ msg: 'query-builder-footer-item-quality-evaluator' }"
 					href="https://item-quality-evaluator.toolforge.org/"
 				/>
 			</p>
 			<p>
-				<WikitLink
+				<a
 					v-i18n="{ msg: 'query-builder-footer-curious-facts' }"
 					href="https://wikidata-analytics.wmcloud.org/app/CuriousFacts"
 				/>
 			</p>
 			<p>
-				<WikitLink
+				<a
 					v-i18n="{ msg: 'query-builder-footer-constraints-violation-checker' }"
 					href="https://github.com/wmde/wikidata-constraints-violation-checker"
 				/>
@@ -66,14 +66,10 @@
 <script lang="ts">
 import QuerySerializer from '@/serialization/QuerySerializer';
 import { defineComponent } from '@/compat';
-import { Link as WikitLink } from '@wmde/wikit-vue-components';
 import { useStore } from '@/store';
 
 export default defineComponent( {
 	name: 'Footer',
-	components: {
-		WikitLink,
-	},
 	data() {
 		return {
 			// eslint-disable-next-line max-len

@@ -312,7 +312,6 @@ export default defineComponent( {
 <style lang="scss">
 @import '../styles/links';
 @import '../styles/typography';
-@include links-without-underline;
 
 $tinyViewportWidth: $max-width-breakpoint-mobile;
 
@@ -328,22 +327,8 @@ body.overflow-hidden-on-mobile {
 	}
 }
 
-// TODO replace with link component once available
-a {
-	font-family: $font-family-system-sans;
-	font-weight: $font-weight-normal;
-	font-size: $font-size-medium;
-	line-height: $line-height-small;
-	color: $color-progressive;
-	transition: $transition-property-base $transition-duration-base;
-
-	&:active {
-		color: $color-progressive--active;
-	}
-
-	&:visited {
-		color: $color-visited;
-	}
+.querybuilder a {
+	@include cdx-mixin-link;
 }
 
 .querybuilder main {
