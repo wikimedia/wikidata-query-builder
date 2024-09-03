@@ -1,6 +1,5 @@
 import Limit from '@/components/Limit.vue';
-import { TextInput } from '@wmde/wikit-vue-components';
-import { CdxCheckbox } from '@wikimedia/codex';
+import { CdxCheckbox, CdxTextInput } from '@wikimedia/codex';
 import { mount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
 import { createTestingPinia } from '@pinia/testing';
@@ -14,107 +13,81 @@ const i18n = createI18n( {
 
 describe( 'Limit.vue', () => {
 	it( 'updates the store when user checks useLimit checkbox', async () => {
-		const useLimit = true;
-		const useLimitGetter = (): boolean => false;
+		const mockUseLimit = true;
 		const wrapper = mount( Limit, {
 			global: {
-				plugins: [ createTestingPinia( {
-					initialState: {
-						useLimit: useLimitGetter,
-						limit: () => 100,
-					},
-				} ), i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		const store = useStore();
+		store.useLimit = false;
 
-		wrapper.findComponent( CdxCheckbox ).vm.$emit( 'update:modelValue', useLimit );
-		expect( store.setUseLimit ).toHaveBeenCalledWith( useLimit );
+		wrapper.findComponent( CdxCheckbox ).vm.$emit( 'update:modelValue', mockUseLimit );
+		expect( store.useLimit ).toBe( mockUseLimit );
 
 	} );
 
 	it( 'updates the store when user changed value in limit field', async () => {
-		const limit = 20;
-		const limitGetter = (): number => 10;
+		const mockLimit = 20;
 		const wrapper = mount( Limit, {
 			global: {
-				plugins: [ createTestingPinia( {
-					initialState: {
-						limit: limitGetter,
-						useLimit: () => true,
-					},
-				} ), i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		const store = useStore();
+		store.limit = 10;
 
-		wrapper.findComponent( TextInput ).vm.$emit( 'input', limit.toString() );
-		// TODO: update when we have a number component
-
-		expect( store.setLimit ).toHaveBeenCalledWith( limit );
-
+		await wrapper.findComponent( CdxTextInput ).vm.$emit( 'update:modelValue', mockLimit );
+		expect( store.limit ).toBe( mockLimit );
 	} );
 
-	it( 'shows the error message and stores null if the user enters not a number', async () => {
-		const limit = 'Not a Number';
-		const limitGetter = (): number => 10;
+	it( 'shows the error message and stores null for bad input', async () => {
+		const mockLimit = 'Not a Number';
 		const wrapper = mount( Limit, {
 			global: {
-				plugins: [ createTestingPinia( {
-					initialState: {
-						limit: limitGetter,
-						useLimit: () => true,
-					},
-				} ), i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		const store = useStore();
+		store.limit = 10;
 
-		await wrapper.findComponent( TextInput ).vm.$emit( 'input', limit.toString() );
+		await wrapper.findComponent( CdxTextInput ).vm.$emit( 'update:modelValue', mockLimit );
 
-		expect( store.setLimit ).toHaveBeenCalledWith( null );
-		expect( wrapper.find( '.wikit-ValidationMessage' ).exists() ).toBe( true );
+		expect( store.limit ).toBeNull();
+		expect( wrapper.text() ).toContain( 'query-builder-limit-number-error-message' );
 	} );
 
 	it( 'shows the error message and stores null if the user enters a number small than 1', async () => {
-		const limit = 0;
-		const limitGetter = (): number => 10;
+		const mockLimit = 0;
 		const wrapper = mount( Limit, {
 			global: {
-				plugins: [ createTestingPinia( {
-					initialState: {
-						limit: limitGetter,
-						useLimit: () => true,
-					},
-				} ), i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		const store = useStore();
+		store.limit = 10;
 
-		await wrapper.findComponent( TextInput ).vm.$emit( 'input', limit.toString() );
+		await wrapper.findComponent( CdxTextInput ).vm.$emit( 'update:modelValue', mockLimit );
 
-		expect( store.setLimit ).toHaveBeenCalledWith( null );
-		expect( wrapper.find( '.wikit-ValidationMessage' ).exists() ).toBe( true );
+		expect( store.limit ).toBeNull();
+		expect( wrapper.text() ).toContain( 'query-builder-limit-number-error-message' );
 	} );
 
 	it( 'shows the error message and stores undefined if the user enters nothing', async () => {
-		const limit = '';
-		const limitGetter = (): number => 10;
+		const mockLimit = '';
 		const wrapper = mount( Limit, {
 			global: {
-				plugins: [ createTestingPinia( {
-					initialState: {
-						limit: limitGetter,
-						useLimit: () => true,
-					},
-				} ), i18n ],
+				plugins: [ createTestingPinia(), i18n ],
 			},
 		} );
 		const store = useStore();
+		store.limit = 10;
 
-		await wrapper.findComponent( TextInput ).vm.$emit( 'input', limit.toString() );
+		// We set the value on the input element directly because the component
+		// does not change the validity status of the input element
+		await wrapper.find( 'input[type="number"]' ).setValue( mockLimit );
 
-		expect( store.setLimit ).toHaveBeenCalledWith( undefined );
-		expect( wrapper.find( '.wikit-ValidationMessage' ).exists() ).toBe( true );
+		expect( store.limit ).toBeUndefined();
+		expect( wrapper.text() ).toContain( 'query-builder-limit-number-error-message' );
 	} );
 } );
