@@ -76,8 +76,6 @@
     "jest-environment-jsdom": "^29.7.0",
     "netlify-cli": "17.33.6",
     "npm-run-all": "^4.1.5",
-    "postcss-dir-pseudo-class": "^8.0.1",
-    "postcss-logical": "^7.0.1",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
     "start-server-and-test": "^2.0.5",
