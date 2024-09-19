@@ -87,7 +87,7 @@ describe( 'Component interaction test', () => {
 		cy.get( '.query-condition__value-input input' ).clear();
 
 		// set value to 'not matching' from dropdown. NotMatching => 'without',
-		cy.get( '.querybuilder-dropdown .cdx-select-vue' ).first().click();
+		cy.get( '.valuetype-dropdown .cdx-select-vue' ).first().click();
 		cy.get( '.cdx-menu-item' ).contains( 'without' ).click();
 
 		cy.get( '.query-condition__property-lookup .wikit-Input' )
@@ -117,11 +117,11 @@ describe( 'Component interaction test', () => {
 		cy.get( '.query-condition__property-lookup:nth(1) .wikit-OptionsMenu__item' ).click();
 
 		// set value to 'regardless of value on the second query_condition block'.
-		cy.get( '.querybuilder-dropdown .cdx-select-vue' )
+		cy.get( '.valuetype-dropdown .cdx-select-vue' )
 			.eq( 1 )
 			.first()
 			.click();
-		cy.get( '.querybuilder-dropdown .cdx-select-vue:nth(1) .cdx-menu-item' )
+		cy.get( '.valuetype-dropdown .cdx-select-vue:nth(1) .cdx-menu-item' )
 			.contains( 'regardless of value' )
 			.click();
 
