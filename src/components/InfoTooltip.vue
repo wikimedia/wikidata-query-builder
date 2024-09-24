@@ -52,6 +52,9 @@ export default defineComponent( {
 @import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 
 .querybuilder-tooltip {
+	// Fixes the vertical alignment of the button with the text
+	vertical-align: top;
+
 	& .wikit-Popover__target .cdx-button.cdx-button--action-default {
 		padding-block: 0;
 		padding-inline: 0;

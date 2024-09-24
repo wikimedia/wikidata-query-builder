@@ -1,47 +1,42 @@
 <template>
-	<TextInput
-		:label="$i18n( 'query-builder-input-value-label' )"
-		:value="modelValue"
-		:error="error ? { message: $i18n( error.message ), type: error.type } : null"
-		:placeholder="$i18n( 'query-builder-input-value-placeholder' )"
-		:disabled="disabled"
-		@update:model-value="$emit( 'update:modelValue', $event )"
+	<CdxField
+		:status="error ? error.type : null"
+		:messages="error ? { [error.type]: $i18n( error.message ) } : {}"
 	>
-		<template #suffix>
+		<template #label>
+			{{ $i18n( 'query-builder-input-value-label' ) }}
 			<InfoTooltip
 				position="end"
 				:message="$i18n( 'query-builder-input-value-tooltip' )"
 			/>
 		</template>
-	</TextInput>
+
+		<CdxTextInput
+			input-type="text"
+			:model-value="modelValue"
+			:placeholder="$i18n( 'query-builder-input-value-placeholder' )"
+			:disabled="disabled"
+			@update:model-value="$emit( 'update:modelValue', $event )"
+		/>
+	</CdxField>
 </template>
 
-<script lang="ts">
-
-import { TextInput } from '@wmde/wikit-vue-components';
-import { defineComponent } from '@/compat';
+<script setup lang="ts">
+import { CdxTextInput, CdxField } from '@wikimedia/codex';
 import InfoTooltip from '@/components/InfoTooltip.vue';
+import QueryBuilderError from '@/data-model/QueryBuilderError';
 
-export default defineComponent( {
-	name: 'StringValueInput',
-	components: {
-		TextInput,
-		InfoTooltip,
-	},
-	props: {
-		modelValue: {
-			type: String,
-			default: null,
-		},
-		error: {
-			type: Object,
-			default: null,
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	emits: [ 'update:modelValue' ],
+interface Props {
+	modelValue?: string | null;
+	error?: QueryBuilderError | null;
+	disabled?: boolean;
+}
+
+withDefaults( defineProps<Props>(), {
+	modelValue: null,
+	error: null,
+	disabled: false,
 } );
+
+defineEmits( [ 'update:modelValue' ] );
 </script>

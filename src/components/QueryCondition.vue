@@ -269,7 +269,6 @@ $tinyViewportWidth: $max-width-breakpoint-mobile; // Set so that inputs show all
 <style lang="scss">
 // TODO: remove after replacing Wikit Textfield for Codex equivalent
 .wikit-Lookup__label-wrapper,
-.wikit-TextInput__label-wrapper,
 .wikit-Dropdown__label-wrapper {
 	align-items: baseline !important;
 }
