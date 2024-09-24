@@ -1,6 +1,12 @@
 // for some reason Cypress keeps quotes around env vars coming from docker through `.env`
 const API_URL = Cypress.env( 'API_URL' ).replace( /(^')|('$)/g, '' );
 
+// TODO: Rewrite these tests to use messages instead of class name selectors
+
+// Ignore no-missing-require, as this is properly loads during tests
+// eslint-disable-next-line n/no-missing-require
+const messages = require( 'public/i18n/en.json' );
+
 function wikibaseApiRequest( query ) {
 	return {
 		url: API_URL + '*',
@@ -44,7 +50,7 @@ describe( 'Test error handling of the Query Builder', () => {
 		cy.get( '.wikit.wikit-ValidationMessage.wikit-ValidationMessage--error' ).should( 'be.visible' );
 
 		// Add some value to the value input component
-		cy.get( '.query-condition__value-input .wikit-Input' )
+		cy.get( '.query-condition__value-input input' )
 			.type( 'house cat' );
 		cy.wait( '@houseCatRequest' );
 
@@ -63,8 +69,14 @@ describe( 'Test error handling of the Query Builder', () => {
 		cy.get( '.query-condition:nth(0) .wikit.wikit-ValidationMessage' )
 			.should( 'not.exist' );
 
-		cy.get( '.query-condition:nth(1) .wikit.wikit-ValidationMessage' )
-			.should( 'have.length', 2 )
+		cy.get( '.query-condition:nth(1)' )
+			.contains( messages[ 'query-builder-result-error-missing-property' ] )
+			.should( 'have.length', 1 )
+			.should( 'be.visible' );
+
+		cy.get( '.query-condition:nth(1)' )
+			.contains( messages[ 'query-builder-result-error-missing-value' ] )
+			.should( 'have.length', 1 )
 			.should( 'be.visible' );
 
 		// Delete the second query condition
