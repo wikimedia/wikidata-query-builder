@@ -1,17 +1,82 @@
-@mixin links-without-underline {
-	a {
-		text-decoration: none;
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 
-		// for chrome
-		&:focus-visible {
-			outline: dotted;
-			outline-width: 1px;
-			outline-color: gray;
-		}
+@mixin cdx-mixin-link-base() {
+	color: $color-progressive;
+	border-radius: $border-radius-base;
+	text-decoration: $text-decoration-none;
 
-		&:hover,
-		&:active {
-			text-decoration: underline;
+	&:hover {
+		color: $color-progressive--hover;
+		text-decoration: $text-decoration-underline;
+	}
+
+	&:active {
+		color: $color-progressive--active;
+		text-decoration: $text-decoration-underline;
+	}
+
+	&:focus {
+		outline: $border-style-base $border-width-thick $outline-color-progressive--focus;
+	}
+
+	&:visited {
+		color: $color-visited;
+
+		&:hover {
+			color: $color-visited;
 		}
+	}
+
+	.cdx-icon:last-child {
+		min-inline-size: $min-size-icon-x-small;
+		min-block-size: $min-size-icon-x-small;
+		inline-size: $size-icon-small;
+		block-size: $size-icon-small;
+		padding-inline-start: $spacing-25;
+		vertical-align: middle;
+	}
+}
+
+@mixin cdx-mixin-link-underlined() {
+	text-decoration: $text-decoration-underline;
+}
+
+@mixin cdx-mixin-link-red() {
+	color: $color-link-red;
+
+	&:hover {
+		color: $color-link-red--hover;
+		text-decoration: $text-decoration-underline;
+	}
+
+	&:active {
+		color: $color-link-red--active;
+		text-decoration: $text-decoration-underline;
+	}
+
+	&:focus {
+		outline-color: $outline-color-progressive--focus;
+	}
+
+	&:visited {
+		color: $color-link-red--visited;
+
+		&:hover {
+			color: $color-link-red--visited;
+		}
+	}
+}
+
+@mixin cdx-mixin-link() {
+	@include cdx-mixin-link-base;
+
+	// stylelint-disable-next-line selector-class-pattern
+	&.is-underlined {
+		@include cdx-mixin-link-underlined;
+	}
+
+	// stylelint-disable-next-line selector-class-pattern
+	&.is-red-link {
+		@include cdx-mixin-link-red;
 	}
 }
