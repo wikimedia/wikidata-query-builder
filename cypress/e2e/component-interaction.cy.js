@@ -75,7 +75,7 @@ describe( 'Component interaction test', () => {
 		cy.wait( '@hasPetRequest' );
 		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).click();
 
-		cy.get( '.query-condition__value-input .wikit-Input' )
+		cy.get( '.query-condition__value-input input' )
 			.type( 'house cat' );
 		cy.wait( '@houseCatRequest' );
 		cy.get( '.query-condition__value-input .wikit-OptionsMenu__item' )
@@ -84,7 +84,7 @@ describe( 'Component interaction test', () => {
 
 		// clear out values from specified input components
 		cy.get( '.query-condition__property-lookup .wikit-Input' ).clear();
-		cy.get( '.query-condition__value-input .wikit-Input' ).clear();
+		cy.get( '.query-condition__value-input input' ).clear();
 
 		// set value to 'not matching' from dropdown. NotMatching => 'without',
 		cy.get( '.querybuilder-dropdown .cdx-select-vue' ).first().click();
@@ -96,7 +96,7 @@ describe( 'Component interaction test', () => {
 
 		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).first().click();
 
-		cy.get( '.query-condition__value-input .wikit-Input' )
+		cy.get( '.query-condition__value-input input' )
 			.type( 'house cat' );
 		cy.wait( '@houseCatRequest' );
 
@@ -140,7 +140,7 @@ describe( 'Component interaction test', () => {
 		cy.get( '.query-condition__property-lookup:nth(1) .wikit-OptionsMenu__item' ).click();
 
 		// Assert input value component is disabled when user selects 'regardless of value'
-		cy.get( '.query-condition__value-input:nth(1) .wikit-Input' ).should( 'be.disabled' );
+		cy.get( '.query-condition__value-input:nth(1) input' ).should( 'be.disabled' );
 
 		// click 'Add condition' button and expand to a second block
 		cy.get( '.querybuilder__add-condition button' ).click();

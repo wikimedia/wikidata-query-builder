@@ -56,7 +56,7 @@ describe( 'restore state from URL', () => {
 			.then( ( element ) => {
 				expect( element[ 0 ].value ).to.equal( 'instance of' );
 			} );
-		cy.get( '.query-condition__value-input .wikit-Input' )
+		cy.get( '.query-condition__value-input input' )
 			.then( ( element ) => {
 				expect( element[ 0 ].value ).to.equal( 'house cat' );
 			} );
