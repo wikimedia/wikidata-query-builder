@@ -34,36 +34,23 @@
 	</div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { CdxMessage } from '@wikimedia/codex';
-import { defineComponent } from '@/compat';
 import { useStore } from '@/store/index';
 
-export default defineComponent( {
-	name: 'QueryResult',
-	components: {
-		CdxMessage,
-	},
-	props: {
-		encodedQuery: {
-			type: String,
-			default: '',
-		},
-		iframeRenderKey: {
-			type: Number,
-			default: 0,
-		},
-	},
-	setup() {
-		const store = useStore();
-		return { store };
-	},
-	data() {
-		return {
-			queryServiceEmbedUrl: process.env.VUE_APP_QUERY_SERVICE_EMBED_URL,
-			queryServiceUrl: process.env.VUE_APP_QUERY_SERVICE_URL,
-		};
-	},
+interface Props {
+	encodedQuery: string;
+	iframeRenderKey: number;
+}
+
+const store = useStore();
+
+const queryServiceEmbedUrl = process.env.VUE_APP_QUERY_SERVICE_EMBED_URL;
+const queryServiceUrl = process.env.VUE_APP_QUERY_SERVICE_URL;
+
+withDefaults( defineProps<Props>(), {
+	encodedQuery: '',
+	iframeRenderKey: 0,
 } );
 </script>
 
