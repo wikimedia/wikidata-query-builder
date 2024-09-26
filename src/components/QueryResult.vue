@@ -11,12 +11,12 @@
 		<!-- this is needed because vue2-common is not recognizing the errors property from mapGetters -->
 		<!-- eslint-disable-next-line vue/no-undef-properties -->
 		<div v-if="store.errors.length !== 0" class="querybuilder-result__errors">
-			<Message
+			<CdxMessage
 				v-for="( error, index ) in store.errors"
 				:key="index"
 				:type="error.type">
 				<span>{{ $i18n( error.message ) }}</span>
-			</Message>
+			</CdxMessage>
 		</div>
 		<div v-else-if="encodedQuery.length === 0">
 			<div class="querybuilder-result__description">
@@ -35,14 +35,14 @@
 </template>
 
 <script lang="ts">
-import { Message } from '@wmde/wikit-vue-components';
+import { CdxMessage } from '@wikimedia/codex';
 import { defineComponent } from '@/compat';
 import { useStore } from '@/store/index';
 
 export default defineComponent( {
 	name: 'QueryResult',
 	components: {
-		Message,
+		CdxMessage,
 	},
 	props: {
 		encodedQuery: {
