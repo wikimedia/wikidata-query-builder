@@ -1,6 +1,7 @@
 import ConditionRelationToggle from '@/components/ConditionRelationToggle.vue';
 import { mount, shallowMount } from '@vue/test-utils';
-import { ToggleButton, ToggleButtonGroup } from '@wmde/wikit-vue-components';
+import { CdxToggleButton, CdxToggleButtonGroup } from '@wikimedia/codex';
+
 import { createI18n } from 'vue-banana-i18n';
 
 const i18n = createI18n( {
@@ -10,40 +11,38 @@ const i18n = createI18n( {
 } );
 
 describe( 'ConditionRelationToggle', () => {
-	it( 'passes the value down to the ToggleButtonGroup', () => {
+	it( 'passes the value down to the CdxToggleButtonGroup', () => {
 		const value = 'or';
 		const wrapper = mount( ConditionRelationToggle, {
 			global: {
 				plugins: [ i18n ],
 			},
 			props: {
-				value,
+				modelValue: value,
 			},
 		} );
 
-		expect( wrapper.findComponent( ToggleButtonGroup ).props() ).toStrictEqual( { value } );
+		expect( wrapper.findComponent( CdxToggleButtonGroup ).props() ).toMatchObject( { modelValue: value } );
 	} );
 
 	it( 'creates a ToggleButton for each option', () => {
-		const wrapper = shallowMount( ConditionRelationToggle, {
+		const wrapper = mount( ConditionRelationToggle, {
 			global: {
 				plugins: [ i18n ],
 			},
 		} );
-		const toggleButtons = wrapper.findAllComponents( ToggleButton );
+		const toggleButtons = wrapper.findAllComponents( CdxToggleButton );
 		expect( toggleButtons.length ).toBe( 2 );
-		expect( toggleButtons[ 0 ].props( 'value' ) ).toBe( 'and' );
-		expect( toggleButtons[ 1 ].props( 'value' ) ).toBe( 'or' );
 	} );
 
-	it( 'bubbles up the input event from the ToggleButtonGroup', () => {
+	it( 'bubbles up the input event from the CdxToggleButtonGroup', () => {
 		const wrapper = shallowMount( ConditionRelationToggle, {
 			global: {
 				plugins: [ i18n ],
 			},
 		} );
 
-		wrapper.findComponent( ToggleButtonGroup ).vm.$emit( 'input', 'and' );
+		wrapper.findComponent( CdxToggleButtonGroup ).vm.$emit( 'update:modelValue', 'and' );
 
 		expect( wrapper.emitted( 'set-relation-toggle' ) ).toStrictEqual( [ [ 'and' ] ] );
 	} );

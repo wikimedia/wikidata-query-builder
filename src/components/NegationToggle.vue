@@ -1,37 +1,29 @@
 <template>
-	<ToggleButtonGroup
-		:value="modelValue"
+	<CdxToggleButtonGroup
 		class="negationToggle"
-		@input="$emit( 'update:modelValue', $event )"
-	>
-		<template #default>
-			<ToggleButton
-				value="with"
-			>
-				{{ $i18n( 'query-builder-negation-option-label-with' ) }}
-			</ToggleButton>
-			<ToggleButton
-				value="without"
-			>
-				{{ $i18n( 'query-builder-negation-option-label-without' ) }}
-			</ToggleButton>
-		</template>
-	</ToggleButtonGroup>
+		:model-value="modelValue"
+		:buttons="buttons"
+		@update:model-value="$emit( 'update:modelValue', $event )" />
 </template>
 
-<script lang="ts">
-import { ToggleButton, ToggleButtonGroup } from '@wmde/wikit-vue-components';
-import { defineComponent } from '@/compat';
+<script setup lang="ts">
+import { CdxToggleButtonGroup } from '@wikimedia/codex';
+import { useI18n } from 'vue-banana-i18n';
 
-export default defineComponent( {
-	name: 'NegationToggle',
-	components: { ToggleButton, ToggleButtonGroup },
-	props: {
-		modelValue: {
-			type: String,
-			default: 'with',
-		},
-	},
-	emits: [ 'update:modelValue' ],
+const messages = useI18n();
+
+interface Props {
+	modelValue?: string;
+}
+
+withDefaults( defineProps<Props>(), {
+	modelValue: 'with',
 } );
+
+const buttons = [
+	{ value: 'with', label: messages.i18n( 'query-builder-negation-option-label-with' ) },
+	{ value: 'without', label: messages.i18n( 'query-builder-negation-option-label-without' ) },
+];
+
+defineEmits( [ 'update:modelValue' ] );
 </script>

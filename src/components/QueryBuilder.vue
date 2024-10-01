@@ -233,7 +233,7 @@ export default defineComponent( {
 				.scrollIntoView( { behavior: 'smooth' } );
 
 			const toggle = document
-				.querySelectorAll( '.querybuilder__condition-relation-toggle .wikit-ToggleButton' );
+				.querySelectorAll( '.querybuilder__condition-relation-toggle.conditionRelationToggle button' );
 
 			( toggle[ toggle.length - 1 ] as HTMLElement ).focus();
 		},

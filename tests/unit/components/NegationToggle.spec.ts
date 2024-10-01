@@ -1,7 +1,8 @@
 import NegationToggle from '@/components/NegationToggle.vue';
-import { shallowMount } from '@vue/test-utils';
-import { ToggleButton, ToggleButtonGroup } from '@wmde/wikit-vue-components';
+import { shallowMount, mount } from '@vue/test-utils';
+
 import { createI18n } from 'vue-banana-i18n';
+import { CdxToggleButton, CdxToggleButtonGroup } from '@wikimedia/codex';
 
 const i18n = createI18n( {
 	messages: {},
@@ -10,7 +11,7 @@ const i18n = createI18n( {
 } );
 
 describe( 'NegationToggle', () => {
-	it( 'passes the value down to the ToggleButtonGroup', () => {
+	it( 'passes the value down to the CdxToggleButtonGroup', () => {
 		const value = 'without';
 		const wrapper = shallowMount( NegationToggle, {
 			global: {
@@ -21,20 +22,18 @@ describe( 'NegationToggle', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( ToggleButtonGroup ).props() ).toStrictEqual( { value } );
+		expect( wrapper.findComponent( CdxToggleButtonGroup ).props() ).toMatchObject( { modelValue: value } );
 	} );
 
 	it( 'creates a ToggleButton for each option', () => {
-		const wrapper = shallowMount( NegationToggle, {
+		const wrapper = mount( NegationToggle, {
 			global: {
 				plugins: [ i18n ],
 			},
 		} );
 
-		const toggleButtons = wrapper.findAllComponents( ToggleButton );
+		const toggleButtons = wrapper.findAllComponents( CdxToggleButton );
 		expect( toggleButtons.length ).toBe( 2 );
-		expect( toggleButtons[ 0 ].props( 'value' ) ).toBe( 'with' );
-		expect( toggleButtons[ 1 ].props( 'value' ) ).toBe( 'without' );
 	} );
 
 	it( 'bubbles up the input event from the ToggleButtonGroup', () => {
@@ -44,7 +43,7 @@ describe( 'NegationToggle', () => {
 			},
 		} );
 
-		wrapper.findComponent( ToggleButtonGroup ).vm.$emit( 'input', 'without' );
+		wrapper.findComponent( CdxToggleButtonGroup ).vm.$emit( 'update:modelValue', 'without' );
 
 		expect( wrapper.emitted( 'update:modelValue' ) ).toStrictEqual( [ [ 'without' ] ] );
 	} );

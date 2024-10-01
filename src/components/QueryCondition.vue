@@ -1,8 +1,9 @@
 <template>
 	<div class="query-condition">
 		<NegationToggle
-			v-model="negateValue"
+			:model-value="negateValue"
 			class="query-condition__toggle-button-group"
+			@update:model-value="$event => ( negateValue = $event )"
 		/>
 		<div class="query-condition__input-container">
 			<div>
