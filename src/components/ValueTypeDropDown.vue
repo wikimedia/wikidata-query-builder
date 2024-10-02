@@ -130,11 +130,6 @@ export default defineComponent( {
 </script>
 
 <style lang="scss">
-	// TODO: this import only works in dev, in production the styles are
-	// taken from the bundled css. Remove this when it's clear what's
-	// happening
-	@import '@wikimedia/codex/dist/codex.style.css';
-
 	// override codex style that is making the icon appear on the left
 	.cdx-select-vue__indicator {
 		inset-inline-end: 12px;

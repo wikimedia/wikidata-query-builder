@@ -95,6 +95,7 @@ export default defineComponent( {
 
 <style lang="scss">
 @import 'ress';
+@import '@wikimedia/codex/dist/codex.style-bidi.css';
 @import './styles/custom-variables.css';
 @import 'wikit-dist/wikit-vue-components-vue3compat.css';
 @import './styles/typography';
