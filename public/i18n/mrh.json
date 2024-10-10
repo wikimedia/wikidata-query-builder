@@ -2,16 +2,24 @@
 	"@metadata": {
 		"authors": [
 			"Kiathy",
+			"Laitei",
 			"Reihpaleituh",
 			"Teitei Para"
 		]
 	},
 	"query-builder-heading": "Wikidata Query Paduana",
+	"query-builder-intro-heading": "He chhaichhi kyh",
 	"query-builder-query-heading": "Hiahrina",
 	"query-builder-settings-heading": "Taopathinazy",
 	"query-builder-find-all-items": "Chhaichhi zydua tlua...",
+	"query-builder-run-query": "Tluana raihria",
 	"query-builder-input-value-label": "Mâ",
 	"query-builder-input-value-placeholder": "A mâ roh teih",
+	"query-builder-item-value-lookup-no-match-found": "Ahmiepa hmô thei vei",
+	"query-builder-lexeme-value-lookup-no-match-found": "Ahmiepa cha hmô thei vei",
+	"query-builder-sense-value-lookup-no-match-found": "Ahmiepa hmô thei vei",
+	"query-builder-form-value-lookup-no-match-found": "Ahmiepa hmô thei vei",
+	"query-builder-property-lookup-label": "Chhichâna",
 	"query-builder-property-lookup-limited-support-tag": "Bitaipa a pyna",
 	"query-builder-result-header": "Hmôpazy",
 	"query-builder-result-error-missing-value": "A mâ roh bei teh",
