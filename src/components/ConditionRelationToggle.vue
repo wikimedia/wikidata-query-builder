@@ -1,37 +1,33 @@
 <template>
-	<ToggleButtonGroup
-		:value="modelValue"
+	<CdxToggleButtonGroup
 		class="conditionRelationToggle"
-		@input="$emit( 'set-relation-toggle', $event )"
-	>
-		<template #default>
-			<ToggleButton
-				value="and"
-			>
-				{{ $i18n( 'query-builder-condition-relation-toggle-and' ) }}
-			</ToggleButton>
-			<ToggleButton
-				value="or"
-			>
-				{{ $i18n( 'query-builder-condition-relation-toggle-or' ) }}
-			</ToggleButton>
-		</template>
-	</ToggleButtonGroup>
+		:model-value="selectedValue"
+		:buttons="buttons"
+		@update:model-value="selectedValue = $event; emit( 'set-relation-toggle', $event )" />
 </template>
 
-<script lang="ts">
-import { ToggleButton, ToggleButtonGroup } from '@wmde/wikit-vue-components';
-import { defineComponent } from '@/compat';
+<script setup lang="ts">
+import { CdxToggleButtonGroup } from '@wikimedia/codex';
+import { ref } from 'vue';
+import { useI18n } from 'vue-banana-i18n';
 
-export default defineComponent( {
-	name: 'ConditionRelationToggle',
-	components: { ToggleButton, ToggleButtonGroup },
-	props: {
-		modelValue: {
-			type: String,
-			default: 'add',
-		},
-	},
-	emits: [ 'set-relation-toggle' ],
+const messages = useI18n();
+
+interface Props {
+	modelValue?: string;
+}
+
+const props = withDefaults( defineProps<Props>(), {
+	modelValue: 'and',
 } );
+
+const buttons = [
+	{ value: 'and', label: messages.i18n( 'query-builder-condition-relation-toggle-and' ) },
+	{ value: 'or', label: messages.i18n( 'query-builder-condition-relation-toggle-or' ) },
+];
+
+const selectedValue = ref( props.modelValue );
+
+const emit = defineEmits( [ 'set-relation-toggle' ] );
+
 </script>

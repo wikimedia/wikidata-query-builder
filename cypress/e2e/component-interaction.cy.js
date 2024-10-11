@@ -105,7 +105,7 @@ describe( 'Component interaction test', () => {
 			.click();
 
 		// negate relation
-		cy.get( '.wikit.wikit-ToggleButton' ).not( '.wikit-ToggleButton--isActive' ).click();
+		cy.get( '.negationToggle button' ).not( '[aria-pressed="true"]' ).click();
 
 		// click 'Add condition' button and expand to a second block
 		cy.get( '.querybuilder__add-condition button' ).click();
@@ -126,7 +126,7 @@ describe( 'Component interaction test', () => {
 			.click();
 
 		// connect the two relations with OR
-		cy.get( '.wikit.wikit-ToggleButtonGroup.conditionRelationToggle.querybuilder__condition-relation-toggle' )
+		cy.get( '.conditionRelationToggle.querybuilder__condition-relation-toggle' )
 			.find( 'button' )
 			.contains( 'or' )
 			.click();
