@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Dimitris131",
+			"FocalPoint",
 			"Geraki",
 			"Jimkats",
 			"Michail Angelos Georgoulas",
@@ -19,6 +20,7 @@
 	"query-builder-input-value-tooltip": "Το πεδίο <em>value</em> περιέχει τις συγκεκριμένες πληροφορίες που χρησιμοποιούνται για την περιγραφή ενός στοιχείου. Για παράδειγμα, το \"μπλε\" είναι μια πιθανή <em>value</em> για την <em>property</em> \"color\".",
 	"query-builder-input-value-placeholder": "Καταχωρήστε τιμή",
 	"query-builder-item-value-lookup-no-match-found": "Δεν βρέθηκε ταίριασμα",
+	"query-builder-lexeme-value-lookup-no-match-found": "Δεν βρέθηκε αντίστοιχο",
 	"query-builder-sense-value-lookup-no-match-found": "Δεν βρέθηκε αντιστοιχία",
 	"query-builder-form-value-lookup-no-match-found": "Δεν βρέθηκε αντιστοιχία",
 	"query-builder-property-lookup-label": "Ιδιότητα",
@@ -80,6 +82,7 @@
 	"query-builder-footer-more-data-quality-tools": "Περισσότερα εργαλεία ποιότητας δεδομένων",
 	"query-builder-footer-mismatch-finder": "Εύρεση αναντιστοιχιών",
 	"query-builder-footer-item-quality-evaluator": "Αξιολογητής Ποιότητας Αντικειμένου",
+	"query-builder-footer-curious-facts": "Περίεργα γεγονότα",
 	"query-builder-footer-constraints-violation-checker": "Ελεγκτής Παραβιάσεων Περιορισμών",
 	"query-builder-date-input-value-label": "Τιμή",
 	"query-builder-date-input-placeholder": "για παράδειγμα 31-12-2020",
