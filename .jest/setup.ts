@@ -8,7 +8,7 @@ configureCompat({
   RENDER_FUNCTION: 'suppress-warning',
   GLOBAL_MOUNT: 'suppress-warning',
   GLOBAL_EXTEND: 'suppress-warning',
-  ATTR_FALSE_VALUE: 'suppress-warning',
+  ATTR_FALSE_VALUE: false,
   OPTIONS_BEFORE_DESTROY: 'suppress-warning',
   CUSTOM_DIR: 'suppress-warning'
 })

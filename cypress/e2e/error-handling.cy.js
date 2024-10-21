@@ -37,24 +37,24 @@ describe( 'Test error handling of the Query Builder', () => {
 			{ fixture: 'wbsearchentities-house-cat.json' },
 		).as( 'houseCatRequest' );
 
-		cy.get( '.query-condition__property-lookup .wikit-Input' )
+		cy.get( '.query-condition__property-lookup input' )
 			.type( 'has pet' );
 		cy.wait( '@hasPetRequest' );
-		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).click();
+		cy.get( '.query-condition__property-lookup li' ).click();
 
 		/**
 		 * Run the query only with a property and no value. And assert whether
 		 * an error message is displayed on the value input.
 		 */
 		cy.get( runQueryButtonSelector ).click();
-		cy.get( '.wikit.wikit-ValidationMessage.wikit-ValidationMessage--error' ).should( 'be.visible' );
+		cy.get( '.cdx-field__validation-message .cdx-message--error' ).should( 'be.visible' );
 
 		// Add some value to the value input component
 		cy.get( '.query-condition__value-input input' )
 			.type( 'house cat' );
 		cy.wait( '@houseCatRequest' );
 
-		cy.get( '.query-condition__value-input .wikit-OptionsMenu__item' )
+		cy.get( '.query-condition__value-input li' )
 			.first()
 			.click();
 
@@ -66,7 +66,7 @@ describe( 'Test error handling of the Query Builder', () => {
 		 * there shouldn't be an error on the first block.
 		 * However, we assert here that there are two errors displayed in the second block
 		 */
-		cy.get( '.query-condition:nth(0) .wikit.wikit-ValidationMessage' )
+		cy.get( '.query-condition:nth(0) .cdx-field__validation-message' )
 			.should( 'not.exist' );
 
 		cy.get( '.query-condition:nth(1)' )

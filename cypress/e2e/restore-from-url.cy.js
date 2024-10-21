@@ -52,7 +52,7 @@ describe( 'restore state from URL', () => {
 		cy.wait( '@instanceOfRequest' )
 			.wait( '@houseCatRequest' );
 
-		cy.get( '.query-condition__property-lookup .wikit-Input' )
+		cy.get( '.query-condition__property-lookup input' )
 			.then( ( element ) => {
 				expect( element[ 0 ].value ).to.equal( 'instance of' );
 			} );

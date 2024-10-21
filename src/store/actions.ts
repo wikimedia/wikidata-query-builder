@@ -4,7 +4,7 @@ import FormatValueRepository from '@/data-access/FormatValueRepository';
 import ParseValueRepository from '@/data-access/ParseValueRepository';
 import Validator from '@/form/Validator';
 import QueryDeserializer from '@/serialization/QueryDeserializer';
-import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
+import { MenuItemData } from '@wikimedia/codex';
 import {
 	ConditionRow,
 	DateValue,
@@ -40,9 +40,9 @@ export default (
 			options.limit,
 			options.offset,
 		);
-		return searchResults.map( ( searchResult: MenuItem & SearchResult ) => {
+		return searchResults.map( ( searchResult: MenuItemData & SearchResult ) => {
 			if ( !allowedDatatypes.includes( searchResult.datatype ) ) {
-				searchResult.tag = 'query-builder-property-lookup-limited-support-tag';
+				searchResult.supportingText = 'query-builder-property-lookup-limited-support-tag';
 			}
 			return searchResult;
 		} );

@@ -70,37 +70,37 @@ describe( 'Component interaction test', () => {
 			{ fixture: 'wbsearchentities-limited-support.json' },
 		).as( 'hasLimitedSupportedRequest' );
 
-		cy.get( '.query-condition__property-lookup .wikit-Input' )
+		cy.get( '.query-condition__property-lookup input' )
 			.type( 'has pet' );
 		cy.wait( '@hasPetRequest' );
-		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).click();
+		cy.get( '.query-condition__property-lookup li' ).click();
 
 		cy.get( '.query-condition__value-input input' )
 			.type( 'house cat' );
 		cy.wait( '@houseCatRequest' );
-		cy.get( '.query-condition__value-input .wikit-OptionsMenu__item' )
+		cy.get( '.query-condition__value-input li' )
 			.first()
 			.click();
 
 		// clear out values from specified input components
-		cy.get( '.query-condition__property-lookup .wikit-Input' ).clear();
+		cy.get( '.query-condition__property-lookup input' ).clear();
 		cy.get( '.query-condition__value-input input' ).clear();
 
 		// set value to 'not matching' from dropdown. NotMatching => 'without',
 		cy.get( '.valuetype-dropdown .cdx-select-vue' ).first().click();
 		cy.get( '.cdx-menu-item' ).contains( 'without' ).click();
 
-		cy.get( '.query-condition__property-lookup .wikit-Input' )
+		cy.get( '.query-condition__property-lookup input' )
 			.type( 'instance of' );
 		cy.wait( '@hasInstanceRequest' );
 
-		cy.get( '.query-condition__property-lookup .wikit-OptionsMenu__item' ).first().click();
+		cy.get( '.query-condition__property-lookup li' ).first().click();
 
 		cy.get( '.query-condition__value-input input' )
 			.type( 'house cat' );
 		cy.wait( '@houseCatRequest' );
 
-		cy.get( '.query-condition__value-input .wikit-OptionsMenu__item' )
+		cy.get( '.query-condition__value-input li' )
 			.first()
 			.click();
 
@@ -110,11 +110,11 @@ describe( 'Component interaction test', () => {
 		// click 'Add condition' button and expand to a second block
 		cy.get( '.querybuilder__add-condition button' ).click();
 
-		cy.get( '.query-condition__property-lookup .wikit-Input' )
+		cy.get( '.query-condition__property-lookup input' )
 			.eq( 1 )
 			.type( 'IMDb ID' );
 		cy.wait( '@hasImdbRequest' );
-		cy.get( '.query-condition__property-lookup:nth(1) .wikit-OptionsMenu__item' ).click();
+		cy.get( '.query-condition__property-lookup:nth(1) li' ).click();
 
 		// set value to 'regardless of value on the second query_condition block'.
 		cy.get( '.valuetype-dropdown .cdx-select-vue' )
@@ -131,39 +131,39 @@ describe( 'Component interaction test', () => {
 			.contains( 'or' )
 			.click();
 
-		cy.get( '.query-condition__property-lookup .wikit-Input' ).eq( 1 ).clear();
+		cy.get( '.query-condition__property-lookup input' ).eq( 1 ).clear();
 
-		cy.get( '.query-condition__property-lookup .wikit-Input' )
+		cy.get( '.query-condition__property-lookup input' )
 			.eq( 1 )
 			.type( 'LilyPond notation' );
 		cy.wait( '@hasLimitedSupportedRequest' );
-		cy.get( '.query-condition__property-lookup:nth(1) .wikit-OptionsMenu__item' ).click();
+		cy.get( '.query-condition__property-lookup:nth(1) li' ).click();
 
 		// Assert input value component is disabled when user selects 'regardless of value'
 		cy.get( '.query-condition__value-input:nth(1) input' ).should( 'be.disabled' );
 
 		// click 'Add condition' button and expand to a second block
 		cy.get( '.querybuilder__add-condition button' ).click();
-		cy.get( '.query-condition__property-lookup .wikit-Input' )
+		cy.get( '.query-condition__property-lookup input' )
 			.eq( 2 )
 			.type( 'elevation above sea level' );
 		cy.wait( '@hasQuantityRequest' );
-		cy.get( '.query-condition__property-lookup:nth(2) .wikit-OptionsMenu__item' ).click();
+		cy.get( '.query-condition__property-lookup:nth(2) li' ).click();
 
 		cy.get( '.wikit-QuantityInput__number-input' )
 			.type( 12 );
-		cy.get( '.wikit-QuantityInput__unit-lookup input' )
+		cy.get( '.wikit-QuantityInput__unit-lookup .wikit-Input' )
 			.type( 'metre' );
 		cy.wait( '@hasUnitRequest' );
 		cy.get( '.wikit-QuantityInput__unit-lookup .wikit-OptionsMenu__item' ).eq( 0 ).click();
 
 		// click 'Add condition' button and expand to a third block
 		cy.get( '.querybuilder__add-condition button' ).click();
-		cy.get( '.query-condition__property-lookup .wikit-Input' )
+		cy.get( '.query-condition__property-lookup input' )
 			.eq( 3 )
 			.type( 'publication date' );
 		cy.wait( '@hasPublicationDateRequest' );
-		cy.get( '.query-condition__property-lookup:nth(3) .wikit-OptionsMenu__item' ).click();
+		cy.get( '.query-condition__property-lookup:nth(3) li' ).click();
 
 		cy.get( '.wikit-InputWithExtender .wikit-Input' )
 			.type( '31-12-2020' );

@@ -1,156 +1,178 @@
 <template>
-	<Lookup
-		v-model:search-input="search"
-		:value="modelValue"
-		:error="error ? { message: $i18n( error.message ), type: error.type } : null"
-		:menu-items="searchResults"
-		:placeholder="placeholder"
-		:label="label"
-		:disabled="disabled"
-		@input="$emit( 'update:modelValue', $event )"
-		@scroll="handleScroll"
+	<CdxField
+		:status="error ? error.type : null"
+		:messages="error ? { [error.type]: $i18n( error.message ) } : {}"
 	>
-		<template
-			#no-results
-		>
-			{{ noMatchFoundMessage }}
-		</template>
-		<template v-if="tooltip" #suffix>
+		<template #label>
+			{{ label }}
 			<InfoTooltip
-				position="top-end"
+				v-if="tooltip"
+				position="end"
 				:message="tooltip"
 			/>
 		</template>
-	</Lookup>
+		<CdxLookup
+			v-model:selected="selectedValue"
+			v-model:input-value="search"
+			:menu-items="searchResults"
+			:menu-config="menuConfig"
+			:disabled="disabled"
+			:status="error ? error.type : null"
+			:placeholder="placeholder"
+			@update:selected="onSelect( $event )"
+			@input="onInput"
+			@load-more="handleScroll"
+		>
+			<template
+				#no-results
+			>
+				{{ noMatchFoundMessage }}
+			</template>
+		</CdxLookup>
+	</CdxField>
 </template>
 
-<script lang="ts">
-import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
-import { PropType } from 'vue';
-import { defineComponent } from '@/compat';
-import debounce from 'lodash/debounce';
-
-import { Lookup } from '@wmde/wikit-vue-components';
-import SearchResult from '@/data-access/SearchResult';
-import SearchOptions from '@/data-access/SearchOptions';
+<script setup lang="ts">
+import { CdxTextInput } from '@wikimedia/codex';
+CdxTextInput.compatConfig = { MODE: 3, COMPONENT_V_MODEL: false };
 import InfoTooltip from '@/components/InfoTooltip.vue';
+import SearchOptions from '@/data-access/SearchOptions';
+import SearchResult from '@/data-access/SearchResult';
+import { CdxField, CdxLookup, MenuItemData, MenuItemDataWithId, MenuItemValue } from '@wikimedia/codex';
+
+import debounce from 'lodash/debounce';
+import { Ref, ref, watch, onMounted } from 'vue';
+
+import { useI18n } from 'vue-banana-i18n';
+const messages = useI18n();
 
 const NUMBER_OF_SEARCH_RESULTS = 12;
 
-export default defineComponent( {
-	name: 'EntityLookup',
-	components: {
-		InfoTooltip,
-		Lookup,
-	},
-	props: {
-		searchForMenuItems: {
-			type: Function as PropType<( searchOptions: SearchOptions ) => Promise<SearchResult[]>>,
-			required: true,
-		},
-		modelValue: {
-			type: Object as PropType<MenuItem>,
-			default: null,
-		},
-		error: {
-			type: Object,
-			default: null,
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		label: {
-			type: String,
-			required: true,
-		},
-		noMatchFoundMessage: {
-			type: String,
-			required: true,
-		},
-		placeholder: {
-			type: String,
-			default: '',
-		},
-		tooltip: {
-			type: String,
-			default: '',
-		},
-	},
-	emits: [ 'update:modelValue' ],
-	data() {
-		return {
-			search: '',
-			searchResults: [] as MenuItem[],
-			topItemIndex: 1,
-			debouncedUpdateMenuItems: null as ( ( arg0: SearchOptions ) => void ) | null,
+interface Props {
+	modelValue?: MenuItemDataWithId | null;
+	error?: object | null;
+	disabled?: boolean;
+	label: string;
+	noMatchFoundMessage: string;
+	placeholder?: string;
+	tooltip?: string;
+	searchForMenuItems: ( searchOptions: SearchOptions ) => Promise<( MenuItemData & SearchResult )[]>;
+}
+
+const props = withDefaults( defineProps<Props>(), {
+	modelValue: null,
+	error: null,
+	disabled: false,
+	placeholder: '',
+	tooltip: '',
+} );
+
+const selectedValue = ref( props.modelValue?.value ?? null );
+const menuConfig = {
+	boldLabel: true,
+};
+
+const emit = defineEmits( [ 'update:modelValue' ] );
+
+const search = ref( '' );
+const searchResults: Ref<( MenuItemData & SearchResult )[]> = ref( [] );
+const topItemIndex = ref( 1 );
+
+let debouncedUpdateMenuItems = null as ( ( arg0: SearchOptions ) => void ) | null;
+
+async function handleScroll( event: number ): Promise<void> {
+	if ( topItemIndex.value <= event ) {
+		topItemIndex.value += NUMBER_OF_SEARCH_RESULTS;
+
+		const searchOptions: SearchOptions = {
+			search: search.value,
+			offset: topItemIndex.value,
+			limit: NUMBER_OF_SEARCH_RESULTS,
 		};
-	},
-	methods: {
-		async handleScroll( event: number ): Promise<void> {
-			if ( this.topItemIndex <= event ) {
-				this.topItemIndex += NUMBER_OF_SEARCH_RESULTS;
 
-				const searchOptions: SearchOptions = {
-					search: this.search,
-					offset: this.topItemIndex,
-					limit: NUMBER_OF_SEARCH_RESULTS,
-				};
+		searchResults.value = searchResults.value.concat(
+			await searchEntities( searchOptions ),
+		);
+	}
+}
 
-				this.searchResults = this.searchResults.concat(
-					await this.searchEntities( searchOptions ),
-				);
+async function searchEntities( searchOptions: SearchOptions ): Promise<( MenuItemData & SearchResult )[]> {
+	const searchResult = await props.searchForMenuItems( searchOptions );
+	return searchResult.map(
+		( item: MenuItemData & SearchResult ) => {
+			item.supportingText = item.supportingText && messages.i18n( item.supportingText );
+			if ( item.supportingText ) {
+				item.supportingText = `(${item.supportingText})`;
 			}
+			item.value = item.id;
+			delete item.match;
+			delete item.url;
+			return item;
 		},
-		async searchEntities( searchOptions: SearchOptions ): Promise<SearchResult[]> {
-			const searchResults = await this.searchForMenuItems( searchOptions );
-			return searchResults.map(
-				( item: MenuItem & SearchResult ) => {
-					item.tag = item.tag && this.$i18n( item.tag );
-					return item;
-				},
-			);
-		},
-		updateMenuItems( searchOptions: SearchOptions ): void {
-			if ( this.debouncedUpdateMenuItems === null ) {
-				this.debouncedUpdateMenuItems = debounce(
-					async ( debouncedSearchOptions: SearchOptions ) => {
-						this.searchResults = await this.searchForMenuItems( debouncedSearchOptions );
+	);
+}
+
+function updateMenuItems( searchOptions: SearchOptions ): void {
+	if ( debouncedUpdateMenuItems === null ) {
+		debouncedUpdateMenuItems = debounce(
+			async ( debouncedSearchOptions: SearchOptions ) => {
+				searchResults.value = ( await props.searchForMenuItems( debouncedSearchOptions ) ).map(
+					( item: MenuItemData & SearchResult ) => {
+						item.value = item.id;
+						delete item.match;
+						delete item.url;
+						return item;
 					},
-					150,
 				);
-			}
-			this.debouncedUpdateMenuItems( searchOptions );
-		},
-	},
-	watch: {
-		disabled( isDisabled: boolean ): void {
-			if ( isDisabled ) {
-				this.search = '';
-			}
-		},
-		search( newSearchString: string ): void {
-			this.topItemIndex = 0;
-			if ( !newSearchString ) {
-				this.searchResults = [];
-				return;
-			}
-			const searchOptions: SearchOptions = {
-				search: newSearchString,
-				limit: NUMBER_OF_SEARCH_RESULTS,
-			};
-			this.updateMenuItems( searchOptions );
-		},
-		modelValue( newValue: MenuItem | null ): void {
-			if ( newValue && newValue.id === this.modelValue.id ) {
-				this.search = newValue.label;
-			}
-		},
-	},
-	mounted() {
-		if ( this.modelValue && this.modelValue.label && !this.search ) {
-			this.search = this.modelValue.label;
-		}
-	},
+			},
+			150,
+		);
+	}
+	debouncedUpdateMenuItems( searchOptions );
+}
+
+function onInput( newSearchString: string ): void {
+	search.value = newSearchString;
+	topItemIndex.value = 0;
+	if ( !newSearchString ) {
+		searchResults.value = [];
+		return;
+	}
+
+	const searchOptions: SearchOptions = {
+		search: newSearchString,
+		limit: NUMBER_OF_SEARCH_RESULTS,
+	};
+	updateMenuItems( searchOptions );
+}
+
+function onSelect( newSelectedValue: MenuItemValue ): void {
+	selectedValue.value = newSelectedValue;
+	if ( newSelectedValue ) {
+		const selectedElement: ( MenuItemData & SearchResult ) | null =
+		searchResults.value.filter( s => s.value === newSelectedValue )[ 0 ];
+		emit( 'update:modelValue', selectedElement );
+	} else {
+		emit( 'update:modelValue', null );
+	}
+}
+
+watch( () => props.disabled, ( isDisabled: boolean ) => {
+	if ( isDisabled ) {
+		search.value = '';
+	}
+} );
+
+watch( () => props.modelValue, ( newValue: MenuItemDataWithId | null ) => {
+	if ( newValue && newValue.id === props.modelValue?.id ) {
+		search.value = newValue.label ?? newValue.description ?? ( newValue.value as string );
+		onInput( search.value );
+	}
+} );
+
+onMounted( () => {
+	if ( props.modelValue && props.modelValue.label && !search.value ) {
+		search.value = props.modelValue.label;
+	}
 } );
 </script>

@@ -49,11 +49,11 @@ describe( 'PropertyLookup.vue', () => {
 	it( 'passes search function down and dispatches action when it is called', async () => {
 		const searchResults = [
 			{ label: 'abc', description: 'def', id: 'P123' },
-			{ label: 'date of birth', description: '', id: 'P345', tag: 'some-tag-message-key' },
+			{ label: 'date of birth', description: '', id: 'P345', supportingText: 'some-tag-message-key' },
 		];
 
 		const expectedSearchResults = JSON.parse( JSON.stringify( searchResults ) );
-		expectedSearchResults[ 1 ].tag = 'some-tag-copy';
+		expectedSearchResults[ 1 ].supportingText = '(some-tag-copy)';
 		const wrapper = shallowMount( PropertyLookup, {
 			global: {
 				plugins: [ i18n, createTestingPinia() ],

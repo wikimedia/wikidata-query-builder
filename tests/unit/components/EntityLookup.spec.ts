@@ -1,6 +1,6 @@
 import EntityLookup from '@/components/EntityLookup.vue';
 import { shallowMount } from '@vue/test-utils';
-import { Lookup } from '@wmde/wikit-vue-components';
+import { CdxLookup } from '@wikimedia/codex';
 import { createI18n } from 'vue-banana-i18n';
 import SearchOptions from '@/data-access/SearchOptions';
 import { nextTick } from 'vue';
@@ -31,36 +31,15 @@ describe( 'EntityLookup.vue', () => {
 			},
 			props: defaultProps,
 		} );
-		const someEventContent = {};
+		const someEventContent = null;
 
-		wrapper.findComponent( Lookup ).vm.$emit( 'input', someEventContent );
+		wrapper.findComponent( CdxLookup ).vm.$emit( 'update:selected', someEventContent );
 
 		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toBe( someEventContent );
 	} );
 
-	it( 'pass value prop down to Lookup', () => {
-		const property = {
-			label: 'some label',
-			description: 'some description',
-		};
-
-		const searchForMenuItems = jest.fn().mockResolvedValue( [] );
-		const wrapper = shallowMount( EntityLookup, {
-			global: {
-				plugins: [ i18n ],
-			},
-			props: {
-				...defaultProps,
-				modelValue: property,
-				searchForMenuItems,
-			},
-		} );
-
-		expect( wrapper.findComponent( Lookup ).props( 'value' ) ).toStrictEqual( property );
-	} );
-
 	it( 'uses prop method to search for Entities on new search string', async () => {
-		const searchResults = [ { label: 'abc', description: 'def', id: 'P123' } ];
+		const searchResults = [ { label: 'abc', description: 'def', id: 'P123', value: 'P123' } ];
 		const searchForMenuItems = jest.fn().mockResolvedValue( searchResults );
 		const wrapper = shallowMount( EntityLookup, {
 			global: {
@@ -74,15 +53,13 @@ describe( 'EntityLookup.vue', () => {
 
 		const searchOptions: SearchOptions = { search: 'postal', limit: 12 };
 
-		await wrapper.findComponent( Lookup ).vm.$emit( 'update:search-input', searchOptions.search );
-
+		await wrapper.findComponent( CdxLookup ).vm.$emit( 'input', searchOptions.search );
 		expect( searchForMenuItems ).toHaveBeenCalledWith( searchOptions );
-		expect( wrapper.findComponent( Lookup ).props( 'searchInput' ) ).toBe( searchOptions.search );
+		expect( wrapper.findComponent( CdxLookup ).props( 'inputValue' ) ).toBe( searchOptions.search );
 
 		// it really needs two ticks ¯\_(ツ)_/¯
 		await nextTick();
-		await nextTick();
-		expect( wrapper.findComponent( Lookup ).props( 'menuItems' ) ).toStrictEqual( searchResults );
+		expect( wrapper.findComponent( CdxLookup ).props( 'menuItems' ) ).toStrictEqual( searchResults );
 	} );
 
 	it( 'clears the search results on the search string being emptied', async () => {
@@ -107,10 +84,10 @@ describe( 'EntityLookup.vue', () => {
 			},
 		} );
 
-		await wrapper.findComponent( Lookup ).vm.$emit( 'update:search-input', '' );
+		await wrapper.findComponent( CdxLookup ).vm.$emit( 'input', '' );
 		expect( searchForMenuItems ).not.toHaveBeenCalled();
-		expect( wrapper.findComponent( Lookup ).props( 'searchInput' ) ).toBe( '' );
-		expect( wrapper.findComponent( Lookup ).props( 'menuItems' ) ).toStrictEqual( [] );
+		expect( wrapper.findComponent( CdxLookup ).props( 'inputValue' ) ).toBe( '' );
+		expect( wrapper.findComponent( CdxLookup ).props( 'menuItems' ) ).toStrictEqual( [] );
 	} );
 
 	it( 'passes error prop down to Lookup', () => {
@@ -129,9 +106,6 @@ describe( 'EntityLookup.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( Lookup ).props( 'error' ) ).toStrictEqual( {
-			type: 'error',
-			message: 'some-error-copy',
-		} );
+		expect( wrapper.findComponent( CdxLookup ).props( 'status' ) ).toStrictEqual( 'error' );
 	} );
 } );

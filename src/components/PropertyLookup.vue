@@ -15,7 +15,7 @@
 import EntityLookup from '@/components/EntityLookup.vue';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';
-import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
+import { MenuItemData } from '@wikimedia/codex';
 import { PropType } from 'vue';
 import { defineComponent } from 'vue';
 import { useStore } from '@/store/index';
@@ -30,7 +30,7 @@ export default defineComponent( {
 	},
 	props: {
 		modelValue: {
-			type: Object as PropType<MenuItem>,
+			type: Object as PropType<MenuItemData>,
 			default: null,
 		},
 		error: {
@@ -42,9 +42,12 @@ export default defineComponent( {
 	methods: {
 		setTagForSearchResults( searchResults: SearchResult[] ): SearchResult[] {
 			return searchResults.map(
-				( item: MenuItem & SearchResult ) => {
-					if ( item.tag ) {
-						item.tag = this.$i18n( item.tag );
+				( item: MenuItemData & SearchResult ) => {
+					if ( item.supportingText ) {
+						item.supportingText = this.$i18n( item.supportingText );
+						if ( item.supportingText ) {
+							item.supportingText = `(${item.supportingText})`;
+						}
 					}
 					return item;
 				},

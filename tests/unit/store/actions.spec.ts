@@ -274,7 +274,7 @@ describe( 'actions', () => {
 			const expectedResult = [
 				{
 					...searchInput[ 0 ],
-					tag: 'query-builder-property-lookup-limited-support-tag',
+					supportingText: 'query-builder-property-lookup-limited-support-tag',
 				},
 			];
 			const searchProperties = jest.fn().mockResolvedValue(
