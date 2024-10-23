@@ -1,0 +1,20 @@
+@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
+
+@mixin wikit-label-mixin($displayType: 'inline') {
+	color: $color-base;
+	font-family: $font-family-system-sans;
+	font-size: $font-size-medium;
+	font-weight: $font-weight-bold;
+	line-height: $line-height-xx-small;
+	display: $displayType;
+	overflow-wrap: break-word;
+	hyphens: auto;
+
+	&--disabled {
+		color: $color-disabled;
+	}
+
+	@if $displayType == block {
+		padding-block-end: $spacing-25;
+	}
+}
