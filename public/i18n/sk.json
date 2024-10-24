@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Oujon",
 			"Spider 001757",
 			"Yardom78"
 		]
@@ -70,7 +71,7 @@
 	"query-builder-footer-about-query-builder": "O nástroji na tvorbu dotazov",
 	"query-builder-footer-licence": "Licencované pod [3-doložková licencia BSD s $1]",
 	"query-builder-footer-build-time": "Posledné zostavenie o [$1 $2]",
-	"query-builder-footer-view-source": "Zobraziť zdroj",
+	"query-builder-footer-view-source": "Získajte zdrojový kód",
 	"query-builder-footer-report-link": "Nahlásiť problém",
 	"query-builder-footer-about-us": "O nás",
 	"query-builder-footer-privacy-policy": "Zásady ochrany osobných údajov",
