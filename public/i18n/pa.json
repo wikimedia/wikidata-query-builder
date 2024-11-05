@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Cabal"
+		]
+	},
+	"query-builder-intro-heading": "ਇਸ ਸੰਦ ਬਾਰੇ",
+	"query-builder-query-heading": "ਪੁੱਛਗਿੱਛ",
+	"query-builder-settings-heading": "ਪਸੰਦਾਂ",
+	"query-builder-find-all-items": "ਸਾਰੀਆਂ ਚੀਜ਼ਾਂ ਲੱਭੋ...",
+	"query-builder-run-query": "ਪੁੱਛਗਿੱਛ ਚਲਾਓ",
+	"query-builder-input-value-label": "ਮੁੱਲ",
+	"query-builder-input-value-placeholder": "ਇੱਕ ਮੁੱਲ ਦਾਖਲ ਕਰੋ",
+	"query-builder-item-value-lookup-no-match-found": "ਕੋਈ ਮੇਲ ਨਹੀਂ ਮਿਲਿਆ",
+	"query-builder-lexeme-value-lookup-no-match-found": "ਕੋਈ ਮੇਲ ਨਹੀਂ ਮਿਲਿਆ",
+	"query-builder-sense-value-lookup-no-match-found": "ਕੋਈ ਮੇਲ ਨਹੀਂ ਮਿਲਿਆ",
+	"query-builder-form-value-lookup-no-match-found": "ਕੋਈ ਮੇਲ ਨਹੀਂ ਮਿਲਿਆ",
+	"query-builder-property-lookup-label": "ਜਾਇਦਾਦ",
+	"query-builder-property-lookup-no-match-found": "ਕੋਈ ਮੇਲ ਨਹੀਂ ਮਿਲਿਆ",
+	"query-builder-property-lookup-limited-support-tag": "ਸੀਮਤ ਸਹਾਇਤਾ",
+	"query-builder-result-header": "ਨਤੀਜੇ",
+	"query-builder-result-error-missing-property": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਵਿਸ਼ੇਸ਼ਤਾ ਚੁਣੋ",
+	"query-builder-result-error-missing-value": "ਕਿਰਪਾ ਕਰਕੇ ਕੋਈ ਮੁੱਲ ਦਾਖਲ ਕਰੋ",
+	"query-builder-add-condition": "ਸ਼ਰਤ ਜੋੜੋ",
+	"query-builder-value-type-relation-dropdown-matching": "ਮੇਲ ਖਾਂਦਾ",
+	"query-builder-value-type-relation-dropdown-regardless-of-value": "ਮੁੱਲ ਦੀ ਪਰਵਾਹ ਕੀਤੇ ਬਿਨਾਂ",
+	"query-builder-value-type-relation-dropdown-less-than-quantity": "ਤੋਂ ਘੱਟ",
+	"query-builder-value-type-relation-dropdown-more-than-quantity": "ਇਸ ਤੋਂ ਵੱਧ",
+	"query-builder-sharable-link-message": "ਯੂਆਰਐੱਲ ਨੂੰ ਚੂੰਢੀ-ਤਖਤੀ 'ਤੇ ਲਿਖਿਆ ਗਿਆ।"
+}
