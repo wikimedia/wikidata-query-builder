@@ -1,15 +1,17 @@
 <template>
-	<div class="querybuilder-dropdown">
-		<CdxField :hide-label="true">
+	<div class="valuetype-dropdown">
+		<CdxField class="valuetype-dropdown__field">
 			<CdxSelect
 				ref="select"
 				v-model:selected="selected"
 				:menu-items="optionItems"
 				:disabled="disabled"
-				aria-label="Value Type"
+				aria-labelledby="value-dropdown__label"
 			/>
 			<template #label>
-				Value Type
+				<span id="value-dropdown__label" class="valuetype-dropdown__label">
+					{{ $i18n( "query-builder-value-type-label" ) }}
+				</span>
 			</template>
 		</CdxField>
 	</div>
@@ -137,5 +139,14 @@ export default defineComponent( {
 	.cdx-select-vue__indicator {
 		inset-inline-end: 12px;
 		inset-inline-start: unset;
+	}
+
+	.valuetype-dropdown {
+		// Make the label invisible, but keep it's space. `visibility: hidden`
+		// prevents screen readers from accessing the content
+		&__label {
+			color: transparent;
+			user-select: none;
+		}
 	}
 </style>

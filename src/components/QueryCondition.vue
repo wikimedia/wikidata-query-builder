@@ -261,10 +261,6 @@ $tinyViewportWidth: $max-width-breakpoint-mobile; // Set so that inputs show all
 		}
 	}
 }
-
-.query-condition__value-type-dropdown {
-	margin-block-start: var(--dimension-layout-small);
-}
 </style>
 
 <style lang="scss">
