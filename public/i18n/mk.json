@@ -32,6 +32,7 @@
 	"query-builder-result-error-missing-property": "Изберете својство",
 	"query-builder-result-error-missing-value": "Внесете вредност",
 	"query-builder-add-condition": "Додај услов",
+	"query-builder-value-type-label": "Однос вредност-својство",
 	"query-builder-value-type-relation-dropdown-matching": "соодветство",
 	"query-builder-value-type-relation-dropdown-without": "без",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "независно од вредноста",

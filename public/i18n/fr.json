@@ -3,6 +3,7 @@
 		"authors": [
 			"Florian COLLIN",
 			"Gomoko",
+			"Mahabarata",
 			"Thibaut120094",
 			"VIGNERON",
 			"Verdy p",
@@ -37,6 +38,7 @@
 	"query-builder-result-error-missing-property": "Veuillez sélectionner une propriété",
 	"query-builder-result-error-missing-value": "Veuillez saisir une valeur",
 	"query-builder-add-condition": "Ajouter une condition",
+	"query-builder-value-type-label": "Relation valeur-propriété",
 	"query-builder-value-type-relation-dropdown-matching": "correspondant à",
 	"query-builder-value-type-relation-dropdown-without": "sans",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "quelle que soit la valeur",

@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Rooiratel",
 			"Taalvalk",
 			"Winstonza"
 		]
@@ -50,10 +51,14 @@
 	"query-builder-footer-about-us": "Meer oor ons",
 	"query-builder-footer-privacy-policy": "Privaatheidsbeleid",
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
-	"query-builder-footer-team": "Geskep deur die Wikidata-span",
+	"query-builder-footer-team": "Gemaak met ❤️ deur die [$1 Wikidata-span]",
+	"query-builder-footer-curious-facts": "Nuuskierige feite",
 	"query-builder-date-input-value-label": "Waarde",
 	"query-builder-date-input-placeholder": "byvoorbeeld 31-12-2020",
 	"query-builder-date-input-prompt-text": "Vul asseblief 'n datum in",
 	"query-builder-date-input-results-intro-text": "Sal vertolk word as:",
-	"query-builder-date-input-calendar-notice-text": "Alle datums sal vertolk word as Gregoriaanse datums"
+	"query-builder-date-input-calendar-notice-text": "Alle datums sal vertolk word as Gregoriaanse datums",
+	"query-builder-language-selector-input-placeholder": "Kies taal",
+	"query-builder-language-selector-no-results": "Taal nie beskikbaar nie",
+	"query-builder-language-selector-options-menu-aria-label": "Tale"
 }
