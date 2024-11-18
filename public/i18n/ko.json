@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bluehill",
+			"Suleiman the Magnificent Television",
 			"Underbaaar",
 			"Ykhwong",
 			"그냥기여자",
@@ -37,6 +38,7 @@
 	"query-builder-result-error-missing-property": "속성을 선택해 주십시오",
 	"query-builder-result-error-missing-value": "값을 입력해 주십시오",
 	"query-builder-add-condition": "조건 추가",
+	"query-builder-value-type-label": "값 및 속성의 관계",
 	"query-builder-value-type-relation-dropdown-matching": "포함",
 	"query-builder-value-type-relation-dropdown-without": "제외",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "값에 무관하게",

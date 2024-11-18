@@ -32,6 +32,7 @@
 	"query-builder-result-error-missing-property": "Тилейбиз, энчилик сайлагъыз",
 	"query-builder-result-error-missing-value": "Магъананы киргизигиз",
 	"query-builder-add-condition": "Шартны къош",
+	"query-builder-value-type-label": "Багъаны эмда Энчиликни Илешкиси",
 	"query-builder-value-type-relation-dropdown-matching": "келишиу",
 	"query-builder-value-type-relation-dropdown-without": "болмагъанлай",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "магъанасы не болса болсун",

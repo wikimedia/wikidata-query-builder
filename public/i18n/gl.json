@@ -33,6 +33,7 @@
 	"query-builder-result-error-missing-property": "Por favor, seleccione unha propiedade",
 	"query-builder-result-error-missing-value": "Por favor, introduza un valor",
 	"query-builder-add-condition": "Engadir a condición",
+	"query-builder-value-type-label": "Relación de valor e propiedade",
 	"query-builder-value-type-relation-dropdown-matching": "que coincida con",
 	"query-builder-value-type-relation-dropdown-without": "sen",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "calquera que sexa o seu valor",
