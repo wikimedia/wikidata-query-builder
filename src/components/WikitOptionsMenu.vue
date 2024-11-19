@@ -88,7 +88,6 @@ const lookupMenuRef = ref<HTMLElement|null>( null );
 
 const emit = defineEmits( [ 'select', 'esc', 'scroll', 'keyboard-hover-change' ] );
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function onKeyDown( event: KeyboardEvent ): void {
 	switch ( event.key ) {
 		case 'Enter':
@@ -130,6 +129,10 @@ function onKeyDown( event: KeyboardEvent ): void {
 			break;
 	}
 }
+
+defineExpose( {
+	onKeyDown,
+} );
 
 function keyboardScroll(): void {
 	const element = menuItemsRef.value as HTMLElement[];
