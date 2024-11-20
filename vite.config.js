@@ -60,7 +60,9 @@ export default {
 	css: {
 		preprocessorOptions: {
 			scss: {
+				// @use 'sass:math' is for WikitPopover component
 				additionalData: `
+				@use 'sass:math';
 				@import "@wmde/wikit-tokens/dist/variables";
 				@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 				`,

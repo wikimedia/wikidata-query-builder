@@ -1,7 +1,7 @@
 <template>
 	<span class="querybuilder__sharable-link">
 		{{ $i18n( 'query-builder-sharable-link-text' ) }}
-		<Popover
+		<WikitPopover
 			:react-to-hover="false"
 			position="end"
 		>
@@ -19,7 +19,7 @@
 			<template #default>
 				{{ $i18n( 'query-builder-sharable-link-message' ) }}
 			</template>
-		</Popover>
+		</WikitPopover>
 	</span>
 </template>
 
@@ -27,7 +27,7 @@
 import { defineComponent } from '@/compat';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconLink } from '@wikimedia/codex-icons';
-import { Popover } from '@wmde/wikit-vue-components';
+import WikitPopover from './WikitPopover.vue';
 import QuerySerializer from '@/serialization/QuerySerializer';
 import services from '@/ServicesFactory';
 import { useStore } from '@/store/index';
@@ -37,7 +37,7 @@ export default defineComponent( {
 	components: {
 		CdxIcon,
 		CdxButton,
-		Popover,
+		WikitPopover,
 	},
 	setup() {
 		return {

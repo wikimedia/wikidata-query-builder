@@ -1,6 +1,6 @@
 <template>
 	<span class="querybuilder-tooltip">
-		<Popover
+		<WikitPopover
 			:react-to-hover="true"
 			:position="position"
 		>
@@ -13,13 +13,13 @@
 				</CdxButton>
 			</template>
 			<div v-html="message" />
-		</Popover>
+		</WikitPopover>
 	</span>
 </template>
 
 <script lang="ts">
 import { defineComponent } from '@/compat';
-import { Popover } from '@wmde/wikit-vue-components';
+import WikitPopover from './WikitPopover.vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconInfo } from '@wikimedia/codex-icons';
 
@@ -28,7 +28,7 @@ export default defineComponent( {
 	components: {
 		CdxIcon,
 		CdxButton,
-		Popover,
+		WikitPopover,
 	},
 	props: {
 		position: {
