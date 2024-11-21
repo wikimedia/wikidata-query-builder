@@ -7,6 +7,7 @@
 			"Nickthijssen1994",
 			"Romaine",
 			"SPQRobin",
+			"Siebrand",
 			"Xbaked potatox"
 		]
 	},
@@ -38,6 +39,7 @@
 	"query-builder-result-error-missing-property": "Selecteer een eigenschap",
 	"query-builder-result-error-missing-value": "Voer een waarde in",
 	"query-builder-add-condition": "Voeg voorwaarde toe",
+	"query-builder-value-type-label": "Waarde-eigenschaprelatie",
 	"query-builder-value-type-relation-dropdown-matching": "bijpassend",
 	"query-builder-value-type-relation-dropdown-without": "zonder",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "ongeacht de waarde",
