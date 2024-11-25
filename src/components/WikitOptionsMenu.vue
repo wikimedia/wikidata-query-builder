@@ -74,9 +74,7 @@ const props = withDefaults( defineProps<Props>(), {
 	label: '',
 } );
 
-function generateUid( componentName: string ): string {
-	return `${componentName}-${Math.floor( Math.random() * 1000000 )}`;
-}
+import { generateUid } from '@/utils';
 
 const maxHeight: Ref<null | number> = ref( null );
 const activeItemIndex: Ref<number> = ref( -1 );

@@ -54,22 +54,14 @@ import { useAttrs, Ref, ref, PropType, computed } from 'vue';
 
 import WikitValidationMessage from './WikitValidationMessage.vue';
 import WikitLookupInput from './WikitLookupInput.vue';
+
+import { generateUid } from '@/utils';
+import { ErrorProp, MenuItem } from '@/types';
+
 const attrs = useAttrs();
 const { class: extraClasses, style: extraStyles, ...otherAttributes } = attrs;
 
-function generateUid( componentName: string ): string {
-	return `${componentName}-${Math.floor( Math.random() * 1000000 )}`;
-}
-
 const inputId: Ref<string> = ref( generateUid( 'wikit-Lookup' ) );
-
-interface ErrorProp { type: 'error'|'warning'; message: string }
-
-type MenuItem = {
-	label: string;
-	description: string;
-	tag?: string; // for internal use
-};
 
 const props = defineProps( {
 	error: {

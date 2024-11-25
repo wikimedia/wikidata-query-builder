@@ -48,9 +48,7 @@ import isEqual from 'lodash.isequal';
 import WikitOptionsMenu from './WikitOptionsMenu.vue';
 import WikitInput from './WikitInput.vue';
 
-function generateUid( componentName: string ): string {
-	return `${componentName}-${Math.floor( Math.random() * 1000000 )}`;
-}
+import { generateUid } from '@/utils';
 
 const menu = ref<InstanceType<typeof WikitOptionsMenu> | null>( null );
 

@@ -259,7 +259,9 @@ const props = withDefaults( defineProps<Props>(), {
 	size: 'large',
 } );
 
-const id = ref( `wikit-Icon-${Math.floor( Math.random() * 1000000 )}` );
+import { generateUid } from '@/utils';
+
+const id = ref( generateUid( 'wikit-Icon' ) );
 
 const flip = computed<boolean>( () => {
 	return props.dir === IconDirection.RTL && flippable.includes( props.type as IconTypes );
