@@ -1,5 +1,5 @@
 <template>
-	<QuantityInput
+	<WikitQuantityInput
 		v-model:number-input-value="numberInputValue"
 		v-model:unit-lookup-value="unitLookupValue"
 		v-model:unit-lookup-search-input="search"
@@ -26,12 +26,12 @@
 				:message="$i18n( 'query-builder-input-value-tooltip' )"
 			/>
 		</template>
-	</QuantityInput>
+	</WikitQuantityInput>
 </template>
 
 <script lang="ts">
+import WikitQuantityInput from './WikitQuantityInput.vue';
 
-import { QuantityInput } from '@wmde/wikit-vue-components';
 import { PropType } from 'vue';
 import { defineComponent } from '@/compat';
 import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
@@ -49,7 +49,7 @@ const NUMBER_OF_SEARCH_RESULTS = 12;
 export default defineComponent( {
 	name: 'QuantityValueInput',
 	components: {
-		QuantityInput,
+		WikitQuantityInput,
 		InfoTooltip,
 	},
 	props: {

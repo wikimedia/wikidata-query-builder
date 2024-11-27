@@ -110,7 +110,7 @@ defineEmits( [ 'update:searchInput', 'input', 'scroll' ] );
 
 </script>
 
-<style>
+<style lang="scss">
 .wikit-Lookup {
 	&__label-wrapper {
 		display: flex;
@@ -119,7 +119,7 @@ defineEmits( [ 'update:searchInput', 'input', 'scroll' ] );
 	}
 
 	&__label {
-		@include Label( block );
+		@include wikit-label-mixin( block );
 	}
 }
 </style>

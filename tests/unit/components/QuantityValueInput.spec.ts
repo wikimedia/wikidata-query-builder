@@ -1,6 +1,6 @@
 import QuantityValueInput from '@/components/QuantityValueInput.vue';
 import { ItemValue } from '@/store/RootState';
-import { QuantityInput } from '@wmde/wikit-vue-components';
+import WikitQuantityInput from '@/components/WikitQuantityInput.vue';
 import { shallowMount, mount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import { createI18n } from 'vue-banana-i18n';
@@ -21,7 +21,7 @@ const defaultProps = {
 };
 
 describe( 'QuantityValueInput.vue', () => {
-	it( 'bubbles numberInputValue event as input from the QuantityInput up', async () => {
+	it( 'bubbles numberInputValue event as input from the WikitQuantityInput up', async () => {
 
 		const numberValue = 10;
 		const stringNumberValue = numberValue.toString();
@@ -35,7 +35,7 @@ describe( 'QuantityValueInput.vue', () => {
 			},
 		} );
 
-		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:numberInputValue', stringNumberValue );
+		await wrapper.findComponent( WikitQuantityInput ).vm.$emit( 'update:numberInputValue', stringNumberValue );
 		await nextTick();
 
 		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toStrictEqual( {
@@ -45,7 +45,7 @@ describe( 'QuantityValueInput.vue', () => {
 		} );
 	} );
 
-	it( 'bubbles unitLookupValue event as input from the QuantityInput up', async () => {
+	it( 'bubbles unitLookupValue event as input from the WikitQuantityInput up', async () => {
 
 		const unitValue = { label: 'Dogs', value: 'doggos' };
 
@@ -62,7 +62,7 @@ describe( 'QuantityValueInput.vue', () => {
 			},
 		} );
 
-		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:unitLookupValue', unitValue );
+		await wrapper.findComponent( WikitQuantityInput ).vm.$emit( 'update:unitLookupValue', unitValue );
 		await nextTick();
 
 		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toStrictEqual( {
@@ -72,7 +72,7 @@ describe( 'QuantityValueInput.vue', () => {
 		} );
 	} );
 
-	it( 'pass number part of value prop down to QuantityInput', () => {
+	it( 'pass number part of value prop down to WikitQuantityInput', () => {
 		const numberValue = 10;
 
 		const wrapper = shallowMount( QuantityValueInput, {
@@ -88,7 +88,8 @@ describe( 'QuantityValueInput.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( QuantityInput ).props( 'numberInputValue' ) ).toBe( numberValue.toString() );
+		expect( wrapper.findComponent( WikitQuantityInput )
+			.props( 'numberInputValue' ) ).toBe( numberValue.toString() );
 
 	} );
 
@@ -105,11 +106,11 @@ describe( 'QuantityValueInput.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( QuantityInput ).props( 'numberInputValue' ) ).toBe( numberValue );
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'numberInputValue' ) ).toBe( numberValue );
 
 	} );
 
-	it( 'pass unit part of value prop down to QuantityInput', async () => {
+	it( 'pass unit part of value prop down to WikitQuantityInput', async () => {
 		const unitValue: ItemValue = { label: 'Stars', id: 'lil stars' };
 
 		const wrapper = shallowMount( QuantityValueInput, {
@@ -130,11 +131,11 @@ describe( 'QuantityValueInput.vue', () => {
 
 		await nextTick();
 
-		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupValue' ) ).toStrictEqual( unitValue );
-		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupSearchInput' ) ).toBe( unitValue.id );
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'unitLookupValue' ) ).toStrictEqual( unitValue );
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'unitLookupSearchInput' ) ).toBe( unitValue.id );
 	} );
 
-	it( 'passes error prop down to QuantityInput', async () => {
+	it( 'passes error prop down to WikitQuantityInput', async () => {
 		const error = {
 			type: 'error',
 			message: 'some description',
@@ -152,9 +153,9 @@ describe( 'QuantityValueInput.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( QuantityInput ).props( 'error' ) )
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'error' ) )
 			.toStrictEqual( { type: error.type, message: error.message } );
-		expect( wrapper.findComponent( QuantityInput ).props( 'errorCause' ) ).toBe( error.subproperty );
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'errorCause' ) ).toBe( error.subproperty );
 	} );
 
 	it( 'unit input: unitLookupSearchInput prop for unit item changes on update search string', async () => {
@@ -173,10 +174,12 @@ describe( 'QuantityValueInput.vue', () => {
 
 		const searchOptions: SearchOptions = { search: 'meters', limit: 12 };
 
-		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:unitLookupSearchInput', searchOptions.search );
+		await wrapper.findComponent( WikitQuantityInput )
+			.vm.$emit( 'update:unitLookupSearchInput', searchOptions.search );
 		await nextTick();
 
-		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupSearchInput' ) ).toBe( searchOptions.search );
+		expect( wrapper.findComponent( WikitQuantityInput )
+			.props( 'unitLookupSearchInput' ) ).toBe( searchOptions.search );
 		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toStrictEqual( {
 			value: 10,
 			unit: null,
@@ -206,9 +209,9 @@ describe( 'QuantityValueInput.vue', () => {
 			},
 		} );
 
-		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:unitLookupSearchInput', '' );
-		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupSearchInput' ) ).toBe( '' );
-		expect( wrapper.findComponent( QuantityInput ).props( 'unitLookupMenuItems' ) ).toStrictEqual( [] );
+		await wrapper.findComponent( WikitQuantityInput ).vm.$emit( 'update:unitLookupSearchInput', '' );
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'unitLookupSearchInput' ) ).toBe( '' );
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'unitLookupMenuItems' ) ).toStrictEqual( [] );
 	} );
 
 	it( 'sets an error itself if the numberInputValue does not contain a valid number', async () => {
@@ -223,7 +226,7 @@ describe( 'QuantityValueInput.vue', () => {
 			},
 		} );
 
-		await wrapper.findComponent( QuantityInput ).vm.$emit( 'update:numberInputValue', stringNumberValue );
+		await wrapper.findComponent( WikitQuantityInput ).vm.$emit( 'update:numberInputValue', stringNumberValue );
 		await nextTick();
 		await nextTick(); // mysteries of Vue
 
@@ -233,8 +236,8 @@ describe( 'QuantityValueInput.vue', () => {
 			rawUnitInput: '',
 		} );
 
-		expect( wrapper.findComponent( QuantityInput ).props( 'errorCause' ) ).toBe( 'number' );
-		expect( wrapper.findComponent( QuantityInput ).props( 'error' ) ).toStrictEqual( {
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'errorCause' ) ).toBe( 'number' );
+		expect( wrapper.findComponent( WikitQuantityInput ).props( 'error' ) ).toStrictEqual( {
 			message: 'query-builder-quantity-value-error-number',
 			type: 'error',
 		} );

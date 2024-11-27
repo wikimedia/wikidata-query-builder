@@ -63,14 +63,14 @@ const keyboardHoverId: Ref< string | null> = ref( null );
 const optionsMenuId: Ref<string> = ref( generateUid( 'wikit-OptionsMenu' ) );
 
 interface Props {
-	feedbackType: null | 'warning' | 'error';
-	menuItems: unknown[];
-	disabled: boolean;
-	ariaRequired: boolean;
-	placeholder: string;
-	value: null | object;
-	searchInput: string;
-	label: string;
+	feedbackType?: null | 'warning' | 'error';
+	menuItems?: unknown[];
+	disabled?: boolean;
+	ariaRequired?: boolean;
+	placeholder?: string;
+	value?: null | object;
+	searchInput?: string;
+	label?: string;
 }
 
 type MenuItem = {

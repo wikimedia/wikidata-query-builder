@@ -13,7 +13,7 @@
 
 interface Props {
 	feedbackType?: 'warning'|'error'|null;
-	value: string;
+	value: string | null;
 }
 
 withDefaults( defineProps<Props>(), {
