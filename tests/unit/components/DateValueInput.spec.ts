@@ -1,4 +1,4 @@
-import { DateInput } from '@wmde/wikit-vue-components';
+import WikitDateInput from '@/components/WikitDateInput.vue';
 import { mount, shallowMount } from '@vue/test-utils';
 import { createI18n } from 'vue-banana-i18n';
 import DateValueInput from '@/components/DateValueInput.vue';
@@ -21,7 +21,6 @@ describe( 'DateValueInput.vue', () => {
 		} );
 		const inputDate = '31-12-2020';
 		wrapper.find( 'input' ).setValue( inputDate );
-
 		expect( wrapper.emitted( 'update:modelValue' )![ 0 ][ 0 ] ).toBe( inputDate );
 	} );
 
@@ -35,7 +34,7 @@ describe( 'DateValueInput.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( DateInput ).props( 'parsedValue' ) ).toBe( null );
+		expect( wrapper.findComponent( WikitDateInput ).props( 'parsedValue' ) ).toBe( null );
 	} );
 
 	it( 'sets `parsedValue` prop based on the `value` prop', () => {
@@ -53,6 +52,6 @@ describe( 'DateValueInput.vue', () => {
 			},
 		} );
 
-		expect( wrapper.findComponent( DateInput ).props( 'parsedValue' ) ).toBe( modelValue.formattedValue );
+		expect( wrapper.findComponent( WikitDateInput ).props( 'parsedValue' ) ).toBe( modelValue.formattedValue );
 	} );
 } );

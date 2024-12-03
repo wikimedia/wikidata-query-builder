@@ -17,7 +17,7 @@
 			:aria-expanded="showMenu || 'false'"
 			:aria-required="ariaRequired ? 'true' : 'false'"
 			role="combobox"
-			@input="onInput"
+			@update:model-value="onInput"
 			@focus.native="onFocus"
 			@blur.native="showMenu = false"
 		/>

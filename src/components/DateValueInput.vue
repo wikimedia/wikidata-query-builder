@@ -1,5 +1,5 @@
 <template>
-	<DateInput
+	<WikitDateInput
 		v-model="rawInput"
 		:label="$i18n( 'query-builder-date-input-value-label' )"
 		:placeholder="$i18n( 'query-builder-date-input-placeholder' )"
@@ -17,11 +17,11 @@
 				:message="$i18n( 'query-builder-input-value-tooltip' )"
 			/>
 		</template>
-	</DateInput>
+	</WikitDateInput>
 </template>
 
 <script lang="ts">
-import { DateInput } from '@wmde/wikit-vue-components';
+import WikitDateInput from '@/components/WikitDateInput.vue';
 import { DateValue } from '@/store/RootState';
 import { PropType } from 'vue';
 import { defineComponent } from '@/compat';
@@ -31,7 +31,7 @@ import debounce from 'lodash/debounce';
 export default defineComponent( {
 	name: 'DateValueInput',
 	components: {
-		DateInput,
+		WikitDateInput,
 		InfoTooltip,
 	},
 	props: {

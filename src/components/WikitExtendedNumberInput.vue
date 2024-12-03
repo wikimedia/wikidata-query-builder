@@ -15,7 +15,7 @@
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
-			@input="emitInputEvent"
+			@update:model-value="emitInputEvent"
 		/>
 		<WikitValidationMessage
 			v-if="error"
@@ -49,7 +49,7 @@ const props = withDefaults( defineProps<Props>(), {
 	value: '',
 } );
 
-const feedbackType = computed( () => getFeedbackTypeFromProps( props ) );
+const feedbackType = computed( getFeedbackTypeFromProps( props ) );
 
 const emit = defineEmits( [ 'input', 'invalid-input' ] );
 

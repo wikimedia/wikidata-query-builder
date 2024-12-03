@@ -18,7 +18,7 @@
 				:value="numberInputValue"
 				:disabled="disabled"
 				:feedback-type="errorCause === 'number' || errorCause === 'both' ? feedbackType : null"
-				@input="onNumberInput"
+				@update:model-value="onNumberInput"
 			/>
 			<WikitLookupInput
 				class="wikit-QuantityInput__unit-lookup"
