@@ -96,6 +96,7 @@
 				<div class="querybuilder__run">
 					<CdxButton
 						v-i18n="{ msg: 'query-builder-run-query' }"
+						class="querybuilder__run-button"
 						action="progressive"
 						weight="primary"
 						@click.native="runQuery" />
