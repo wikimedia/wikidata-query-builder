@@ -3,7 +3,10 @@
 		<div class="languageSelector__mobile-header">
 			<span>{{ $i18n( 'query-builder-language-selector-mobile-header' ) }}</span>
 			<button @click="onCloseMenu">
-				<img :src="closeUrl" :alt="$i18n( 'query-builder-language-selector-close-button-label' )">
+				<img
+					:src="closeUrl"
+					:alt="$i18n( 'query-builder-language-selector-close-button-label' )"
+				>
 			</button>
 		</div>
 		<LanguageSelectorInput
@@ -31,99 +34,102 @@
 	</div>
 </template>
 
-<script lang="ts">
-import LanguageSelectorInput from '@/components/LanguageSelectorInput.vue';
-import LanguageSelectorOptionsMenu from '@/components/LanguageSelectorOptionsMenu.vue';
+<script setup lang="ts">
+import LanguageSelectorOptionsMenu from './LanguageSelectorOptionsMenu.vue';
+import LanguageSelectorInput from './LanguageSelectorInput.vue';
 import Language from '@/data-model/Language';
-import { defineComponent } from '@/compat';
+import closeUrlSvg from '/img/close.svg';
 import axios from 'axios';
+import { ref, computed } from 'vue';
+import type { Ref } from 'vue';
+import languageData from '@wikimedia/language-data';
 import debounce from 'lodash.debounce';
-import languagedata from '@wikimedia/language-data';
-import closeUrl from '/img/close.svg';
 
-export default defineComponent( {
-	name: 'LanguageSelector',
-	components: {
-		LanguageSelectorInput,
-		LanguageSelectorOptionsMenu,
-	},
-	emits: [ 'select', 'close' ],
-	data: () => ( {
-		searchInput: '',
-		highlightedIndex: -1,
-		closeUrl,
-		apiLanguageCodes: [ '' ],
-	} ),
-	computed: {
-		languages(): Language[] {
-			const autonyms = languagedata.getAutonyms();
-			const languageCodes = Object.keys( autonyms );
-			languageCodes.sort( languagedata.sortByAutonym );
-			return languageCodes.map( ( code ) => ( {
-				code,
-				autonym: autonyms[ code ],
-			} ) );
-		},
-		shownLanguages(): Language[] {
-			return this.languages.filter( ( language ) =>
-				language.code.startsWith( this.searchInput.toLowerCase() ) ||
-				language.autonym.toLowerCase().includes( this.searchInput.toLowerCase() ) ||
-				this.apiLanguageCodes.includes( language.code ),
-			);
-		},
-	},
-	methods: {
-		async onInput( searchedLanguage: string ) {
-			this.searchInput = searchedLanguage;
-			if ( this.searchInput ) {
-				this.debouncedApiLanguageSearch( this.searchInput );
-			}
-			this.highlightedIndex = 0;
-		},
-		onSelect( languageCode: string ): void {
-			this.$emit( 'select', languageCode );
-		},
-		onClearInputValue(): void {
-			this.searchInput = '';
-		},
-		onCloseMenu(): void {
-			this.$emit( 'close' );
-		},
-		// eslint-disable-next-line vue/no-unused-properties -- exported method
-		focus(): void {
-			( this.$refs.input as InstanceType<typeof LanguageSelectorInput> ).focus();
-		},
-		onArrowDown(): void {
-			this.highlightedIndex = ( this.highlightedIndex + 1 ) % this.shownLanguages.length;
-		},
-		onArrowUp(): void {
-			const length = this.shownLanguages.length;
-			this.highlightedIndex = ( this.highlightedIndex + length - 1 ) % length;
-		},
-		onEnter(): void {
-			this.onSelect( this.shownLanguages[ this.highlightedIndex ].code );
-		},
-		debouncedApiLanguageSearch:
-			debounce( async function ( this: { apiLanguageCodes: string[] }, debouncedInputValue: string ) {
-				await axios.get(
-					'https://www.wikidata.org/w/api.php?action=languagesearch&format=json&formatversion=2',
-					{
-						params: {
-							search: debouncedInputValue,
-							origin: '*', // avoid CORS console errors
-						},
-					} ).then( ( response ) => {
-					this.apiLanguageCodes = Object.keys( response.data.languagesearch );
-				} );
-			}, 200 ),
-	},
+const searchInput: Ref<string> = ref( '' );
+const highlightedIndex: Ref<number> = ref( -1 );
+const closeUrl = ref( closeUrlSvg );
+const apiLanguageCodes = ref( [ '' ] );
+
+const input = ref<InstanceType<typeof LanguageSelectorInput> | null>( null );
+
+const emit = defineEmits( [ 'select', 'close' ] );
+
+const languages = computed<Language[]>( () => {
+	const autonyms = languageData.getAutonyms();
+	const languageCodes = Object.keys( autonyms );
+	languageCodes.sort( languageData.sortByAutonym );
+	return languageCodes.map( ( code ) => ( {
+		code,
+		autonym: autonyms[ code ],
+	} ) );
 } );
+
+const shownLanguages = computed<Language[]>( () => {
+	return languages.value.filter( ( language ) =>
+		language.code.startsWith( searchInput.value.toLowerCase() ) ||
+        language.autonym.toLowerCase().includes( searchInput.value.toLowerCase() ) ||
+        apiLanguageCodes.value.includes( language.code ),
+	);
+} );
+
+const debouncedApiLanguageSearch = debounce( async ( debouncedInputValue: string ) => {
+	await axios.get(
+		'https://www.wikidata.org/w/api.php?action=languagesearch&format=json&formatversion=2',
+		{
+			params: {
+				search: debouncedInputValue,
+				origin: '*', // avoid CORS console errors
+			},
+		} ).then( ( response ) => {
+		apiLanguageCodes.value = Object.keys( response.data.languagesearch );
+	} );
+}, 200 );
+
+function onInput( searchedLanguage: string ): void {
+	console.log( searchedLanguage );
+	searchInput.value = searchedLanguage;
+	if ( searchInput.value ) {
+		debouncedApiLanguageSearch( searchInput.value );
+	}
+
+	highlightedIndex.value = 0;
+}
+
+function onSelect( languageCode: string ): void {
+	emit( 'select', languageCode );
+}
+
+function onClearInputValue(): void {
+	searchInput.value = '';
+}
+
+function onCloseMenu(): void {
+	emit( 'close' );
+}
+
+function focus(): void {
+	input.value?.focus();
+}
+
+function onArrowDown(): void {
+	highlightedIndex.value = ( highlightedIndex.value + 1 ) % shownLanguages.value.length;
+}
+
+function onArrowUp(): void {
+	const length = shownLanguages.value.length;
+	highlightedIndex.value = ( highlightedIndex.value + length - 1 ) % length;
+}
+
+function onEnter(): void {
+	onSelect( shownLanguages.value[ highlightedIndex.value ].code );
+}
+
+defineExpose( { focus } );
+
 </script>
 
 <style lang="scss">
-@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
-
-$tinyViewportWidth: 38em;
+$tiny-viewport-width: 38em;
 
 .querybuilder__language-selector {
 	position: absolute;
@@ -131,7 +137,7 @@ $tinyViewportWidth: 38em;
 	inline-size: 384px;
 	z-index: 1;
 
-	@media (max-width: $tinyViewportWidth) {
+	@media (max-width: $tiny-viewport-width) {
 		inline-size: 100%;
 		position: fixed;
 		inset-block-start: 0;
@@ -145,16 +151,16 @@ $tinyViewportWidth: 38em;
 		padding-block: 12px;
 		padding-inline: 16px;
 		justify-content: space-between;
-		background-color: $background-color-base;
+		background-color: #fff;
 
 		span {
-			color: $color-base;
+			color: #202122;
 			font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
 			font-size: 1em;
 			font-weight: bold;
 		}
 
-		@media (max-width: $tinyViewportWidth) {
+		@media (max-width: $tiny-viewport-width) {
 			display: flex;
 		}
 	}

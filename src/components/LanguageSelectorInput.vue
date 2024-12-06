@@ -2,7 +2,10 @@
 	<div class="languageSelector__input__wrapper">
 		<div class="languageSelector__input-left-side">
 			<div class="languageSelector__input__search-icon">
-				<img :src="searchUrl" alt="">
+				<img
+					:src="searchUrl"
+					alt=""
+				>
 			</div>
 			<input
 				ref="input"
@@ -10,12 +13,12 @@
 				class="languageSelector__input"
 				:value="modelValue"
 				:placeholder="placeholder"
-				@input="$emit( 'update:modelValue', $event.target.value )"
-				@keydown.tab="onTab"
-				@keydown.down.prevent="onArrowDown"
-				@keydown.up.prevent="onArrowUp"
-				@keydown.enter="onEnter"
-				@keydown.esc.prevent="onEscape"
+				@input="onInput"
+				@keydown.tab="$emit( 'tab' )"
+				@keydown.down.prevent="$emit( 'arrowDown' )"
+				@keydown.up.prevent="$emit( 'arrowUp' )"
+				@keydown.enter="$emit( 'enter' )"
+				@keydown.esc.prevent="$emit( 'escape' )"
 			>
 		</div>
 		<button
@@ -23,79 +26,65 @@
 			:class="clearBtnVisible ? 'languageSelector__input__clear-button--visible' : ''"
 			@click="onClearInputValue"
 		>
-			<img :src="clearUrl" :alt="$i18n( 'query-builder-language-selector-clear-button-label' )">
+			<img
+				:src="clearUrl"
+				:alt="$i18n( 'query-builder-language-selector-clear-button-label' )"
+			>
 		</button>
 	</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@/compat';
-import searchUrl from '/img/search.svg';
-import clearUrl from '/img/clear.svg';
+<script setup lang="ts">
+import { ref, computed } from 'vue';
+import searchUrlSvg from '/img/search.svg';
+import clearUrlSvg from '/img/clear.svg';
 
-export default defineComponent( {
-	name: 'LanguageSelectorInput',
-	props: {
-		modelValue: {
-			type: String,
-			default: '',
-		},
-		placeholder: {
-			type: String,
-			default: '',
-		},
-	},
-	emits: [ 'update:modelValue', 'clear', 'arrowDown', 'arrowUp', 'enter', 'escape', 'tab' ],
-	data() {
-		return {
-			searchUrl,
-			clearUrl,
-		};
-	},
-	computed: {
-		clearBtnVisible(): boolean {
-			return this.modelValue.length > 0;
-		},
-	},
-	methods: {
-		onClearInputValue(): void {
-			this.$emit( 'clear' );
-			this.focus();
-		},
+interface Props {
+	modelValue?: string;
+	placeholder?: string;
+}
 
-		focus(): void {
-			( this.$refs.input as HTMLInputElement ).focus();
-		},
-		onArrowDown() {
-			this.$emit( 'arrowDown' );
-		},
-		onArrowUp() {
-			this.$emit( 'arrowUp' );
-		},
-		onEnter() {
-			this.$emit( 'enter' );
-		},
-		onEscape() {
-			this.$emit( 'escape' );
-		},
-		onTab() {
-			this.$emit( 'tab' );
-		},
-	},
+const props = withDefaults( defineProps<Props>(), {
+	modelValue: '',
+	placeholder: '',
 } );
+
+const emit = defineEmits( [ 'clear', 'arrowDown', 'arrowUp', 'enter', 'escape', 'update:modelValue', 'tab' ] );
+
+const searchUrl = ref( searchUrlSvg );
+const clearUrl = ref( clearUrlSvg );
+
+const input = ref<HTMLInputElement | null>( null );
+
+const clearBtnVisible = computed<boolean>( () => {
+	return props.modelValue.length > 0;
+} );
+
+function focus(): void {
+	( input.value as HTMLInputElement ).focus();
+}
+
+function onClearInputValue(): void {
+	emit( 'clear' );
+	focus();
+}
+
+function onInput( event: Event ): void {
+	emit( 'update:modelValue', ( event.target as HTMLInputElement ).value );
+}
+
+defineExpose( { focus } );
 </script>
 
 <style lang="scss">
-@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
-
 .languageSelector__input {
-	color: $color-base;
+	color: #202122;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
 	font-size: 1em;
 	font-weight: 400;
 	box-sizing: border-box;
 	flex-grow: 1;
-	border-color: $border-color-progressive;
+	border-color: #36c;
 	block-size: 20px;
 
 	&:focus {
@@ -103,11 +92,11 @@ export default defineComponent( {
 	}
 
 	&::placeholder {
-		color: $color-placeholder;
+		color: #72777d;
 	}
 
 	&__wrapper {
-		background-color: $background-color-base;
+		background-color: #fff;
 		border-style: solid;
 		border-width: 1px;
 		border-radius: 2px 2px 0 0;
@@ -116,8 +105,8 @@ export default defineComponent( {
 		inline-size: 100%;
 		display: flex;
 		justify-content: space-between;
-		box-shadow: 0 1px 2px #00000040, $box-shadow-inset-small $border-color-progressive--focus;
-		border-color: $border-color-progressive--focus;
+		box-shadow: 0 1px 2px #00000040, inset 0 0 0 1px #36c;
+		border-color: #36c;
 		align-items: center;
 	}
 

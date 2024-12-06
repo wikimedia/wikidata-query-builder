@@ -8,7 +8,8 @@
 		<div
 			ref="languagesList"
 			class="languageSelector__options-menu__languages-list"
-			tabindex="-1">
+			tabindex="-1"
+		>
 			<div
 				v-for="( language, index ) in languages"
 				:key="language.code"
@@ -27,76 +28,75 @@
 		<div
 			v-if="languages.length === 0"
 			class="languageSelector__options-menu__no-results"
-			role="option">
+			role="option"
+		>
 			<slot name="no-results" />
 		</div>
 	</div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { ref, watch } from 'vue';
 import Language from '@/data-model/Language';
-import { PropType } from 'vue';
-import { defineComponent } from '@/compat';
+import type { Ref } from 'vue';
 
-export default defineComponent( {
-	name: 'LanguageSelectorOptionsMenu',
-	props: {
-		languages: {
-			type: Array as PropType<Language[]>,
-			default: (): [] => [],
-		},
-		highlightedIndex: {
-			type: Number,
-			default: -1,
-		},
-	},
-	emits: [ 'select' ],
-	data: () => ( {
-		selectedLanguageCode: '',
-	} ),
-	methods: {
-		onSelect( selectedLanguageCode: string ): void {
-			this.selectedLanguageCode = selectedLanguageCode;
-			this.$emit( 'select', selectedLanguageCode );
-		},
-		scrollTo( element: Element, childIdx: number ): void {
-			const child = element.children.item( childIdx );
+interface Props {
+	languages?: Language[];
+	highlightedIndex?: number;
+}
 
-			if ( child === null ) {
-				return;
-			}
-
-			const container = ( this.$refs.container as Element ).getBoundingClientRect(),
-				item = child.getBoundingClientRect(),
-				above = Math.floor( item.top ) < container.top,
-				below = Math.ceil( item.bottom ) > container.bottom;
-
-			if ( !( above || below ) ) {
-				return;
-			}
-			child.scrollIntoView( { behavior: 'smooth', block: 'nearest', inline: 'start' } );
-		},
-	},
-	watch: {
-		highlightedIndex: function ( newIdx ) {
-			const languageList = this.$refs.languagesList;
-
-			this.scrollTo( languageList as Element, newIdx );
-		},
-	},
+const props = withDefaults( defineProps<Props>(), {
+	languages: () => [],
+	highlightedIndex: -1,
 } );
+
+const selectedLanguageCode: Ref<string> = ref( '' );
+
+const container = ref<HTMLElement | null>( null );
+const languagesList = ref<HTMLElement | null>( null );
+
+const emit = defineEmits( [ 'select' ] );
+
+function onSelect( selectedLanguageCodeInput: string ): void {
+	selectedLanguageCode.value = selectedLanguageCodeInput;
+	emit( 'select', selectedLanguageCodeInput );
+}
+
+function scrollTo( element: Element, childIdx: number ): void {
+	const child = element.children.item( childIdx );
+
+	if ( child === null ) {
+		return;
+	}
+
+	const containerRect = container.value.getBoundingClientRect(),
+		item = child.getBoundingClientRect(),
+		above = Math.floor( item.top ) < containerRect.top,
+		below = Math.ceil( item.bottom ) > containerRect.bottom;
+
+	if ( !above && !below ) {
+		return;
+	}
+	child.scrollIntoView( { behavior: 'smooth', block: 'nearest', inline: 'start' } );
+}
+
+watch( () => props.highlightedIndex,
+	( newIndex ) => {
+		scrollTo( languagesList.value, newIndex );
+	} );
+
 </script>
 
 <style lang="scss">
 @import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 
 $base: '.languageSelector__options-menu';
-$tinyViewportWidth: 38em;
+$tiny-viewport-width: 38em;
 
 #{$base} {
-	background-color: $background-color-base;
+	background-color: #fff;
 	border-radius: 0 0 1px 1px;
-	border: $border-base;
+	border: 1px solid #a2a9b1;
 	box-shadow: $box-shadow-drop-medium;
 	box-sizing: border-box;
 	z-index: 1;
@@ -105,7 +105,7 @@ $tinyViewportWidth: 38em;
 	block-size: 15.25rem;
 	overflow-y: scroll;
 
-	@media (max-width: $tinyViewportWidth) {
+	@media (max-width: $tiny-viewport-width) {
 		flex-grow: 1;
 	}
 
@@ -122,13 +122,13 @@ $tinyViewportWidth: 38em;
 			&:hover,
 			&:active,
 			&.highlight {
-				background-color: $background-color-interactive;
+				background-color: #eaecf0;
 				cursor: pointer;
 			}
 
 			&--selected,
 			&--selected:hover {
-				background-color: $background-color-interactive;
+				background-color: #eaecf0;
 			}
 		}
 	}
@@ -137,7 +137,7 @@ $tinyViewportWidth: 38em;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Lato, Helvetica, Arial, sans-serif;
 		font-size: 1em;
 		font-weight: normal;
-		color: $color-base;
+		color: #202122;
 		line-height: 1.25;
 		padding-block: 8px;
 		padding-inline: 8px;
