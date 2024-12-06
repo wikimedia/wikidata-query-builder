@@ -53,7 +53,7 @@
   "query-builder-include-subclasses-tooltip": "Includes values from subsets of the selected value, e.g., when filtering for \"school → located in the administrative territorial entity → Greece\", also include \"school → located in... → Athens\" in the results. Checking this box will likely result in a more complete list of results. Uncheck if you need to see only exact matches for the selected value.",
   "query-builder-negation-option-label-with": "With",
   "query-builder-negation-option-label-without": "Without",
-  "query-builder-sharable-link-text": "Get a shareable link",
+  "query-builder-sharable-link-text": "Copy link to query",
   "query-builder-sharable-link-message": "URL copied to clipboard!",
   "query-builder-quantity-value-error-number": "Please enter a number",
   "query-builder-quantity-value-error-unit": "Please select a valid unit or remove input",

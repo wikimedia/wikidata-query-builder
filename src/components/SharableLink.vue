@@ -1,19 +1,20 @@
 <template>
 	<span class="querybuilder__sharable-link">
-		{{ $i18n( 'query-builder-sharable-link-text' ) }}
+
 		<WikitPopover
 			:react-to-hover="false"
 			position="end"
 		>
 			<template #target>
 				<CdxButton
-					weight="normal"
+					action="progressive"
 					aria-label="Sharable link"
 					@click.native="copyTextToClipboard">
 					<CdxIcon
 						:icon="cdxIconLink"
 						size="medium"
 					/>
+					{{ $i18n( 'query-builder-sharable-link-text' ) }}
 				</CdxButton>
 			</template>
 			<template #default>
@@ -101,5 +102,7 @@ $tinyViewportWidth: 36em;
 
 .wikit-Popover__target button {
 	border-style: solid !important;
+	font-weight: $font-weight-bold !important;
+	vertical-align: sub;
 }
 </style>
