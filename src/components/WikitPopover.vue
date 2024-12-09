@@ -300,7 +300,7 @@ watch( () => props.forcePosition, avoidOverflow );
 
 <style lang="scss">
 $base: '.wikit-Popover';
-$pointer-edge-length: math.hypot($wikit-Popover-pointer-width / 2, $wikit-Popover-pointer-height);
+$pointer-edge-length: math.hypot($size-100 / 2, $size-50);
 
 #{$base} {
 	display: inline-block;

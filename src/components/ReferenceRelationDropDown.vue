@@ -24,7 +24,7 @@
 import { PropType } from 'vue';
 import { defineComponent } from '@/compat';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
-import { MenuItem } from '@wmde/wikit-vue-components/dist/components/MenuItem';
+import { MenuItem } from '@/types';
 import { CdxSelect, CdxField } from '@wikimedia/codex';
 import InfoTooltip from '@/components/InfoTooltip.vue';
 

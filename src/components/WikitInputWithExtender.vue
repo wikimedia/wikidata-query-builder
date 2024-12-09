@@ -86,6 +86,7 @@ function onInput( value: string ): void {
 		display: flex;
 		align-items: center;
 		gap: $spacing-50;
+		font-weight: $font-weight-bold;
 	}
 
 	&__extension {

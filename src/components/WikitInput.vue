@@ -36,6 +36,7 @@ defineEmits( [ 'update:modelValue' ] );
 	line-height: $line-height-xx-small;
 	inline-size: $size-full;
 	box-sizing: $box-sizing-base;
+	padding: $spacing-25 $spacing-50;
 	padding-inline: $spacing-25 $spacing-50;
 	transition-duration: $transition-duration-medium;
 	transition-property: $transition-property-base;

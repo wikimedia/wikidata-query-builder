@@ -1,8 +1,5 @@
 module.exports = {
 	preset: 'ts-jest',
-	transformIgnorePatterns: [
-		'<rootDir>/node_modules/(?!(@wmde/wikit-vue-components)/)',
-	],
 	testEnvironment: '<rootDir>/tests/config/JestCustomEnvironment.js',
 	testEnvironmentOptions: {
 		customExportConditions: [ 'node', 'node-addons' ],
@@ -12,9 +9,6 @@ module.exports = {
 	moduleNameMapper: {
 		'^vue$': '@vue/compat',
 		'^@vue/composition-api$': '@vue/compat',
-		'^@wmde/wikit-vue-components$':
-				'@wmde/wikit-vue-components/dist/wikit-vue-components-vue3compat.common.js',
-		'^wikit-dist(.*)$': '<rootDir>/node_modules/@wmde/wikit-vue-components/dist$1',
 		'^@/(.*)$': '<rootDir>/src/$1',
 		'/img/(.*)$': '<rootDir>/tests/config/fileMock.js',
 	},

@@ -39,14 +39,6 @@ export default {
 				find: '@vue/composition-api',
 				replacement: '@vue/compat',
 			},
-			{
-				find: 'wikit-dist',
-				replacement: path.resolve( __dirname, './node_modules/@wmde/wikit-vue-components/dist' ),
-			},
-			{
-				find: '@wmde/wikit-vue-components',
-				replacement: '@wmde/wikit-vue-components/dist/wikit-vue-components-vue3compat.common.js',
-			},
 		],
 	},
 	server: {
@@ -63,7 +55,6 @@ export default {
 				// @use 'sass:math' is for WikitPopover component
 				additionalData: `
 				@use 'sass:math';
-				@import "@wmde/wikit-tokens/dist/variables";
 				@import '@wikimedia/codex-design-tokens/theme-wikimedia-ui';
 				`,
 			},

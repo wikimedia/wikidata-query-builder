@@ -27,34 +27,34 @@ withDefaults( defineProps<Props>(), {
 	&::after {
 		content: '';
 		display: inline-block;
-		background-color: $wikit-BouncingDots-background-color;
-		border-radius: $wikit-BouncingDots-border-radius;
-		animation: bounce-delay $wikit-BouncingDots-animation-duration infinite ease-in-out both;
-		animation-delay: $wikit-BouncingDots-animation-delay-default;
+		background-color: $color-placeholder;
+		border-radius: $border-radius-circle;
+		animation: bounce-delay $animation-duration-medium infinite ease-in-out both;
+		animation-delay: $animation-delay-medium;
 	}
 
 	&::before {
-		margin-inline-end: $wikit-BouncingDots-margin-right;
-		animation-delay: $wikit-BouncingDots-animation-delay-before;
+		margin-inline-end: $spacing-25;
+		animation-delay: $animation-delay-slow;
 	}
 
 	&::after {
-		margin-inline-start: $wikit-BouncingDots-margin-left;
-		animation-delay: $wikit-BouncingDots-animation-delay-after;
+		margin-inline-start: $spacing-25;
+		animation-delay: $animation-delay-none;
 	}
 
 	&--small .bounce,
 	&--small::before,
 	&--small::after {
-		inline-size: $wikit-BouncingDots-width-small;
-		block-size: $wikit-BouncingDots-width-small;
+		inline-size: $size-75;
+		block-size: $size-75;
 	}
 
 	&--medium .bounce,
 	&--medium::before,
 	&--medium::after {
-		inline-size: $wikit-BouncingDots-width-medium;
-		block-size: $wikit-BouncingDots-width-medium;
+		inline-size: $size-100;
+		block-size: $size-100;
 	}
 }
 
