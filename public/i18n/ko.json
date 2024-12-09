@@ -64,7 +64,7 @@
 	"query-builder-include-subclasses-tooltip": "선택값의 하윗값 포함 (예: \"학교 → 행정구역에 위치 → 그리스\"를 필터하면 \"학교 → ...에 위치 → 아테네\"도 결과에 포함). 상자를 눌러 더 많은 결과 보기. 또는 취소하여 선택값의 정확한 일치만 보기.",
 	"query-builder-negation-option-label-with": "포함",
 	"query-builder-negation-option-label-without": "제외",
-	"query-builder-sharable-link-text": "공유 링크 가져오기",
+	"query-builder-sharable-link-text": "쿼리에 대한 링크 복사",
 	"query-builder-sharable-link-message": "URL이 클립보드에 복사되었습니다!",
 	"query-builder-quantity-value-error-number": "숫자를 입력해 주십시오",
 	"query-builder-quantity-value-error-unit": "유효한 단위를 선택하거나 입력값을 제거하세요",

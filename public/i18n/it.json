@@ -63,7 +63,7 @@
 	"query-builder-include-subclasses-tooltip": "Include valori da sottoinsiemi del valore selezionato, ad esempio, quando si filtra per \"scuola → situata nell'entità territoriale amministrativa → Grecia\", includere anche \"scuola → situata a... → Atene\" nei risultati. Selezionando questa casella probabilmente verrà visualizzato un elenco di risultati più completo. Deseleziona se hai bisogno di vedere solo le corrispondenze esatte per il valore selezionato.",
 	"query-builder-negation-option-label-with": "Con",
 	"query-builder-negation-option-label-without": "Senza",
-	"query-builder-sharable-link-text": "Ottieni un link condivisibile",
+	"query-builder-sharable-link-text": "Copia collegamento all'interrogazione",
 	"query-builder-sharable-link-message": "URL copiato negli appunti!",
 	"query-builder-quantity-value-error-number": "Inserisci un numero",
 	"query-builder-quantity-value-error-unit": "Seleziona un'unità valida o rimuovi l'input",

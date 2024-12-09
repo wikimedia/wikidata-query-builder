@@ -60,7 +60,7 @@
 	"query-builder-include-subclasses": "Sisällytä hakuun liittyvät arvot (suositeltu)",
 	"query-builder-negation-option-label-with": "Sisältää",
 	"query-builder-negation-option-label-without": "Ei sisällä",
-	"query-builder-sharable-link-text": "Hanki jaettava linkki",
+	"query-builder-sharable-link-text": "Kopioi linkki kyselyyn",
 	"query-builder-sharable-link-message": "URL kopioitu leikepöydälle!",
 	"query-builder-quantity-value-error-number": "Anna numero",
 	"query-builder-quantity-value-error-unit": "Valitse kelvollinen yksikkö tai poista syöte",

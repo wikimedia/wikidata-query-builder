@@ -67,7 +67,7 @@
 	"query-builder-include-subclasses-tooltip": "يتضمن قيمًا من مجموعات فرعية للقيمة المحددة، على سبيل المثال، عند تصفية \"المدرسة ← الموجودة في الكيان الإقليمي الإداري ← اليونان\"، سيتضمن أيضًا \"المدرسة ← الموجودة في ... ← أثينا\" في النتائج. من المحتمل أن يؤدي اختيار هذا المربع إلى قائمة نتائج أكثر اكتمالاً. قم بإلغاء اختيار هذا المربع إذا كنت تريد رؤية المطابقات التامة فقط للقيمة المحددة.",
 	"query-builder-negation-option-label-with": "مع",
 	"query-builder-negation-option-label-without": "دون",
-	"query-builder-sharable-link-text": "احصل على رابط قابل للمشاركة",
+	"query-builder-sharable-link-text": "نسخ الرابط للاستعلام",
 	"query-builder-sharable-link-message": "نُسخَ المسار إلى الحافظة.",
 	"query-builder-quantity-value-error-number": "رجاءً أدخل رقمًا",
 	"query-builder-quantity-value-error-unit": "الرجاء تحديد وحدة صالحة أو إزالة الإدخال",
