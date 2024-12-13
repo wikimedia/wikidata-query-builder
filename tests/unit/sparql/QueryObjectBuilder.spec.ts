@@ -287,7 +287,7 @@ describe( 'QueryObjectBuilder', () => {
 								},
 								object: {
 									termType: 'Literal',
-									value: '[AUTO_LANGUAGE]',
+									value: '[AUTO_LANGUAGE],mul,en',
 								},
 							} ],
 						},
@@ -626,7 +626,7 @@ describe( 'QueryObjectBuilder', () => {
 								},
 								object: {
 									termType: 'Literal',
-									value: '[AUTO_LANGUAGE]',
+									value: '[AUTO_LANGUAGE],mul,en',
 								},
 							} ],
 						},

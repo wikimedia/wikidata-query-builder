@@ -363,7 +363,7 @@ describe( 'buildQuery', () => {
 		const value = 'blah';
 		const expectedQuery =
 			`SELECT DISTINCT ?item ?itemLabel WHERE {
-			SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+			SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en". }
 			{ SELECT DISTINCT ?item WHERE {
 			?item p:P666 ?statement0.
 			?statement0 (ps:P666) "blah".
@@ -547,19 +547,19 @@ describe( 'buildQuery', () => {
 		const expectedQuery = `SELECT DISTINCT ?item WHERE {
          {
 			 ?item p:P585 ?statement_0.
-			 ?statement_0 psv:P585 ?statementValue_0. 
-			 ?statementValue_0 wikibase:timePrecision ?precision_0. 
-			 FILTER(?precision_0 >= 11 ) 
-			 ?statementValue_0 wikibase:timeValue ?P585_0. 
+			 ?statement_0 psv:P585 ?statementValue_0.
+			 ?statementValue_0 wikibase:timePrecision ?precision_0.
+			 FILTER(?precision_0 >= 11 )
+			 ?statementValue_0 wikibase:timeValue ?P585_0.
 			 BIND("+2009-11-01T00:00:00Z"^^xsd:dateTime AS ?P585_0)
 			}
 			UNION
 			{
-			 ?item p:P585 ?statement_1. 
+			 ?item p:P585 ?statement_1.
 			 ?statement_1 psv:P585 ?statementValue_1.
 			 ?statementValue_1 wikibase:timePrecision ?precision_1.
-			 FILTER(?precision_1 >= 11 ) 
-			 ?statementValue_1 wikibase:timeValue ?P585_1. 
+			 FILTER(?precision_1 >= 11 )
+			 ?statementValue_1 wikibase:timeValue ?P585_1.
 			 BIND("+2010-11-01T00:00:00Z"^^xsd:dateTime AS ?P585_1)
 			}
 		  }`;

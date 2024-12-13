@@ -180,7 +180,7 @@ describe( 'Component interaction test', () => {
 			const query = url.split( '#' )[ 1 ];
 
 			const expected = `SELECT DISTINCT ?item ?itemLabel WHERE {
-  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]". }
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en". }
   {
     SELECT DISTINCT ?item WHERE {
       {
