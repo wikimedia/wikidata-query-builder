@@ -65,7 +65,7 @@ export default class TripleBuilder {
 			},
 			object: {
 				termType: 'Literal',
-				value: '[AUTO_LANGUAGE]',
+				value: '[AUTO_LANGUAGE],mul,en',
 			},
 		};
 	}
