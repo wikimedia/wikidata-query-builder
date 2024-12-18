@@ -9,7 +9,7 @@
 				<CdxButton
 					action="progressive"
 					aria-label="Sharable link"
-					@click.native="copyTextToClipboard">
+					@click="copyTextToClipboard">
 					<CdxIcon
 						:icon="cdxIconLink"
 						size="medium"
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconLink } from '@wikimedia/codex-icons';
 import WikitPopover from './WikitPopover.vue';
@@ -93,16 +93,5 @@ $tinyViewportWidth: 36em;
 			margin-block-start: var(--dimension-layout-xxsmall);
 		}
 	}
-}
-</style>
-
-<style lang="scss">
-// TODO: remove when replacing wikit Popover component with Codex equivalent
-// Remember to make style tag scoped again
-
-.wikit-Popover__target button {
-	border-style: solid !important;
-	font-weight: $font-weight-bold !important;
-	vertical-align: sub;
 }
 </style>

@@ -18,8 +18,8 @@
 			:aria-required="ariaRequired ? 'true' : 'false'"
 			role="combobox"
 			@update:model-value="onInput"
-			@focus.native="onFocus"
-			@blur.native="showMenu = false"
+			@focus="onFocus"
+			@blur="showMenu = false"
 		/>
 		<WikitOptionsMenu
 			v-show="showMenu"

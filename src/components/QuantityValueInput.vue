@@ -33,7 +33,7 @@
 import WikitQuantityInput from './WikitQuantityInput.vue';
 
 import { PropType } from 'vue';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { MenuItem } from '@/types';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';

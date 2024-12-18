@@ -9,18 +9,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import QueryBuilder from '@/components/QueryBuilder.vue';
 import services from '@/ServicesFactory';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { useStore } from '@/store/index';
-
-if ( process.env.NODE_ENV === 'production' ) {
-	// TODO: figure out how to disable the jest error that fails the unit tests if this is available during testing
-	Vue.config.errorHandler = function () {
-		services.get( 'metricsCollector' ).increment( 'errors' );
-	};
-}
 
 const languageService = services.get( 'languageService' );
 

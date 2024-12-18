@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { CdxCheckbox } from '@wikimedia/codex';
 import { useStore } from '@/store';
 

@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { CdxButton } from '@wikimedia/codex';
 
 export default defineComponent( {

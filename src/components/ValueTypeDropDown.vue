@@ -2,7 +2,6 @@
 	<div class="valuetype-dropdown">
 		<CdxField class="valuetype-dropdown__field">
 			<CdxSelect
-				ref="select"
 				v-model:selected="selected"
 				:menu-items="optionItems"
 				:disabled="disabled"
@@ -19,7 +18,7 @@
 
 <script lang="ts">
 import { PropType } from 'vue';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import PropertyValueRelation, {
 	BasePropertyValueRelation,
 	RangePropertyValueRelation,
@@ -121,10 +120,6 @@ export default defineComponent( {
 				this.$emit( 'update:modelValue', value );
 			},
 		},
-	},
-	mounted() {
-		// TODO: Workaround for comp. build, remove this after fully migrated to vue 3
-		this.$refs.select.$refs.handle.setAttribute( 'aria-expanded', 'false' );
 	},
 } );
 </script>

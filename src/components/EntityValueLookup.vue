@@ -18,7 +18,7 @@ import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';
 import { MenuItem } from '@/types';
 import { PropType } from 'vue';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { useStore } from '@/store';
 
 const supportedEntityTypes = {

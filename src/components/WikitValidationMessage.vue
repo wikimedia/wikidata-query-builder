@@ -43,7 +43,7 @@ defineProps<Props>();
 	&__icon {
 		// TODO: only introducing the following variable to work around exceeding stylelint max-len.
 		// `stylelint-disable` is also not working for some reason. Fixing this in a follow-up.
-		$padding-top: ( $line-height-medium - $font-size-medium ) / 2;
+		$padding-top: math.div(( $line-height-medium - $font-size-medium ), 2);
 
 		padding-block-start: $padding-top;
 		margin-inline-end: $spacing-50;

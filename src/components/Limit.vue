@@ -89,7 +89,7 @@ function validate( value: number | string ): void {
 <style lang="scss">
 .querybuilder-limit {
 	display: flex;
-	align-items: flex-start;
+	align-items: baseline;
 
 	@media (max-width: $max-width-breakpoint-mobile) {
 		flex-direction: column;

@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import WikitPopover from './WikitPopover.vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconInfo } from '@wikimedia/codex-icons';

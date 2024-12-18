@@ -2,7 +2,6 @@
 	<div class="query-condition-references">
 		<CdxField>
 			<CdxSelect
-				ref="select"
 				v-model:selected="selected"
 				class="query-condition-references__select"
 				:menu-items="optionItems"
@@ -22,7 +21,7 @@
 
 <script lang="ts">
 import { PropType } from 'vue';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import ReferenceRelation from '@/data-model/ReferenceRelation';
 import { MenuItem } from '@/types';
 import { CdxSelect, CdxField } from '@wikimedia/codex';
@@ -76,10 +75,6 @@ export default defineComponent( {
 				this.$emit( 'update:modelValue', value );
 			},
 		},
-	},
-	mounted() {
-		// TODO: Workaround for comp. build, remove this after fully migrated to vue 3
-		this.$refs.select.$refs.handle.setAttribute( 'aria-expanded', 'false' );
 	},
 } );
 </script>

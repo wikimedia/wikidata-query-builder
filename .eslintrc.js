@@ -40,9 +40,6 @@ module.exports = {
 
 		// temporarily disabled for update
 		'no-shadow': 'off',
-		// TODO: temporarily disabled for vue2 to compatBuild migration
-		// remove this rule once compatBuild is removed
-		'vue/no-deprecated-v-on-native-modifier': 'off',
 	},
 	overrides: [
 		{

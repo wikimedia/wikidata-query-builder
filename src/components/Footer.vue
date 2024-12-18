@@ -65,7 +65,7 @@
 
 <script lang="ts">
 import QuerySerializer from '@/serialization/QuerySerializer';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { useStore } from '@/store';
 
 export default defineComponent( {
@@ -123,6 +123,7 @@ $largeViewportWidth: $min-width-breakpoint-desktop;
 	padding-block: var(--dimension-layout-small);
 	padding-inline: var(--dimension-layout-small);
 	margin-inline: 0;
+	display: flex;
 
 	@media (max-width: $tinyViewportWidth) {
 		padding-block: var(--dimension-layout-xsmall);
@@ -137,8 +138,6 @@ $largeViewportWidth: $min-width-breakpoint-desktop;
 		padding-inline: var(--dimension-layout-medium);
 		padding-block: var(--dimension-layout-medium);
 	}
-
-	display: flex;
 
 	@media (max-width: $tinyViewportWidth) {
 		flex-direction: column;

@@ -21,9 +21,6 @@ import { defineComponent } from 'vue';
 import { useStore } from '@/store/index';
 
 export default defineComponent( {
-	compatConfig: {
-		MODE: 3,
-	},
 	name: 'PropertyLookup',
 	components: {
 		EntityLookup,

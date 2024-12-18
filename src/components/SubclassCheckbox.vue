@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { CdxCheckbox } from '@wikimedia/codex';
 import InfoTooltip from '@/components/InfoTooltip.vue';
 export default defineComponent( {

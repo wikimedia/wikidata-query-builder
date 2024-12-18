@@ -1,12 +1,9 @@
-import Vue from 'vue';
 import { createApp } from 'vue';
 import { createI18n } from 'vue-banana-i18n';
 import { createPinia } from 'pinia';
 
 import App from './App.vue';
 import services from '@/ServicesFactory';
-
-Vue.config.productionTip = false;
 
 ( async () => {
 	const languageService = services.get( 'languageService' );
@@ -27,6 +24,13 @@ Vue.config.productionTip = false;
 	const app = createApp( {
 		...App,
 	} );
+
+	if ( process.env.NODE_ENV === 'production' ) {
+		// TODO: figure out how to disable the jest error that fails the unit tests if this is available during testing
+		app.config.errorHandler = function () {
+			services.get( 'metricsCollector' ).increment( 'errors' );
+		};
+	}
 
 	app.use( pinia );
 	app.use( i18nPlugin );

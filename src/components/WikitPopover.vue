@@ -300,13 +300,15 @@ watch( () => props.forcePosition, avoidOverflow );
 
 <style lang="scss">
 $base: '.wikit-Popover';
-$pointer-edge-length: math.hypot($size-100 / 2, $size-50);
+
+// $pointer-edge-length: math.hypot($wikit-Popover-pointer-width/2, $wikit-Popover-pointer-height);
+$pointer-edge-length: math.hypot(math.div($size-100, 2), $size-50);
 
 #{$base} {
 	display: inline-block;
 	position: relative;
 
-	&__tartget {
+	&__target {
 		display: inline-block;
 	}
 
@@ -331,7 +333,15 @@ $pointer-edge-length: math.hypot($size-100 / 2, $size-50);
 		color: $color-base;
 	}
 
-	[L362] &__pointer::before {
+	&__pointer {
+		position: absolute;
+		overflow: hidden;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__pointer::before {
 		content: '';
 		position: absolute;
 		inline-size: $pointer-edge-length;
@@ -411,27 +421,32 @@ $pointer-edge-length: math.hypot($size-100 / 2, $size-50);
 
 	@mixin horizontal( $subposition ) {
 		@if $subposition == center {
-			display: inline-flex;
-			justify-content: center;
+			& {
+				display: inline-flex;
+				justify-content: center;
+			}
 		}
 
 		#{$base}__content-wrapper {
 			@if $subposition == start {
-				inset-inline-end: calc(50% - #{$spacing-100} / 2 - #{$spacing-75});
+				inset-inline-end:
+					calc(
+						50% - #{$spacing-100} / 2 - #{$spacing-75}
+					);
 			}
 
 			@if $subposition == end {
-				inset-inline-start: calc(50% - #{$spacing-100} / 2 -#{$spacing-75});
+				inset-inline-start: calc(50% - #{$spacing-100} / 2 - #{$spacing-75});
 			}
 		}
 
 		&#{$base}--flush-edges #{$base}__content-wrapper {
 			@if $subposition == start {
-				inset-inline-end: min(50% - #{$spacing-100} / 2 -#{$spacing-75}, 0px);
+				inset-inline-end: min(50% - #{$spacing-100} / 2 - #{$spacing-75}, 0px);
 			}
 
 			@if $subposition == end {
-				inset-inline-start: min(50% - #{$spacing-100} / 2 -#{spacing-75}, 0px);
+				inset-inline-start: min(50% - #{$spacing-100} / 2 - #{spacing-75}, 0px);
 			}
 		}
 
@@ -461,11 +476,11 @@ $pointer-edge-length: math.hypot($size-100 / 2, $size-50);
 			}
 
 			@if $subposition == top {
-				inset-block-end: calc(50% - #{$spacing-100} / 2 -#{$spacing-50});
+				inset-block-end: calc(50% - #{$spacing-100} / 2 - #{$spacing-50});
 			}
 
 			@if $subposition == bottom {
-				inset-block-start: calc(50% - #{$spacing-100} / 2 -#{$spacing-50});
+				inset-block-start: calc(50% - #{$spacing-100} / 2 - #{$spacing-50});
 			}
 		}
 

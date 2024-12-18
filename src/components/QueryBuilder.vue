@@ -14,7 +14,7 @@
 					class="querybuilder__languageSelector">
 					<CdxButton
 						:aria-label="$i18n( 'query-builder-toggle-language-selector-button' )"
-						@click.native="onToggleLanguageSelector"
+						@click="onToggleLanguageSelector"
 					>
 						<CdxIcon
 							class="languageSelector-button__icon"
@@ -99,7 +99,7 @@
 						class="querybuilder__run-button"
 						action="progressive"
 						weight="primary"
-						@click.native="runQuery" />
+						@click="runQuery" />
 					<SharableLink />
 				</div>
 			</div>
@@ -117,7 +117,7 @@
 <script lang="ts">
 import Footer from '@/components/Footer.vue';
 import { ConditionRow } from '@/store/RootState';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import { DirectiveBinding } from 'vue';
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconLanguage } from '@wikimedia/codex-icons';
@@ -485,6 +485,8 @@ body.overflow-hidden-on-mobile {
 	margin-block-start: var(--dimension-layout-medium);
 
 	& button {
+		vertical-align: top;
+
 		@media (max-width: $tinyViewportWidth) {
 			inline-size: 100%;
 		}

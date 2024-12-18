@@ -11,18 +11,7 @@ const base = ( process.env.NODE_ENV === 'production' ) ? '/querybuilder/' : '/';
 export default {
 	base,
 	plugins: [
-		createVuePlugin( {
-			template: {
-				compilerOptions: {
-					compatConfig: {
-						MODE: 3,
-						COMPILER_V_ON_NATIVE: true,
-						COMPILER_V_BIND_SYNC: true,
-						GLOBAL_MOUNT: false,
-					},
-				},
-			},
-		} ),
+		createVuePlugin(),
 		envCompatible(),
 	],
 	resolve: {
@@ -30,14 +19,6 @@ export default {
 			{
 				find: '@',
 				replacement: path.resolve( __dirname, './src' ),
-			},
-			{
-				find: 'vue',
-				replacement: '@vue/compat',
-			},
-			{
-				find: '@vue/composition-api',
-				replacement: '@vue/compat',
 			},
 		],
 	},

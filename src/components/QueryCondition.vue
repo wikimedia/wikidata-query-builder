@@ -55,7 +55,7 @@
 
 <script lang="ts">
 import { Value } from '@/store/RootState';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 
 import ValueInput from '@/components/ValueInput.vue';
 import DeleteConditionButton from '@/components/DeleteConditionButton.vue';
@@ -260,13 +260,5 @@ $tinyViewportWidth: $max-width-breakpoint-mobile; // Set so that inputs show all
 			clear: both;
 		}
 	}
-}
-</style>
-
-<style lang="scss">
-// TODO: remove after replacing Wikit Textfield for Codex equivalent
-.wikit-Lookup__label-wrapper,
-.wikit-Dropdown__label-wrapper {
-	align-items: baseline !important;
 }
 </style>

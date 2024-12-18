@@ -5,7 +5,7 @@
 		:aria-label="$i18n( 'query-builder-delete-condition' )"
 		:disabled="disabled"
 		size="medium"
-		@click.native="$emit( 'click' )"
+		@click="$emit( 'click' )"
 	>
 		<CdxIcon
 			:icon="cdxIconTrash"
@@ -17,7 +17,7 @@
 <script lang="ts">
 import { CdxButton, CdxIcon } from '@wikimedia/codex';
 import { cdxIconTrash } from '@wikimedia/codex-icons';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 export default defineComponent( {
 	name: 'DeleteConditionButton',
 	components: {

@@ -15,7 +15,7 @@ import StringValueInput from '@/components/StringValueInput.vue';
 import QuantityValueInput from '@/components/QuantityValueInput.vue';
 import DateValueInput from '@/components/DateValueInput.vue';
 
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 
 export default defineComponent( {
 	name: 'ValueInput',

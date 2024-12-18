@@ -20,9 +20,9 @@
 			:feedback-type="feedbackType"
 			:placeholder="placeholder"
 			:disabled="disabled"
-			@focus.native="showExtension = true"
-			@blur.native="showExtension = false"
-			@keydown.native.esc="showExtension = false"
+			@focus="showExtension = true"
+			@blur="showExtension = false"
+			@keydown.esc="showExtension = false"
 			@update:model-value="onInput"
 		/>
 		<div v-if="showExtension" class="wikit-InputWithExtender__extension">

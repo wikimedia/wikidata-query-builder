@@ -86,7 +86,6 @@ const debouncedApiLanguageSearch = debounce( async ( debouncedInputValue: string
 }, 200 );
 
 function onInput( searchedLanguage: string ): void {
-	console.log( searchedLanguage );
 	searchInput.value = searchedLanguage;
 	if ( searchInput.value ) {
 		debouncedApiLanguageSearch( searchInput.value );

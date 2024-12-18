@@ -33,8 +33,6 @@
 </template>
 
 <script setup lang="ts">
-import { CdxTextInput } from '@wikimedia/codex';
-CdxTextInput.compatConfig = { MODE: 3, COMPONENT_V_MODEL: false };
 import InfoTooltip from '@/components/InfoTooltip.vue';
 import SearchOptions from '@/data-access/SearchOptions';
 import SearchResult from '@/data-access/SearchResult';

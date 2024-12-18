@@ -24,7 +24,7 @@
 import WikitDateInput from '@/components/WikitDateInput.vue';
 import { DateValue } from '@/store/RootState';
 import { PropType } from 'vue';
-import { defineComponent } from '@/compat';
+import { defineComponent } from 'vue';
 import InfoTooltip from '@/components/InfoTooltip.vue';
 import debounce from 'lodash/debounce';
 
