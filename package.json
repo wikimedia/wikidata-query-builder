@@ -30,7 +30,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/rdf-js": "^4.0.2",
     "@wikimedia/codex": "^1.12.0",
-    "@wikimedia/codex-design-tokens": "^1.12.0",
+    "@wikimedia/codex-design-tokens": "^1.18.0",
     "@wikimedia/codex-icons": "^1.0.1",
     "@wikimedia/language-data": "^1.1.8",
     "core-js": "^3.37.1",
