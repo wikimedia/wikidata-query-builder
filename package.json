@@ -38,7 +38,7 @@
     "lodash.isequal": "^4.5.0",
     "pinia": "^2.2.0",
     "ress": "^5.0.2",
-    "sparqljs": "^3.7.1",
+    "sparqljs": "^3.7.3",
     "vite-plugin-importer": "^0.2.5",
     "vue": "3.3.8",
     "vue-banana-i18n": "2.3.0"
