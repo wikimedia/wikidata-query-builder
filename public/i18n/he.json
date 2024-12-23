@@ -60,7 +60,7 @@
 	"query-builder-include-subclasses-tooltip": "כולל ערכים מתת־קבוצות של הערך הנבחר, למשל, בעת סינון לפי \"בית־ספר ← ממוקם ביחידת שטח מנהלית ← יוון\", לכלול בתוצאות גם את \"בית־ספר ← ממוקם ב־... ← אתונה\". סימון התיבה הזאת כנראה יוביל להצגת רשימת תוצאות מלאה יותר. צריך לבטל את הסימון רק אם רוצים לראות התאמות מדויקות עבור הערך שנבחר.",
 	"query-builder-negation-option-label-with": "עם",
 	"query-builder-negation-option-label-without": "בלי",
-	"query-builder-sharable-link-text": "קבלת קישור לשיתוף",
+	"query-builder-sharable-link-text": "העתקת קישור לשאילתה",
 	"query-builder-sharable-link-message": "ה־URL הועתק ללוח!",
 	"query-builder-quantity-value-error-number": "נא להזין מספר",
 	"query-builder-quantity-value-error-unit": "נא לבחור יחידה תקינה או להסיר את הקלט",
