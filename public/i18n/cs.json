@@ -5,6 +5,7 @@
 			"KPX8",
 			"Matěj Suchánek",
 			"Mormegil",
+			"Spotter",
 			"Want",
 			"YjM"
 		]
@@ -37,6 +38,7 @@
 	"query-builder-result-error-missing-property": "Vyberte prosím vlastnost",
 	"query-builder-result-error-missing-value": "Zadejte prosím hodnotu",
 	"query-builder-add-condition": "Přidejte podmínku",
+	"query-builder-value-type-label": "Vztah hodnoty k majetku",
 	"query-builder-value-type-relation-dropdown-matching": "odpovídající",
 	"query-builder-value-type-relation-dropdown-without": "bez",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "bez ohledu na hodnotu",
@@ -81,6 +83,7 @@
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
 	"query-builder-footer-team": "Vytvořeno s ❤️ [$1 týmem Wikidata]",
 	"query-builder-footer-more-data-quality-tools": "Další nástroje pro kvalitu dat",
+	"query-builder-footer-mismatch-finder": "Vyhledávač neshod",
 	"query-builder-footer-curious-facts": "Zajímavá fakta",
 	"query-builder-date-input-value-label": "Hodnota",
 	"query-builder-date-input-placeholder": "například 31-12-2020",
@@ -90,5 +93,8 @@
 	"query-builder-language-selector-input-placeholder": "Hledání jazyků",
 	"query-builder-language-selector-no-results": "Jazyk není k dispozici",
 	"query-builder-language-selector-options-menu-aria-label": "Jazyky",
-	"query-builder-language-selector-mobile-header": "Vyberte jazyk"
+	"query-builder-language-selector-clear-button-label": "Vymazat vstupní pole",
+	"query-builder-language-selector-mobile-header": "Vyberte jazyk",
+	"query-builder-language-selector-close-button-label": "Zavřít výběr jazyka",
+	"query-builder-toggle-language-selector-button": "Přepnout výběr jazyka"
 }
