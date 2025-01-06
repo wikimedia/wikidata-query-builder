@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Listz3",
 			"Sabelöga",
 			"WikiPhoenix"
 		]
@@ -58,7 +59,7 @@
 	"query-builder-include-subclasses-tooltip": "Inkluderar värden från delmängder av det valda värdet, när man exempelvis filtrerar efter \"skola → som ligger i det administrativa territoriella enheten → Grekland\", inkluderas också \"skola → som ligger i... → Aten\" i resultaten. Att bocka i den här rutan garanterar mer en mer fullständig resultatlista. Bocka ur om du bara behöver se exakta träffar för det angivna värdet.",
 	"query-builder-negation-option-label-with": "Med",
 	"query-builder-negation-option-label-without": "Utan",
-	"query-builder-sharable-link-text": "Få en delbar länk",
+	"query-builder-sharable-link-text": "Kopiera länk till fråga",
 	"query-builder-sharable-link-message": "Webbadress kopierad till urklipp.",
 	"query-builder-quantity-value-error-number": "Ange en siffra",
 	"query-builder-quantity-value-error-unit": "Ange en giltig enhet eller ta bort inmatningen",
@@ -77,6 +78,7 @@
 	"query-builder-footer-wikimedia-deutchland": "Wikimedia Deutschland",
 	"query-builder-footer-team": "Skapad med ❤️ av [$1 Wikidata-teamet]",
 	"query-builder-footer-more-data-quality-tools": "Fler verktyg för datakvalitet",
+	"query-builder-footer-item-quality-evaluator": "Objektkvalitetsutvärderare",
 	"query-builder-footer-curious-facts": "Kul fakta",
 	"query-builder-date-input-value-label": "Värde",
 	"query-builder-date-input-placeholder": "till exempel 31-12-2020",

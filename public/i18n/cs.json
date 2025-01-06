@@ -38,7 +38,7 @@
 	"query-builder-result-error-missing-property": "Vyberte prosím vlastnost",
 	"query-builder-result-error-missing-value": "Zadejte prosím hodnotu",
 	"query-builder-add-condition": "Přidejte podmínku",
-	"query-builder-value-type-label": "Vztah hodnoty k majetku",
+	"query-builder-value-type-label": "Vztah hodnoty a vlastnosti",
 	"query-builder-value-type-relation-dropdown-matching": "odpovídající",
 	"query-builder-value-type-relation-dropdown-without": "bez",
 	"query-builder-value-type-relation-dropdown-regardless-of-value": "bez ohledu na hodnotu",
