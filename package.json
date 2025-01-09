@@ -62,7 +62,7 @@
     "@wmde/eslint-config-wikimedia-typescript": "^0.2.9",
     "autoprefixer": "^10.4.19",
     "babel-core": "^7.0.0-bridge.0",
-    "cypress": "^13.13.2",
+    "cypress": "^13.17.0",
     "eslint": "^8.57.0",
     "eslint-config-wikimedia": "^0.28.2",
     "eslint-plugin-chai-friendly": "^1.0.1",
