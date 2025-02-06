@@ -7,6 +7,7 @@
 			"Ice bulldog",
 			"Ignatgg",
 			"Mike140",
+			"Ата",
 			"Пан Хаунд"
 		]
 	},
@@ -60,7 +61,7 @@
 	"query-builder-include-subclasses-tooltip": "Включає значення з підмножин вибраного значення, наприклад, під час фільтрації для «школа →, що знаходиться в адміністративному територіальному утворенні → Греція», також включає до результатів «школу →, розташовану в… → Афінах». Якщо поставити цей прапорець, ймовірно, ви отримаєте більш повний список результатів. Зніміть прапорець, якщо потрібно бачити лише точні відповідність для вибраного значення.",
 	"query-builder-negation-option-label-with": "З",
 	"query-builder-negation-option-label-without": "Без",
-	"query-builder-sharable-link-text": "Отримайте посилання для спільного використання",
+	"query-builder-sharable-link-text": "Копіювати посилання на запит",
 	"query-builder-sharable-link-message": "URL скопійовано в буфер обміну!",
 	"query-builder-quantity-value-error-number": "Будь ласка, введіть номер",
 	"query-builder-quantity-value-error-unit": "Виберіть дійсну одиницю або видаліть введення",
@@ -76,7 +77,7 @@
 	"query-builder-footer-about-us": "Про нас",
 	"query-builder-footer-privacy-policy": "Політика конфіденційності",
 	"query-builder-footer-wikimedia-deutchland": "Німецька Вікімедіа",
-	"query-builder-footer-team": "Створено за допомогою ❤️ [$1 командою Wikidata]",
+	"query-builder-footer-team": "Створено з ❤️ [$1 командою Вікіданих]",
 	"query-builder-footer-mismatch-finder": "Пошук Невідповідностей",
 	"query-builder-footer-item-quality-evaluator": "Оцінювач Якості Предметів",
 	"query-builder-footer-curious-facts": "Цікаві Факти",
