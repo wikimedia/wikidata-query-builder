@@ -2,11 +2,12 @@
 	"@metadata": {
 		"authors": [
 			"1917 Ekim Devrimi",
+			"GolyatGeri",
 			"Mirzali"
 		]
 	},
 	"query-builder-heading": "Basit Pers Vıraştoğ",
-	"query-builder-intro-text": "Wikidata Pers Vıraştoğ, qandê rehat pers kerdışê Wikidata vıraştışi rê destegê verrıy dano. Heqê zıwanê persayışê [$1 SPARQL]i de merdımo kı tay zano yana qet nêzano inan rê idealo. Pers Vıraştoğ şıma rê tam maneya xısusiyetê xo pêroyın nêdano, lakin neticeya tım xeta persi sera şıma şenê neticeya bıasenê, bıvırnê u hera kerê. [$2 Vatışanê şıma tiya ra pawem ].",
+	"query-builder-intro-text": "Wikidayıt Pers Vıraştoğ, qandê rehat pers kerdışê Wikidata vıraştışi rê destegê verrıy dano. Heqê zıwanê persayışê [$1 SPARQL]i de merdımo kı tay zano yana qet nêzano inan rê idealo. Pers Vıraştoğ şıma rê tam maneya xısusiyetê xo pêroyın nêdano, lakin neticeya tım xeta persi sera şıma şenê neticeya bıasenê, bıvırnê u hera kerê. [$2 Vatışanê şıma tiya ra pawem ].",
 	"query-builder-find-all-items": "Unsura pêroyın bıvênê...",
 	"query-builder-run-query": "Persayışi akarfiye",
 	"query-builder-input-value-label": "Erc",
