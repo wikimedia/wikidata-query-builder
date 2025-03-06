@@ -62,7 +62,7 @@
 	"query-builder-include-subclasses-tooltip": "Seçilen değerin alt kümelerinden değerleri dahil et, ör. \"okul → bölgesel idari birimde bulunan → Yunanistan\" için filtrelemek, \"okul → bulunduğu yer... → Atina\" sonuçlarını da dahil eder. Bu kutucuğu işaretlemek muhtemelen daha tam bir sonuç listesi üretecektir. Seçilen değer için tam eşleşmeleri görmek için kutucuğu kaldırın.",
 	"query-builder-negation-option-label-with": "Şununla:",
 	"query-builder-negation-option-label-without": "Şu olmadan:",
-	"query-builder-sharable-link-text": "Paylaşılabilir bir bağlantı al",
+	"query-builder-sharable-link-text": "Sorgu için bağlantıyı kopyala",
 	"query-builder-sharable-link-message": "URL panoya kopyalandı!",
 	"query-builder-quantity-value-error-number": "Lütfen bir sayı girin",
 	"query-builder-quantity-value-error-unit": "Lütfen geçerli bir birim seçin ya da girdiyi çıkarın",
