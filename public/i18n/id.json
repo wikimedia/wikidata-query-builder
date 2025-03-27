@@ -4,6 +4,7 @@
 			"Agam Riyandana",
 			"Akmaie Ajam",
 			"Daud I.F. Argana",
+			"ID Owly01",
 			"Naufal06",
 			"Veracious"
 		]
@@ -61,7 +62,7 @@
 	"query-builder-include-subclasses-tooltip": "Masukkan nilai dari subhimpunan nilai yang dipilih, contohnya, ketika menyaring \"sekolah → terletak di daerah administratif → Yunani\", masukkan juga \"sekolah → terletak di... → Athena\" hasilnya. Mencentang kotak ini seharusnya akan menghasilkan daftar hasil yang lebih lengkap. Kosongkan apabila Anda hanya perlu melihat kecocokan yang persis untuk nilai yang dipilih.",
 	"query-builder-negation-option-label-with": "Dengan",
 	"query-builder-negation-option-label-without": "Tanpa",
-	"query-builder-sharable-link-text": "Dapatkan pranala yang bisa dibagikan",
+	"query-builder-sharable-link-text": "Salin pranala untuk kueri",
 	"query-builder-sharable-link-message": "URL disalin ke papan klip!",
 	"query-builder-quantity-value-error-number": "Tolong masukkan sebuah angka",
 	"query-builder-quantity-value-error-unit": "Tolong masukkan satuan yang valid atau hapus masukan",
